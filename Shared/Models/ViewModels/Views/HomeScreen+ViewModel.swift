@@ -16,10 +16,14 @@ extension HomeScreen {
         @Published var lowercaseLetters: Bool {
             didSet { UserDefaults.lowercaseLetters = lowercaseLetters }
         }
+        @Published var capitalLetters: Bool {
+            didSet { UserDefaults.capitalLetters = capitalLetters }
+        }
 
         init() {
             self.lengthPicker = UserDefaults.lengthPicker ?? 16
-            self.lowercaseLetters = UserDefaults.lowercaseLetters ?? false
+            self.lowercaseLetters = UserDefaults.lowercaseLetters ?? true
+            self.capitalLetters = UserDefaults.capitalLetters ?? true
         }
 
     }

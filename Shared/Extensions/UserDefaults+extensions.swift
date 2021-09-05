@@ -12,6 +12,8 @@ extension UserDefaults {
     static var lengthPicker: Int?
     @UserDefault(key: .lowercaseLetters)
     static var lowercaseLetters: Bool?
+    @UserDefault(key: .capitalLetters)
+    static var capitalLetters: Bool?
 }
 
 @propertyWrapper
@@ -27,6 +29,7 @@ struct UserDefault<Value> {
     enum Keys: String {
         case lengthPicker
         case lowercaseLetters
+        case capitalLetters
     }
 
     var wrappedValue: Value? {

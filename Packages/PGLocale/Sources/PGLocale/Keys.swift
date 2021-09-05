@@ -11,5 +11,6 @@ extension PGLocale {
         case TOGGLE_SIDEBAR
         case LENGTH_LABEL
         case LOWERCASE_LETTERS
+        case CAPITAL_LETTERS
     }
 }

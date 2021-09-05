@@ -30,12 +30,8 @@ struct HomeScreen: View {
             }, right: {
                 Stepper("\(viewModel.lengthPicker)", value: $viewModel.lengthPicker, in: Constants.passwordLengthRange)
             })
-            SpacedHStack(left: {
-                Text(localized: .LOWERCASE_LETTERS)
-            }, right: {
-                Toggle("", isOn: $viewModel.lowercaseLetters)
-            })
-            .padding(.trailing, DeviceModel.device == .mac ? -4 : 0)
+            ToggleFormField(value: $viewModel.lowercaseLetters, text: .LOWERCASE_LETTERS)
+            ToggleFormField(value: $viewModel.capitalLetters, text: .CAPITAL_LETTERS)
         }
     }
 }
