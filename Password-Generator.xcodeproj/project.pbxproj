@@ -1,0 +1,1063 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 52;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2C6AD42726E50124003AF55C /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6AD42626E50124003AF55C /* Tests_iOS.swift */; };
+		2C6AD43226E50124003AF55C /* Tests_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6AD43126E50124003AF55C /* Tests_macOS.swift */; };
+		2C6AD43426E50124003AF55C /* Password_Generator.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2C6AD40826E50120003AF55C /* Password_Generator.xcdatamodeld */; };
+		2C6AD43526E50124003AF55C /* Password_Generator.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2C6AD40826E50120003AF55C /* Password_Generator.xcdatamodeld */; };
+		2C6AD43626E50124003AF55C /* Password_GeneratorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6AD40A26E50120003AF55C /* Password_GeneratorApp.swift */; };
+		2C6AD43726E50124003AF55C /* Password_GeneratorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6AD40A26E50120003AF55C /* Password_GeneratorApp.swift */; };
+		2C6AD43826E50124003AF55C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6AD40B26E50120003AF55C /* ContentView.swift */; };
+		2C6AD43926E50124003AF55C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6AD40B26E50120003AF55C /* ContentView.swift */; };
+		2C6AD43A26E50124003AF55C /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6AD40C26E50120003AF55C /* Persistence.swift */; };
+		2C6AD43B26E50124003AF55C /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6AD40C26E50120003AF55C /* Persistence.swift */; };
+		2C6AD43C26E50124003AF55C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C6AD40D26E50124003AF55C /* Assets.xcassets */; };
+		2C6AD43D26E50124003AF55C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C6AD40D26E50124003AF55C /* Assets.xcassets */; };
+		2C6AD45026E502AF003AF55C /* ConsoleSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 2C6AD44F26E502AF003AF55C /* ConsoleSwift */; };
+		2C6AD45326E502BD003AF55C /* PersistanceManager in Frameworks */ = {isa = PBXBuildFile; productRef = 2C6AD45226E502BD003AF55C /* PersistanceManager */; };
+		2C6AD45626E502D1003AF55C /* ConsoleSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 2C6AD45526E502D1003AF55C /* ConsoleSwift */; };
+		2C6AD45826E502D5003AF55C /* PersistanceManager in Frameworks */ = {isa = PBXBuildFile; productRef = 2C6AD45726E502D5003AF55C /* PersistanceManager */; };
+		2C6AD46226E5075A003AF55C /* PGLocale in Frameworks */ = {isa = PBXBuildFile; productRef = 2C6AD46126E5075A003AF55C /* PGLocale */; };
+		2C6AD46426E5075F003AF55C /* PGLocale in Frameworks */ = {isa = PBXBuildFile; productRef = 2C6AD46326E5075F003AF55C /* PGLocale */; };
+		2C6AD46E26E50793003AF55C /* sidebarItems.json in Resources */ = {isa = PBXBuildFile; fileRef = 2C6AD46D26E50793003AF55C /* sidebarItems.json */; };
+		2C6AD46F26E50793003AF55C /* sidebarItems.json in Resources */ = {isa = PBXBuildFile; fileRef = 2C6AD46D26E50793003AF55C /* sidebarItems.json */; };
+		2C6AD47126E507E6003AF55C /* tabbarItems.json in Resources */ = {isa = PBXBuildFile; fileRef = 2C6AD47026E507E6003AF55C /* tabbarItems.json */; };
+		2C6AD47726E50887003AF55C /* NamiNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6AD47626E50887003AF55C /* NamiNavigator.swift */; };
+		2C6AD47826E50887003AF55C /* NamiNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6AD47626E50887003AF55C /* NamiNavigator.swift */; };
+		2C6AD47B26E5093B003AF55C /* ScreenModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6AD47A26E5093B003AF55C /* ScreenModel.swift */; };
+		2C6AD47C26E5093B003AF55C /* ScreenModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6AD47A26E5093B003AF55C /* ScreenModel.swift */; };
+		2C6AD47F26E5098C003AF55C /* ShrimpExtensions in Frameworks */ = {isa = PBXBuildFile; productRef = 2C6AD47E26E5098C003AF55C /* ShrimpExtensions */; };
+		2C6AD48126E509A2003AF55C /* ShrimpExtensions in Frameworks */ = {isa = PBXBuildFile; productRef = 2C6AD48026E509A2003AF55C /* ShrimpExtensions */; };
+		2C6AD48526E50BFC003AF55C /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6AD48426E50BFC003AF55C /* MainView.swift */; };
+		2C6AD48626E50BFC003AF55C /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6AD48426E50BFC003AF55C /* MainView.swift */; };
+		2C6AD48926E50C60003AF55C /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6AD48826E50C60003AF55C /* HomeScreen.swift */; };
+		2C6AD48A26E50C60003AF55C /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6AD48826E50C60003AF55C /* HomeScreen.swift */; };
+		2C6AD48C26E50CAD003AF55C /* AppSidebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6AD48B26E50CAD003AF55C /* AppSidebar.swift */; };
+		2C6AD48D26E50CAD003AF55C /* AppSidebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6AD48B26E50CAD003AF55C /* AppSidebar.swift */; };
+		2C6AD49026E50DF0003AF55C /* UIDevice+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6AD48F26E50DF0003AF55C /* UIDevice+extensions.swift */; };
+		2C6AD49326E50E75003AF55C /* SidebarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6AD49226E50E75003AF55C /* SidebarView.swift */; };
+		2C6AD49426E50E75003AF55C /* SidebarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6AD49226E50E75003AF55C /* SidebarView.swift */; };
+		2C6AD49626E51030003AF55C /* TabbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6AD49526E51030003AF55C /* TabbarView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2C6AD42326E50124003AF55C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2C6AD40326E50120003AF55C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2C6AD41126E50124003AF55C;
+			remoteInfo = "Password-Generator (iOS)";
+		};
+		2C6AD42E26E50124003AF55C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2C6AD40326E50120003AF55C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2C6AD41926E50124003AF55C;
+			remoteInfo = "Password-Generator (macOS)";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		2C6AD40926E50120003AF55C /* Shared.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Shared.xcdatamodel; sourceTree = "<group>"; };
+		2C6AD40A26E50120003AF55C /* Password_GeneratorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Password_GeneratorApp.swift; sourceTree = "<group>"; };
+		2C6AD40B26E50120003AF55C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		2C6AD40C26E50120003AF55C /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		2C6AD40D26E50124003AF55C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2C6AD41226E50124003AF55C /* Password-Generator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Password-Generator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2C6AD41526E50124003AF55C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2C6AD41A26E50124003AF55C /* Password-Generator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Password-Generator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2C6AD41C26E50124003AF55C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2C6AD41D26E50124003AF55C /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
+		2C6AD42226E50124003AF55C /* Tests iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2C6AD42626E50124003AF55C /* Tests_iOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_iOS.swift; sourceTree = "<group>"; };
+		2C6AD42826E50124003AF55C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2C6AD42D26E50124003AF55C /* Tests macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2C6AD43126E50124003AF55C /* Tests_macOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOS.swift; sourceTree = "<group>"; };
+		2C6AD43326E50124003AF55C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2C6AD46026E50579003AF55C /* PGLocale */ = {isa = PBXFileReference; lastKnownFileType = folder; path = PGLocale; sourceTree = "<group>"; };
+		2C6AD46626E50774003AF55C /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		2C6AD46726E50774003AF55C /* Localize.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = Localize.js; sourceTree = "<group>"; };
+		2C6AD46826E50774003AF55C /* run.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = run.sh; sourceTree = "<group>"; };
+		2C6AD46926E50774003AF55C /* locale.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = locale.js; sourceTree = "<group>"; };
+		2C6AD46A26E50774003AF55C /* templates.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = templates.js; sourceTree = "<group>"; };
+		2C6AD46C26E50774003AF55C /* en.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = en.js; sourceTree = "<group>"; };
+		2C6AD46D26E50793003AF55C /* sidebarItems.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sidebarItems.json; sourceTree = "<group>"; };
+		2C6AD47026E507E6003AF55C /* tabbarItems.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = tabbarItems.json; sourceTree = "<group>"; };
+		2C6AD47626E50887003AF55C /* NamiNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NamiNavigator.swift; sourceTree = "<group>"; };
+		2C6AD47A26E5093B003AF55C /* ScreenModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenModel.swift; sourceTree = "<group>"; };
+		2C6AD48426E50BFC003AF55C /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		2C6AD48826E50C60003AF55C /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
+		2C6AD48B26E50CAD003AF55C /* AppSidebar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSidebar.swift; sourceTree = "<group>"; };
+		2C6AD48F26E50DF0003AF55C /* UIDevice+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+extensions.swift"; sourceTree = "<group>"; };
+		2C6AD49226E50E75003AF55C /* SidebarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarView.swift; sourceTree = "<group>"; };
+		2C6AD49526E51030003AF55C /* TabbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2C6AD40F26E50124003AF55C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2C6AD45326E502BD003AF55C /* PersistanceManager in Frameworks */,
+				2C6AD45026E502AF003AF55C /* ConsoleSwift in Frameworks */,
+				2C6AD46426E5075F003AF55C /* PGLocale in Frameworks */,
+				2C6AD47F26E5098C003AF55C /* ShrimpExtensions in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2C6AD41726E50124003AF55C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2C6AD45826E502D5003AF55C /* PersistanceManager in Frameworks */,
+				2C6AD45626E502D1003AF55C /* ConsoleSwift in Frameworks */,
+				2C6AD46226E5075A003AF55C /* PGLocale in Frameworks */,
+				2C6AD48126E509A2003AF55C /* ShrimpExtensions in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2C6AD41F26E50124003AF55C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2C6AD42A26E50124003AF55C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2C6AD40226E50120003AF55C = {
+			isa = PBXGroup;
+			children = (
+				2C6AD45426E502D1003AF55C /* Frameworks */,
+				2C6AD45F26E5054A003AF55C /* Packages */,
+				2C6AD41326E50124003AF55C /* Products */,
+				2C6AD45D26E504BF003AF55C /* Scripts */,
+				2C6AD40726E50120003AF55C /* Shared */,
+				2C6AD44C26E50138003AF55C /* Targets */,
+				2C6AD44D26E50186003AF55C /* Tests */,
+			);
+			sourceTree = "<group>";
+		};
+		2C6AD40726E50120003AF55C /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				2C6AD40B26E50120003AF55C /* ContentView.swift */,
+				2C6AD40A26E50120003AF55C /* Password_GeneratorApp.swift */,
+				2C6AD48E26E50DDB003AF55C /* Extensions */,
+				2C6AD47226E50856003AF55C /* Models */,
+				2C6AD45926E503DF003AF55C /* Resources */,
+				2C6AD45B26E503F8003AF55C /* Utilities */,
+				2C6AD48226E50BE6003AF55C /* Views */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		2C6AD41326E50124003AF55C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2C6AD41226E50124003AF55C /* Password-Generator.app */,
+				2C6AD41A26E50124003AF55C /* Password-Generator.app */,
+				2C6AD42226E50124003AF55C /* Tests iOS.xctest */,
+				2C6AD42D26E50124003AF55C /* Tests macOS.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2C6AD41426E50124003AF55C /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				2C6AD41526E50124003AF55C /* Info.plist */,
+			);
+			path = iOS;
+			sourceTree = "<group>";
+		};
+		2C6AD41B26E50124003AF55C /* macOS */ = {
+			isa = PBXGroup;
+			children = (
+				2C6AD41C26E50124003AF55C /* Info.plist */,
+				2C6AD41D26E50124003AF55C /* macOS.entitlements */,
+			);
+			path = macOS;
+			sourceTree = "<group>";
+		};
+		2C6AD42526E50124003AF55C /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				2C6AD42626E50124003AF55C /* Tests_iOS.swift */,
+				2C6AD42826E50124003AF55C /* Info.plist */,
+			);
+			path = iOS;
+			sourceTree = "<group>";
+		};
+		2C6AD43026E50124003AF55C /* macOS */ = {
+			isa = PBXGroup;
+			children = (
+				2C6AD43126E50124003AF55C /* Tests_macOS.swift */,
+				2C6AD43326E50124003AF55C /* Info.plist */,
+			);
+			path = macOS;
+			sourceTree = "<group>";
+		};
+		2C6AD44C26E50138003AF55C /* Targets */ = {
+			isa = PBXGroup;
+			children = (
+				2C6AD41426E50124003AF55C /* iOS */,
+				2C6AD41B26E50124003AF55C /* macOS */,
+			);
+			path = Targets;
+			sourceTree = "<group>";
+		};
+		2C6AD44D26E50186003AF55C /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				2C6AD42526E50124003AF55C /* iOS */,
+				2C6AD43026E50124003AF55C /* macOS */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		2C6AD45426E502D1003AF55C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2C6AD45926E503DF003AF55C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				2C6AD45A26E503E7003AF55C /* Assets */,
+				2C6AD45C26E5040F003AF55C /* Screens */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		2C6AD45A26E503E7003AF55C /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				2C6AD40D26E50124003AF55C /* Assets.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		2C6AD45B26E503F8003AF55C /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				2C6AD40C26E50120003AF55C /* Persistence.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		2C6AD45C26E5040F003AF55C /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				2C6AD46D26E50793003AF55C /* sidebarItems.json */,
+				2C6AD47026E507E6003AF55C /* tabbarItems.json */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		2C6AD45D26E504BF003AF55C /* Scripts */ = {
+			isa = PBXGroup;
+			children = (
+				2C6AD45E26E504CA003AF55C /* generate_locales */,
+			);
+			path = Scripts;
+			sourceTree = "<group>";
+		};
+		2C6AD45E26E504CA003AF55C /* generate_locales */ = {
+			isa = PBXGroup;
+			children = (
+				2C6AD46926E50774003AF55C /* locale.js */,
+				2C6AD46A26E50774003AF55C /* templates.js */,
+				2C6AD46826E50774003AF55C /* run.sh */,
+				2C6AD46B26E50774003AF55C /* locales */,
+				2C6AD46526E50774003AF55C /* Localize.js */,
+			);
+			path = generate_locales;
+			sourceTree = "<group>";
+		};
+		2C6AD45F26E5054A003AF55C /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				2C6AD46026E50579003AF55C /* PGLocale */,
+			);
+			path = Packages;
+			sourceTree = "<group>";
+		};
+		2C6AD46526E50774003AF55C /* Localize.js */ = {
+			isa = PBXGroup;
+			children = (
+				2C6AD46626E50774003AF55C /* README.md */,
+				2C6AD46726E50774003AF55C /* Localize.js */,
+			);
+			path = Localize.js;
+			sourceTree = "<group>";
+		};
+		2C6AD46B26E50774003AF55C /* locales */ = {
+			isa = PBXGroup;
+			children = (
+				2C6AD46C26E50774003AF55C /* en.js */,
+			);
+			path = locales;
+			sourceTree = "<group>";
+		};
+		2C6AD47226E50856003AF55C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				2C6AD47326E50860003AF55C /* CoreData */,
+				2C6AD47926E5092E003AF55C /* Structures */,
+				2C6AD47426E5086E003AF55C /* ViewModels */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		2C6AD47326E50860003AF55C /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				2C6AD40826E50120003AF55C /* Password_Generator.xcdatamodeld */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		2C6AD47426E5086E003AF55C /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				2C6AD47526E50876003AF55C /* Environment */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		2C6AD47526E50876003AF55C /* Environment */ = {
+			isa = PBXGroup;
+			children = (
+				2C6AD47626E50887003AF55C /* NamiNavigator.swift */,
+			);
+			path = Environment;
+			sourceTree = "<group>";
+		};
+		2C6AD47926E5092E003AF55C /* Structures */ = {
+			isa = PBXGroup;
+			children = (
+				2C6AD47A26E5093B003AF55C /* ScreenModel.swift */,
+			);
+			path = Structures;
+			sourceTree = "<group>";
+		};
+		2C6AD48226E50BE6003AF55C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2C6AD48726E50C50003AF55C /* Screens */,
+				2C6AD48326E50BEF003AF55C /* SupportingViews */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		2C6AD48326E50BEF003AF55C /* SupportingViews */ = {
+			isa = PBXGroup;
+			children = (
+				2C6AD48B26E50CAD003AF55C /* AppSidebar.swift */,
+				2C6AD48426E50BFC003AF55C /* MainView.swift */,
+				2C6AD49226E50E75003AF55C /* SidebarView.swift */,
+				2C6AD49526E51030003AF55C /* TabbarView.swift */,
+			);
+			path = SupportingViews;
+			sourceTree = "<group>";
+		};
+		2C6AD48726E50C50003AF55C /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				2C6AD48826E50C60003AF55C /* HomeScreen.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		2C6AD48E26E50DDB003AF55C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				2C6AD48F26E50DF0003AF55C /* UIDevice+extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2C6AD41126E50124003AF55C /* Password-Generator (iOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2C6AD44026E50124003AF55C /* Build configuration list for PBXNativeTarget "Password-Generator (iOS)" */;
+			buildPhases = (
+				2C6AD40E26E50124003AF55C /* Sources */,
+				2C6AD40F26E50124003AF55C /* Frameworks */,
+				2C6AD41026E50124003AF55C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Password-Generator (iOS)";
+			packageProductDependencies = (
+				2C6AD44F26E502AF003AF55C /* ConsoleSwift */,
+				2C6AD45226E502BD003AF55C /* PersistanceManager */,
+				2C6AD46326E5075F003AF55C /* PGLocale */,
+				2C6AD47E26E5098C003AF55C /* ShrimpExtensions */,
+			);
+			productName = "Password-Generator (iOS)";
+			productReference = 2C6AD41226E50124003AF55C /* Password-Generator.app */;
+			productType = "com.apple.product-type.application";
+		};
+		2C6AD41926E50124003AF55C /* Password-Generator (macOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2C6AD44326E50124003AF55C /* Build configuration list for PBXNativeTarget "Password-Generator (macOS)" */;
+			buildPhases = (
+				2C6AD41626E50124003AF55C /* Sources */,
+				2C6AD41726E50124003AF55C /* Frameworks */,
+				2C6AD41826E50124003AF55C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Password-Generator (macOS)";
+			packageProductDependencies = (
+				2C6AD45526E502D1003AF55C /* ConsoleSwift */,
+				2C6AD45726E502D5003AF55C /* PersistanceManager */,
+				2C6AD46126E5075A003AF55C /* PGLocale */,
+				2C6AD48026E509A2003AF55C /* ShrimpExtensions */,
+			);
+			productName = "Password-Generator (macOS)";
+			productReference = 2C6AD41A26E50124003AF55C /* Password-Generator.app */;
+			productType = "com.apple.product-type.application";
+		};
+		2C6AD42126E50124003AF55C /* Tests iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2C6AD44626E50124003AF55C /* Build configuration list for PBXNativeTarget "Tests iOS" */;
+			buildPhases = (
+				2C6AD41E26E50124003AF55C /* Sources */,
+				2C6AD41F26E50124003AF55C /* Frameworks */,
+				2C6AD42026E50124003AF55C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2C6AD42426E50124003AF55C /* PBXTargetDependency */,
+			);
+			name = "Tests iOS";
+			productName = "Tests iOS";
+			productReference = 2C6AD42226E50124003AF55C /* Tests iOS.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		2C6AD42C26E50124003AF55C /* Tests macOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2C6AD44926E50124003AF55C /* Build configuration list for PBXNativeTarget "Tests macOS" */;
+			buildPhases = (
+				2C6AD42926E50124003AF55C /* Sources */,
+				2C6AD42A26E50124003AF55C /* Frameworks */,
+				2C6AD42B26E50124003AF55C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2C6AD42F26E50124003AF55C /* PBXTargetDependency */,
+			);
+			name = "Tests macOS";
+			productName = "Tests macOS";
+			productReference = 2C6AD42D26E50124003AF55C /* Tests macOS.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2C6AD40326E50120003AF55C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1250;
+				LastUpgradeCheck = 1250;
+				TargetAttributes = {
+					2C6AD41126E50124003AF55C = {
+						CreatedOnToolsVersion = 12.5.1;
+					};
+					2C6AD41926E50124003AF55C = {
+						CreatedOnToolsVersion = 12.5.1;
+					};
+					2C6AD42126E50124003AF55C = {
+						CreatedOnToolsVersion = 12.5.1;
+						TestTargetID = 2C6AD41126E50124003AF55C;
+					};
+					2C6AD42C26E50124003AF55C = {
+						CreatedOnToolsVersion = 12.5.1;
+						TestTargetID = 2C6AD41926E50124003AF55C;
+					};
+				};
+			};
+			buildConfigurationList = 2C6AD40626E50120003AF55C /* Build configuration list for PBXProject "Password-Generator" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2C6AD40226E50120003AF55C;
+			packageReferences = (
+				2C6AD44E26E502AF003AF55C /* XCRemoteSwiftPackageReference "ConsoleSwift" */,
+				2C6AD45126E502BD003AF55C /* XCRemoteSwiftPackageReference "PersistanceManager" */,
+				2C6AD47D26E5098C003AF55C /* XCRemoteSwiftPackageReference "ShrimpExtensions" */,
+			);
+			productRefGroup = 2C6AD41326E50124003AF55C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2C6AD41126E50124003AF55C /* Password-Generator (iOS) */,
+				2C6AD41926E50124003AF55C /* Password-Generator (macOS) */,
+				2C6AD42126E50124003AF55C /* Tests iOS */,
+				2C6AD42C26E50124003AF55C /* Tests macOS */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2C6AD41026E50124003AF55C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2C6AD43C26E50124003AF55C /* Assets.xcassets in Resources */,
+				2C6AD47126E507E6003AF55C /* tabbarItems.json in Resources */,
+				2C6AD46E26E50793003AF55C /* sidebarItems.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2C6AD41826E50124003AF55C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2C6AD43D26E50124003AF55C /* Assets.xcassets in Resources */,
+				2C6AD46F26E50793003AF55C /* sidebarItems.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2C6AD42026E50124003AF55C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2C6AD42B26E50124003AF55C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2C6AD40E26E50124003AF55C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2C6AD43626E50124003AF55C /* Password_GeneratorApp.swift in Sources */,
+				2C6AD48526E50BFC003AF55C /* MainView.swift in Sources */,
+				2C6AD47B26E5093B003AF55C /* ScreenModel.swift in Sources */,
+				2C6AD43A26E50124003AF55C /* Persistence.swift in Sources */,
+				2C6AD48926E50C60003AF55C /* HomeScreen.swift in Sources */,
+				2C6AD49026E50DF0003AF55C /* UIDevice+extensions.swift in Sources */,
+				2C6AD49626E51030003AF55C /* TabbarView.swift in Sources */,
+				2C6AD43426E50124003AF55C /* Password_Generator.xcdatamodeld in Sources */,
+				2C6AD49326E50E75003AF55C /* SidebarView.swift in Sources */,
+				2C6AD47726E50887003AF55C /* NamiNavigator.swift in Sources */,
+				2C6AD43826E50124003AF55C /* ContentView.swift in Sources */,
+				2C6AD48C26E50CAD003AF55C /* AppSidebar.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2C6AD41626E50124003AF55C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2C6AD43726E50124003AF55C /* Password_GeneratorApp.swift in Sources */,
+				2C6AD48626E50BFC003AF55C /* MainView.swift in Sources */,
+				2C6AD47C26E5093B003AF55C /* ScreenModel.swift in Sources */,
+				2C6AD43B26E50124003AF55C /* Persistence.swift in Sources */,
+				2C6AD48A26E50C60003AF55C /* HomeScreen.swift in Sources */,
+				2C6AD43526E50124003AF55C /* Password_Generator.xcdatamodeld in Sources */,
+				2C6AD47826E50887003AF55C /* NamiNavigator.swift in Sources */,
+				2C6AD49426E50E75003AF55C /* SidebarView.swift in Sources */,
+				2C6AD43926E50124003AF55C /* ContentView.swift in Sources */,
+				2C6AD48D26E50CAD003AF55C /* AppSidebar.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2C6AD41E26E50124003AF55C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2C6AD42726E50124003AF55C /* Tests_iOS.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2C6AD42926E50124003AF55C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2C6AD43226E50124003AF55C /* Tests_macOS.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2C6AD42426E50124003AF55C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2C6AD41126E50124003AF55C /* Password-Generator (iOS) */;
+			targetProxy = 2C6AD42326E50124003AF55C /* PBXContainerItemProxy */;
+		};
+		2C6AD42F26E50124003AF55C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2C6AD41926E50124003AF55C /* Password-Generator (macOS) */;
+			targetProxy = 2C6AD42E26E50124003AF55C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		2C6AD43E26E50124003AF55C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		2C6AD43F26E50124003AF55C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		2C6AD44126E50124003AF55C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = DXUKH9VF73;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = Targets/iOS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "io.kamaal.Password-Generator";
+				PRODUCT_NAME = "Password-Generator";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		2C6AD44226E50124003AF55C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = DXUKH9VF73;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = Targets/iOS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "io.kamaal.Password-Generator";
+				PRODUCT_NAME = "Password-Generator";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2C6AD44426E50124003AF55C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Targets/macOS/macOS.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = DXUKH9VF73;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = Targets/macOS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "io.kamaal.Password-Generator";
+				PRODUCT_NAME = "Password-Generator";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		2C6AD44526E50124003AF55C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Targets/macOS/macOS.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = DXUKH9VF73;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = Targets/macOS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "io.kamaal.Password-Generator";
+				PRODUCT_NAME = "Password-Generator";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		2C6AD44726E50124003AF55C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = DXUKH9VF73;
+				INFOPLIST_FILE = Tests/iOS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "io.kamaal.Tests-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Password-Generator (iOS)";
+			};
+			name = Debug;
+		};
+		2C6AD44826E50124003AF55C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = DXUKH9VF73;
+				INFOPLIST_FILE = Tests/iOS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "io.kamaal.Tests-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Password-Generator (iOS)";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2C6AD44A26E50124003AF55C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = DXUKH9VF73;
+				INFOPLIST_FILE = Tests/macOS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.3;
+				PRODUCT_BUNDLE_IDENTIFIER = "io.kamaal.Tests-macOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = "Password-Generator (macOS)";
+			};
+			name = Debug;
+		};
+		2C6AD44B26E50124003AF55C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = DXUKH9VF73;
+				INFOPLIST_FILE = Tests/macOS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.3;
+				PRODUCT_BUNDLE_IDENTIFIER = "io.kamaal.Tests-macOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = "Password-Generator (macOS)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2C6AD40626E50120003AF55C /* Build configuration list for PBXProject "Password-Generator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2C6AD43E26E50124003AF55C /* Debug */,
+				2C6AD43F26E50124003AF55C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2C6AD44026E50124003AF55C /* Build configuration list for PBXNativeTarget "Password-Generator (iOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2C6AD44126E50124003AF55C /* Debug */,
+				2C6AD44226E50124003AF55C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2C6AD44326E50124003AF55C /* Build configuration list for PBXNativeTarget "Password-Generator (macOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2C6AD44426E50124003AF55C /* Debug */,
+				2C6AD44526E50124003AF55C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2C6AD44626E50124003AF55C /* Build configuration list for PBXNativeTarget "Tests iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2C6AD44726E50124003AF55C /* Debug */,
+				2C6AD44826E50124003AF55C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2C6AD44926E50124003AF55C /* Build configuration list for PBXNativeTarget "Tests macOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2C6AD44A26E50124003AF55C /* Debug */,
+				2C6AD44B26E50124003AF55C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		2C6AD44E26E502AF003AF55C /* XCRemoteSwiftPackageReference "ConsoleSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kamaal111/ConsoleSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+		2C6AD45126E502BD003AF55C /* XCRemoteSwiftPackageReference "PersistanceManager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kamaal111/PersistanceManager.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+		2C6AD47D26E5098C003AF55C /* XCRemoteSwiftPackageReference "ShrimpExtensions" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kamaal111/ShrimpExtensions.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.2.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		2C6AD44F26E502AF003AF55C /* ConsoleSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2C6AD44E26E502AF003AF55C /* XCRemoteSwiftPackageReference "ConsoleSwift" */;
+			productName = ConsoleSwift;
+		};
+		2C6AD45226E502BD003AF55C /* PersistanceManager */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2C6AD45126E502BD003AF55C /* XCRemoteSwiftPackageReference "PersistanceManager" */;
+			productName = PersistanceManager;
+		};
+		2C6AD45526E502D1003AF55C /* ConsoleSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2C6AD44E26E502AF003AF55C /* XCRemoteSwiftPackageReference "ConsoleSwift" */;
+			productName = ConsoleSwift;
+		};
+		2C6AD45726E502D5003AF55C /* PersistanceManager */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2C6AD45126E502BD003AF55C /* XCRemoteSwiftPackageReference "PersistanceManager" */;
+			productName = PersistanceManager;
+		};
+		2C6AD46126E5075A003AF55C /* PGLocale */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = PGLocale;
+		};
+		2C6AD46326E5075F003AF55C /* PGLocale */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = PGLocale;
+		};
+		2C6AD47E26E5098C003AF55C /* ShrimpExtensions */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2C6AD47D26E5098C003AF55C /* XCRemoteSwiftPackageReference "ShrimpExtensions" */;
+			productName = ShrimpExtensions;
+		};
+		2C6AD48026E509A2003AF55C /* ShrimpExtensions */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2C6AD47D26E5098C003AF55C /* XCRemoteSwiftPackageReference "ShrimpExtensions" */;
+			productName = ShrimpExtensions;
+		};
+/* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		2C6AD40826E50120003AF55C /* Password_Generator.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				2C6AD40926E50120003AF55C /* Shared.xcdatamodel */,
+			);
+			currentVersion = 2C6AD40926E50120003AF55C /* Shared.xcdatamodel */;
+			path = Password_Generator.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 2C6AD40326E50120003AF55C /* Project object */;
+}
