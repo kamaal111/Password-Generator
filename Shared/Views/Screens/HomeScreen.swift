@@ -31,9 +31,9 @@ struct HomeScreen: View {
                 Stepper("\(viewModel.lengthPicker)", value: $viewModel.lengthPicker, in: Constants.passwordLengthRange)
             })
             SpacedHStack(left: {
-                Text(localized: .LOWERCASED)
+                Text(localized: .LOWERCASE_LETTERS)
             }, right: {
-                Toggle("", isOn: $viewModel.isLowercased)
+                Toggle("", isOn: $viewModel.lowercaseLetters)
             })
             .padding(.trailing, DeviceModel.device == .mac ? -4 : 0)
         }

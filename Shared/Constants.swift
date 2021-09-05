@@ -10,4 +10,5 @@ import Foundation
 struct Constants {
     static let appName = "Password-Generator"
     static let passwordLengthRange = 1...256
+    static let bundleIdentifier = Bundle.main.bundleIdentifier!
 }

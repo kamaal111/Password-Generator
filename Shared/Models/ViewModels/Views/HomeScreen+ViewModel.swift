@@ -10,8 +10,17 @@ import Foundation
 extension HomeScreen {
     final class ViewModel: ObservableObject {
 
-        @Published var lengthPicker = 16
-        @Published var isLowercased = false
+        @Published var lengthPicker: Int {
+            didSet { UserDefaults.lengthPicker = lengthPicker }
+        }
+        @Published var lowercaseLetters: Bool {
+            didSet { UserDefaults.lowercaseLetters = lowercaseLetters }
+        }
+
+        init() {
+            self.lengthPicker = UserDefaults.lengthPicker ?? 16
+            self.lowercaseLetters = UserDefaults.lowercaseLetters ?? false
+        }
 
     }
 }

@@ -10,6 +10,6 @@ extension PGLocale {
         case HOME_SCREEN_TITLE
         case TOGGLE_SIDEBAR
         case LENGTH_LABEL
-        case LOWERCASED
+        case LOWERCASE_LETTERS
     }
 }

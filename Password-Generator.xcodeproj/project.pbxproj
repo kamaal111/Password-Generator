@@ -59,6 +59,8 @@
 		2CA895CD26E5603F0057A82C /* HomeScreen+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA895CB26E5603F0057A82C /* HomeScreen+ViewModel.swift */; };
 		2CA895CF26E5618D0057A82C /* DeviceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA895CE26E5618D0057A82C /* DeviceModel.swift */; };
 		2CA895D026E5618D0057A82C /* DeviceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA895CE26E5618D0057A82C /* DeviceModel.swift */; };
+		2CA895D226E5661C0057A82C /* UserDefaults+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA895D126E5661C0057A82C /* UserDefaults+extensions.swift */; };
+		2CA895D326E5661C0057A82C /* UserDefaults+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA895D126E5661C0057A82C /* UserDefaults+extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -119,6 +121,7 @@
 		2CA895C726E55EC60057A82C /* VerticalForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalForm.swift; sourceTree = "<group>"; };
 		2CA895CB26E5603F0057A82C /* HomeScreen+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeScreen+ViewModel.swift"; sourceTree = "<group>"; };
 		2CA895CE26E5618D0057A82C /* DeviceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceModel.swift; sourceTree = "<group>"; };
+		2CA895D126E5661C0057A82C /* UserDefaults+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -419,6 +422,7 @@
 			children = (
 				2CA895C126E55B080057A82C /* Text+extensions.swift */,
 				2C6AD49B26E5150D003AF55C /* View+extensions.swift */,
+				2CA895D126E5661C0057A82C /* UserDefaults+extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -622,6 +626,7 @@
 				2CA895C826E55EC60057A82C /* VerticalForm.swift in Sources */,
 				2C6AD4A026E51650003AF55C /* AppSizes.swift in Sources */,
 				2C6AD47B26E5093B003AF55C /* ScreenModel.swift in Sources */,
+				2CA895D226E5661C0057A82C /* UserDefaults+extensions.swift in Sources */,
 				2C6AD43A26E50124003AF55C /* Persistence.swift in Sources */,
 				2C6AD48926E50C60003AF55C /* HomeScreen.swift in Sources */,
 				2C6AD49626E51030003AF55C /* TabbarView.swift in Sources */,
@@ -645,6 +650,7 @@
 				2C6AD43726E50124003AF55C /* Password_GeneratorApp.swift in Sources */,
 				2C6AD49A26E51358003AF55C /* Constants.swift in Sources */,
 				2C6AD48626E50BFC003AF55C /* MainView.swift in Sources */,
+				2CA895D326E5661C0057A82C /* UserDefaults+extensions.swift in Sources */,
 				2C6AD47C26E5093B003AF55C /* ScreenModel.swift in Sources */,
 				2C6AD43B26E50124003AF55C /* Persistence.swift in Sources */,
 				2CA895D026E5618D0057A82C /* DeviceModel.swift in Sources */,
