@@ -11,6 +11,8 @@ import CoreData
 struct ContentView: View {
     @StateObject
     private var namiNavigator = NamiNavigator()
+    @StateObject
+    private var deviceModel = DeviceModel()
 
     var body: some View {
         #if os(macOS)
@@ -25,13 +27,14 @@ struct ContentView: View {
     private func injectViewWithEnvironment<V: View>(_ view: V) -> some View {
         view
             .environmentObject(namiNavigator)
+            .environmentObject(deviceModel)
     }
 }
 
 #if os(iOS)
 struct IOSContentView: View {
     var body: some View {
-        if UIDevice.isIpad {
+        if DeviceModel.device == .iPad {
             SidebarView()
         } else {
             TabbarView()

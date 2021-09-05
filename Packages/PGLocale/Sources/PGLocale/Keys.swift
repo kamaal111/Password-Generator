@@ -9,5 +9,7 @@ extension PGLocale {
     public enum Keys: String {
         case HOME_SCREEN_TITLE
         case TOGGLE_SIDEBAR
+        case LENGTH_LABEL
+        case LOWERCASED
     }
 }

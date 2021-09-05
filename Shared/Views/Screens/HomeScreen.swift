@@ -8,29 +8,34 @@
 import SwiftUI
 
 struct HomeScreen: View {
-    @State private var lengthPicker = 16
+    @StateObject
+    private var viewModel = ViewModel()
 
     var body: some View {
         #if os(macOS)
-        VStack {
-            lengthView
-        }
-        .padding(.horizontal, .medium)
-        .takeSizeEagerly(alignment: .topLeading)
-        .navigationTitle(Text(Constants.appName))
+        view
+            .padding(.all, .medium)
+            .takeSizeEagerly(alignment: .topLeading)
+            .navigationTitle(Text(Constants.appName))
         #elseif os(iOS)
-        Form {
-            lengthView
-        }
-        .navigationTitle(Text(Constants.appName))
+        view
+            .navigationTitle(Text(Constants.appName))
         #endif
     }
 
-    private var lengthView: some View {
-        HStack {
-            Text("Length:")
-            Spacer()
-            Stepper("\(lengthPicker)", value: $lengthPicker, in: 1...256)
+    private var view: some View {
+        VerticalForm {
+            SpacedHStack(left: {
+                Text(localized: .LENGTH_LABEL)
+            }, right: {
+                Stepper("\(viewModel.lengthPicker)", value: $viewModel.lengthPicker, in: Constants.passwordLengthRange)
+            })
+            SpacedHStack(left: {
+                Text(localized: .LOWERCASED)
+            }, right: {
+                Toggle("", isOn: $viewModel.isLowercased)
+            })
+            .padding(.trailing, DeviceModel.device == .mac ? -4 : 0)
         }
     }
 }
