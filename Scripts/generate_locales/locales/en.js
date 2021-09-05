@@ -4,6 +4,8 @@ const en = {
   LENGTH_LABEL: "Length",
   LOWERCASE_LETTERS: "Lowercase letters",
   CAPITAL_LETTERS: "Capital letters",
+  PASSWORD_PLACEHOLDER: "Password!",
+  GENERATE_BUTTON: "Generate",
 };
 
 module.exports = en;

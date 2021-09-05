@@ -12,5 +12,7 @@ extension PGLocale {
         case LENGTH_LABEL
         case LOWERCASE_LETTERS
         case CAPITAL_LETTERS
+        case PASSWORD_PLACEHOLDER
+        case GENERATE_BUTTON
     }
 }

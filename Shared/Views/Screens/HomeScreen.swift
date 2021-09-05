@@ -32,6 +32,20 @@ struct HomeScreen: View {
             })
             ToggleFormField(value: $viewModel.lowercaseLetters, text: .LOWERCASE_LETTERS)
             ToggleFormField(value: $viewModel.capitalLetters, text: .CAPITAL_LETTERS)
+            #if os(macOS)
+            Spacer()
+            #endif
+            Text(localized: .PASSWORD_PLACEHOLDER)
+                .font(.headline)
+                .takeWidthEagerly()
+            Button(action: viewModel.generatePassword) {
+                #if os(macOS)
+                Text(localized: .GENERATE_BUTTON)
+                #elseif os(iOS)
+                Text(localized: .GENERATE_BUTTON)
+                    .takeWidthEagerly()
+                #endif
+            }
         }
     }
 }

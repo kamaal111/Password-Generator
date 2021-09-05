@@ -26,5 +26,9 @@ extension HomeScreen {
             self.capitalLetters = UserDefaults.capitalLetters ?? true
         }
 
+        func generatePassword() {
+            print("generate")
+        }
+
     }
 }
