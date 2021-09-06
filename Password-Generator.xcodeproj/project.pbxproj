@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C614B3C26E6A0070061FF82 /* PasswordHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C614B3B26E6A0070061FF82 /* PasswordHandler.swift */; };
+		2C614B3D26E6A0070061FF82 /* PasswordHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C614B3B26E6A0070061FF82 /* PasswordHandler.swift */; };
 		2C6AD42726E50124003AF55C /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6AD42626E50124003AF55C /* Tests_iOS.swift */; };
 		2C6AD43226E50124003AF55C /* Tests_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6AD43126E50124003AF55C /* Tests_macOS.swift */; };
 		2C6AD43426E50124003AF55C /* Password_Generator.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2C6AD40826E50120003AF55C /* Password_Generator.xcdatamodeld */; };
@@ -83,6 +85,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2C614B3B26E6A0070061FF82 /* PasswordHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordHandler.swift; sourceTree = "<group>"; };
 		2C6AD40926E50120003AF55C /* Shared.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Shared.xcdatamodel; sourceTree = "<group>"; };
 		2C6AD40A26E50120003AF55C /* Password_GeneratorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Password_GeneratorApp.swift; sourceTree = "<group>"; };
 		2C6AD40B26E50120003AF55C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -287,6 +290,7 @@
 		2C6AD45B26E503F8003AF55C /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				2C614B3B26E6A0070061FF82 /* PasswordHandler.swift */,
 				2C6AD40C26E50120003AF55C /* Persistence.swift */,
 			);
 			path = Utilities;
@@ -639,6 +643,7 @@
 				2C6AD49926E51358003AF55C /* Constants.swift in Sources */,
 				2C6AD43426E50124003AF55C /* Password_Generator.xcdatamodeld in Sources */,
 				2C6AD49326E50E75003AF55C /* SidebarView.swift in Sources */,
+				2C614B3C26E6A0070061FF82 /* PasswordHandler.swift in Sources */,
 				2C6AD49C26E5150D003AF55C /* View+extensions.swift in Sources */,
 				2C6AD47726E50887003AF55C /* NamiNavigator.swift in Sources */,
 				2C6AD43826E50124003AF55C /* ContentView.swift in Sources */,
@@ -671,6 +676,7 @@
 				2CA895C626E55C9B0057A82C /* SpacedHStack.swift in Sources */,
 				2C6AD49D26E5150D003AF55C /* View+extensions.swift in Sources */,
 				2CA895C326E55B080057A82C /* Text+extensions.swift in Sources */,
+				2C614B3D26E6A0070061FF82 /* PasswordHandler.swift in Sources */,
 				2C6AD48D26E50CAD003AF55C /* AppSidebar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

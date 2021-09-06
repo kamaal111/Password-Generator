@@ -32,12 +32,14 @@ struct HomeScreen: View {
             })
             ToggleFormField(value: $viewModel.lowercaseLetters, text: .LOWERCASE_LETTERS)
             ToggleFormField(value: $viewModel.capitalLetters, text: .CAPITAL_LETTERS)
+            ToggleFormField(value: $viewModel.numerals, text: .NUMERALS)
             #if os(macOS)
             Spacer()
             #endif
-            Text(localized: .PASSWORD_PLACEHOLDER)
+            Text(viewModel.passwordLabel)
                 .font(.headline)
                 .takeWidthEagerly()
+                .multilineTextAlignment(.center)
             Button(action: viewModel.generatePassword) {
                 #if os(macOS)
                 Text(localized: .GENERATE_BUTTON)
@@ -46,6 +48,7 @@ struct HomeScreen: View {
                     .takeWidthEagerly()
                 #endif
             }
+            .disabled(!viewModel.generateButtonIsEnabled)
         }
     }
 }

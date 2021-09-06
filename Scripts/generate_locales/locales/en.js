@@ -6,6 +6,7 @@ const en = {
   CAPITAL_LETTERS: "Capital letters",
   PASSWORD_PLACEHOLDER: "Password!",
   GENERATE_BUTTON: "Generate",
+  NUMERALS: "Numerals",
 };
 
 module.exports = en;

@@ -14,6 +14,8 @@ extension UserDefaults {
     static var lowercaseLetters: Bool?
     @UserDefault(key: .capitalLetters)
     static var capitalLetters: Bool?
+    @UserDefault(key: .numerals)
+    static var numerals: Bool?
 }
 
 @propertyWrapper
@@ -30,6 +32,7 @@ struct UserDefault<Value> {
         case lengthPicker
         case lowercaseLetters
         case capitalLetters
+        case numerals
     }
 
     var wrappedValue: Value? {
