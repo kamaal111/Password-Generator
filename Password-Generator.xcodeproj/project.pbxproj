@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		2C0D4A0126E6B0AD006CD00D /* HomeBottomActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0D4A0026E6B0AD006CD00D /* HomeBottomActions.swift */; };
 		2C0D4A0226E6B0AD006CD00D /* HomeBottomActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0D4A0026E6B0AD006CD00D /* HomeBottomActions.swift */; };
+		2C0D4A0626E6B692006CD00D /* CorePassword+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0D4A0426E6B692006CD00D /* CorePassword+CoreDataClass.swift */; };
+		2C0D4A0726E6B692006CD00D /* CorePassword+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0D4A0426E6B692006CD00D /* CorePassword+CoreDataClass.swift */; };
+		2C0D4A0826E6B692006CD00D /* CorePassword+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0D4A0526E6B692006CD00D /* CorePassword+CoreDataProperties.swift */; };
+		2C0D4A0926E6B692006CD00D /* CorePassword+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0D4A0526E6B692006CD00D /* CorePassword+CoreDataProperties.swift */; };
+		2C0D4A0B26E6B72A006CD00D /* CoreDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0D4A0A26E6B72A006CD00D /* CoreDataModel.swift */; };
+		2C0D4A0C26E6B72A006CD00D /* CoreDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0D4A0A26E6B72A006CD00D /* CoreDataModel.swift */; };
 		2C614B3C26E6A0070061FF82 /* PasswordHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C614B3B26E6A0070061FF82 /* PasswordHandler.swift */; };
 		2C614B3D26E6A0070061FF82 /* PasswordHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C614B3B26E6A0070061FF82 /* PasswordHandler.swift */; };
 		2C6AD42726E50124003AF55C /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6AD42626E50124003AF55C /* Tests_iOS.swift */; };
@@ -89,6 +95,9 @@
 /* Begin PBXFileReference section */
 		2C0D49FD26E6ACE1006CD00D /* pre_compile.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = pre_compile.sh; sourceTree = "<group>"; };
 		2C0D4A0026E6B0AD006CD00D /* HomeBottomActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBottomActions.swift; sourceTree = "<group>"; };
+		2C0D4A0426E6B692006CD00D /* CorePassword+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CorePassword+CoreDataClass.swift"; sourceTree = "<group>"; };
+		2C0D4A0526E6B692006CD00D /* CorePassword+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CorePassword+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		2C0D4A0A26E6B72A006CD00D /* CoreDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataModel.swift; sourceTree = "<group>"; };
 		2C614B3B26E6A0070061FF82 /* PasswordHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordHandler.swift; sourceTree = "<group>"; };
 		2C6AD40926E50120003AF55C /* Shared.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Shared.xcdatamodel; sourceTree = "<group>"; };
 		2C6AD40A26E50120003AF55C /* Password_GeneratorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Password_GeneratorApp.swift; sourceTree = "<group>"; };
@@ -174,6 +183,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2C0D4A0326E6B578006CD00D /* CorePassword */ = {
+			isa = PBXGroup;
+			children = (
+				2C0D4A0426E6B692006CD00D /* CorePassword+CoreDataClass.swift */,
+				2C0D4A0526E6B692006CD00D /* CorePassword+CoreDataProperties.swift */,
+			);
+			path = CorePassword;
+			sourceTree = "<group>";
+		};
 		2C6AD40226E50120003AF55C = {
 			isa = PBXGroup;
 			children = (
@@ -368,6 +386,7 @@
 		2C6AD47326E50860003AF55C /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				2C0D4A0326E6B578006CD00D /* CorePassword */,
 				2C6AD40826E50120003AF55C /* Password_Generator.xcdatamodeld */,
 			);
 			path = CoreData;
@@ -385,6 +404,7 @@
 		2C6AD47526E50876003AF55C /* Environment */ = {
 			isa = PBXGroup;
 			children = (
+				2C0D4A0A26E6B72A006CD00D /* CoreDataModel.swift */,
 				2CA895CE26E5618D0057A82C /* DeviceModel.swift */,
 				2C6AD47626E50887003AF55C /* NamiNavigator.swift */,
 			);
@@ -675,6 +695,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C0D4A0826E6B692006CD00D /* CorePassword+CoreDataProperties.swift in Sources */,
 				2CA895C226E55B080057A82C /* Text+extensions.swift in Sources */,
 				2C6AD43626E50124003AF55C /* Password_GeneratorApp.swift in Sources */,
 				2CA895D526E56BB70057A82C /* ToggleFormField.swift in Sources */,
@@ -689,8 +710,10 @@
 				2CA895C526E55C9B0057A82C /* SpacedHStack.swift in Sources */,
 				2C6AD49926E51358003AF55C /* Constants.swift in Sources */,
 				2C6AD43426E50124003AF55C /* Password_Generator.xcdatamodeld in Sources */,
+				2C0D4A0626E6B692006CD00D /* CorePassword+CoreDataClass.swift in Sources */,
 				2C6AD49326E50E75003AF55C /* SidebarView.swift in Sources */,
 				2C614B3C26E6A0070061FF82 /* PasswordHandler.swift in Sources */,
+				2C0D4A0B26E6B72A006CD00D /* CoreDataModel.swift in Sources */,
 				2C6AD49C26E5150D003AF55C /* View+extensions.swift in Sources */,
 				2C6AD47726E50887003AF55C /* NamiNavigator.swift in Sources */,
 				2C6AD43826E50124003AF55C /* ContentView.swift in Sources */,
@@ -711,6 +734,7 @@
 				2CA895D326E5661C0057A82C /* UserDefaults+extensions.swift in Sources */,
 				2C6AD47C26E5093B003AF55C /* ScreenModel.swift in Sources */,
 				2C6AD43B26E50124003AF55C /* Persistence.swift in Sources */,
+				2C0D4A0726E6B692006CD00D /* CorePassword+CoreDataClass.swift in Sources */,
 				2CA895D026E5618D0057A82C /* DeviceModel.swift in Sources */,
 				2C6AD48A26E50C60003AF55C /* HomeScreen.swift in Sources */,
 				2C6AD43526E50124003AF55C /* Password_Generator.xcdatamodeld in Sources */,
@@ -727,6 +751,8 @@
 				2CA895C326E55B080057A82C /* Text+extensions.swift in Sources */,
 				2C614B3D26E6A0070061FF82 /* PasswordHandler.swift in Sources */,
 				2C6AD48D26E50CAD003AF55C /* AppSidebar.swift in Sources */,
+				2C0D4A0C26E6B72A006CD00D /* CoreDataModel.swift in Sources */,
+				2C0D4A0926E6B692006CD00D /* CorePassword+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -13,6 +13,8 @@ struct ContentView: View {
     private var namiNavigator = NamiNavigator()
     @StateObject
     private var deviceModel = DeviceModel()
+    @StateObject
+    private var coreDataModel = CoreDataModel()
 
     var body: some View {
         #if os(macOS)
@@ -28,6 +30,7 @@ struct ContentView: View {
         view
             .environmentObject(namiNavigator)
             .environmentObject(deviceModel)
+            .environmentObject(coreDataModel)
     }
 }
 
