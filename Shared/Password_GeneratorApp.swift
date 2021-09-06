@@ -8,7 +8,7 @@
 import SwiftUI
 
 @main
-struct Password_GeneratorApp: App {
+struct Password_GeneratorApp: App { // swiftlint:disable:this type_name
     let persistenceController = PersistenceController.shared
 
     var body: some Scene {

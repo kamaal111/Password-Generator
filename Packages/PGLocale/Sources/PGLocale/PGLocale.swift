@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// `PGLocale` contains keys to localize the app
 public struct PGLocale {
     private init() { }
 }

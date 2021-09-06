@@ -85,6 +85,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2C0D49FD26E6ACE1006CD00D /* pre_compile.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = pre_compile.sh; sourceTree = "<group>"; };
 		2C614B3B26E6A0070061FF82 /* PasswordHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordHandler.swift; sourceTree = "<group>"; };
 		2C6AD40926E50120003AF55C /* Shared.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Shared.xcdatamodel; sourceTree = "<group>"; };
 		2C6AD40A26E50120003AF55C /* Password_GeneratorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Password_GeneratorApp.swift; sourceTree = "<group>"; };
@@ -308,6 +309,7 @@
 		2C6AD45D26E504BF003AF55C /* Scripts */ = {
 			isa = PBXGroup;
 			children = (
+				2C0D49FD26E6ACE1006CD00D /* pre_compile.sh */,
 				2C6AD45E26E504CA003AF55C /* generate_locales */,
 			);
 			path = Scripts;
@@ -458,6 +460,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2C6AD44026E50124003AF55C /* Build configuration list for PBXNativeTarget "Password-Generator (iOS)" */;
 			buildPhases = (
+				2C0D49FE26E6AD13006CD00D /* Pre Compile */,
 				2C6AD40E26E50124003AF55C /* Sources */,
 				2C6AD40F26E50124003AF55C /* Frameworks */,
 				2C6AD41026E50124003AF55C /* Resources */,
@@ -481,6 +484,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2C6AD44326E50124003AF55C /* Build configuration list for PBXNativeTarget "Password-Generator (macOS)" */;
 			buildPhases = (
+				2C0D49FF26E6AD3A006CD00D /* Pre Compile */,
 				2C6AD41626E50124003AF55C /* Sources */,
 				2C6AD41726E50124003AF55C /* Frameworks */,
 				2C6AD41826E50124003AF55C /* Resources */,
@@ -622,6 +626,45 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2C0D49FE26E6AD13006CD00D /* Pre Compile */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Pre Compile";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\nsh Scripts/pre_compile.sh\n";
+		};
+		2C0D49FF26E6AD3A006CD00D /* Pre Compile */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Pre Compile";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\nsh Scripts/pre_compile.sh\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		2C6AD40E26E50124003AF55C /* Sources */ = {
