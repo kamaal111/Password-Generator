@@ -26,7 +26,7 @@ extension HomeScreen {
         @Published var symbolsEnabled: Bool {
             didSet { UserDefaults.symbolsEnabled = symbolsEnabled }
         }
-        @Published var currentPassword: String?
+        @Published private var currentPassword: String?
 
         init() {
             self.letterLength = UserDefaults.letterLength ?? 16
@@ -44,13 +44,24 @@ extension HomeScreen {
             currentPassword ?? PGLocale.Keys.PASSWORD_PLACEHOLDER.localized
         }
 
+        var showSaveButton: Bool {
+            currentPassword != nil
+        }
+
         func generatePassword() {
             let passwordHandler = PasswordHandler(
                 enableLowers: lowercaseLettersEnabled,
                 enableUppers: capitalLettersEnabled,
                 enableNumerals: numeralsEnabled,
                 enableSymbols: symbolsEnabled)
-            currentPassword = passwordHandler.create(length: letterLength)
+            withAnimation { [weak self] in
+                guard let self = self else { return }
+                self.currentPassword = passwordHandler.create(length: self.letterLength)
+            }
+        }
+
+        func savePassword() {
+            print("saving")
         }
 
     }

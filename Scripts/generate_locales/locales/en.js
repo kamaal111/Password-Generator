@@ -8,6 +8,7 @@ const en = {
   GENERATE_BUTTON: "Generate",
   NUMERALS: "Numerals",
   SYMBOLS: "Symbols",
+  SAVE: "Save",
 };
 
 module.exports = en;

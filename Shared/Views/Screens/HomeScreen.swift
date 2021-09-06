@@ -41,15 +41,11 @@ struct HomeScreen: View {
                 .font(.headline)
                 .takeWidthEagerly()
                 .multilineTextAlignment(.center)
-            Button(action: viewModel.generatePassword) {
-                #if os(macOS)
-                Text(localized: .GENERATE_BUTTON)
-                #elseif os(iOS)
-                Text(localized: .GENERATE_BUTTON)
-                    .takeWidthEagerly()
-                #endif
-            }
-            .disabled(!viewModel.generateButtonIsEnabled)
+            HomeBottomActions(
+                generateButtonIsEnabled: viewModel.generateButtonIsEnabled,
+                showSaveButton: viewModel.showSaveButton,
+                generatePassword: viewModel.generatePassword,
+                savePassword: viewModel.savePassword)
         }
     }
 }

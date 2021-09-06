@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C0D4A0126E6B0AD006CD00D /* HomeBottomActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0D4A0026E6B0AD006CD00D /* HomeBottomActions.swift */; };
+		2C0D4A0226E6B0AD006CD00D /* HomeBottomActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0D4A0026E6B0AD006CD00D /* HomeBottomActions.swift */; };
 		2C614B3C26E6A0070061FF82 /* PasswordHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C614B3B26E6A0070061FF82 /* PasswordHandler.swift */; };
 		2C614B3D26E6A0070061FF82 /* PasswordHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C614B3B26E6A0070061FF82 /* PasswordHandler.swift */; };
 		2C6AD42726E50124003AF55C /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6AD42626E50124003AF55C /* Tests_iOS.swift */; };
@@ -86,6 +88,7 @@
 
 /* Begin PBXFileReference section */
 		2C0D49FD26E6ACE1006CD00D /* pre_compile.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = pre_compile.sh; sourceTree = "<group>"; };
+		2C0D4A0026E6B0AD006CD00D /* HomeBottomActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBottomActions.swift; sourceTree = "<group>"; };
 		2C614B3B26E6A0070061FF82 /* PasswordHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordHandler.swift; sourceTree = "<group>"; };
 		2C6AD40926E50120003AF55C /* Shared.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Shared.xcdatamodel; sourceTree = "<group>"; };
 		2C6AD40A26E50120003AF55C /* Password_GeneratorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Password_GeneratorApp.swift; sourceTree = "<group>"; };
@@ -409,6 +412,7 @@
 			isa = PBXGroup;
 			children = (
 				2C6AD48B26E50CAD003AF55C /* AppSidebar.swift */,
+				2C0D4A0026E6B0AD006CD00D /* HomeBottomActions.swift */,
 				2C6AD48426E50BFC003AF55C /* MainView.swift */,
 				2C6AD49226E50E75003AF55C /* SidebarView.swift */,
 				2CA895C426E55C9B0057A82C /* SpacedHStack.swift */,
@@ -691,6 +695,7 @@
 				2C6AD47726E50887003AF55C /* NamiNavigator.swift in Sources */,
 				2C6AD43826E50124003AF55C /* ContentView.swift in Sources */,
 				2CA895CF26E5618D0057A82C /* DeviceModel.swift in Sources */,
+				2C0D4A0126E6B0AD006CD00D /* HomeBottomActions.swift in Sources */,
 				2C6AD48C26E50CAD003AF55C /* AppSidebar.swift in Sources */,
 				2CA895CC26E5603F0057A82C /* HomeScreen+ViewModel.swift in Sources */,
 			);
@@ -717,6 +722,7 @@
 				2CA895CD26E5603F0057A82C /* HomeScreen+ViewModel.swift in Sources */,
 				2CA895C926E55EC60057A82C /* VerticalForm.swift in Sources */,
 				2CA895C626E55C9B0057A82C /* SpacedHStack.swift in Sources */,
+				2C0D4A0226E6B0AD006CD00D /* HomeBottomActions.swift in Sources */,
 				2C6AD49D26E5150D003AF55C /* View+extensions.swift in Sources */,
 				2CA895C326E55B080057A82C /* Text+extensions.swift in Sources */,
 				2C614B3D26E6A0070061FF82 /* PasswordHandler.swift in Sources */,

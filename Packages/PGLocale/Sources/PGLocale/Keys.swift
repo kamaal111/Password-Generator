@@ -16,5 +16,6 @@ extension PGLocale {
         case GENERATE_BUTTON
         case NUMERALS
         case SYMBOLS
+        case SAVE
     }
 }
