@@ -15,5 +15,6 @@ extension PGLocale {
         case PASSWORD_PLACEHOLDER
         case GENERATE_BUTTON
         case NUMERALS
+        case SYMBOLS
     }
 }

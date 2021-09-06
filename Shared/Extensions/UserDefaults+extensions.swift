@@ -8,14 +8,16 @@
 import Foundation
 
 extension UserDefaults {
-    @UserDefault(key: .lengthPicker)
-    static var lengthPicker: Int?
-    @UserDefault(key: .lowercaseLetters)
-    static var lowercaseLetters: Bool?
-    @UserDefault(key: .capitalLetters)
-    static var capitalLetters: Bool?
-    @UserDefault(key: .numerals)
-    static var numerals: Bool?
+    @UserDefault(key: .letterLength)
+    static var letterLength: Int?
+    @UserDefault(key: .lowercaseLettersEnabled)
+    static var lowercaseLettersEnabled: Bool?
+    @UserDefault(key: .capitalLettersEnabled)
+    static var capitalLettersEnabled: Bool?
+    @UserDefault(key: .numeralsEnabled)
+    static var numeralsEnabled: Bool?
+    @UserDefault(key: .symbolsEnabled)
+    static var symbolsEnabled: Bool?
 }
 
 @propertyWrapper
@@ -29,10 +31,11 @@ struct UserDefault<Value> {
     }
 
     enum Keys: String {
-        case lengthPicker
-        case lowercaseLetters
-        case capitalLetters
-        case numerals
+        case letterLength
+        case lowercaseLettersEnabled
+        case capitalLettersEnabled
+        case numeralsEnabled
+        case symbolsEnabled
     }
 
     var wrappedValue: Value? {

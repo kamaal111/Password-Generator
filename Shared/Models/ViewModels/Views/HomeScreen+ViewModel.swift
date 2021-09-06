@@ -11,29 +11,33 @@ import PGLocale
 extension HomeScreen {
     final class ViewModel: ObservableObject {
 
-        @Published var lengthPicker: Int {
-            didSet { UserDefaults.lengthPicker = lengthPicker }
+        @Published var letterLength: Int {
+            didSet { UserDefaults.letterLength = letterLength }
         }
-        @Published var lowercaseLetters: Bool {
-            didSet { UserDefaults.lowercaseLetters = lowercaseLetters }
+        @Published var lowercaseLettersEnabled: Bool {
+            didSet { UserDefaults.lowercaseLettersEnabled = lowercaseLettersEnabled }
         }
-        @Published var capitalLetters: Bool {
-            didSet { UserDefaults.capitalLetters = capitalLetters }
+        @Published var capitalLettersEnabled: Bool {
+            didSet { UserDefaults.capitalLettersEnabled = capitalLettersEnabled }
         }
-        @Published var numerals: Bool {
-            didSet { UserDefaults.numerals = numerals }
+        @Published var numeralsEnabled: Bool {
+            didSet { UserDefaults.numeralsEnabled = numeralsEnabled }
+        }
+        @Published var symbolsEnabled: Bool {
+            didSet { UserDefaults.symbolsEnabled = symbolsEnabled }
         }
         @Published var currentPassword: String?
 
         init() {
-            self.lengthPicker = UserDefaults.lengthPicker ?? 16
-            self.lowercaseLetters = UserDefaults.lowercaseLetters ?? true
-            self.capitalLetters = UserDefaults.capitalLetters ?? true
-            self.numerals = UserDefaults.numerals ?? true
+            self.letterLength = UserDefaults.letterLength ?? 16
+            self.lowercaseLettersEnabled = UserDefaults.lowercaseLettersEnabled ?? true
+            self.capitalLettersEnabled = UserDefaults.capitalLettersEnabled ?? true
+            self.numeralsEnabled = UserDefaults.numeralsEnabled ?? true
+            self.symbolsEnabled = UserDefaults.symbolsEnabled ?? true
         }
 
         var generateButtonIsEnabled: Bool {
-            lowercaseLetters || capitalLetters || numerals
+            lowercaseLettersEnabled || capitalLettersEnabled || numeralsEnabled || symbolsEnabled
         }
 
         var passwordLabel: String {
@@ -42,10 +46,11 @@ extension HomeScreen {
 
         func generatePassword() {
             let passwordHandler = PasswordHandler(
-                enableLowers: lowercaseLetters,
-                enableUppers: capitalLetters,
-                enableNumerals: numerals)
-            currentPassword = passwordHandler.create(length: lengthPicker)
+                enableLowers: lowercaseLettersEnabled,
+                enableUppers: capitalLettersEnabled,
+                enableNumerals: numeralsEnabled,
+                enableSymbols: symbolsEnabled)
+            currentPassword = passwordHandler.create(length: letterLength)
         }
 
     }

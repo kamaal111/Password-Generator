@@ -12,8 +12,9 @@ struct PasswordHandler {
     private var numbers: String = ""
     private var lowers: String = ""
     private var uppers: String = ""
+    private var symbols: String = ""
 
-    init(enableLowers: Bool, enableUppers: Bool, enableNumerals: Bool) {
+    init(enableLowers: Bool, enableUppers: Bool, enableNumerals: Bool, enableSymbols: Bool) {
         if enableNumerals {
             self.numbers = (0..<10).map({ "\($0)" }).joined()
         }
@@ -23,19 +24,21 @@ struct PasswordHandler {
         if enableUppers {
             self.uppers = Self.alphabet.uppercased()
         }
+        if enableSymbols {
+            self.symbols = "+=-_)(*&^%$#@!±§~`<>,./?;:\"'\\|{}[]"
+        }
     }
 
     var combinedCharacters: String {
-        numbers + lowers + uppers
+        numbers + lowers + uppers + symbols
     }
 
     func create(length: Int) -> String {
-        let password = (0..<length)
+        (0..<length)
             .compactMap({ _ in
                 combinedCharacters.randomElement()?.string
             })
             .joined()
-        return password
     }
 
     private static let alphabet: String = {

@@ -7,6 +7,7 @@ const en = {
   PASSWORD_PLACEHOLDER: "Password!",
   GENERATE_BUTTON: "Generate",
   NUMERALS: "Numerals",
+  SYMBOLS: "Symbols",
 };
 
 module.exports = en;

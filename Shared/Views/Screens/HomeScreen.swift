@@ -28,11 +28,12 @@ struct HomeScreen: View {
             SpacedHStack(left: {
                 Text(localized: .LENGTH_LABEL)
             }, right: {
-                Stepper("\(viewModel.lengthPicker)", value: $viewModel.lengthPicker, in: Constants.passwordLengthRange)
+                Stepper("\(viewModel.letterLength)", value: $viewModel.letterLength, in: Constants.passwordLengthRange)
             })
-            ToggleFormField(value: $viewModel.lowercaseLetters, text: .LOWERCASE_LETTERS)
-            ToggleFormField(value: $viewModel.capitalLetters, text: .CAPITAL_LETTERS)
-            ToggleFormField(value: $viewModel.numerals, text: .NUMERALS)
+            ToggleFormField(value: $viewModel.lowercaseLettersEnabled, text: .LOWERCASE_LETTERS)
+            ToggleFormField(value: $viewModel.capitalLettersEnabled, text: .CAPITAL_LETTERS)
+            ToggleFormField(value: $viewModel.numeralsEnabled, text: .NUMERALS)
+            ToggleFormField(value: $viewModel.symbolsEnabled, text: .SYMBOLS)
             #if os(macOS)
             Spacer()
             #endif
