@@ -11,10 +11,10 @@
 		2C08AD8026E7FB3A001ECD75 /* JustStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C08AD7E26E7FB3A001ECD75 /* JustStack.swift */; };
 		2C08AD8226E7FC33001ECD75 /* HomeMainActionButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C08AD8126E7FC33001ECD75 /* HomeMainActionButtons.swift */; };
 		2C08AD8326E7FC33001ECD75 /* HomeMainActionButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C08AD8126E7FC33001ECD75 /* HomeMainActionButtons.swift */; };
-		2C08AD9E26E807B6001ECD75 /* EmptyTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C08AD9D26E807B6001ECD75 /* EmptyTest.swift */; };
-		2C08AD9F26E807B6001ECD75 /* EmptyTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C08AD9D26E807B6001ECD75 /* EmptyTest.swift */; };
-		2C08ADA026E807B6001ECD75 /* EmptyTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C08AD9D26E807B6001ECD75 /* EmptyTest.swift */; };
-		2C08ADAF26E80983001ECD75 /* EmptyTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C08AD9D26E807B6001ECD75 /* EmptyTest.swift */; };
+		2C08ADB226E80A40001ECD75 /* EmptyTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C08ADB126E80A40001ECD75 /* EmptyTest.swift */; };
+		2C08ADB326E80A40001ECD75 /* EmptyTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C08ADB126E80A40001ECD75 /* EmptyTest.swift */; };
+		2C08ADB426E80A40001ECD75 /* EmptyTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C08ADB126E80A40001ECD75 /* EmptyTest.swift */; };
+		2C08ADB526E80A40001ECD75 /* EmptyTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C08ADB126E80A40001ECD75 /* EmptyTest.swift */; };
 		2C0D4A0626E6B692006CD00D /* CorePassword+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0D4A0426E6B692006CD00D /* CorePassword+CoreDataClass.swift */; };
 		2C0D4A0726E6B692006CD00D /* CorePassword+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0D4A0426E6B692006CD00D /* CorePassword+CoreDataClass.swift */; };
 		2C0D4A0826E6B692006CD00D /* CorePassword+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0D4A0526E6B692006CD00D /* CorePassword+CoreDataProperties.swift */; };
@@ -118,9 +118,10 @@
 		2C08AD9A26E807B6001ECD75 /* UITestsiOS-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITestsiOS-Bridging-Header.h"; sourceTree = "<group>"; };
 		2C08AD9B26E807B6001ECD75 /* UITestsmacOS-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITestsmacOS-Bridging-Header.h"; sourceTree = "<group>"; };
 		2C08AD9C26E807B6001ECD75 /* UnitTestsiOS-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UnitTestsiOS-Bridging-Header.h"; sourceTree = "<group>"; };
-		2C08AD9D26E807B6001ECD75 /* EmptyTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EmptyTest.swift; path = Tests/EmptyTest.swift; sourceTree = SOURCE_ROOT; };
 		2C08ADA526E80940001ECD75 /* UnitTestsmacOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitTestsmacOS.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C08ADA926E80940001ECD75 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2C08ADB026E80A40001ECD75 /* UnitTestsmacOS-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UnitTestsmacOS-Bridging-Header.h"; sourceTree = "<group>"; };
+		2C08ADB126E80A40001ECD75 /* EmptyTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyTest.swift; sourceTree = "<group>"; };
 		2C0D49FD26E6ACE1006CD00D /* pre_compile.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = pre_compile.sh; sourceTree = "<group>"; };
 		2C0D4A0426E6B692006CD00D /* CorePassword+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CorePassword+CoreDataClass.swift"; sourceTree = "<group>"; };
 		2C0D4A0526E6B692006CD00D /* CorePassword+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CorePassword+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -371,7 +372,8 @@
 				2C08AD9A26E807B6001ECD75 /* UITestsiOS-Bridging-Header.h */,
 				2C08AD9B26E807B6001ECD75 /* UITestsmacOS-Bridging-Header.h */,
 				2C08AD9C26E807B6001ECD75 /* UnitTestsiOS-Bridging-Header.h */,
-				2C08AD9D26E807B6001ECD75 /* EmptyTest.swift */,
+				2C08ADB026E80A40001ECD75 /* UnitTestsmacOS-Bridging-Header.h */,
+				2C08ADB126E80A40001ECD75 /* EmptyTest.swift */,
 				2C08AD9926E806AA001ECD75 /* UI */,
 				2C08AD9726E80683001ECD75 /* Unit */,
 			);
@@ -710,6 +712,7 @@
 					};
 					2C08ADA426E80940001ECD75 = {
 						CreatedOnToolsVersion = 12.5.1;
+						LastSwiftMigration = 1250;
 						TestTargetID = 2C6AD41926E50124003AF55C;
 					};
 					2C6AD41126E50124003AF55C = {
@@ -852,7 +855,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2C08ADA026E807B6001ECD75 /* EmptyTest.swift in Sources */,
+				2C08ADB426E80A40001ECD75 /* EmptyTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -860,7 +863,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2C08ADAF26E80983001ECD75 /* EmptyTest.swift in Sources */,
+				2C08ADB526E80A40001ECD75 /* EmptyTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -935,7 +938,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2C08AD9E26E807B6001ECD75 /* EmptyTest.swift in Sources */,
+				2C08ADB226E80A40001ECD75 /* EmptyTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -943,7 +946,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2C08AD9F26E807B6001ECD75 /* EmptyTest.swift in Sources */,
+				2C08ADB326E80A40001ECD75 /* EmptyTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1027,6 +1030,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = DXUKH9VF73;
@@ -1040,6 +1044,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = io.kamaal.UnitTestsmacOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
+				SWIFT_OBJC_BRIDGING_HEADER = "Tests/UnitTestsmacOS-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Password-Generator.app/Contents/MacOS/Password-Generator";
 			};
@@ -1049,6 +1055,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = DXUKH9VF73;
@@ -1062,6 +1069,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = io.kamaal.UnitTestsmacOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
+				SWIFT_OBJC_BRIDGING_HEADER = "Tests/UnitTestsmacOS-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Password-Generator.app/Contents/MacOS/Password-Generator";
 			};

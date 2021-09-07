@@ -13,8 +13,4 @@ class EmptyTest: XCTestCase {
 
     override func tearDownWithError() throws { }
 
-    func testExample() throws {
-        XCTAssert(true)
-    }
-
 }
