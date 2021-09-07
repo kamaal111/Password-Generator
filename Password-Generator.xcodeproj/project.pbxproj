@@ -15,6 +15,8 @@
 		2C08ADB326E80A40001ECD75 /* EmptyTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C08ADB126E80A40001ECD75 /* EmptyTest.swift */; };
 		2C08ADB426E80A40001ECD75 /* EmptyTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C08ADB126E80A40001ECD75 /* EmptyTest.swift */; };
 		2C08ADB526E80A40001ECD75 /* EmptyTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C08ADB126E80A40001ECD75 /* EmptyTest.swift */; };
+		2C08ADB726E80AC7001ECD75 /* PasswordHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C08ADB626E80AC7001ECD75 /* PasswordHandlerTests.swift */; };
+		2C08ADB826E80AC7001ECD75 /* PasswordHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C08ADB626E80AC7001ECD75 /* PasswordHandlerTests.swift */; };
 		2C0D4A0626E6B692006CD00D /* CorePassword+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0D4A0426E6B692006CD00D /* CorePassword+CoreDataClass.swift */; };
 		2C0D4A0726E6B692006CD00D /* CorePassword+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0D4A0426E6B692006CD00D /* CorePassword+CoreDataClass.swift */; };
 		2C0D4A0826E6B692006CD00D /* CorePassword+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0D4A0526E6B692006CD00D /* CorePassword+CoreDataProperties.swift */; };
@@ -122,6 +124,7 @@
 		2C08ADA926E80940001ECD75 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2C08ADB026E80A40001ECD75 /* UnitTestsmacOS-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UnitTestsmacOS-Bridging-Header.h"; sourceTree = "<group>"; };
 		2C08ADB126E80A40001ECD75 /* EmptyTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyTest.swift; sourceTree = "<group>"; };
+		2C08ADB626E80AC7001ECD75 /* PasswordHandlerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordHandlerTests.swift; sourceTree = "<group>"; };
 		2C0D49FD26E6ACE1006CD00D /* pre_compile.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = pre_compile.sh; sourceTree = "<group>"; };
 		2C0D4A0426E6B692006CD00D /* CorePassword+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CorePassword+CoreDataClass.swift"; sourceTree = "<group>"; };
 		2C0D4A0526E6B692006CD00D /* CorePassword+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CorePassword+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -243,6 +246,7 @@
 		2C08AD9726E80683001ECD75 /* Unit */ = {
 			isa = PBXGroup;
 			children = (
+				2C08ADB626E80AC7001ECD75 /* PasswordHandlerTests.swift */,
 				2C08AD9826E8068C001ECD75 /* Targets */,
 			);
 			path = Unit;
@@ -856,6 +860,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C08ADB426E80A40001ECD75 /* EmptyTest.swift in Sources */,
+				2C08ADB726E80AC7001ECD75 /* PasswordHandlerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -864,6 +869,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C08ADB526E80A40001ECD75 /* EmptyTest.swift in Sources */,
+				2C08ADB826E80AC7001ECD75 /* PasswordHandlerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
