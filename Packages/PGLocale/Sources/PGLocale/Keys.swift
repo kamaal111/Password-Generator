@@ -17,5 +17,6 @@ extension PGLocale {
         case NUMERALS
         case SYMBOLS
         case SAVE
+        case COPY
     }
 }

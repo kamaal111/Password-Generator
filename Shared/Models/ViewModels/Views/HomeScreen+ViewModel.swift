@@ -44,7 +44,7 @@ extension HomeScreen {
             currentPassword ?? PGLocale.Keys.PASSWORD_PLACEHOLDER.localized
         }
 
-        var showSaveButton: Bool {
+        var showSaveAndCopyButton: Bool {
             currentPassword != nil
         }
 
@@ -62,6 +62,10 @@ extension HomeScreen {
 
         func savePassword() {
             print("saving")
+        }
+
+        func copyPassword() {
+            print("copying")
         }
 
     }

@@ -41,9 +41,10 @@ struct HomeScreen: View {
                 .font(.headline)
                 .takeWidthEagerly()
                 .multilineTextAlignment(.center)
-            HomeBottomActions(
+            HomeMainActionButtons(
+                showSaveAndCopyButton: viewModel.showSaveAndCopyButton,
                 generateButtonIsEnabled: viewModel.generateButtonIsEnabled,
-                showSaveButton: viewModel.showSaveButton,
+                copyPassword: viewModel.copyPassword,
                 generatePassword: viewModel.generatePassword,
                 savePassword: viewModel.savePassword)
         }

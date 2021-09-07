@@ -9,6 +9,7 @@ const en = {
   NUMERALS: "Numerals",
   SYMBOLS: "Symbols",
   SAVE: "Save",
+  COPY: "Copy"
 };
 
 module.exports = en;
