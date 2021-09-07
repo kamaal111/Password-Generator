@@ -29,7 +29,7 @@ struct PasswordHandler {
         }
     }
 
-    var combinedCharacters: String {
+    private var combinedCharacters: String {
         numbers + lowers + uppers + symbols
     }
 
