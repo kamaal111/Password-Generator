@@ -25,6 +25,8 @@
 		2C0D4A0C26E6B72A006CD00D /* CoreDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0D4A0A26E6B72A006CD00D /* CoreDataModel.swift */; };
 		2C614B3C26E6A0070061FF82 /* PasswordHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C614B3B26E6A0070061FF82 /* PasswordHandler.swift */; };
 		2C614B3D26E6A0070061FF82 /* PasswordHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C614B3B26E6A0070061FF82 /* PasswordHandler.swift */; };
+		2C69071326E95909000B84EC /* CorePassword+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C69071226E95909000B84EC /* CorePassword+extensions.swift */; };
+		2C69071426E95909000B84EC /* CorePassword+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C69071226E95909000B84EC /* CorePassword+extensions.swift */; };
 		2C6AD43426E50124003AF55C /* Password_Generator.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2C6AD40826E50120003AF55C /* Password_Generator.xcdatamodeld */; };
 		2C6AD43526E50124003AF55C /* Password_Generator.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2C6AD40826E50120003AF55C /* Password_Generator.xcdatamodeld */; };
 		2C6AD43626E50124003AF55C /* Password_GeneratorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6AD40A26E50120003AF55C /* Password_GeneratorApp.swift */; };
@@ -130,6 +132,7 @@
 		2C0D4A0526E6B692006CD00D /* CorePassword+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CorePassword+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		2C0D4A0A26E6B72A006CD00D /* CoreDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataModel.swift; sourceTree = "<group>"; };
 		2C614B3B26E6A0070061FF82 /* PasswordHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordHandler.swift; sourceTree = "<group>"; };
+		2C69071226E95909000B84EC /* CorePassword+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CorePassword+extensions.swift"; sourceTree = "<group>"; };
 		2C6AD40926E50120003AF55C /* Shared.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Shared.xcdatamodel; sourceTree = "<group>"; };
 		2C6AD40A26E50120003AF55C /* Password_GeneratorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Password_GeneratorApp.swift; sourceTree = "<group>"; };
 		2C6AD40B26E50120003AF55C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -284,6 +287,14 @@
 				2C0D4A0526E6B692006CD00D /* CorePassword+CoreDataProperties.swift */,
 			);
 			path = CorePassword;
+			sourceTree = "<group>";
+		};
+		2C69071126E958EA000B84EC /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				2C69071226E95909000B84EC /* CorePassword+extensions.swift */,
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 		2C6AD40226E50120003AF55C = {
@@ -555,8 +566,9 @@
 			isa = PBXGroup;
 			children = (
 				2CA895C126E55B080057A82C /* Text+extensions.swift */,
-				2C6AD49B26E5150D003AF55C /* View+extensions.swift */,
 				2CA895D126E5661C0057A82C /* UserDefaults+extensions.swift */,
+				2C6AD49B26E5150D003AF55C /* View+extensions.swift */,
+				2C69071126E958EA000B84EC /* CoreData */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -884,6 +896,7 @@
 				2C6AD48526E50BFC003AF55C /* MainView.swift in Sources */,
 				2CA895C826E55EC60057A82C /* VerticalForm.swift in Sources */,
 				2C6AD4A026E51650003AF55C /* AppSizes.swift in Sources */,
+				2C69071326E95909000B84EC /* CorePassword+extensions.swift in Sources */,
 				2C6AD47B26E5093B003AF55C /* ScreenModel.swift in Sources */,
 				2CA895D226E5661C0057A82C /* UserDefaults+extensions.swift in Sources */,
 				2C6AD43A26E50124003AF55C /* Persistence.swift in Sources */,
@@ -918,6 +931,7 @@
 				2CA895D326E5661C0057A82C /* UserDefaults+extensions.swift in Sources */,
 				2C6AD47C26E5093B003AF55C /* ScreenModel.swift in Sources */,
 				2C6AD43B26E50124003AF55C /* Persistence.swift in Sources */,
+				2C69071426E95909000B84EC /* CorePassword+extensions.swift in Sources */,
 				2C0D4A0726E6B692006CD00D /* CorePassword+CoreDataClass.swift in Sources */,
 				2CA895D026E5618D0057A82C /* DeviceModel.swift in Sources */,
 				2C6AD48A26E50C60003AF55C /* HomeScreen.swift in Sources */,
