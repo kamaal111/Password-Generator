@@ -27,6 +27,7 @@ extension HomeScreen {
             didSet { UserDefaults.symbolsEnabled = symbolsEnabled }
         }
         @Published private var currentPassword: String?
+        @Published private var lastCopiedPassword: String?
 
         init() {
             self.letterLength = UserDefaults.letterLength ?? 16
@@ -34,6 +35,11 @@ extension HomeScreen {
             self.capitalLettersEnabled = UserDefaults.capitalLettersEnabled ?? true
             self.numeralsEnabled = UserDefaults.numeralsEnabled ?? true
             self.symbolsEnabled = UserDefaults.symbolsEnabled ?? true
+        }
+
+        var hasCopiedPassword: Bool {
+            guard let lastCopiedPassword = self.lastCopiedPassword else { return false }
+            return lastCopiedPassword == currentPassword
         }
 
         var generateButtonIsEnabled: Bool {
@@ -65,7 +71,18 @@ extension HomeScreen {
         }
 
         func copyPassword() {
-            print("copying")
+            guard let currentPassword = self.currentPassword, !hasCopiedPassword else { return }
+            #if os(macOS)
+            let pastboard = NSPasteboard.general
+            pastboard.clearContents()
+            pastboard.setString(currentPassword, forType: .string)
+            #else
+            let pastboard = UIPasteboard.general
+            pastboard.string = currentPassword
+            #endif
+            withAnimation { [weak self] in
+                self?.lastCopiedPassword = currentPassword
+            }
         }
 
     }

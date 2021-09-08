@@ -44,6 +44,7 @@ struct HomeScreen: View {
             HomeMainActionButtons(
                 showSaveAndCopyButton: viewModel.showSaveAndCopyButton,
                 generateButtonIsEnabled: viewModel.generateButtonIsEnabled,
+                hasCopiedPassword: viewModel.hasCopiedPassword,
                 copyPassword: viewModel.copyPassword,
                 generatePassword: viewModel.generatePassword,
                 savePassword: viewModel.savePassword)

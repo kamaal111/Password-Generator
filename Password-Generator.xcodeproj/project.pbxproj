@@ -531,6 +531,7 @@
 			isa = PBXGroup;
 			children = (
 				2C6AD48B26E50CAD003AF55C /* AppSidebar.swift */,
+				2C08AD8126E7FC33001ECD75 /* HomeMainActionButtons.swift */,
 				2C08AD7E26E7FB3A001ECD75 /* JustStack.swift */,
 				2C6AD48426E50BFC003AF55C /* MainView.swift */,
 				2C6AD49226E50E75003AF55C /* SidebarView.swift */,
@@ -538,7 +539,6 @@
 				2C6AD49526E51030003AF55C /* TabbarView.swift */,
 				2CA895D426E56BB70057A82C /* ToggleFormField.swift */,
 				2CA895C726E55EC60057A82C /* VerticalForm.swift */,
-				2C08AD8126E7FC33001ECD75 /* HomeMainActionButtons.swift */,
 			);
 			path = SupportingViews;
 			sourceTree = "<group>";

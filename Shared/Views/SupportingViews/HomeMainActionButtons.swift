@@ -10,6 +10,7 @@ import SwiftUI
 struct HomeMainActionButtons: View {
     let showSaveAndCopyButton: Bool
     let generateButtonIsEnabled: Bool
+    let hasCopiedPassword: Bool
     let copyPassword: () -> Void
     let generatePassword: () -> Void
     let savePassword: () -> Void
@@ -19,7 +20,13 @@ struct HomeMainActionButtons: View {
         HStack {
             if showSaveAndCopyButton {
                 Button(action: copyPassword) {
-                    Text(localized: .COPY)
+                    HStack {
+                        Text(localized: .COPY)
+                        if hasCopiedPassword {
+                            Image(systemName: "checkmark.circle.fill")
+                                .foregroundColor(.green)
+                        }
+                    }
                 }
             }
             Button(action: generatePassword) {
@@ -36,8 +43,14 @@ struct HomeMainActionButtons: View {
         JustStack {
             if showSaveAndCopyButton {
                 Button(action: copyPassword) {
-                    Text(localized: .COPY)
-                        .takeWidthEagerly()
+                    HStack {
+                        Text(localized: .COPY)
+                            .takeWidthEagerly()
+                        if hasCopiedPassword {
+                            Image(systemName: "checkmark.circle.fill")
+                                .foregroundColor(.green)
+                        }
+                    }
                 }
             }
             Button(action: generatePassword) {
@@ -61,6 +74,7 @@ struct HomeMainActionButtons_Previews: PreviewProvider {
         HomeMainActionButtons(
             showSaveAndCopyButton: true,
             generateButtonIsEnabled: true,
+            hasCopiedPassword: false,
             copyPassword: { },
             generatePassword: { },
             savePassword: { })
