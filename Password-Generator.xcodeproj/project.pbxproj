@@ -556,12 +556,12 @@
 				2C08AD8126E7FC33001ECD75 /* HomeMainActionButtons.swift */,
 				2C08AD7E26E7FB3A001ECD75 /* JustStack.swift */,
 				2C6AD48426E50BFC003AF55C /* MainView.swift */,
+				2C3E590A26EA7E4200F75F51 /* NameSheet.swift */,
 				2C6AD49226E50E75003AF55C /* SidebarView.swift */,
 				2CA895C426E55C9B0057A82C /* SpacedHStack.swift */,
 				2C6AD49526E51030003AF55C /* TabbarView.swift */,
 				2CA895D426E56BB70057A82C /* ToggleFormField.swift */,
 				2CA895C726E55EC60057A82C /* VerticalForm.swift */,
-				2C3E590A26EA7E4200F75F51 /* NameSheet.swift */,
 			);
 			path = SupportingViews;
 			sourceTree = "<group>";

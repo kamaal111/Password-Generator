@@ -26,16 +26,7 @@ final class CoreDataModel: ObservableObject {
     }
 
     func checkForDuplicates(_ password: String) -> Bool {
-        let entityName = String(describing: CorePassword.self)
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
-        fetchRequest.predicate = NSPredicate(format: "value == %@", password)
-        let fetchedPasswords: [CorePassword]
-        do {
-            fetchedPasswords = try persistenceController.context?.fetch(fetchRequest) as? [CorePassword] ?? []
-        } catch {
-            return false
-        }
-        return !fetchedPasswords.isEmpty
+        CorePassword.checkForDuplicatePasswords(password, context: persistenceController.context!)
     }
 
     func savePassword(of password: String, withName name: String) -> Bool {

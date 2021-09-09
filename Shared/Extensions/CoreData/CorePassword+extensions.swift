@@ -9,6 +9,8 @@ import Foundation
 import CoreData
 
 extension CorePassword {
+    static let entityName = String(describing: CorePassword.self)
+
     static func saveNew(args: Args, context: NSManagedObjectContext) -> Result<CorePassword, Error> {
         let password = CorePassword(context: context)
         password.id = UUID()
@@ -23,6 +25,18 @@ extension CorePassword {
             return .failure(error)
         }
         return .success(password)
+    }
+
+    static func checkForDuplicatePasswords(_ password: String, context: NSManagedObjectContext) -> Bool {
+        let fetchRequest = NSFetchRequest<CorePassword>(entityName: entityName)
+        fetchRequest.predicate = NSPredicate(format: "value == %@", password)
+        let fetchedPasswords: [CorePassword]
+        do {
+            fetchedPasswords = try context.fetch(fetchRequest)
+        } catch {
+            return false
+        }
+        return !fetchedPasswords.isEmpty
     }
 
     struct Args {
