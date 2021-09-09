@@ -24,10 +24,14 @@ final class CoreDataModel: ObservableObject {
         }
     }
 
-    func savePassword(_ password: String) -> Bool {
+    func savePassword(of password: String, withName name: String) -> Bool {
         guard let context = persistenceController.context else { return false }
+        var unwrappedName: String? = name
+        if name.replacingOccurrences(of: " ", with: "").isEmpty {
+            unwrappedName = nil
+        }
         let savedPasswordResult = CorePassword.saveNew(
-            args: .init(value: password),
+            args: .init(name: unwrappedName, value: password),
             context: context)
         let savedPassword: CorePassword
         switch savedPasswordResult {

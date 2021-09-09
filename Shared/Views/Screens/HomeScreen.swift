@@ -19,10 +19,8 @@ struct HomeScreen: View {
         view
             .padding(.all, .medium)
             .takeSizeEagerly(alignment: .topLeading)
-            .navigationTitle(Text(Constants.appName))
         #elseif os(iOS)
         view
-            .navigationTitle(Text(Constants.appName))
         #endif
     }
 
@@ -51,10 +49,14 @@ struct HomeScreen: View {
                 hasSavedPassword: viewModel.hasSavedPassword,
                 copyPassword: viewModel.copyPassword,
                 generatePassword: viewModel.generatePassword,
-                savePassword: {
-                    let success = coreDataModel.savePassword(viewModel.passwordLabel)
-                    viewModel.onPasswordSave(success: success)
-                })
+                savePassword: viewModel.openNameSheet)
+        }
+        .navigationTitle(Text(Constants.appName))
+        .sheet(isPresented: $viewModel.nameSheetIsShown) {
+            NameSheet(name: $viewModel.passwordName, onCommit: {
+                let success = coreDataModel.savePassword(of: viewModel.passwordLabel, withName: viewModel.passwordName)
+                viewModel.onPasswordSave(success: success)
+            }, onClose: viewModel.closeNameSheet)
         }
     }
 }

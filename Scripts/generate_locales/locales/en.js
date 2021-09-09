@@ -9,7 +9,9 @@ const en = {
   NUMERALS: "Numerals",
   SYMBOLS: "Symbols",
   SAVE: "Save",
-  COPY: "Copy"
+  COPY: "Copy",
+  CLOSE: "Close",
+  NAME: "Name",
 };
 
 module.exports = en;

@@ -29,6 +29,8 @@ extension HomeScreen {
         @Published private var currentPassword: String?
         @Published private var lastCopiedPassword: String?
         @Published private var lastSavedPassword: String?
+        @Published var nameSheetIsShown = false
+        @Published var passwordName = ""
 
         init() {
             self.letterLength = UserDefaults.letterLength ?? 16
@@ -60,6 +62,15 @@ extension HomeScreen {
             currentPassword != nil
         }
 
+        func openNameSheet() {
+            nameSheetIsShown = true
+        }
+
+        func closeNameSheet() {
+            nameSheetIsShown = false
+            passwordName = ""
+        }
+
         func generatePassword() {
             let passwordHandler = PasswordHandler(
                 enableLowers: lowercaseLettersEnabled,
@@ -75,7 +86,9 @@ extension HomeScreen {
         func onPasswordSave(success: Bool) {
             guard success else { return }
             withAnimation { [weak self] in
-                self?.lastSavedPassword = currentPassword
+                guard let self = self else { return }
+                self.lastSavedPassword = currentPassword
+                self.closeNameSheet()
             }
         }
 
