@@ -28,6 +28,7 @@ extension HomeScreen {
         }
         @Published private var currentPassword: String?
         @Published private var lastCopiedPassword: String?
+        @Published private var lastSavedPassword: String?
 
         init() {
             self.letterLength = UserDefaults.letterLength ?? 16
@@ -40,6 +41,11 @@ extension HomeScreen {
         var hasCopiedPassword: Bool {
             guard let lastCopiedPassword = self.lastCopiedPassword else { return false }
             return lastCopiedPassword == currentPassword
+        }
+
+        var hasSavedPassword: Bool {
+            guard let lastSavedPassword = self.lastSavedPassword else { return false }
+            return lastSavedPassword == currentPassword
         }
 
         var generateButtonIsEnabled: Bool {
@@ -66,8 +72,11 @@ extension HomeScreen {
             }
         }
 
-        func savePassword() {
-            print("saving")
+        func onPasswordSave(success: Bool) {
+            guard success else { return }
+            withAnimation { [weak self] in
+                self?.lastSavedPassword = currentPassword
+            }
         }
 
         func copyPassword() {

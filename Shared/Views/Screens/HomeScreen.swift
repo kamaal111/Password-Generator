@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct HomeScreen: View {
+    @EnvironmentObject
+    private var coreDataModel: CoreDataModel
+
     @StateObject
     private var viewModel = ViewModel()
 
@@ -45,9 +48,13 @@ struct HomeScreen: View {
                 showSaveAndCopyButton: viewModel.showSaveAndCopyButton,
                 generateButtonIsEnabled: viewModel.generateButtonIsEnabled,
                 hasCopiedPassword: viewModel.hasCopiedPassword,
+                hasSavedPassword: viewModel.hasSavedPassword,
                 copyPassword: viewModel.copyPassword,
                 generatePassword: viewModel.generatePassword,
-                savePassword: viewModel.savePassword)
+                savePassword: {
+                    let success = coreDataModel.savePassword(viewModel.passwordLabel)
+                    viewModel.onPasswordSave(success: success)
+                })
         }
     }
 }

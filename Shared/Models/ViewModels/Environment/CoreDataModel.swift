@@ -7,6 +7,8 @@
 
 import Foundation
 import PersistanceManager
+import ConsoleSwift
+import ShrimpExtensions
 
 final class CoreDataModel: ObservableObject {
 
@@ -22,8 +24,20 @@ final class CoreDataModel: ObservableObject {
         }
     }
 
-    func savePassword(_ password: String) {
-        print("save")
+    func savePassword(_ password: String) -> Bool {
+        guard let context = persistenceController.context else { return false }
+        let savedPasswordResult = CorePassword.saveNew(
+            args: .init(value: password),
+            context: context)
+        let savedPassword: CorePassword
+        switch savedPasswordResult {
+        case .failure(let failure):
+            console.error(Date(), failure.localizedDescription, failure)
+            return false
+        case .success(let success): savedPassword = success
+        }
+        passwords = passwords.prepended(savedPassword)
+        return true
     }
 
 }

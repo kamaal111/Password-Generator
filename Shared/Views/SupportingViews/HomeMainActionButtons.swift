@@ -11,6 +11,7 @@ struct HomeMainActionButtons: View {
     let showSaveAndCopyButton: Bool
     let generateButtonIsEnabled: Bool
     let hasCopiedPassword: Bool
+    let hasSavedPassword: Bool
     let copyPassword: () -> Void
     let generatePassword: () -> Void
     let savePassword: () -> Void
@@ -19,39 +20,21 @@ struct HomeMainActionButtons: View {
         #if os(macOS)
         HStack {
             if showSaveAndCopyButton {
-                Button(action: copyPassword) {
-                    HStack {
-                        Text(localized: .COPY)
-                        if hasCopiedPassword {
-                            Image(systemName: "checkmark.circle.fill")
-                                .foregroundColor(.green)
-                        }
-                    }
-                }
+                CheckButton(text: .COPY, check: hasCopiedPassword, action: copyPassword)
             }
             Button(action: generatePassword) {
                 Text(localized: .GENERATE_BUTTON)
             }
             .disabled(!generateButtonIsEnabled)
             if showSaveAndCopyButton {
-                Button(action: savePassword) {
-                    Text(localized: .SAVE)
-                }
+                CheckButton(text: .SAVE, check: hasSavedPassword, action: savePassword)
+                    .disabled(hasSavedPassword)
             }
         }
         #else
         JustStack {
             if showSaveAndCopyButton {
-                Button(action: copyPassword) {
-                    HStack {
-                        Text(localized: .COPY)
-                            .takeWidthEagerly()
-                        if hasCopiedPassword {
-                            Image(systemName: "checkmark.circle.fill")
-                                .foregroundColor(.green)
-                        }
-                    }
-                }
+                CheckButton(text: .COPY, check: hasCopiedPassword, action: copyPassword)
             }
             Button(action: generatePassword) {
                 Text(localized: .GENERATE_BUTTON)
@@ -59,10 +42,8 @@ struct HomeMainActionButtons: View {
             }
             .disabled(!generateButtonIsEnabled)
             if showSaveAndCopyButton {
-                Button(action: savePassword) {
-                    Text(localized: .SAVE)
-                        .takeWidthEagerly()
-                }
+                CheckButton(text: .SAVE, check: hasSavedPassword, action: savePassword)
+                    .disabled(hasSavedPassword)
             }
         }
         #endif
@@ -75,6 +56,7 @@ struct HomeMainActionButtons_Previews: PreviewProvider {
             showSaveAndCopyButton: true,
             generateButtonIsEnabled: true,
             hasCopiedPassword: false,
+            hasSavedPassword: true,
             copyPassword: { },
             generatePassword: { },
             savePassword: { })
