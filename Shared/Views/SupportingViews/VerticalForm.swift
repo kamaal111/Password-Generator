@@ -23,6 +23,8 @@ struct VerticalForm<Content: View>: View {
         VStack {
             content
         }
+        .padding(.all, .medium)
+        .takeSizeEagerly(alignment: .topLeading)
         #endif
     }
 }

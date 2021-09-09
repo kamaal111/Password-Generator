@@ -15,16 +15,6 @@ struct HomeScreen: View {
     private var viewModel = ViewModel()
 
     var body: some View {
-        #if os(macOS)
-        view
-            .padding(.all, .medium)
-            .takeSizeEagerly(alignment: .topLeading)
-        #elseif os(iOS)
-        view
-        #endif
-    }
-
-    private var view: some View {
         VerticalForm {
             SpacedHStack(left: {
                 Text(localized: .LENGTH_LABEL)

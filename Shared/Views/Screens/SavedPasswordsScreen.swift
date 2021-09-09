@@ -13,16 +13,21 @@ struct SavedPasswordsScreen: View {
 
     var body: some View {
         VerticalForm {
-            Section(header: Text(localized: .PASSWORDS)) {
+            Section(header: sectionHeader) {
                 ForEach(coreDataModel.savedPasswords, id: \.self) { password in
                     Text(password.value)
+                        .takeWidthEagerly(alignment: .leading)
                 }
             }
         }
         .navigationTitle(Text(localized: .SAVED_PASSWORDS))
-        .onAppear(perform: {
-            coreDataModel.fetchAllPasswords()
-        })
+        .onAppear(perform: coreDataModel.fetchAllPasswords)
+    }
+
+    private var sectionHeader: some View {
+        Text(localized: .PASSWORDS)
+            .foregroundColor(.secondary)
+            .takeWidthEagerly(alignment: .leading)
     }
 }
 
