@@ -17,12 +17,12 @@ struct NameSheet: View {
 
     var body: some View {
         KSheetStack(leadingNavigationButton: {
-            Button(action: onCommit) {
-                Text(localized: .SAVE)
-            }
-        }, trailingNavigationButton: {
             Button(action: onClose) {
                 Text(localized: .CLOSE)
+            }
+        }, trailingNavigationButton: {
+            Button(action: onCommit) {
+                Text(localized: .SAVE)
             }
         }) {
             VStack {

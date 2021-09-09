@@ -54,10 +54,29 @@ struct HomeScreen: View {
         .navigationTitle(Text(Constants.appName))
         .sheet(isPresented: $viewModel.nameSheetIsShown) {
             NameSheet(name: $viewModel.passwordName, onCommit: {
-                let success = coreDataModel.savePassword(of: viewModel.passwordLabel, withName: viewModel.passwordName)
-                viewModel.onPasswordSave(success: success)
-            }, onClose: viewModel.closeNameSheet)
+                let duplicateExists = coreDataModel.checkForDuplicates(viewModel.passwordLabel)
+                if !duplicateExists {
+                    savePassword()
+                } else {
+                    viewModel.closeNameSheet(keepName: true)
+                    viewModel.showDuplicatesExistAlertIsShown()
+                }
+            }, onClose: { viewModel.closeNameSheet(keepName: false) })
         }
+        .alert(isPresented: $viewModel.duplicatesExistAlertIsShown) {
+            Alert(
+                title: Text("Duplicate password"),
+                message: Text("Looks like you are trying to save a password that already has been saved, save anyway?"),
+                primaryButton: .default(Text("Sure"), action: savePassword),
+                secondaryButton: .cancel())
+        }
+    }
+
+    private func savePassword() {
+        let success = coreDataModel.savePassword(
+            of: viewModel.passwordLabel,
+            withName: viewModel.passwordName)
+        viewModel.onPasswordSave(success: success)
     }
 }
 

@@ -31,6 +31,7 @@ extension HomeScreen {
         @Published private var lastSavedPassword: String?
         @Published var nameSheetIsShown = false
         @Published var passwordName = ""
+        @Published var duplicatesExistAlertIsShown = false
 
         init() {
             self.letterLength = UserDefaults.letterLength ?? 16
@@ -62,13 +63,19 @@ extension HomeScreen {
             currentPassword != nil
         }
 
+        func showDuplicatesExistAlertIsShown() {
+            duplicatesExistAlertIsShown = true
+        }
+
         func openNameSheet() {
             nameSheetIsShown = true
         }
 
-        func closeNameSheet() {
+        func closeNameSheet(keepName: Bool) {
             nameSheetIsShown = false
-            passwordName = ""
+            if !keepName {
+                passwordName = ""
+            }
         }
 
         func generatePassword() {
@@ -88,7 +95,7 @@ extension HomeScreen {
             withAnimation { [weak self] in
                 guard let self = self else { return }
                 self.lastSavedPassword = currentPassword
-                self.closeNameSheet()
+                self.closeNameSheet(keepName: false)
             }
         }
 

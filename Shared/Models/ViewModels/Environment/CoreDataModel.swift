@@ -9,10 +9,11 @@ import Foundation
 import PersistanceManager
 import ConsoleSwift
 import ShrimpExtensions
+import CoreData
 
 final class CoreDataModel: ObservableObject {
 
-    @Published private var passwords: [CorePassword] = []
+    @Published private var savedPasswords: [CorePassword] = []
 
     let persistenceController: PersistanceManager
 
@@ -24,15 +25,27 @@ final class CoreDataModel: ObservableObject {
         }
     }
 
+    func checkForDuplicates(_ password: String) -> Bool {
+        let entityName = String(describing: CorePassword.self)
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
+        fetchRequest.predicate = NSPredicate(format: "value == %@", password)
+        let fetchedPasswords: [CorePassword]
+        do {
+            fetchedPasswords = try persistenceController.context?.fetch(fetchRequest) as? [CorePassword] ?? []
+        } catch {
+            return false
+        }
+        return !fetchedPasswords.isEmpty
+    }
+
     func savePassword(of password: String, withName name: String) -> Bool {
-        guard let context = persistenceController.context else { return false }
         var unwrappedName: String? = name
         if name.replacingOccurrences(of: " ", with: "").isEmpty {
             unwrappedName = nil
         }
         let savedPasswordResult = CorePassword.saveNew(
             args: .init(name: unwrappedName, value: password),
-            context: context)
+            context: persistenceController.context!)
         let savedPassword: CorePassword
         switch savedPasswordResult {
         case .failure(let failure):
@@ -40,7 +53,7 @@ final class CoreDataModel: ObservableObject {
             return false
         case .success(let success): savedPassword = success
         }
-        passwords = passwords.prepended(savedPassword)
+        savedPasswords = savedPasswords.prepended(savedPassword)
         return true
     }
 
