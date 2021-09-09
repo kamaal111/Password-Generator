@@ -13,6 +13,11 @@ const en = {
   CLOSE: "Close",
   NAME: "Name",
   SAVED_PASSWORDS: "Saved passwords",
+  PASSWORDS: "Passwords",
+  DUPLICATE_PASSWORDS: "Duplicate password",
+  DUPLICATE_PASSWORDS_MESSAGE:
+    "Looks like you are trying to save a password that already has been saved, save anyway?",
+  SURE: "Sure",
 };
 
 module.exports = en;

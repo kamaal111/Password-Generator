@@ -65,9 +65,9 @@ struct HomeScreen: View {
         }
         .alert(isPresented: $viewModel.duplicatesExistAlertIsShown) {
             Alert(
-                title: Text("Duplicate password"),
-                message: Text("Looks like you are trying to save a password that already has been saved, save anyway?"),
-                primaryButton: .default(Text("Sure"), action: savePassword),
+                title: Text(localized: .DUPLICATE_PASSWORDS),
+                message: Text(localized: .DUPLICATE_PASSWORDS_MESSAGE),
+                primaryButton: .default(Text(localized: .SURE), action: savePassword),
                 secondaryButton: .cancel())
         }
     }

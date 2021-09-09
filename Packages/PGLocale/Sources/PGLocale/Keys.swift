@@ -21,5 +21,9 @@ extension PGLocale {
         case CLOSE
         case NAME
         case SAVED_PASSWORDS
+        case PASSWORDS
+        case DUPLICATE_PASSWORDS
+        case DUPLICATE_PASSWORDS_MESSAGE
+        case SURE
     }
 }

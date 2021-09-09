@@ -13,7 +13,7 @@ struct SavedPasswordsScreen: View {
 
     var body: some View {
         VerticalForm {
-            Section(header: Text("passwords")) {
+            Section(header: Text(localized: .PASSWORDS)) {
                 ForEach(coreDataModel.savedPasswords, id: \.self) { password in
                     Text(password.value)
                 }
