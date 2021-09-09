@@ -39,6 +39,17 @@ extension CorePassword {
         return !fetchedPasswords.isEmpty
     }
 
+    static func fetchAllPasswords(context: NSManagedObjectContext) -> Result<[CorePassword], Error> {
+        let fetchRequest = NSFetchRequest<CorePassword>(entityName: entityName)
+        let fetchedPasswords: [CorePassword]
+        do {
+            fetchedPasswords = try context.fetch(fetchRequest)
+        } catch {
+            return .failure(error)
+        }
+        return .success(fetchedPasswords)
+    }
+
     struct Args {
         let name: String?
         let value: String

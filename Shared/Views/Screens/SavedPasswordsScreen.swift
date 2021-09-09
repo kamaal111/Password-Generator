@@ -8,13 +8,27 @@
 import SwiftUI
 
 struct SavedPasswordsScreen: View {
+    @EnvironmentObject
+    private var coreDataModel: CoreDataModel
+
     var body: some View {
-        Text("Hello, World!")
+        VerticalForm {
+            Section(header: Text("passwords")) {
+                ForEach(coreDataModel.savedPasswords, id: \.self) { password in
+                    Text(password.value)
+                }
+            }
+        }
+        .navigationTitle(Text(localized: .SAVED_PASSWORDS))
+        .onAppear(perform: {
+            coreDataModel.fetchAllPasswords()
+        })
     }
 }
 
 struct SavedPasswordsScreen_Previews: PreviewProvider {
     static var previews: some View {
         SavedPasswordsScreen()
+            .environmentObject(CoreDataModel(preview: true))
     }
 }

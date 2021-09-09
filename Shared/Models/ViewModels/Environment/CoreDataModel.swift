@@ -13,7 +13,7 @@ import CoreData
 
 final class CoreDataModel: ObservableObject {
 
-    @Published private var savedPasswords: [CorePassword] = []
+    @Published private(set) var savedPasswords: [CorePassword] = []
 
     let persistenceController: PersistanceManager
 
@@ -27,6 +27,18 @@ final class CoreDataModel: ObservableObject {
 
     func checkForDuplicates(_ password: String) -> Bool {
         CorePassword.checkForDuplicatePasswords(password, context: persistenceController.context!)
+    }
+
+    func fetchAllPasswords() {
+        let allPasswordsResult = CorePassword.fetchAllPasswords(context: persistenceController.context!)
+        let allPasswords: [CorePassword]
+        switch allPasswordsResult {
+        case .failure(let failure):
+            console.error(Date(), failure.localizedDescription, failure)
+            return
+        case .success(let success): allPasswords = success
+        }
+        savedPasswords = allPasswords.reversed()
     }
 
     func savePassword(of password: String, withName name: String) -> Bool {
