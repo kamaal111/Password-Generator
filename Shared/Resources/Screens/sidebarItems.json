@@ -4,5 +4,11 @@
         "title": "HOME_SCREEN_TITLE",
         "system_image": "house.fill",
         "navigation_point": 0
+    },
+    {
+        "id": "46ff0a59-3a4c-452e-9b36-8d05c0e3e34b",
+        "title": "SAVED_PASSWORDS",
+        "system_image": "lock.fill",
+        "navigation_point": 1
     }
 ]

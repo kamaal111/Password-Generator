@@ -16,6 +16,7 @@ final class NamiNavigator: ObservableObject {
 
     enum NavigationStacks: Int, CaseIterable, Codable {
         case home = 0
+        case savedPasswords = 1
     }
 
     func navigateToStack(_ screen: NavigationStacks?) {

@@ -12,7 +12,8 @@ struct MainView: View {
 
     var body: some View {
         switch selectedStack {
-        case .none, .home: return HomeScreen()
+        case .none, .home: HomeScreen()
+        case .savedPasswords: SavedPasswordsScreen()
         }
     }
 }

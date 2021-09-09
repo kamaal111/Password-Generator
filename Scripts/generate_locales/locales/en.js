@@ -12,6 +12,7 @@ const en = {
   COPY: "Copy",
   CLOSE: "Close",
   NAME: "Name",
+  SAVED_PASSWORDS: "Saved passwords",
 };
 
 module.exports = en;

@@ -20,5 +20,6 @@ extension PGLocale {
         case COPY
         case CLOSE
         case NAME
+        case SAVED_PASSWORDS
     }
 }
