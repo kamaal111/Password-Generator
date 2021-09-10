@@ -18,7 +18,7 @@ struct SavedPasswordListItem: View {
     var body: some View {
         #if os(macOS)
         Button(action: onPress) {
-            Text(password.value)
+            Text(displayText)
                 .bold()
                 .takeWidthEagerly(alignment: .leading)
                 .padding(.vertical, 2)
@@ -30,11 +30,22 @@ struct SavedPasswordListItem: View {
         })
         #else
         Button(action: onPress) {
-            Text(password.value)
+            Text(displayText)
                 .bold()
         }
         #endif
     }
+
+    private var displayText: String {
+        password.name ?? Self.dateFormatter.string(from: password.creationDate)
+    }
+
+    private static let dateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium
+        formatter.timeStyle = .short
+        return formatter
+    }()
 }
 
 // struct SavedPasswordListItem_Previews: PreviewProvider {
