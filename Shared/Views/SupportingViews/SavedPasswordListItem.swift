@@ -28,6 +28,16 @@ struct SavedPasswordListItem: View {
         .onHover(perform: { hovering in
             isHovering = hovering
         })
+        .contextMenu {
+            Button(action: { print("copy password", password) }) {
+                // - TODO: LOCALIZE THIS
+                Text("Copy password")
+            }
+            Button(action: { print("copy name", password) }) {
+                // - TODO: LOCALIZE THIS
+                Text("Copy name")
+            }
+        }
         #else
         Button(action: onPress) {
             Text(displayText)
