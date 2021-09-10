@@ -87,6 +87,8 @@
 		2CA895D326E5661C0057A82C /* UserDefaults+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA895D126E5661C0057A82C /* UserDefaults+extensions.swift */; };
 		2CA895D526E56BB70057A82C /* ToggleFormField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA895D426E56BB70057A82C /* ToggleFormField.swift */; };
 		2CA895D626E56BB70057A82C /* ToggleFormField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA895D426E56BB70057A82C /* ToggleFormField.swift */; };
+		2CE97ED026EBFD14004D799A /* SavedPasswordListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE97ECF26EBFD14004D799A /* SavedPasswordListItem.swift */; };
+		2CE97ED126EBFD14004D799A /* SavedPasswordListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE97ECF26EBFD14004D799A /* SavedPasswordListItem.swift */; };
 		2CFD1D0A26EAA1FD00B7DF4F /* SavedPasswordsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CFD1D0926EAA1FD00B7DF4F /* SavedPasswordsScreen.swift */; };
 		2CFD1D0B26EAA1FD00B7DF4F /* SavedPasswordsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CFD1D0926EAA1FD00B7DF4F /* SavedPasswordsScreen.swift */; };
 /* End PBXBuildFile section */
@@ -183,6 +185,7 @@
 		2CA895CE26E5618D0057A82C /* DeviceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceModel.swift; sourceTree = "<group>"; };
 		2CA895D126E5661C0057A82C /* UserDefaults+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+extensions.swift"; sourceTree = "<group>"; };
 		2CA895D426E56BB70057A82C /* ToggleFormField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleFormField.swift; sourceTree = "<group>"; };
+		2CE97ECF26EBFD14004D799A /* SavedPasswordListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedPasswordListItem.swift; sourceTree = "<group>"; };
 		2CFD1D0926EAA1FD00B7DF4F /* SavedPasswordsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedPasswordsScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -560,6 +563,7 @@
 				2C08AD7E26E7FB3A001ECD75 /* JustStack.swift */,
 				2C6AD48426E50BFC003AF55C /* MainView.swift */,
 				2C3E590A26EA7E4200F75F51 /* NameSheet.swift */,
+				2CE97ECF26EBFD14004D799A /* SavedPasswordListItem.swift */,
 				2C6AD49226E50E75003AF55C /* SidebarView.swift */,
 				2CA895C426E55C9B0057A82C /* SpacedHStack.swift */,
 				2C6AD49526E51030003AF55C /* TabbarView.swift */,
@@ -915,6 +919,7 @@
 				2CA895D526E56BB70057A82C /* ToggleFormField.swift in Sources */,
 				2C6AD48526E50BFC003AF55C /* MainView.swift in Sources */,
 				2CA895C826E55EC60057A82C /* VerticalForm.swift in Sources */,
+				2CE97ED026EBFD14004D799A /* SavedPasswordListItem.swift in Sources */,
 				2C6AD4A026E51650003AF55C /* AppSizes.swift in Sources */,
 				2C69071326E95909000B84EC /* CorePassword+extensions.swift in Sources */,
 				2C3E590326EA7AD200F75F51 /* CheckButton.swift in Sources */,
@@ -946,6 +951,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2CE97ED126EBFD14004D799A /* SavedPasswordListItem.swift in Sources */,
 				2C6AD43726E50124003AF55C /* Password_GeneratorApp.swift in Sources */,
 				2C6AD49A26E51358003AF55C /* Constants.swift in Sources */,
 				2C6AD48626E50BFC003AF55C /* MainView.swift in Sources */,
@@ -1497,7 +1503,7 @@
 			repositoryURL = "https://github.com/kamaal111/SalmonUI.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 4.1.0;
+				minimumVersion = 4.2.0;
 			};
 		};
 		2C6AD44E26E502AF003AF55C /* XCRemoteSwiftPackageReference "ConsoleSwift" */ = {

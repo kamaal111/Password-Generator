@@ -14,10 +14,17 @@ struct SavedPasswordsScreen: View {
     var body: some View {
         VerticalForm {
             Section(header: sectionHeader) {
-                ForEach(coreDataModel.savedPasswords, id: \.self) { password in
-                    Text(password.value)
-                        .takeWidthEagerly(alignment: .leading)
+                #if os(macOS)
+                ScrollView {
+                    ForEach(coreDataModel.savedPasswords, id: \.self) { password in
+                        SavedPasswordListItem(password: password, onPress: { onPasswordPress(password) })
+                    }
                 }
+                #else
+                ForEach(coreDataModel.savedPasswords, id: \.self) { password in
+                    SavedPasswordListItem(password: password, onPress: { onPasswordPress(password) })
+                }
+                #endif
             }
         }
         .navigationTitle(Text(localized: .SAVED_PASSWORDS))
@@ -28,6 +35,10 @@ struct SavedPasswordsScreen: View {
         Text(localized: .PASSWORDS)
             .foregroundColor(.secondary)
             .takeWidthEagerly(alignment: .leading)
+    }
+
+    private func onPasswordPress(_ password: CorePassword) {
+        print(password)
     }
 }
 
