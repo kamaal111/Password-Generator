@@ -14,6 +14,7 @@ import CoreData
 final class CoreDataModel: ObservableObject {
 
     @Published private(set) var savedPasswords: [CorePassword] = []
+    @Published private(set) var lastGeneratedPassword: String?
 
     let persistenceController: PersistanceManager
 
@@ -23,6 +24,10 @@ final class CoreDataModel: ObservableObject {
         } else {
             self.persistenceController = PersistenceController.shared
         }
+    }
+
+    func setLastGeneratedPassword(with password: String) {
+        lastGeneratedPassword = password
     }
 
     func checkForDuplicates(_ password: String) -> Bool {

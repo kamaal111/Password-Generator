@@ -60,6 +60,10 @@ struct HomeScreen: View {
                 primaryButton: .default(Text(localized: .SURE), action: savePassword),
                 secondaryButton: .cancel())
         }
+        .onChange(of: viewModel.currentPassword) { changedCurrentPassword in
+            guard let changedCurrentPassword = changedCurrentPassword else { return }
+            coreDataModel.setLastGeneratedPassword(with: changedCurrentPassword)
+        }
     }
 
     private func savePassword() {

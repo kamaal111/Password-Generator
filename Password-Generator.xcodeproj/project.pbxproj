@@ -89,6 +89,8 @@
 		2CA895D626E56BB70057A82C /* ToggleFormField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA895D426E56BB70057A82C /* ToggleFormField.swift */; };
 		2CE97ED026EBFD14004D799A /* SavedPasswordListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE97ECF26EBFD14004D799A /* SavedPasswordListItem.swift */; };
 		2CE97ED126EBFD14004D799A /* SavedPasswordListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE97ECF26EBFD14004D799A /* SavedPasswordListItem.swift */; };
+		2CE97ED326EC03BF004D799A /* Notification.Name+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE97ED226EC03BF004D799A /* Notification.Name+extensions.swift */; };
+		2CE97ED426EC03BF004D799A /* Notification.Name+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE97ED226EC03BF004D799A /* Notification.Name+extensions.swift */; };
 		2CFD1D0A26EAA1FD00B7DF4F /* SavedPasswordsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CFD1D0926EAA1FD00B7DF4F /* SavedPasswordsScreen.swift */; };
 		2CFD1D0B26EAA1FD00B7DF4F /* SavedPasswordsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CFD1D0926EAA1FD00B7DF4F /* SavedPasswordsScreen.swift */; };
 /* End PBXBuildFile section */
@@ -186,6 +188,7 @@
 		2CA895D126E5661C0057A82C /* UserDefaults+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+extensions.swift"; sourceTree = "<group>"; };
 		2CA895D426E56BB70057A82C /* ToggleFormField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleFormField.swift; sourceTree = "<group>"; };
 		2CE97ECF26EBFD14004D799A /* SavedPasswordListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedPasswordListItem.swift; sourceTree = "<group>"; };
+		2CE97ED226EC03BF004D799A /* Notification.Name+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification.Name+extensions.swift"; sourceTree = "<group>"; };
 		2CFD1D0926EAA1FD00B7DF4F /* SavedPasswordsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedPasswordsScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -585,6 +588,7 @@
 		2C6AD48E26E50DDB003AF55C /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				2CE97ED226EC03BF004D799A /* Notification.Name+extensions.swift */,
 				2CA895C126E55B080057A82C /* Text+extensions.swift */,
 				2CA895D126E5661C0057A82C /* UserDefaults+extensions.swift */,
 				2C6AD49B26E5150D003AF55C /* View+extensions.swift */,
@@ -926,6 +930,7 @@
 				2C6AD47B26E5093B003AF55C /* ScreenModel.swift in Sources */,
 				2CA895D226E5661C0057A82C /* UserDefaults+extensions.swift in Sources */,
 				2C6AD43A26E50124003AF55C /* Persistence.swift in Sources */,
+				2CE97ED326EC03BF004D799A /* Notification.Name+extensions.swift in Sources */,
 				2C6AD48926E50C60003AF55C /* HomeScreen.swift in Sources */,
 				2C08AD8226E7FC33001ECD75 /* HomeMainActionButtons.swift in Sources */,
 				2C6AD49626E51030003AF55C /* TabbarView.swift in Sources */,
@@ -957,6 +962,7 @@
 				2C6AD48626E50BFC003AF55C /* MainView.swift in Sources */,
 				2C08AD8326E7FC33001ECD75 /* HomeMainActionButtons.swift in Sources */,
 				2CA895D326E5661C0057A82C /* UserDefaults+extensions.swift in Sources */,
+				2CE97ED426EC03BF004D799A /* Notification.Name+extensions.swift in Sources */,
 				2C6AD47C26E5093B003AF55C /* ScreenModel.swift in Sources */,
 				2C3E590426EA7AD200F75F51 /* CheckButton.swift in Sources */,
 				2C6AD43B26E50124003AF55C /* Persistence.swift in Sources */,

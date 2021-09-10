@@ -31,6 +31,14 @@ struct ContentView: View {
             .environmentObject(namiNavigator)
             .environmentObject(deviceModel)
             .environmentObject(coreDataModel)
+            .onCopyCommand(perform: {
+                var items: [NSItemProvider] = []
+                if let lastGeneratedPassword = coreDataModel.lastGeneratedPassword {
+                    NotificationCenter.default.post(name: .copyShortcutTriggered, object: lastGeneratedPassword)
+                    items.append(NSItemProvider(object: lastGeneratedPassword as NSItemProviderWriting))
+                }
+                return items
+            })
     }
 }
 

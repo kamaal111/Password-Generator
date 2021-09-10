@@ -26,7 +26,7 @@ extension HomeScreen {
         @Published var symbolsEnabled: Bool {
             didSet { UserDefaults.symbolsEnabled = symbolsEnabled }
         }
-        @Published private var currentPassword: String?
+        @Published private(set) var currentPassword: String?
         @Published private var lastCopiedPassword: String?
         @Published private var lastSavedPassword: String?
         @Published var nameSheetIsShown = false
@@ -39,6 +39,12 @@ extension HomeScreen {
             self.capitalLettersEnabled = UserDefaults.capitalLettersEnabled ?? true
             self.numeralsEnabled = UserDefaults.numeralsEnabled ?? true
             self.symbolsEnabled = UserDefaults.symbolsEnabled ?? true
+
+            setupObservers()
+        }
+
+        deinit {
+            removeObservers()
         }
 
         var hasCopiedPassword: Bool {
@@ -100,18 +106,37 @@ extension HomeScreen {
         }
 
         func copyPassword() {
-            guard let currentPassword = self.currentPassword, !hasCopiedPassword else { return }
+            guard let currentPassword = self.currentPassword else { return }
             #if os(macOS)
-            let pastboard = NSPasteboard.general
-            pastboard.clearContents()
-            pastboard.setString(currentPassword, forType: .string)
+            let pasteboard = NSPasteboard.general
+            pasteboard.declareTypes([.string], owner: nil)
+            pasteboard.setString(currentPassword, forType: .string)
             #else
-            let pastboard = UIPasteboard.general
-            pastboard.string = currentPassword
+            let pasteboard = UIPasteboard.general
+            pasteboard.string = currentPassword
             #endif
             withAnimation { [weak self] in
                 self?.lastCopiedPassword = currentPassword
             }
+        }
+
+        private func setupObservers() {
+            NotificationCenter.default.addObserver(
+                self,
+                selector: #selector(handleCopyShortcutTriggeredNotification),
+                name: .copyShortcutTriggered,
+                object: nil)
+        }
+
+        private func removeObservers() {
+            NotificationCenter.default.removeObserver(self, name: .copyShortcutTriggered, object: nil)
+        }
+
+        @objc
+        private func handleCopyShortcutTriggeredNotification(_ notifcation: Notification? = nil) {
+            guard let notificationPassword = notifcation?.object as? String,
+                  notificationPassword == currentPassword else { return }
+            copyPassword()
         }
 
     }
