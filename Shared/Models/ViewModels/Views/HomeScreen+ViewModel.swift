@@ -121,15 +121,19 @@ extension HomeScreen {
         }
 
         private func setupObservers() {
+            #if os(macOS)
             NotificationCenter.default.addObserver(
                 self,
                 selector: #selector(handleCopyShortcutTriggeredNotification),
                 name: .copyShortcutTriggered,
                 object: nil)
+            #endif
         }
 
         private func removeObservers() {
+            #if os(macOS)
             NotificationCenter.default.removeObserver(self, name: .copyShortcutTriggered, object: nil)
+            #endif
         }
 
         @objc

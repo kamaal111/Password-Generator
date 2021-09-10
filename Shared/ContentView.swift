@@ -20,7 +20,15 @@ struct ContentView: View {
         #if os(macOS)
         injectViewWithEnvironment(
             MacContentView()
-                .frame(minWidth: 305, minHeight: 305))
+                .frame(minWidth: 305, minHeight: 305)
+                .onCopyCommand(perform: {
+                    var items: [NSItemProvider] = []
+                    if let lastGeneratedPassword = coreDataModel.lastGeneratedPassword {
+                        NotificationCenter.default.post(name: .copyShortcutTriggered, object: lastGeneratedPassword)
+                        items.append(NSItemProvider(object: lastGeneratedPassword as NSItemProviderWriting))
+                    }
+                    return items
+                }))
         #else
         injectViewWithEnvironment(IOSContentView())
         #endif
@@ -31,14 +39,6 @@ struct ContentView: View {
             .environmentObject(namiNavigator)
             .environmentObject(deviceModel)
             .environmentObject(coreDataModel)
-            .onCopyCommand(perform: {
-                var items: [NSItemProvider] = []
-                if let lastGeneratedPassword = coreDataModel.lastGeneratedPassword {
-                    NotificationCenter.default.post(name: .copyShortcutTriggered, object: lastGeneratedPassword)
-                    items.append(NSItemProvider(object: lastGeneratedPassword as NSItemProviderWriting))
-                }
-                return items
-            })
     }
 }
 

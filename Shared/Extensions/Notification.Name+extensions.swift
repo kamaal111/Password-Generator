@@ -8,7 +8,9 @@
 import Foundation
 
 extension Notification.Name {
+    #if os(macOS)
     static let copyShortcutTriggered = Notification.Name(constructKey(with: "copyShortcutTriggered"))
+    #endif
 
     private static func constructKey(with value: String) -> String {
         "\(Constants.bundleIdentifier).notifications.\(value)"
