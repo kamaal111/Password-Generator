@@ -43,6 +43,16 @@ struct SavedPasswordListItem: View {
             Text(displayText)
                 .bold()
         }
+        .contextMenu {
+            Button(action: { print("copy password", password) }) {
+                // - TODO: LOCALIZE THIS
+                Text("Copy password")
+            }
+            Button(action: { print("copy name", password) }) {
+                // - TODO: LOCALIZE THIS
+                Text("Copy name")
+            }
+        }
         #endif
     }
 
