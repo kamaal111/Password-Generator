@@ -30,12 +30,10 @@ struct SavedPasswordListItem: View {
         })
         .contextMenu {
             Button(action: { print("copy password", password) }) {
-                // - TODO: LOCALIZE THIS
-                Text("Copy password")
+                Text(localized: .COPY_PASSWORD)
             }
             Button(action: { print("copy name", password) }) {
-                // - TODO: LOCALIZE THIS
-                Text("Copy name")
+                Text(localized: .COPY_NAME)
             }
         }
         #else
@@ -45,12 +43,10 @@ struct SavedPasswordListItem: View {
         }
         .contextMenu {
             Button(action: { print("copy password", password) }) {
-                // - TODO: LOCALIZE THIS
-                Text("Copy password")
+                Text(localized: .COPY_PASSWORD)
             }
             Button(action: { print("copy name", password) }) {
-                // - TODO: LOCALIZE THIS
-                Text("Copy name")
+                Text(localized: .COPY_NAME)
             }
         }
         #endif

@@ -18,6 +18,8 @@ const en = {
   DUPLICATE_PASSWORDS_MESSAGE:
     "Looks like you are trying to save a password that already has been saved, save anyway?",
   SURE: "Sure",
+  COPY_PASSWORD: "Copy password",
+  COPY_NAME: "Copy name",
 };
 
 module.exports = en;

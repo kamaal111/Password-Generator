@@ -25,5 +25,7 @@ extension PGLocale {
         case DUPLICATE_PASSWORDS
         case DUPLICATE_PASSWORDS_MESSAGE
         case SURE
+        case COPY_PASSWORD
+        case COPY_NAME
     }
 }
