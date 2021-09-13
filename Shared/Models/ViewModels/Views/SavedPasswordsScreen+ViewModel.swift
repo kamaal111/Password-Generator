@@ -16,10 +16,6 @@ extension SavedPasswordsScreen {
             password.id == lastCopiedPasswordID
         }
 
-        func onPasswordPress(_ password: CorePassword) {
-            print(password)
-        }
-
         func copyPassword(from password: CorePassword) {
             Clipboard.copy(password.value)
             handlePasswordValueCopy(password)

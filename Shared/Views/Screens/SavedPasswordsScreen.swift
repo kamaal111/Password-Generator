@@ -13,6 +13,8 @@ struct SavedPasswordsScreen: View {
 
     @StateObject
     private var viewModel = ViewModel()
+    @StateObject
+    private var stackNavigator = StackNavigator(registeredScreens: [.savedPasswordDetails])
 
     var body: some View {
         VerticalForm {
@@ -23,7 +25,7 @@ struct SavedPasswordsScreen: View {
                         SavedPasswordListItem(
                             password: password,
                             hasBeenLastCopied: viewModel.hasBeenLastCopied(password),
-                            onPress: { viewModel.onPasswordPress(password) })
+                            onPress: { stackNavigator.navigate(to: .savedPasswordDetails) })
                             .contextMenu {
                                 Button(action: { viewModel.copyPassword(from: password) }) {
                                     Text(localized: .COPY_PASSWORD)
@@ -45,12 +47,40 @@ struct SavedPasswordsScreen: View {
         }
         .navigationTitle(Text(localized: .SAVED_PASSWORDS))
         .onAppear(perform: coreDataModel.fetchAllPasswords)
+        .withNavigationPoints(stackNavigator.registeredScreens, selectedScreen: $stackNavigator.selectedScreen)
     }
 
     private var sectionHeader: some View {
         Text(localized: .PASSWORDS)
             .foregroundColor(.secondary)
             .takeWidthEagerly(alignment: .leading)
+    }
+}
+
+extension View {
+    func withNavigationPoints(
+        _ registeredScreens: [StackNavigator.Screens],
+        selectedScreen: Binding<StackNavigator.Screens?>) -> some View {
+        #if os(iOS)
+        ZStack {
+            ForEach(registeredScreens, id: \.self) { screen in
+                NavigationLink(
+                    destination: screen.view,
+                    tag: screen,
+                    selection: selectedScreen,
+                    label: { EmptyView() })
+            }
+            self
+        }
+        #else
+        ZStack {
+            if let view = selectedScreen.wrappedValue?.view {
+                view
+            } else {
+                self
+            }
+        }
+        #endif
     }
 }
 
