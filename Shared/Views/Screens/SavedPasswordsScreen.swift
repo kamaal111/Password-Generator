@@ -20,7 +20,10 @@ struct SavedPasswordsScreen: View {
                 #if os(macOS)
                 ScrollView {
                     ForEach(coreDataModel.savedPasswords, id: \.self) { password in
-                        SavedPasswordListItem(password: password, onPress: { viewModel.onPasswordPress(password) })
+                        SavedPasswordListItem(
+                            password: password,
+                            hasBeenLastCopied: viewModel.hasBeenLastCopied(password),
+                            onPress: { viewModel.onPasswordPress(password) })
                             .contextMenu {
                                 Button(action: { viewModel.copyPassword(from: password) }) {
                                     Text(localized: .COPY_PASSWORD)

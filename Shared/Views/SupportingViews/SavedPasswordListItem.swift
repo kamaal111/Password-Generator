@@ -13,14 +13,13 @@ struct SavedPasswordListItem: View {
     #endif
 
     let password: CorePassword
+    let hasBeenLastCopied: Bool
     let onPress: () -> Void
 
     var body: some View {
         #if os(macOS)
         Button(action: onPress) {
-            Text(displayText)
-                .bold()
-                .takeWidthEagerly(alignment: .leading)
+            buttonInnerView
                 .padding(.top, 1)
         }
         .buttonStyle(PlainButtonStyle())
@@ -30,10 +29,21 @@ struct SavedPasswordListItem: View {
         })
         #else
         Button(action: onPress) {
-            Text(displayText)
-                .bold()
+            buttonInnerView
         }
         #endif
+    }
+
+    private var buttonInnerView: some View {
+        HStack {
+            Text(displayText)
+                .bold()
+            Spacer()
+            if hasBeenLastCopied {
+                Image(systemName: "checkmark.circle.fill")
+                    .foregroundColor(.green)
+            }
+        }
     }
 
     private var displayText: String {
