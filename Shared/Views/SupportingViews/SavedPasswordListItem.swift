@@ -17,39 +17,27 @@ struct SavedPasswordListItem: View {
 
     var body: some View {
         #if os(macOS)
-        contextMenuWrappedView(Button(action: onPress) {
+        Button(action: onPress) {
             Text(displayText)
                 .bold()
                 .takeWidthEagerly(alignment: .leading)
-                .padding(.vertical, 2)
+                .padding(.top, 1)
         }
         .buttonStyle(PlainButtonStyle())
         .foregroundColor(isHovering ? .accentColor : .primary)
         .onHover(perform: { hovering in
             isHovering = hovering
-        }))
+        })
         #else
-        contextMenuWrappedView(Button(action: onPress) {
+        Button(action: onPress) {
             Text(displayText)
                 .bold()
-        })
+        }
         #endif
     }
 
     private var displayText: String {
         password.name ?? Self.dateFormatter.string(from: password.creationDate)
-    }
-
-    private func contextMenuWrappedView<V: View>(_ view: V) -> some View {
-        view
-            .contextMenu {
-                Button(action: { print("copy password", password) }) {
-                    Text(localized: .COPY_PASSWORD)
-                }
-                Button(action: { print("copy name", password) }) {
-                    Text(localized: .COPY_NAME)
-                }
-            }
     }
 
     private static let dateFormatter: DateFormatter = {

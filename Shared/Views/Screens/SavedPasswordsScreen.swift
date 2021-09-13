@@ -11,13 +11,26 @@ struct SavedPasswordsScreen: View {
     @EnvironmentObject
     private var coreDataModel: CoreDataModel
 
+    @StateObject
+    private var viewModel = ViewModel()
+
     var body: some View {
         VerticalForm {
             Section(header: sectionHeader) {
                 #if os(macOS)
                 ScrollView {
                     ForEach(coreDataModel.savedPasswords, id: \.self) { password in
-                        SavedPasswordListItem(password: password, onPress: { onPasswordPress(password) })
+                        SavedPasswordListItem(password: password, onPress: { viewModel.onPasswordPress(password) })
+                            .contextMenu {
+                                Button(action: { viewModel.copyPassword(from: password) }) {
+                                    Text(localized: .COPY_PASSWORD)
+                                }
+                                if password.name != nil {
+                                    Button(action: { viewModel.copyName(from: password) }) {
+                                        Text(localized: .COPY_NAME)
+                                    }
+                                }
+                            }
                     }
                 }
                 #else
@@ -35,10 +48,6 @@ struct SavedPasswordsScreen: View {
         Text(localized: .PASSWORDS)
             .foregroundColor(.secondary)
             .takeWidthEagerly(alignment: .leading)
-    }
-
-    private func onPasswordPress(_ password: CorePassword) {
-        print(password)
     }
 }
 

@@ -107,14 +107,7 @@ extension HomeScreen {
 
         func copyPassword() {
             guard let currentPassword = self.currentPassword else { return }
-            #if os(macOS)
-            let pasteboard = NSPasteboard.general
-            pasteboard.declareTypes([.string], owner: nil)
-            pasteboard.setString(currentPassword, forType: .string)
-            #else
-            let pasteboard = UIPasteboard.general
-            pasteboard.string = currentPassword
-            #endif
+            Clipboard.copy(currentPassword)
             withAnimation { [weak self] in
                 self?.lastCopiedPassword = currentPassword
             }
