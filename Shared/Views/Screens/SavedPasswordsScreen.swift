@@ -21,33 +21,35 @@ struct SavedPasswordsScreen: View {
             Section(header: sectionHeader) {
                 #if os(macOS)
                 ScrollView {
-                    ForEach(coreDataModel.savedPasswords, id: \.self) { password in
-                        SavedPasswordListItem(
-                            password: password,
-                            hasBeenLastCopied: viewModel.hasBeenLastCopied(password),
-                            onPress: { stackNavigator.navigate(to: .savedPasswordDetails) })
-                            .contextMenu {
-                                Button(action: { viewModel.copyPassword(from: password) }) {
-                                    Text(localized: .COPY_PASSWORD)
-                                }
-                                if password.name != nil {
-                                    Button(action: { viewModel.copyName(from: password) }) {
-                                        Text(localized: .COPY_NAME)
-                                    }
-                                }
-                            }
-                    }
+                    savedPasswordSectionContent
                 }
                 #else
-                ForEach(coreDataModel.savedPasswords, id: \.self) { password in
-                    SavedPasswordListItem(password: password, onPress: { onPasswordPress(password) })
-                }
+                savedPasswordSectionContent
                 #endif
             }
         }
         .navigationTitle(Text(localized: .SAVED_PASSWORDS))
         .onAppear(perform: coreDataModel.fetchAllPasswords)
         .withNavigationPoints(stackNavigator.registeredScreens, selectedScreen: $stackNavigator.selectedScreen)
+    }
+
+    private var savedPasswordSectionContent: some View {
+        ForEach(coreDataModel.savedPasswords, id: \.self) { password in
+            SavedPasswordListItem(
+                password: password,
+                hasBeenLastCopied: viewModel.hasBeenLastCopied(password),
+                onPress: { stackNavigator.navigate(to: .savedPasswordDetails) })
+                .contextMenu {
+                    Button(action: { viewModel.copyPassword(from: password) }) {
+                        Text(localized: .COPY_PASSWORD)
+                    }
+                    if password.name != nil {
+                        Button(action: { viewModel.copyName(from: password) }) {
+                            Text(localized: .COPY_NAME)
+                        }
+                    }
+                }
+        }
     }
 
     private var sectionHeader: some View {
