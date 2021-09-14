@@ -31,6 +31,8 @@
 		2C3E590926EA7E2B00F75F51 /* SalmonUI in Frameworks */ = {isa = PBXBuildFile; productRef = 2C3E590826EA7E2B00F75F51 /* SalmonUI */; };
 		2C3E590B26EA7E4200F75F51 /* NameSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3E590A26EA7E4200F75F51 /* NameSheet.swift */; };
 		2C3E590C26EA7E4200F75F51 /* NameSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3E590A26EA7E4200F75F51 /* NameSheet.swift */; };
+		2C4713CB26F13E71007647F7 /* Sequence+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4713CA26F13E71007647F7 /* Sequence+extensions.swift */; };
+		2C4713CC26F13E71007647F7 /* Sequence+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4713CA26F13E71007647F7 /* Sequence+extensions.swift */; };
 		2C614B3C26E6A0070061FF82 /* PasswordHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C614B3B26E6A0070061FF82 /* PasswordHandler.swift */; };
 		2C614B3D26E6A0070061FF82 /* PasswordHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C614B3B26E6A0070061FF82 /* PasswordHandler.swift */; };
 		2C69071326E95909000B84EC /* CorePassword+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C69071226E95909000B84EC /* CorePassword+extensions.swift */; };
@@ -156,6 +158,7 @@
 		2C156FBC26ED579000DF2110 /* AdaptiveForegroundColorModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdaptiveForegroundColorModifier.swift; sourceTree = "<group>"; };
 		2C3E590226EA7AD200F75F51 /* CheckButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckButton.swift; sourceTree = "<group>"; };
 		2C3E590A26EA7E4200F75F51 /* NameSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameSheet.swift; sourceTree = "<group>"; };
+		2C4713CA26F13E71007647F7 /* Sequence+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sequence+extensions.swift"; sourceTree = "<group>"; };
 		2C614B3B26E6A0070061FF82 /* PasswordHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordHandler.swift; sourceTree = "<group>"; };
 		2C69071226E95909000B84EC /* CorePassword+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CorePassword+extensions.swift"; sourceTree = "<group>"; };
 		2C6AD40926E50120003AF55C /* Shared.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Shared.xcdatamodel; sourceTree = "<group>"; };
@@ -616,6 +619,7 @@
 			isa = PBXGroup;
 			children = (
 				2CE97ED226EC03BF004D799A /* Notification.Name+extensions.swift */,
+				2C4713CA26F13E71007647F7 /* Sequence+extensions.swift */,
 				2CA895C126E55B080057A82C /* Text+extensions.swift */,
 				2CA895D126E5661C0057A82C /* UserDefaults+extensions.swift */,
 				2C6AD49B26E5150D003AF55C /* View+extensions.swift */,
@@ -946,6 +950,7 @@
 			files = (
 				2C3E590B26EA7E4200F75F51 /* NameSheet.swift in Sources */,
 				2C0D4A0826E6B692006CD00D /* CorePassword+CoreDataProperties.swift in Sources */,
+				2C4713CB26F13E71007647F7 /* Sequence+extensions.swift in Sources */,
 				2CA895C226E55B080057A82C /* Text+extensions.swift in Sources */,
 				2C6AD43626E50124003AF55C /* Password_GeneratorApp.swift in Sources */,
 				2CA895D526E56BB70057A82C /* ToggleFormField.swift in Sources */,
@@ -1015,6 +1020,7 @@
 				2CA895CD26E5603F0057A82C /* HomeScreen+ViewModel.swift in Sources */,
 				2C08AD8026E7FB3A001ECD75 /* JustStack.swift in Sources */,
 				2CA895C926E55EC60057A82C /* VerticalForm.swift in Sources */,
+				2C4713CC26F13E71007647F7 /* Sequence+extensions.swift in Sources */,
 				2CA895C626E55C9B0057A82C /* SpacedHStack.swift in Sources */,
 				2C6AD49D26E5150D003AF55C /* View+extensions.swift in Sources */,
 				2CA895C326E55B080057A82C /* Text+extensions.swift in Sources */,

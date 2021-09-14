@@ -8,14 +8,45 @@
 import SwiftUI
 
 struct SavedPasswordDetailScreen: View {
-    // - TODO: ADD NAVIGATION BACK BUTTON
+    @EnvironmentObject
+    private var stackNavigator: StackNavigator
+    @EnvironmentObject
+    private var coreDataModel: CoreDataModel
+
     var body: some View {
-        Text("Hello, World!")
+        #if os(macOS)
+        view
+            .toolbar(content: {
+                ToolbarItem(placement: ToolbarItemPlacement.navigation) {
+                    Button(action: { stackNavigator.navigate(to: nil) }) {
+                        Image(systemName: "chevron.left")
+                    }
+                }
+            })
+        #else
+        view
+        #endif
+    }
+
+    private var view: some View {
+        VStack {
+            Text("Hello, World!")
+        }
+        /// - TODO: PASSWORD NAME HERE
+        .navigationTitle(Text("Password name here"))
+        .onAppear(perform: {
+            guard let passwordIDString = stackNavigator.currentOptions?["password_id"],
+                  let passwordID = UUID(uuidString: passwordIDString),
+                  let password = coreDataModel.getPasswordByID(is: passwordID) else { return }
+            print(password)
+        })
     }
 }
 
 struct SavedPasswordDetailScreen_Previews: PreviewProvider {
     static var previews: some View {
         SavedPasswordDetailScreen()
+            .environmentObject(StackNavigator(registeredScreens: [.savedPasswordDetails]))
+            .environmentObject(CoreDataModel(preview: true))
     }
 }

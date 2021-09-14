@@ -11,6 +11,7 @@ import ConsoleSwift
 final class StackNavigator: ObservableObject {
 
     @Published var selectedScreen: Screens?
+    @Published private(set) var currentOptions: [String: String]?
 
     let registeredScreens: [Screens]
 
@@ -28,13 +29,11 @@ final class StackNavigator: ObservableObject {
         }
     }
 
-    func navigate(to screen: Screens?, options: [String: String] = [:]) {
-        if let screen = screen, !registeredScreens.contains(screen) {
-            console.error(Date(), "\(screen) is not registered")
-            return
-        }
+    func navigate(to screen: Screens?, options: [String: String]? = nil) {
         DispatchQueue.main.async { [weak self] in
-            self?.selectedScreen = screen
+            guard let self = self else { return }
+            self.selectedScreen = screen
+            self.currentOptions = options
         }
     }
 

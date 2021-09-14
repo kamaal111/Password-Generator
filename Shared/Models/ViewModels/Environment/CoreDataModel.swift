@@ -26,6 +26,10 @@ final class CoreDataModel: ObservableObject {
         }
     }
 
+    func getPasswordByID(is comparisonValue: UUID) -> CorePassword? {
+        savedPasswords.find(by: \.id, is: comparisonValue)
+    }
+
     func setLastGeneratedPassword(with password: String) {
         lastGeneratedPassword = password
     }
