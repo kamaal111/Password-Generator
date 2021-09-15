@@ -11,6 +11,10 @@ import CoreData
 extension CorePassword {
     static let entityName = String(describing: CorePassword.self)
 
+    var maskedValue: String {
+        value.map({ _ in "*" }).joined()
+    }
+
     static func saveNew(args: Args, context: NSManagedObjectContext) -> Result<CorePassword, Error> {
         let password = CorePassword(context: context)
         password.id = UUID()

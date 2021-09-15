@@ -13,7 +13,8 @@ struct SavedPasswordDetailScreen: View {
     @EnvironmentObject
     private var coreDataModel: CoreDataModel
 
-    @State private var password: CorePassword?
+    @StateObject
+    private var viewModel = ViewModel()
 
     var body: some View {
         #if os(macOS)
@@ -32,9 +33,9 @@ struct SavedPasswordDetailScreen: View {
 
     private var view: some View {
         VStack {
-            Text(password?.value ?? "")
+            Text(viewModel.passwordLabel)
         }
-        .navigationTitle(Text(password?.name ?? Self.dateFormatter.string(from: password?.creationDate ?? Date())))
+        .navigationTitle(Text(viewModel.navigationTitleString))
         .onAppear(perform: {
             guard let passwordIDString = stackNavigator.currentOptions?["password_id"],
                   let passwordID = UUID(uuidString: passwordIDString),
@@ -42,7 +43,7 @@ struct SavedPasswordDetailScreen: View {
                 stackNavigator.navigate(to: nil)
                 return
             }
-            self.password = password
+            viewModel.setPassword(password)
         })
     }
 

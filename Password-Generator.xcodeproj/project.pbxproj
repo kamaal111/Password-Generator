@@ -33,6 +33,8 @@
 		2C3E590C26EA7E4200F75F51 /* NameSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3E590A26EA7E4200F75F51 /* NameSheet.swift */; };
 		2C4713CB26F13E71007647F7 /* Sequence+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4713CA26F13E71007647F7 /* Sequence+extensions.swift */; };
 		2C4713CC26F13E71007647F7 /* Sequence+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4713CA26F13E71007647F7 /* Sequence+extensions.swift */; };
+		2C4F863226F264F600A34647 /* SavedPasswordDetailScreen+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4F863126F264F600A34647 /* SavedPasswordDetailScreen+ViewModel.swift */; };
+		2C4F863326F264F600A34647 /* SavedPasswordDetailScreen+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4F863126F264F600A34647 /* SavedPasswordDetailScreen+ViewModel.swift */; };
 		2C614B3C26E6A0070061FF82 /* PasswordHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C614B3B26E6A0070061FF82 /* PasswordHandler.swift */; };
 		2C614B3D26E6A0070061FF82 /* PasswordHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C614B3B26E6A0070061FF82 /* PasswordHandler.swift */; };
 		2C69071326E95909000B84EC /* CorePassword+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C69071226E95909000B84EC /* CorePassword+extensions.swift */; };
@@ -159,6 +161,7 @@
 		2C3E590226EA7AD200F75F51 /* CheckButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckButton.swift; sourceTree = "<group>"; };
 		2C3E590A26EA7E4200F75F51 /* NameSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameSheet.swift; sourceTree = "<group>"; };
 		2C4713CA26F13E71007647F7 /* Sequence+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sequence+extensions.swift"; sourceTree = "<group>"; };
+		2C4F863126F264F600A34647 /* SavedPasswordDetailScreen+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SavedPasswordDetailScreen+ViewModel.swift"; sourceTree = "<group>"; };
 		2C614B3B26E6A0070061FF82 /* PasswordHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordHandler.swift; sourceTree = "<group>"; };
 		2C69071226E95909000B84EC /* CorePassword+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CorePassword+extensions.swift"; sourceTree = "<group>"; };
 		2C6AD40926E50120003AF55C /* Shared.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Shared.xcdatamodel; sourceTree = "<group>"; };
@@ -640,6 +643,7 @@
 			isa = PBXGroup;
 			children = (
 				2CA895CB26E5603F0057A82C /* HomeScreen+ViewModel.swift */,
+				2C4F863126F264F600A34647 /* SavedPasswordDetailScreen+ViewModel.swift */,
 				2C93722826EFEED0004BF5BF /* SavedPasswordsScreen+ViewModel.swift */,
 			);
 			path = Views;
@@ -960,6 +964,7 @@
 				2CE97ED026EBFD14004D799A /* SavedPasswordListItem.swift in Sources */,
 				2C93723226EFF56B004BF5BF /* SavedPasswordDetailScreen.swift in Sources */,
 				2C6AD4A026E51650003AF55C /* AppSizes.swift in Sources */,
+				2C4F863226F264F600A34647 /* SavedPasswordDetailScreen+ViewModel.swift in Sources */,
 				2C69071326E95909000B84EC /* CorePassword+extensions.swift in Sources */,
 				2C3E590326EA7AD200F75F51 /* CheckButton.swift in Sources */,
 				2C156FBD26ED579000DF2110 /* AdaptiveForegroundColorModifier.swift in Sources */,
@@ -996,6 +1001,7 @@
 			files = (
 				2CE97ED126EBFD14004D799A /* SavedPasswordListItem.swift in Sources */,
 				2C6AD43726E50124003AF55C /* Password_GeneratorApp.swift in Sources */,
+				2C4F863326F264F600A34647 /* SavedPasswordDetailScreen+ViewModel.swift in Sources */,
 				2C6AD49A26E51358003AF55C /* Constants.swift in Sources */,
 				2C6AD48626E50BFC003AF55C /* MainView.swift in Sources */,
 				2C156FBE26ED579000DF2110 /* AdaptiveForegroundColorModifier.swift in Sources */,
