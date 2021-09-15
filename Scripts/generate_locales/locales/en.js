@@ -21,6 +21,8 @@ const en = {
   COPY_PASSWORD: "Copy password",
   COPY_NAME: "Copy name",
   PASSWORD_LABEL: "Password:",
+  NAME_LABEL: "Name:",
+  NAME_NOT_DEFINED: "Not defined",
 };
 
 module.exports = en;

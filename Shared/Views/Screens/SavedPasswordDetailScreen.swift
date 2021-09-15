@@ -33,17 +33,20 @@ struct SavedPasswordDetailScreen: View {
 
     private var view: some View {
         VStack {
-            HStack {
-                Text(localized: .PASSWORD_LABEL)
-                Text(viewModel.passwordLabel)
-                Spacer()
-                Button(action: viewModel.toggleShowPassword) {
-                    Image(systemName: viewModel.showPassword ? "eye.slash.fill" : "eye.fill")
-                }
-                Button(action: viewModel.copyPassword) {
-                    Image(systemName: "doc.on.clipboard.fill")
-                }
-            }
+            CopyableDetailsRow(
+                showPassword: .constant(false),
+                label: .NAME_LABEL,
+                value: viewModel.passwordNameLabel,
+                showCopyButton: viewModel.showCopyNameButton,
+                showShowPasswordButton: false,
+                onCopyPress: viewModel.copyName)
+            CopyableDetailsRow(
+                showPassword: $viewModel.showPassword,
+                label: .PASSWORD_LABEL,
+                value: viewModel.passwordLabel,
+                showCopyButton: true,
+                showShowPasswordButton: true,
+                onCopyPress: viewModel.copyPassword)
         }
         .padding(.all, .medium)
         .takeSizeEagerly(alignment: .topLeading)
