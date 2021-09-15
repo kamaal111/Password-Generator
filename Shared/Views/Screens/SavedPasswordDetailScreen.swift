@@ -33,8 +33,20 @@ struct SavedPasswordDetailScreen: View {
 
     private var view: some View {
         VStack {
-            Text(viewModel.passwordLabel)
+            HStack {
+                Text(localized: .PASSWORD_LABEL)
+                Text(viewModel.passwordLabel)
+                Spacer()
+                Button(action: viewModel.toggleShowPassword) {
+                    Image(systemName: viewModel.showPassword ? "eye.slash.fill" : "eye.fill")
+                }
+                Button(action: viewModel.copyPassword) {
+                    Image(systemName: "doc.on.clipboard.fill")
+                }
+            }
         }
+        .padding(.all, .medium)
+        .takeSizeEagerly(alignment: .topLeading)
         .navigationTitle(Text(viewModel.navigationTitleString))
         .onAppear(perform: {
             guard let passwordIDString = stackNavigator.currentOptions?["password_id"],
@@ -46,13 +58,6 @@ struct SavedPasswordDetailScreen: View {
             viewModel.setPassword(password)
         })
     }
-
-    private static let dateFormatter: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.dateStyle = .short
-        formatter.timeStyle = .short
-        return formatter
-    }()
 }
 
 struct SavedPasswordDetailScreen_Previews: PreviewProvider {

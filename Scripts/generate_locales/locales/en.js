@@ -20,6 +20,7 @@ const en = {
   SURE: "Sure",
   COPY_PASSWORD: "Copy password",
   COPY_NAME: "Copy name",
+  PASSWORD_LABEL: "Password:",
 };
 
 module.exports = en;

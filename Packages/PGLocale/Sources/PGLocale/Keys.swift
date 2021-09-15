@@ -27,5 +27,6 @@ extension PGLocale {
         case SURE
         case COPY_PASSWORD
         case COPY_NAME
+        case PASSWORD_LABEL
     }
 }
