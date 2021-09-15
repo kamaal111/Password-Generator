@@ -30,5 +30,7 @@ extension PGLocale {
         case PASSWORD_LABEL
         case NAME_LABEL
         case NAME_NOT_DEFINED
+        case CREATED_LABEL
+        case UPDATED_LABEL
     }
 }

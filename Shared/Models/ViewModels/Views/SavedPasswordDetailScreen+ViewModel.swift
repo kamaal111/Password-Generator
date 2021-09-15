@@ -14,8 +14,16 @@ extension SavedPasswordDetailScreen {
         @Published private var password: CorePassword?
         @Published var showPassword = false
 
+        var creationDateString: String {
+            passwordDateString(of: \.creationDate)
+        }
+
+        var updatedDateString: String {
+            passwordDateString(of: \.updatedDate)
+        }
+
         var navigationTitleString: String {
-            password?.name ?? Self.dateFormatter.string(from: password?.creationDate ?? Date())
+            password?.name ?? creationDateString
         }
 
         var passwordNameLabel: String {
@@ -52,6 +60,11 @@ extension SavedPasswordDetailScreen {
 
         func setPassword(_ password: CorePassword) {
             self.password = password
+        }
+
+        private func passwordDateString(of keyPath: KeyPath<CorePassword, Date>) -> String {
+            guard let password = self.password else { return "" }
+            return Self.dateFormatter.string(from: password[keyPath: keyPath])
         }
 
         private static let dateFormatter: DateFormatter = {

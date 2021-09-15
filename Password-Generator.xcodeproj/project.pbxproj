@@ -103,6 +103,8 @@
 		2CA895D626E56BB70057A82C /* ToggleFormField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA895D426E56BB70057A82C /* ToggleFormField.swift */; };
 		2CCD0B7E26F28CFD00BE8E21 /* CopyableDetailsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCD0B7D26F28CFD00BE8E21 /* CopyableDetailsRow.swift */; };
 		2CCD0B7F26F28CFD00BE8E21 /* CopyableDetailsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCD0B7D26F28CFD00BE8E21 /* CopyableDetailsRow.swift */; };
+		2CCD0B8126F2933100BE8E21 /* DateDetailsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCD0B8026F2933100BE8E21 /* DateDetailsRow.swift */; };
+		2CCD0B8226F2933100BE8E21 /* DateDetailsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCD0B8026F2933100BE8E21 /* DateDetailsRow.swift */; };
 		2CE97ED026EBFD14004D799A /* SavedPasswordListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE97ECF26EBFD14004D799A /* SavedPasswordListItem.swift */; };
 		2CE97ED126EBFD14004D799A /* SavedPasswordListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE97ECF26EBFD14004D799A /* SavedPasswordListItem.swift */; };
 		2CE97ED326EC03BF004D799A /* Notification.Name+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE97ED226EC03BF004D799A /* Notification.Name+extensions.swift */; };
@@ -211,6 +213,7 @@
 		2CA895D126E5661C0057A82C /* UserDefaults+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+extensions.swift"; sourceTree = "<group>"; };
 		2CA895D426E56BB70057A82C /* ToggleFormField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleFormField.swift; sourceTree = "<group>"; };
 		2CCD0B7D26F28CFD00BE8E21 /* CopyableDetailsRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyableDetailsRow.swift; sourceTree = "<group>"; };
+		2CCD0B8026F2933100BE8E21 /* DateDetailsRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateDetailsRow.swift; sourceTree = "<group>"; };
 		2CE97ECF26EBFD14004D799A /* SavedPasswordListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedPasswordListItem.swift; sourceTree = "<group>"; };
 		2CE97ED226EC03BF004D799A /* Notification.Name+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification.Name+extensions.swift"; sourceTree = "<group>"; };
 		2CFD1D0926EAA1FD00B7DF4F /* SavedPasswordsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedPasswordsScreen.swift; sourceTree = "<group>"; };
@@ -598,6 +601,7 @@
 				2C6AD48B26E50CAD003AF55C /* AppSidebar.swift */,
 				2C3E590226EA7AD200F75F51 /* CheckButton.swift */,
 				2CCD0B7D26F28CFD00BE8E21 /* CopyableDetailsRow.swift */,
+				2CCD0B8026F2933100BE8E21 /* DateDetailsRow.swift */,
 				2C08AD8126E7FC33001ECD75 /* HomeMainActionButtons.swift */,
 				2C08AD7E26E7FB3A001ECD75 /* JustStack.swift */,
 				2C6AD48426E50BFC003AF55C /* MainView.swift */,
@@ -981,6 +985,7 @@
 				2C08AD8226E7FC33001ECD75 /* HomeMainActionButtons.swift in Sources */,
 				2C93722C26EFF065004BF5BF /* Clipboard.swift in Sources */,
 				2C6AD49626E51030003AF55C /* TabbarView.swift in Sources */,
+				2CCD0B8126F2933100BE8E21 /* DateDetailsRow.swift in Sources */,
 				2CA895C526E55C9B0057A82C /* SpacedHStack.swift in Sources */,
 				2C6AD49926E51358003AF55C /* Constants.swift in Sources */,
 				2C6AD43426E50124003AF55C /* Password_Generator.xcdatamodeld in Sources */,
@@ -1030,6 +1035,7 @@
 				2C6AD43926E50124003AF55C /* ContentView.swift in Sources */,
 				2CA895CD26E5603F0057A82C /* HomeScreen+ViewModel.swift in Sources */,
 				2C08AD8026E7FB3A001ECD75 /* JustStack.swift in Sources */,
+				2CCD0B8226F2933100BE8E21 /* DateDetailsRow.swift in Sources */,
 				2CA895C926E55EC60057A82C /* VerticalForm.swift in Sources */,
 				2C4713CC26F13E71007647F7 /* Sequence+extensions.swift in Sources */,
 				2CA895C626E55C9B0057A82C /* SpacedHStack.swift in Sources */,

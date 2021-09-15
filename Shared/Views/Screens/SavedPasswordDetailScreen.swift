@@ -47,6 +47,12 @@ struct SavedPasswordDetailScreen: View {
                 showCopyButton: true,
                 showShowPasswordButton: true,
                 onCopyPress: viewModel.copyPassword)
+            Spacer()
+            VStack {
+                DateDetailsRow(label: .CREATED_LABEL, dateString: viewModel.creationDateString)
+                DateDetailsRow(label: .UPDATED_LABEL, dateString: viewModel.updatedDateString)
+            }
+            .takeWidthEagerly()
         }
         .padding(.all, .medium)
         .takeSizeEagerly(alignment: .topLeading)

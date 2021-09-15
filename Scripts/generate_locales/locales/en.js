@@ -23,6 +23,8 @@ const en = {
   PASSWORD_LABEL: "Password:",
   NAME_LABEL: "Name:",
   NAME_NOT_DEFINED: "Not defined",
+  CREATED_LABEL: "Created:",
+  UPDATED_LABEL: "Updated:",
 };
 
 module.exports = en;
