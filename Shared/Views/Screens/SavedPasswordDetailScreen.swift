@@ -26,8 +26,13 @@ struct SavedPasswordDetailScreen: View {
                     }
                 }
             })
+            .toolbar(content: {
+                trailingNavigationBarItem
+            })
         #else
         view
+            .navigationBarTitleDisplayMode(.inline)
+            .navigationBarItems(trailing: trailingNavigationBarItem)
         #endif
     }
 
@@ -57,16 +62,23 @@ struct SavedPasswordDetailScreen: View {
         .padding(.all, .medium)
         .takeSizeEagerly(alignment: .topLeading)
         .navigationTitle(Text(viewModel.navigationTitleString))
-        .onAppear(perform: {
-            guard let passwordIDString = stackNavigator.currentOptions?["password_id"],
-                  let passwordID = UUID(uuidString: passwordIDString),
-                  let password = coreDataModel.getPasswordByID(is: passwordID) else {
-                stackNavigator.navigate(to: nil)
-                return
-            }
-            viewModel.setPassword(password)
+        .onAppear(perform: handleOnAppear)
+    }
+
+    private var trailingNavigationBarItem: some View {
+        Button(action: { }, label: {
+            Text("Edit")
         })
-        /// - TODO: ADD SOME NAVIGATION BUTTONS TO EDIT, SAVE OR CANCEL
+    }
+
+    private func handleOnAppear() {
+        guard let passwordIDString = stackNavigator.currentOptions?["password_id"],
+              let passwordID = UUID(uuidString: passwordIDString),
+              let password = coreDataModel.getPasswordByID(is: passwordID) else {
+            stackNavigator.navigate(to: nil)
+            return
+        }
+        viewModel.setPassword(password)
     }
 }
 

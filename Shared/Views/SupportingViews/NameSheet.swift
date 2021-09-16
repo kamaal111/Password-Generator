@@ -34,7 +34,7 @@ struct NameSheet: View {
             }
             .padding(.top, .medium)
         }
-        .frame(minHeight: 128)
+        .frame(minWidth: 300, minHeight: 128)
     }
 }
 
