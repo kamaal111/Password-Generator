@@ -53,6 +53,7 @@ struct CopyableDetailsRow: View {
             Text(label)
                 .font(.headline)
             Text(value)
+                .multilineTextAlignment(.center)
             Spacer()
             if showCopyButton {
                 Button(action: onCopyPress) {
