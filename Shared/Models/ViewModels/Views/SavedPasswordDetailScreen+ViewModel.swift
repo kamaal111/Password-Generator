@@ -46,12 +46,15 @@ extension SavedPasswordDetailScreen {
         }
 
         func toggleEditMode() {
+            guard let password = self.password else { return }
             if editMode.isEditing {
+                /// - TODO: SAVE CHANGES
                 withAnimation { [weak self] in
                     self?.editMode = .inactive
                 }
             } else {
                 withAnimation { [weak self] in
+                    self?.setPassword(password)
                     self?.editMode = .active
                 }
             }
