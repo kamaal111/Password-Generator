@@ -28,4 +28,5 @@ final class DeviceModel: ObservableObject {
         return .iPhone
         #endif
     }()
+
 }

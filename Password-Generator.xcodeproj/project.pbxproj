@@ -112,6 +112,8 @@
 		2CFD1D0A26EAA1FD00B7DF4F /* SavedPasswordsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CFD1D0926EAA1FD00B7DF4F /* SavedPasswordsScreen.swift */; };
 		2CFD1D0B26EAA1FD00B7DF4F /* SavedPasswordsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CFD1D0926EAA1FD00B7DF4F /* SavedPasswordsScreen.swift */; };
 		6056CF3D26F3D13A002AA00A /* EditMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6056CF3C26F3D13A002AA00A /* EditMode.swift */; };
+		6056CF3F26F3D603002AA00A /* SecureFloatingField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6056CF3E26F3D603002AA00A /* SecureFloatingField.swift */; };
+		6056CF4026F3D603002AA00A /* SecureFloatingField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6056CF3E26F3D603002AA00A /* SecureFloatingField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -219,6 +221,7 @@
 		2CE97ED226EC03BF004D799A /* Notification.Name+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification.Name+extensions.swift"; sourceTree = "<group>"; };
 		2CFD1D0926EAA1FD00B7DF4F /* SavedPasswordsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedPasswordsScreen.swift; sourceTree = "<group>"; };
 		6056CF3C26F3D13A002AA00A /* EditMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditMode.swift; sourceTree = "<group>"; };
+		6056CF3E26F3D603002AA00A /* SecureFloatingField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureFloatingField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -609,6 +612,7 @@
 				2C6AD48426E50BFC003AF55C /* MainView.swift */,
 				2C3E590A26EA7E4200F75F51 /* NameSheet.swift */,
 				2CE97ECF26EBFD14004D799A /* SavedPasswordListItem.swift */,
+				6056CF3E26F3D603002AA00A /* SecureFloatingField.swift */,
 				2C6AD49226E50E75003AF55C /* SidebarView.swift */,
 				2CA895C426E55C9B0057A82C /* SpacedHStack.swift */,
 				2C6AD49526E51030003AF55C /* TabbarView.swift */,
@@ -963,6 +967,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6056CF3F26F3D603002AA00A /* SecureFloatingField.swift in Sources */,
 				2C3E590B26EA7E4200F75F51 /* NameSheet.swift in Sources */,
 				2C0D4A0826E6B692006CD00D /* CorePassword+CoreDataProperties.swift in Sources */,
 				2C4713CB26F13E71007647F7 /* Sequence+extensions.swift in Sources */,
@@ -1012,6 +1017,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6056CF4026F3D603002AA00A /* SecureFloatingField.swift in Sources */,
 				2CE97ED126EBFD14004D799A /* SavedPasswordListItem.swift in Sources */,
 				2C6AD43726E50124003AF55C /* Password_GeneratorApp.swift in Sources */,
 				2C4F863326F264F600A34647 /* SavedPasswordDetailScreen+ViewModel.swift in Sources */,

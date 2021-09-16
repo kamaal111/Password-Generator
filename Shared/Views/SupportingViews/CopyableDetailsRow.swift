@@ -10,46 +10,51 @@ import PGLocale
 import SalmonUI
 
 struct CopyableDetailsRow: View {
-    @Binding var showPassword: Bool
+    @Binding var showValue: Bool
+    @Binding var editValue: String
 
     let label: String
     let value: String
     let showCopyButton: Bool
-    let showShowPasswordButton: Bool
+    let showShowValueButton: Bool
     let editMode: EditMode
     let onCopyPress: () -> Void
 
     init(
-        showPassword: Binding<Bool>,
+        showValue: Binding<Bool>,
+        editValue: Binding<String>,
         label: String,
         value: String,
         showCopyButton: Bool,
-        showShowPasswordButton: Bool,
+        showShowValueButton: Bool,
         editMode: EditMode,
         onCopyPress: @escaping () -> Void) {
-        self._showPassword = showPassword
+        self._showValue = showValue
+        self._editValue = editValue
         self.label = label
         self.value = value
         self.showCopyButton = showCopyButton
-        self.showShowPasswordButton = showShowPasswordButton
+        self.showShowValueButton = showShowValueButton
         self.editMode = editMode
         self.onCopyPress = onCopyPress
     }
 
     init(
-        showPassword: Binding<Bool>,
+        showValue: Binding<Bool>,
+        editValue: Binding<String>,
         label: PGLocale.Keys,
         value: String,
         showCopyButton: Bool,
-        showShowPasswordButton: Bool,
+        showShowValueButton: Bool,
         editMode: EditMode,
         onCopyPress: @escaping () -> Void) {
         self.init(
-            showPassword: showPassword,
+            showValue: showValue,
+            editValue: editValue,
             label: label.localized,
             value: value,
             showCopyButton: showCopyButton,
-            showShowPasswordButton: showShowPasswordButton,
+            showShowValueButton: showShowValueButton,
             editMode: editMode,
             onCopyPress: onCopyPress)
     }
@@ -57,7 +62,11 @@ struct CopyableDetailsRow: View {
     var body: some View {
         HStack {
             if editMode.isEditing {
-                KFloatingTextField(text: .constant(""), title: label)
+                if showShowValueButton {
+                    SecureFloatingField(text: $editValue, title: label)
+                } else {
+                    KFloatingTextField(text: $editValue, title: label)
+                }
             } else {
                 Text(label)
                     .font(.headline)
@@ -65,16 +74,18 @@ struct CopyableDetailsRow: View {
                     .multilineTextAlignment(.center)
             }
             Spacer()
-            if showCopyButton {
-                Button(action: onCopyPress) {
-                    Image(systemName: "doc.on.clipboard.fill")
+            if !editMode.isEditing {
+                if showShowValueButton {
+                    Button(action: {
+                        withAnimation { showValue.toggle() }
+                    }) {
+                        Image(systemName: showValue ? "eye.slash.fill" : "eye.fill")
+                    }
                 }
-            }
-            if showShowPasswordButton {
-                Button(action: {
-                    withAnimation { showPassword.toggle() }
-                }) {
-                    Image(systemName: showPassword ? "eye.slash.fill" : "eye.fill")
+                if showCopyButton {
+                    Button(action: onCopyPress) {
+                        Image(systemName: "doc.on.clipboard.fill")
+                    }
                 }
             }
         }
@@ -84,11 +95,12 @@ struct CopyableDetailsRow: View {
 struct CopyableDetailsRow_Previews: PreviewProvider {
     static var previews: some View {
         CopyableDetailsRow(
-            showPassword: .constant(false),
+            showValue: .constant(false),
+            editValue: .constant("Edit Value"),
             label: "Label:",
             value: "Value",
             showCopyButton: true,
-            showShowPasswordButton: true,
+            showShowValueButton: true,
             editMode: .active,
             onCopyPress: { })
     }

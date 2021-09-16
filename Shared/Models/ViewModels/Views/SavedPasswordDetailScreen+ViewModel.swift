@@ -14,6 +14,8 @@ extension SavedPasswordDetailScreen {
         @Published private var password: CorePassword?
         @Published var showPassword = false
         @Published private(set) var editMode = EditMode.inactive
+        @Published var edittedName = ""
+        @Published var edittedPasswordValue = ""
 
         var creationDateString: String {
             passwordDateString(of: \.creationDate)
@@ -73,6 +75,8 @@ extension SavedPasswordDetailScreen {
 
         func setPassword(_ password: CorePassword) {
             self.password = password
+            self.edittedName = password.name ?? ""
+            self.edittedPasswordValue = password.value
         }
 
         private func passwordDateString(of keyPath: KeyPath<CorePassword, Date>) -> String {
