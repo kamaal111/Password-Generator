@@ -66,8 +66,8 @@ struct SavedPasswordDetailScreen: View {
     }
 
     private var trailingNavigationBarItem: some View {
-        Button(action: { }, label: {
-            Text("Edit")
+        Button(action: viewModel.toggleEditMode, label: {
+            Text(editMode: viewModel.editMode)
         })
     }
 

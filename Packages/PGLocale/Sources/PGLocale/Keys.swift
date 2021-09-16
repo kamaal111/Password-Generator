@@ -32,5 +32,7 @@ extension PGLocale {
         case NAME_NOT_DEFINED
         case CREATED_LABEL
         case UPDATED_LABEL
+        case EDIT
+        case DONE
     }
 }

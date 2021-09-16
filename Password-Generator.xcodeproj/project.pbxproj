@@ -111,6 +111,7 @@
 		2CE97ED426EC03BF004D799A /* Notification.Name+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE97ED226EC03BF004D799A /* Notification.Name+extensions.swift */; };
 		2CFD1D0A26EAA1FD00B7DF4F /* SavedPasswordsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CFD1D0926EAA1FD00B7DF4F /* SavedPasswordsScreen.swift */; };
 		2CFD1D0B26EAA1FD00B7DF4F /* SavedPasswordsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CFD1D0926EAA1FD00B7DF4F /* SavedPasswordsScreen.swift */; };
+		6056CF3D26F3D13A002AA00A /* EditMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6056CF3C26F3D13A002AA00A /* EditMode.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -217,6 +218,7 @@
 		2CE97ECF26EBFD14004D799A /* SavedPasswordListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedPasswordListItem.swift; sourceTree = "<group>"; };
 		2CE97ED226EC03BF004D799A /* Notification.Name+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification.Name+extensions.swift"; sourceTree = "<group>"; };
 		2CFD1D0926EAA1FD00B7DF4F /* SavedPasswordsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedPasswordsScreen.swift; sourceTree = "<group>"; };
+		6056CF3C26F3D13A002AA00A /* EditMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditMode.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -643,6 +645,7 @@
 			isa = PBXGroup;
 			children = (
 				2C6AD49F26E51650003AF55C /* AppSizes.swift */,
+				6056CF3C26F3D13A002AA00A /* EditMode.swift */,
 			);
 			path = Enumerations;
 			sourceTree = "<group>";
@@ -1021,6 +1024,7 @@
 				2C6AD47C26E5093B003AF55C /* ScreenModel.swift in Sources */,
 				2C3E590426EA7AD200F75F51 /* CheckButton.swift in Sources */,
 				2C6AD43B26E50124003AF55C /* Persistence.swift in Sources */,
+				6056CF3D26F3D13A002AA00A /* EditMode.swift in Sources */,
 				2CFD1D0B26EAA1FD00B7DF4F /* SavedPasswordsScreen.swift in Sources */,
 				2C93723326EFF56B004BF5BF /* SavedPasswordDetailScreen.swift in Sources */,
 				2C69071426E95909000B84EC /* CorePassword+extensions.swift in Sources */,

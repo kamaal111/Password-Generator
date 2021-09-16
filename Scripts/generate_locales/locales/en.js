@@ -25,6 +25,8 @@ const en = {
   NAME_NOT_DEFINED: "Not defined",
   CREATED_LABEL: "Created:",
   UPDATED_LABEL: "Updated:",
+  EDIT: "Edit",
+  DONE: "Done",
 };
 
 module.exports = en;

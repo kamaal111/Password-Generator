@@ -13,6 +13,7 @@ extension SavedPasswordDetailScreen {
 
         @Published private var password: CorePassword?
         @Published var showPassword = false
+        @Published private(set) var editMode = EditMode.inactive
 
         var creationDateString: String {
             passwordDateString(of: \.creationDate)
@@ -40,6 +41,18 @@ extension SavedPasswordDetailScreen {
                 return password.value
             }
             return password.maskedValue
+        }
+
+        func toggleEditMode() {
+            if editMode.isEditing {
+                withAnimation { [weak self] in
+                    self?.editMode = .inactive
+                }
+            } else {
+                withAnimation { [weak self] in
+                    self?.editMode = .active
+                }
+            }
         }
 
         func toggleShowPassword() {

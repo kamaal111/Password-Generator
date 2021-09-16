@@ -12,4 +12,8 @@ extension Text {
     init(localized: PGLocale.Keys) {
         self.init(localized.localized)
     }
+
+    init(editMode: EditMode) {
+        self.init(localized: editMode.isEditing ? .DONE : .EDIT)
+    }
 }
