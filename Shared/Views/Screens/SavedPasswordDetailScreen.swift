@@ -44,6 +44,7 @@ struct SavedPasswordDetailScreen: View {
                 value: viewModel.passwordNameLabel,
                 showCopyButton: viewModel.showCopyNameButton,
                 showShowPasswordButton: false,
+                editMode: viewModel.editMode,
                 onCopyPress: viewModel.copyName)
             CopyableDetailsRow(
                 showPassword: $viewModel.showPassword,
@@ -51,6 +52,7 @@ struct SavedPasswordDetailScreen: View {
                 value: viewModel.passwordLabel,
                 showCopyButton: true,
                 showShowPasswordButton: true,
+                editMode: viewModel.editMode,
                 onCopyPress: viewModel.copyPassword)
             Spacer()
             VStack {

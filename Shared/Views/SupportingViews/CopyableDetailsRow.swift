@@ -7,6 +7,7 @@
 
 import SwiftUI
 import PGLocale
+import SalmonUI
 
 struct CopyableDetailsRow: View {
     @Binding var showPassword: Bool
@@ -15,6 +16,7 @@ struct CopyableDetailsRow: View {
     let value: String
     let showCopyButton: Bool
     let showShowPasswordButton: Bool
+    let editMode: EditMode
     let onCopyPress: () -> Void
 
     init(
@@ -23,12 +25,14 @@ struct CopyableDetailsRow: View {
         value: String,
         showCopyButton: Bool,
         showShowPasswordButton: Bool,
+        editMode: EditMode,
         onCopyPress: @escaping () -> Void) {
         self._showPassword = showPassword
         self.label = label
         self.value = value
         self.showCopyButton = showCopyButton
         self.showShowPasswordButton = showShowPasswordButton
+        self.editMode = editMode
         self.onCopyPress = onCopyPress
     }
 
@@ -38,6 +42,7 @@ struct CopyableDetailsRow: View {
         value: String,
         showCopyButton: Bool,
         showShowPasswordButton: Bool,
+        editMode: EditMode,
         onCopyPress: @escaping () -> Void) {
         self.init(
             showPassword: showPassword,
@@ -45,15 +50,20 @@ struct CopyableDetailsRow: View {
             value: value,
             showCopyButton: showCopyButton,
             showShowPasswordButton: showShowPasswordButton,
+            editMode: editMode,
             onCopyPress: onCopyPress)
     }
 
     var body: some View {
         HStack {
-            Text(label)
-                .font(.headline)
-            Text(value)
-                .multilineTextAlignment(.center)
+            if editMode.isEditing {
+                KFloatingTextField(text: .constant(""), title: label)
+            } else {
+                Text(label)
+                    .font(.headline)
+                Text(value)
+                    .multilineTextAlignment(.center)
+            }
             Spacer()
             if showCopyButton {
                 Button(action: onCopyPress) {
@@ -79,6 +89,7 @@ struct CopyableDetailsRow_Previews: PreviewProvider {
             value: "Value",
             showCopyButton: true,
             showShowPasswordButton: true,
+            editMode: .active,
             onCopyPress: { })
     }
 }
