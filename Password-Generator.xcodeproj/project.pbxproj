@@ -113,6 +113,7 @@
 		2CD73C3F26F7C9810054C380 /* DeviceShakeViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD73C3E26F7C9810054C380 /* DeviceShakeViewModifier.swift */; };
 		2CD73C4126F7CDE30054C380 /* Optional+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD73C4026F7CDE30054C380 /* Optional+extensions.swift */; };
 		2CD73C4226F7CDE30054C380 /* Optional+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD73C4026F7CDE30054C380 /* Optional+extensions.swift */; };
+		2CD73C4326F7D0910054C380 /* DeviceShakeViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD73C3E26F7C9810054C380 /* DeviceShakeViewModifier.swift */; };
 		2CE97ED026EBFD14004D799A /* SavedPasswordListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE97ECF26EBFD14004D799A /* SavedPasswordListItem.swift */; };
 		2CE97ED126EBFD14004D799A /* SavedPasswordListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE97ECF26EBFD14004D799A /* SavedPasswordListItem.swift */; };
 		2CE97ED326EC03BF004D799A /* Notification.Name+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE97ED226EC03BF004D799A /* Notification.Name+extensions.swift */; };
@@ -1098,6 +1099,7 @@
 				2C614B3D26E6A0070061FF82 /* PasswordHandler.swift in Sources */,
 				2CCD0B7F26F28CFD00BE8E21 /* CopyableDetailsRow.swift in Sources */,
 				2C6AD48D26E50CAD003AF55C /* AppSidebar.swift in Sources */,
+				2CD73C4326F7D0910054C380 /* DeviceShakeViewModifier.swift in Sources */,
 				2C0D4A0C26E6B72A006CD00D /* CoreDataModel.swift in Sources */,
 				2C93722A26EFEED0004BF5BF /* SavedPasswordsScreen+ViewModel.swift in Sources */,
 				2C93723026EFF524004BF5BF /* StackNavigator.swift in Sources */,

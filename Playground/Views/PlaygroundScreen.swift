@@ -10,8 +10,16 @@ import SwiftUI
 
 struct PlaygroundScreen: View {
     var body: some View {
-        Text("Hello, World!")
+        #if os(macOS)
+        view
+        #else
+        view
             .navigationBarTitleDisplayMode(.inline)
+        #endif
+    }
+
+    private var view: some View {
+        Text("Hello, World!")
     }
 }
 
