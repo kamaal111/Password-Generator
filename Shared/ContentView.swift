@@ -35,6 +35,7 @@ struct ContentView: View {
             .environmentObject(coreDataModel)
     }
 
+    #if os(macOS)
     private func handleCopyCommand() -> [NSItemProvider] {
         var items: [NSItemProvider] = []
         if let lastGeneratedPassword = coreDataModel.lastGeneratedPassword {
@@ -43,6 +44,7 @@ struct ContentView: View {
         }
         return items
     }
+    #endif
 }
 
 #if os(iOS)

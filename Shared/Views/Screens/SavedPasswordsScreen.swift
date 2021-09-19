@@ -14,7 +14,7 @@ struct SavedPasswordsScreen: View {
     @StateObject
     private var viewModel = ViewModel()
     @StateObject
-    private var stackNavigator = StackNavigator(registeredScreens: [.savedPasswordDetails])
+    private var stackNavigator = StackNavigator(registeredScreens: Self.registeredScreens)
 
     var body: some View {
         #if os(macOS)
@@ -39,6 +39,11 @@ struct SavedPasswordsScreen: View {
         }
         .navigationTitle(Text(localized: .SAVED_PASSWORDS))
         .onAppear(perform: coreDataModel.fetchAllPasswords)
+        .onShake(perform: {
+            #if DEBUG
+            stackNavigator.navigate(to: .playground)
+            #endif
+        })
         .withNavigationPoints(
             stackNavigator.registeredScreens,
             selectedScreen: $stackNavigator.selectedScreen,
@@ -74,6 +79,12 @@ struct SavedPasswordsScreen: View {
             .foregroundColor(.secondary)
             .takeWidthEagerly(alignment: .leading)
     }
+
+    #if DEBUG
+    private static let registeredScreens: [StackNavigator.Screens] = [.savedPasswordDetails, .playground]
+    #else
+    private static let registeredScreens: [StackNavigator.Screens] = [.savedPasswordDetails]
+    #endif
 }
 
 struct SavedPasswordsScreen_Previews: PreviewProvider {

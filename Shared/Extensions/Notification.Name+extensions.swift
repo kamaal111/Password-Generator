@@ -13,6 +13,8 @@ extension Notification.Name {
     #if DEBUG
     static let playgroundMenuItem = Notification.Name(constructKey(with: "playgroundMenuItem"))
     #endif
+    #else
+    static let deviceDidShake = Notification.Name(constructKey(with: "deviceDidShake"))
     #endif
 
     private static func constructKey(with value: String) -> String {

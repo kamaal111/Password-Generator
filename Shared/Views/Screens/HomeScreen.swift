@@ -13,6 +13,8 @@ struct HomeScreen: View {
 
     @StateObject
     private var viewModel = ViewModel()
+    @StateObject
+    private var stackNavigator = StackNavigator(registeredScreens: Self.registeredScreens)
 
     var body: some View {
         VerticalForm {
@@ -64,6 +66,15 @@ struct HomeScreen: View {
             guard let changedCurrentPassword = changedCurrentPassword else { return }
             coreDataModel.setLastGeneratedPassword(with: changedCurrentPassword)
         }
+        .onShake(perform: {
+            #if DEBUG
+            stackNavigator.navigate(to: .playground)
+            #endif
+        })
+        .withNavigationPoints(
+            stackNavigator.registeredScreens,
+            selectedScreen: $stackNavigator.selectedScreen,
+            stackNavigator: stackNavigator)
     }
 
     private func savePassword() {
@@ -72,6 +83,12 @@ struct HomeScreen: View {
             withName: viewModel.passwordName)
         viewModel.onPasswordSave(success: success)
     }
+
+    #if DEBUG
+    private static let registeredScreens: [StackNavigator.Screens] = [.playground]
+    #else
+    private static let registeredScreens: [StackNavigator.Screens] = []
+    #endif
 }
 
 struct HomeScreen_Previews: PreviewProvider {

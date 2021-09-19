@@ -110,6 +110,9 @@
 		2CD73C3926F7C5FD0054C380 /* AppDelegate_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD73C3826F7C5FD0054C380 /* AppDelegate_macOS.swift */; };
 		2CD73C3B26F7C7410054C380 /* NSMenuItem+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD73C3A26F7C7410054C380 /* NSMenuItem+extensions.swift */; };
 		2CD73C3D26F7C7670054C380 /* MenuItemTags.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD73C3C26F7C7670054C380 /* MenuItemTags.swift */; };
+		2CD73C3F26F7C9810054C380 /* DeviceShakeViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD73C3E26F7C9810054C380 /* DeviceShakeViewModifier.swift */; };
+		2CD73C4126F7CDE30054C380 /* Optional+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD73C4026F7CDE30054C380 /* Optional+extensions.swift */; };
+		2CD73C4226F7CDE30054C380 /* Optional+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD73C4026F7CDE30054C380 /* Optional+extensions.swift */; };
 		2CE97ED026EBFD14004D799A /* SavedPasswordListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE97ECF26EBFD14004D799A /* SavedPasswordListItem.swift */; };
 		2CE97ED126EBFD14004D799A /* SavedPasswordListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE97ECF26EBFD14004D799A /* SavedPasswordListItem.swift */; };
 		2CE97ED326EC03BF004D799A /* Notification.Name+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE97ED226EC03BF004D799A /* Notification.Name+extensions.swift */; };
@@ -226,6 +229,8 @@
 		2CD73C3826F7C5FD0054C380 /* AppDelegate_macOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate_macOS.swift; sourceTree = "<group>"; };
 		2CD73C3A26F7C7410054C380 /* NSMenuItem+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSMenuItem+extensions.swift"; sourceTree = "<group>"; };
 		2CD73C3C26F7C7670054C380 /* MenuItemTags.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemTags.swift; sourceTree = "<group>"; };
+		2CD73C3E26F7C9810054C380 /* DeviceShakeViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceShakeViewModifier.swift; sourceTree = "<group>"; };
+		2CD73C4026F7CDE30054C380 /* Optional+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Optional+extensions.swift"; sourceTree = "<group>"; };
 		2CE97ECF26EBFD14004D799A /* SavedPasswordListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedPasswordListItem.swift; sourceTree = "<group>"; };
 		2CE97ED226EC03BF004D799A /* Notification.Name+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification.Name+extensions.swift"; sourceTree = "<group>"; };
 		2CFD1D0926EAA1FD00B7DF4F /* SavedPasswordsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedPasswordsScreen.swift; sourceTree = "<group>"; };
@@ -353,6 +358,7 @@
 			isa = PBXGroup;
 			children = (
 				2C156FBC26ED579000DF2110 /* AdaptiveForegroundColorModifier.swift */,
+				2CD73C3E26F7C9810054C380 /* DeviceShakeViewModifier.swift */,
 			);
 			path = ViewModifiers;
 			sourceTree = "<group>";
@@ -648,6 +654,7 @@
 			children = (
 				2CE97ED226EC03BF004D799A /* Notification.Name+extensions.swift */,
 				2CD73C3A26F7C7410054C380 /* NSMenuItem+extensions.swift */,
+				2CD73C4026F7CDE30054C380 /* Optional+extensions.swift */,
 				2C4713CA26F13E71007647F7 /* Sequence+extensions.swift */,
 				2CA895C126E55B080057A82C /* Text+extensions.swift */,
 				2CA895D126E5661C0057A82C /* UserDefaults+extensions.swift */,
@@ -998,6 +1005,7 @@
 			files = (
 				6056CF3F26F3D603002AA00A /* SecureFloatingField.swift in Sources */,
 				2C3E590B26EA7E4200F75F51 /* NameSheet.swift in Sources */,
+				2CD73C3F26F7C9810054C380 /* DeviceShakeViewModifier.swift in Sources */,
 				2C0D4A0826E6B692006CD00D /* CorePassword+CoreDataProperties.swift in Sources */,
 				2C4713CB26F13E71007647F7 /* Sequence+extensions.swift in Sources */,
 				2CA895C226E55B080057A82C /* Text+extensions.swift in Sources */,
@@ -1024,6 +1032,7 @@
 				2C6AD49626E51030003AF55C /* TabbarView.swift in Sources */,
 				2CCD0B8126F2933100BE8E21 /* DateDetailsRow.swift in Sources */,
 				2CA895C526E55C9B0057A82C /* SpacedHStack.swift in Sources */,
+				2CD73C4126F7CDE30054C380 /* Optional+extensions.swift in Sources */,
 				2C6AD49926E51358003AF55C /* Constants.swift in Sources */,
 				2C6AD43426E50124003AF55C /* Password_Generator.xcdatamodeld in Sources */,
 				2C0D4A0626E6B692006CD00D /* CorePassword+CoreDataClass.swift in Sources */,
@@ -1084,6 +1093,7 @@
 				2CA895C626E55C9B0057A82C /* SpacedHStack.swift in Sources */,
 				2C6AD49D26E5150D003AF55C /* View+extensions.swift in Sources */,
 				2CA895C326E55B080057A82C /* Text+extensions.swift in Sources */,
+				2CD73C4226F7CDE30054C380 /* Optional+extensions.swift in Sources */,
 				2CD73C3726F7C1D50054C380 /* PlaygroundScreen.swift in Sources */,
 				2C614B3D26E6A0070061FF82 /* PasswordHandler.swift in Sources */,
 				2CCD0B7F26F28CFD00BE8E21 /* CopyableDetailsRow.swift in Sources */,

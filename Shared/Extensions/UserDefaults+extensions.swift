@@ -18,6 +18,8 @@ extension UserDefaults {
     static var numeralsEnabled: Bool?
     @UserDefault(key: .symbolsEnabled)
     static var symbolsEnabled: Bool?
+    @UserDefault(key: .shakeTimes)
+    static var shakeTimes: Int?
 }
 
 @propertyWrapper
@@ -36,6 +38,7 @@ struct UserDefault<Value> {
         case capitalLettersEnabled
         case numeralsEnabled
         case symbolsEnabled
+        case shakeTimes
     }
 
     var wrappedValue: Value? {
