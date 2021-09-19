@@ -49,21 +49,22 @@ extension SavedPasswordDetailScreen {
             guard let password = self.password else { return }
             if editMode.isEditing {
                 /// - TODO: SAVE CHANGES
-                withAnimation { [weak self] in
-                    self?.editMode = .inactive
+                withAnimation {
+                    editMode = .inactive
                 }
             } else {
-                withAnimation { [weak self] in
-                    self?.setPassword(password)
-                    self?.editMode = .active
+                withAnimation {
+                    setPassword(password)
+                    editMode = .active
                 }
             }
         }
 
+        func cancelEditing() {
+        }
+
         func toggleShowPassword() {
-            withAnimation { [weak self] in
-                self?.showPassword.toggle()
-            }
+            withAnimation { showPassword.toggle() }
         }
 
         func copyPassword() {

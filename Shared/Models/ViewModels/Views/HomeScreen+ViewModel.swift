@@ -90,27 +90,23 @@ extension HomeScreen {
                 enableUppers: capitalLettersEnabled,
                 enableNumerals: numeralsEnabled,
                 enableSymbols: symbolsEnabled)
-            withAnimation { [weak self] in
-                guard let self = self else { return }
-                self.currentPassword = passwordHandler.create(length: self.letterLength)
+            withAnimation {
+                currentPassword = passwordHandler.create(length: letterLength)
             }
         }
 
         func onPasswordSave(success: Bool) {
             guard success else { return }
-            withAnimation { [weak self] in
-                guard let self = self else { return }
-                self.lastSavedPassword = currentPassword
-                self.closeNameSheet(keepName: false)
+            withAnimation {
+                lastSavedPassword = currentPassword
+                closeNameSheet(keepName: false)
             }
         }
 
         func copyPassword() {
             guard let currentPassword = self.currentPassword else { return }
             Clipboard.copy(currentPassword)
-            withAnimation { [weak self] in
-                self?.lastCopiedPassword = currentPassword
-            }
+            withAnimation { lastCopiedPassword = currentPassword }
         }
 
         private func setupObservers() {

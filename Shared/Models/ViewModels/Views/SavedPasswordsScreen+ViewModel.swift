@@ -28,8 +28,8 @@ extension SavedPasswordsScreen {
         }
 
         private func handlePasswordValueCopy(_ password: CorePassword) {
-            withAnimation { [weak self] in
-                self?.lastCopiedPasswordID = password.id
+            withAnimation {
+                lastCopiedPasswordID = password.id
             }
         }
 
