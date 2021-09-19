@@ -14,6 +14,9 @@ struct MainView: View {
         switch selectedStack {
         case .none, .home: HomeScreen()
         case .savedPasswords: SavedPasswordsScreen()
+        #if DEBUG
+        case .playground: PlaygroundScreen()
+        #endif
         }
     }
 }

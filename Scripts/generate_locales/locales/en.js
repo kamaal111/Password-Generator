@@ -28,6 +28,7 @@ const en = {
   EDIT: "Edit",
   DONE: "Done",
   CANCEL: "Cancel",
+  HELP: "Help",
 };
 
 module.exports = en;

@@ -107,6 +107,9 @@
 		2CCD0B8226F2933100BE8E21 /* DateDetailsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCD0B8026F2933100BE8E21 /* DateDetailsRow.swift */; };
 		2CD73C3626F7C1D50054C380 /* PlaygroundScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD73C3526F7C1D50054C380 /* PlaygroundScreen.swift */; };
 		2CD73C3726F7C1D50054C380 /* PlaygroundScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD73C3526F7C1D50054C380 /* PlaygroundScreen.swift */; };
+		2CD73C3926F7C5FD0054C380 /* AppDelegate_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD73C3826F7C5FD0054C380 /* AppDelegate_macOS.swift */; };
+		2CD73C3B26F7C7410054C380 /* NSMenuItem+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD73C3A26F7C7410054C380 /* NSMenuItem+extensions.swift */; };
+		2CD73C3D26F7C7670054C380 /* MenuItemTags.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD73C3C26F7C7670054C380 /* MenuItemTags.swift */; };
 		2CE97ED026EBFD14004D799A /* SavedPasswordListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE97ECF26EBFD14004D799A /* SavedPasswordListItem.swift */; };
 		2CE97ED126EBFD14004D799A /* SavedPasswordListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE97ECF26EBFD14004D799A /* SavedPasswordListItem.swift */; };
 		2CE97ED326EC03BF004D799A /* Notification.Name+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE97ED226EC03BF004D799A /* Notification.Name+extensions.swift */; };
@@ -220,6 +223,9 @@
 		2CCD0B7D26F28CFD00BE8E21 /* CopyableDetailsRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyableDetailsRow.swift; sourceTree = "<group>"; };
 		2CCD0B8026F2933100BE8E21 /* DateDetailsRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateDetailsRow.swift; sourceTree = "<group>"; };
 		2CD73C3526F7C1D50054C380 /* PlaygroundScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaygroundScreen.swift; sourceTree = "<group>"; };
+		2CD73C3826F7C5FD0054C380 /* AppDelegate_macOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate_macOS.swift; sourceTree = "<group>"; };
+		2CD73C3A26F7C7410054C380 /* NSMenuItem+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSMenuItem+extensions.swift"; sourceTree = "<group>"; };
+		2CD73C3C26F7C7670054C380 /* MenuItemTags.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemTags.swift; sourceTree = "<group>"; };
 		2CE97ECF26EBFD14004D799A /* SavedPasswordListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedPasswordListItem.swift; sourceTree = "<group>"; };
 		2CE97ED226EC03BF004D799A /* Notification.Name+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification.Name+extensions.swift"; sourceTree = "<group>"; };
 		2CFD1D0926EAA1FD00B7DF4F /* SavedPasswordsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedPasswordsScreen.swift; sourceTree = "<group>"; };
@@ -376,6 +382,7 @@
 		2C6AD40726E50120003AF55C /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				2CD73C3826F7C5FD0054C380 /* AppDelegate_macOS.swift */,
 				2C6AD49826E51358003AF55C /* Constants.swift */,
 				2C6AD40B26E50120003AF55C /* ContentView.swift */,
 				2C6AD40A26E50120003AF55C /* Password_GeneratorApp.swift */,
@@ -640,6 +647,7 @@
 			isa = PBXGroup;
 			children = (
 				2CE97ED226EC03BF004D799A /* Notification.Name+extensions.swift */,
+				2CD73C3A26F7C7410054C380 /* NSMenuItem+extensions.swift */,
 				2C4713CA26F13E71007647F7 /* Sequence+extensions.swift */,
 				2CA895C126E55B080057A82C /* Text+extensions.swift */,
 				2CA895D126E5661C0057A82C /* UserDefaults+extensions.swift */,
@@ -654,6 +662,7 @@
 			children = (
 				2C6AD49F26E51650003AF55C /* AppSizes.swift */,
 				6056CF3C26F3D13A002AA00A /* EditMode.swift */,
+				2CD73C3C26F7C7670054C380 /* MenuItemTags.swift */,
 			);
 			path = Enumerations;
 			sourceTree = "<group>";
@@ -1048,6 +1057,7 @@
 				2C08AD8326E7FC33001ECD75 /* HomeMainActionButtons.swift in Sources */,
 				2CA895D326E5661C0057A82C /* UserDefaults+extensions.swift in Sources */,
 				2CE97ED426EC03BF004D799A /* Notification.Name+extensions.swift in Sources */,
+				2CD73C3B26F7C7410054C380 /* NSMenuItem+extensions.swift in Sources */,
 				2C6AD47C26E5093B003AF55C /* ScreenModel.swift in Sources */,
 				2C3E590426EA7AD200F75F51 /* CheckButton.swift in Sources */,
 				2C6AD43B26E50124003AF55C /* Persistence.swift in Sources */,
@@ -1061,7 +1071,9 @@
 				2C6AD43526E50124003AF55C /* Password_Generator.xcdatamodeld in Sources */,
 				2C6AD47826E50887003AF55C /* NamiNavigator.swift in Sources */,
 				2CA895D626E56BB70057A82C /* ToggleFormField.swift in Sources */,
+				2CD73C3D26F7C7670054C380 /* MenuItemTags.swift in Sources */,
 				2C6AD4A126E51650003AF55C /* AppSizes.swift in Sources */,
+				2CD73C3926F7C5FD0054C380 /* AppDelegate_macOS.swift in Sources */,
 				2C6AD49426E50E75003AF55C /* SidebarView.swift in Sources */,
 				2C6AD43926E50124003AF55C /* ContentView.swift in Sources */,
 				2CA895CD26E5603F0057A82C /* HomeScreen+ViewModel.swift in Sources */,
