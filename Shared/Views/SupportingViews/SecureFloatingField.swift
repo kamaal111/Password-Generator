@@ -61,6 +61,7 @@ struct SecureFloatingField: View {
                 SecureField(titleText, text: $text)
             }
         }
+        .padding(.top, 12)
         .animation(.spring(response: 0.5))
     }
 
