@@ -9,6 +9,6 @@ import Foundation
 
 extension Sequence {
     func find<T: Equatable>(by keyPath: KeyPath<Element, T>, is comparisonValue: T) -> Element? {
-        self.first(where: { $0[keyPath: keyPath] ==  comparisonValue })
+        self.first(where: { $0[keyPath: keyPath] == comparisonValue })
     }
 }
