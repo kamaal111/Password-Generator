@@ -21,10 +21,14 @@ final class StackNavigator: ObservableObject {
 
     enum Screens {
         case savedPasswordDetails
+        case playground
 
         var view: some View {
-            switch self {
-            case .savedPasswordDetails: return SavedPasswordDetailScreen()
+            ZStack {
+                switch self {
+                case .savedPasswordDetails: SavedPasswordDetailScreen()
+                case .playground: PlaygroundScreen()
+                }
             }
         }
     }

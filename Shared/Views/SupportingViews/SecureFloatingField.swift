@@ -38,7 +38,6 @@ struct SecureFloatingField: View {
         HStack {
             #if os(iOS)
             textViews
-                .padding(.top, 12)
             #else
             textViews
             #endif
