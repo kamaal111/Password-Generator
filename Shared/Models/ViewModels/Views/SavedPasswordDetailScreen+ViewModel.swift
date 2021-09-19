@@ -38,29 +38,37 @@ extension SavedPasswordDetailScreen {
         }
 
         var passwordLabel: String {
-            guard let password = self.password else { return "" }
-            if showPassword {
-                return password.value
-            }
-            return password.maskedValue
+            withUnwrappedPassword { password in
+                if showPassword {
+                    return password.value
+                }
+                return password.maskedValue
+            } ?? ""
         }
 
         func toggleEditMode() {
-            guard let password = self.password else { return }
-            if editMode.isEditing {
-                /// - TODO: SAVE CHANGES
-                withAnimation {
-                    editMode = .inactive
-                }
-            } else {
-                withAnimation {
-                    setPassword(password)
-                    editMode = .active
+            withUnwrappedPassword { password in
+                if editMode.isEditing {
+                    /// - TODO: SAVE CHANGES
+                    withAnimation {
+                        editMode = .inactive
+                    }
+                } else {
+                    withAnimation {
+                        setPassword(password)
+                        editMode = .active
+                    }
                 }
             }
         }
 
         func cancelEditing() {
+            withUnwrappedPassword { password in
+                withAnimation {
+                    setPassword(password)
+                    editMode = .inactive
+                }
+            }
         }
 
         func toggleShowPassword() {
@@ -68,13 +76,16 @@ extension SavedPasswordDetailScreen {
         }
 
         func copyPassword() {
-            guard let password = self.password else { return }
-            Clipboard.copy(password.value)
+            withUnwrappedPassword { password in
+                Clipboard.copy(password.value)
+            }
         }
 
         func copyName() {
-            guard let password = self.password, let name = password.name else { return }
-            Clipboard.copy(name)
+            withUnwrappedPassword { password in
+                guard let name = password.name else { return }
+                Clipboard.copy(name)
+            }
         }
 
         func setPassword(_ password: CorePassword) {
@@ -84,8 +95,14 @@ extension SavedPasswordDetailScreen {
         }
 
         private func passwordDateString(of keyPath: KeyPath<CorePassword, Date>) -> String {
-            guard let password = self.password else { return "" }
-            return Self.dateFormatter.string(from: password[keyPath: keyPath])
+            withUnwrappedPassword { password in
+                Self.dateFormatter.string(from: password[keyPath: keyPath])
+            } ?? ""
+        }
+
+        private func withUnwrappedPassword<T>(completion: (CorePassword) -> T?) -> T? {
+            guard let password = self.password else { return nil }
+            return completion(password)
         }
 
         private static let dateFormatter: DateFormatter = {

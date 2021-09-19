@@ -27,6 +27,7 @@ const en = {
   UPDATED_LABEL: "Updated:",
   EDIT: "Edit",
   DONE: "Done",
+  CANCEL: "Cancel",
 };
 
 module.exports = en;

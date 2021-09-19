@@ -70,9 +70,16 @@ struct SavedPasswordDetailScreen: View {
     }
 
     private var trailingNavigationBarItem: some View {
-        Button(action: viewModel.toggleEditMode, label: {
-            Text(editMode: viewModel.editMode)
-        })
+        HStack {
+            if viewModel.editMode.isEditing {
+                Button(action: viewModel.cancelEditing) {
+                    Text(localized: .CANCEL)
+                }
+            }
+            Button(action: viewModel.toggleEditMode, label: {
+                Text(editMode: viewModel.editMode)
+            })
+        }
     }
 
     private func handleOnAppear() {

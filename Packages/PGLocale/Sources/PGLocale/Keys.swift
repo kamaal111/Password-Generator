@@ -34,5 +34,6 @@ extension PGLocale {
         case UPDATED_LABEL
         case EDIT
         case DONE
+        case CANCEL
     }
 }
