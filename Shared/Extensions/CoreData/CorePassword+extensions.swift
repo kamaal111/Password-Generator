@@ -15,6 +15,18 @@ extension CorePassword {
         value.map({ _ in "*" }).joined()
     }
 
+    func edit(args: Args) -> Result<CorePassword, Error> {
+        self.name = args.name
+        self.value = args.value
+        self.updatedDate = Date()
+        do {
+            try managedObjectContext?.save()
+        } catch {
+            return .failure(error)
+        }
+        return .success(self)
+    }
+
     static func saveNew(args: Args, context: NSManagedObjectContext) -> Result<CorePassword, Error> {
         let password = CorePassword(context: context)
         password.id = UUID()

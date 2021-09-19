@@ -37,6 +37,18 @@ extension SavedPasswordDetailScreen {
             password?.name != nil
         }
 
+        var editPasswordArgs: CorePassword.Args {
+            var passwordName: String?
+            if !edittedName.replacingOccurrences(of: " ", with: "").isEmpty {
+                passwordName = edittedName
+            }
+            return CorePassword.Args(name: passwordName, value: edittedPasswordValue)
+        }
+
+        var passwordID: UUID? {
+            password?.id
+        }
+
         var passwordLabel: String {
             withUnwrappedPassword { password in
                 if showPassword {
@@ -46,10 +58,10 @@ extension SavedPasswordDetailScreen {
             } ?? ""
         }
 
-        func toggleEditMode() {
+        func toggleEditMode(onSave: (CorePassword.Args) -> Void) {
             withUnwrappedPassword { password in
                 if editMode.isEditing {
-                    /// - TODO: SAVE CHANGES
+                    onSave(editPasswordArgs)
                     withAnimation {
                         editMode = .inactive
                     }

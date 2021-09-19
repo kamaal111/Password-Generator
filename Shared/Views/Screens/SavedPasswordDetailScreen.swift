@@ -76,9 +76,14 @@ struct SavedPasswordDetailScreen: View {
                     Text(localized: .CANCEL)
                 }
             }
-            Button(action: viewModel.toggleEditMode, label: {
+            Button(action: {
+                viewModel.toggleEditMode(onSave: { args in
+                    guard let passwordID = viewModel.passwordID else { return }
+                    coreDataModel.editPassword(id: passwordID, args: args)
+                })
+            }) {
                 Text(editMode: viewModel.editMode)
-            })
+            }
         }
     }
 

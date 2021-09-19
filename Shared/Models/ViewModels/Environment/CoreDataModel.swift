@@ -26,6 +26,20 @@ final class CoreDataModel: ObservableObject {
         }
     }
 
+    func editPassword(id: UUID, args: CorePassword.Args) {
+        guard let index = savedPasswords.firstIndex(where: { $0.id == id }) else { return }
+        let password = savedPasswords[index]
+        let editedPasswordResult = password.edit(args: args)
+        let editedPassword: CorePassword
+        switch editedPasswordResult {
+        case .failure(let failure):
+            console.error(Date(), failure.localizedDescription, failure)
+            return
+        case .success(let success): editedPassword = success
+        }
+        savedPasswords[index] = editedPassword
+    }
+
     func getPasswordByID(is comparisonValue: UUID) -> CorePassword? {
         savedPasswords.find(by: \.id, is: comparisonValue)
     }
