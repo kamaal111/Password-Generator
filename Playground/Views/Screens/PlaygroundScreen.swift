@@ -14,11 +14,7 @@ struct PlaygroundScreen: View {
 
     var body: some View {
         VStack(alignment: .leading) {
-            VStack(alignment: .leading) {
-                Text("Features")
-                    .font(.title)
-                Divider()
-            }
+            FormHeader(title: "Features")
             Button(action: { stackNavigator.navigate(to: .logoPlayground) }) {
                 Text("Customize logo")
                     .foregroundColor(.accentColor)

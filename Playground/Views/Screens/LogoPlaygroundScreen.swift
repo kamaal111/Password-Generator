@@ -12,18 +12,83 @@ struct LogoPlaygroundScreen: View {
     @EnvironmentObject
     private var stackNavigator: StackNavigator
 
+    @State private var logoFirstBackgroundColor = Self.selectableColors[0]
+    @State private var logoSecondBackgroundColor = Self.selectableColors[1]
+    @State private var logoHasCurvedCorners = true
+    @State private var shadesOfLogoFirstBackgroundColor = 3
+
     var body: some View {
-        Text("Hello, World!")
-            #if os(macOS)
-            .toolbar(content: {
-                ToolbarItem(placement: ToolbarItemPlacement.navigation) {
-                    Button(action: { stackNavigator.navigate(to: nil) }) {
-                        Image(systemName: "chevron.left")
+        VStack(alignment: .leading) {
+            ScrollView(showsIndicators: false) {
+                FormHeader(title: "App logo")
+                    .padding(.bottom, .xs)
+                HStack(alignment: .top) {
+                    logoView(size: .squared(150))
+                    Button(action: exportLogo) {
+                        Text("Export Logo")
+                            .foregroundColor(.accentColor)
                     }
+                    .buttonStyle(PlainButtonStyle())
+                    .padding(.horizontal, .medium)
+                    .padding(.top, .small)
                 }
-            })
-            #endif
+                .takeWidthEagerly(alignment: .leading)
+                VStack(alignment: .leading) {
+                    Text("Curved corners")
+                    Divider()
+                    Toggle(logoHasCurvedCorners ? "Yup" : "Nope", isOn: $logoHasCurvedCorners)
+                }
+                .padding(.bottom, .medium)
+                LogoPlaygroundColorSelector(
+                    selectedColor: $logoFirstBackgroundColor,
+                    title: "First background color",
+                    selectableColors: Self.selectableColors)
+                    .padding(.bottom, .medium)
+                VStack(alignment: .leading) {
+                    Text("Shades of first background color")
+                    Divider()
+                    Stepper("\(shadesOfLogoFirstBackgroundColor)", value: $shadesOfLogoFirstBackgroundColor)
+                }
+                .padding(.bottom, .medium)
+                LogoPlaygroundColorSelector(
+                    selectedColor: $logoSecondBackgroundColor,
+                    title: "Second background color",
+                    selectableColors: Self.selectableColors)
+                    .padding(.bottom, .medium)
+            }
+        }
+        .takeSizeEagerly(alignment: .topLeading)
+        .padding(.horizontal, .large)
+        .padding(.vertical, .medium)
+        .navigationTitle(Text("Logo Customizer"))
+        #if os(macOS)
+        .toolbar(content: {
+            ToolbarItem(placement: ToolbarItemPlacement.navigation) {
+                Button(action: { stackNavigator.navigate(to: nil) }) {
+                    Image(systemName: "chevron.left")
+                }
+            }
+        })
+        #endif
     }
+
+    private func logoView(size: CGSize) -> some View {
+        Logo(
+            backgroundColors: [logoFirstBackgroundColor, logoSecondBackgroundColor],
+            shadesOfFirstBackgroundColor: shadesOfLogoFirstBackgroundColor,
+            size: size,
+            curvedCorners: logoHasCurvedCorners)
+    }
+
+    private func exportLogo() {
+        print("exporting")
+    }
+
+    private static let selectableColors: [Color] = [
+        .blue,
+        .accentColor,
+        .red
+    ]
 }
 
 struct LogoPlaygroundScreen_Previews: PreviewProvider {

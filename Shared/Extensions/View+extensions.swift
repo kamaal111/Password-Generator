@@ -38,6 +38,10 @@ extension View {
         self.padding(edges, length.rawValue)
     }
 
+    func cornerRadius(_ radius: AppSizes) -> some View {
+        self.cornerRadius(radius.rawValue)
+    }
+
     func takeSizeEagerly(alignment: Alignment = .center) -> some View {
         self.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: alignment)
     }
