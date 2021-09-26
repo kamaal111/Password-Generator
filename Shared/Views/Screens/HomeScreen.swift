@@ -71,10 +71,7 @@ struct HomeScreen: View {
             stackNavigator.navigate(to: .playground)
             #endif
         })
-        .withNavigationPoints(
-            stackNavigator.registeredScreens,
-            selectedScreen: $stackNavigator.selectedScreen,
-            stackNavigator: stackNavigator)
+        .withNavigationPoints(selectedScreen: $stackNavigator.selectedScreen, stackNavigator: stackNavigator)
     }
 
     private func savePassword() {

@@ -9,12 +9,11 @@ import SwiftUI
 
 extension View {
     func withNavigationPoints(
-        _ registeredScreens: [StackNavigator.Screens],
         selectedScreen: Binding<StackNavigator.Screens?>,
         stackNavigator: StackNavigator) -> some View {
         #if os(iOS)
         ZStack {
-            ForEach(registeredScreens, id: \.self) { screen in
+            ForEach(stackNavigator.registeredScreens, id: \.self) { screen in
                 NavigationLink(
                     destination: screen.view.environmentObject(stackNavigator),
                     tag: screen,
@@ -27,6 +26,7 @@ extension View {
         ZStack {
             if let view = selectedScreen.wrappedValue?.view {
                 view
+                    .environmentObject(stackNavigator)
             } else {
                 self
             }

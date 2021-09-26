@@ -21,8 +21,10 @@ struct ContentView: View {
         injectViewWithEnvironment(
             MacContentView()
                 .frame(minWidth: 305, minHeight: 305)
+            /// - FIXME: NOT WORKING FOR SOME REASON
                 .onCopyCommand(perform: handleCopyCommand)
-                .onCutCommand(perform: handleCopyCommand))
+                .onCutCommand(perform: handleCopyCommand)
+        )
         #else
         injectViewWithEnvironment(IOSContentView())
         #endif
@@ -39,6 +41,7 @@ struct ContentView: View {
     private func handleCopyCommand() -> [NSItemProvider] {
         var items: [NSItemProvider] = []
         if let lastGeneratedPassword = coreDataModel.lastGeneratedPassword {
+            print("lastGeneratedPassword", lastGeneratedPassword)
             NotificationCenter.default.post(name: .copyShortcutTriggered, object: lastGeneratedPassword)
             items.append(NSItemProvider(object: lastGeneratedPassword as NSItemProviderWriting))
         }
