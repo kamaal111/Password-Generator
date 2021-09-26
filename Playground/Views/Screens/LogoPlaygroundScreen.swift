@@ -81,7 +81,8 @@ struct LogoPlaygroundScreen: View {
     }
 
     private func exportLogo() {
-        print("exporting")
+        let logoImage = logoView(size: .squared(200))
+        logoImage.snapshot().download(filename: "logo.png")
     }
 
     private static let selectableColors: [Color] = [

@@ -132,6 +132,8 @@
 		6017C07B2701062A0023F347 /* Logo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6017C0792701062A0023F347 /* Logo.swift */; };
 		6017C07E270108440023F347 /* LogoPlaygroundColorSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6017C07D270108440023F347 /* LogoPlaygroundColorSelector.swift */; };
 		6017C07F270108440023F347 /* LogoPlaygroundColorSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6017C07D270108440023F347 /* LogoPlaygroundColorSelector.swift */; };
+		6017C08127010AD50023F347 /* Image+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6017C08027010AD50023F347 /* Image+extensions.swift */; };
+		6017C08227010AD50023F347 /* Image+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6017C08027010AD50023F347 /* Image+extensions.swift */; };
 		6056CF3D26F3D13A002AA00A /* EditMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6056CF3C26F3D13A002AA00A /* EditMode.swift */; };
 		6056CF3F26F3D603002AA00A /* SecureFloatingField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6056CF3E26F3D603002AA00A /* SecureFloatingField.swift */; };
 		6056CF4026F3D603002AA00A /* SecureFloatingField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6056CF3E26F3D603002AA00A /* SecureFloatingField.swift */; };
@@ -253,6 +255,7 @@
 		6017C076270105030023F347 /* FormHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormHeader.swift; sourceTree = "<group>"; };
 		6017C0792701062A0023F347 /* Logo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logo.swift; sourceTree = "<group>"; };
 		6017C07D270108440023F347 /* LogoPlaygroundColorSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoPlaygroundColorSelector.swift; sourceTree = "<group>"; };
+		6017C08027010AD50023F347 /* Image+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+extensions.swift"; sourceTree = "<group>"; };
 		6056CF3C26F3D13A002AA00A /* EditMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditMode.swift; sourceTree = "<group>"; };
 		6056CF3E26F3D603002AA00A /* SecureFloatingField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureFloatingField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -675,6 +678,7 @@
 		2C6AD48E26E50DDB003AF55C /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				6017C08027010AD50023F347 /* Image+extensions.swift */,
 				2CE97ED226EC03BF004D799A /* Notification.Name+extensions.swift */,
 				2CD73C3A26F7C7410054C380 /* NSMenuItem+extensions.swift */,
 				2CD73C4026F7CDE30054C380 /* Optional+extensions.swift */,
@@ -1074,6 +1078,7 @@
 				2C6AD48926E50C60003AF55C /* HomeScreen.swift in Sources */,
 				2C08AD8226E7FC33001ECD75 /* HomeMainActionButtons.swift in Sources */,
 				2C93722C26EFF065004BF5BF /* Clipboard.swift in Sources */,
+				6017C08127010AD50023F347 /* Image+extensions.swift in Sources */,
 				2C6AD49626E51030003AF55C /* TabbarView.swift in Sources */,
 				2CCD0B8126F2933100BE8E21 /* DateDetailsRow.swift in Sources */,
 				2CA895C526E55C9B0057A82C /* SpacedHStack.swift in Sources */,
@@ -1134,6 +1139,7 @@
 				2CD73C3D26F7C7670054C380 /* MenuItemTags.swift in Sources */,
 				2C6AD4A126E51650003AF55C /* AppSizes.swift in Sources */,
 				2CD73C3926F7C5FD0054C380 /* AppDelegate_macOS.swift in Sources */,
+				6017C08227010AD50023F347 /* Image+extensions.swift in Sources */,
 				2C6AD49426E50E75003AF55C /* SidebarView.swift in Sources */,
 				2C6AD43926E50124003AF55C /* ContentView.swift in Sources */,
 				2CA895CD26E5603F0057A82C /* HomeScreen+ViewModel.swift in Sources */,

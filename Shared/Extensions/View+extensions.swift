@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import ConsoleSwift
 
 extension View {
     func withNavigationPoints(
@@ -33,6 +34,45 @@ extension View {
         }
         #endif
     }
+
+    #if os(iOS)
+    func snapshot() -> UIImage {
+        let controller = UIHostingController(rootView: self)
+        let view = controller.view!
+
+        let targetSize = controller.view.intrinsicContentSize
+        let targetPoint = CGPoint(x: 0, y: 0)
+        let targetBounds = CGRect(origin: targetPoint, size: targetSize)
+        view.bounds = targetBounds
+        view.backgroundColor = .clear
+
+        let renderer = UIGraphicsImageRenderer(size: targetSize)
+
+        return renderer.image { _ in
+            view.drawHierarchy(in: controller.view.bounds, afterScreenUpdates: true)
+        }
+    }
+    #else
+    func snapshot() -> NSImage {
+        let controller = NSHostingController(rootView: self)
+        let view = controller.view
+
+        let targetSize = view.intrinsicContentSize
+        let targetPoint = CGPoint(x: -(targetSize.width / 2), y: -(targetSize.height / 2))
+        let targetBounds = CGRect(origin: targetPoint, size: targetSize)
+        guard let bitmapRep = view.bitmapImageRepForCachingDisplay(in: targetBounds) else {
+            console.error(Date(), "could not get bitmap representation")
+            return NSImage()
+        }
+        bitmapRep.size = targetSize
+        view.cacheDisplay(in: targetBounds, to: bitmapRep)
+
+        let image = NSImage(size: targetSize)
+        image.addRepresentation(bitmapRep)
+
+        return image
+    }
+    #endif
 
     func padding(_ edges: Edge.Set = .all, _ length: AppSizes) -> some View {
         self.padding(edges, length.rawValue)
