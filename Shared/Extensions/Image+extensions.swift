@@ -35,7 +35,7 @@ extension NSImage {
                 console.log(Date(), "file saved")
                 return
             }
-            console.error(Date(), "could not save file", result)
+            console.log(Date(), "could not save file", result)
         }
     }
 }

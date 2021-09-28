@@ -20,6 +20,7 @@ struct Logo: View {
     var body: some View {
         ZStack {
             backgroundColor
+            // - TODO: ADD BANNER FOR DEV APP
             ZStack {
                 Image(systemName: "shield.fill")
                     .size(.squared(size.width / 1.7))
