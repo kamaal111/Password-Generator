@@ -6,9 +6,13 @@
 //
 
 import SwiftUI
+import SalmonUI
 
 struct Logo: View {
     let backgroundColors: [Color]
+    let firstShieldColor: Color
+    let secondShieldColor: Color
+    let textColor: Color
     let shadesOfFirstBackgroundColor: Int
     let size: CGSize
     let curvedCorners: Bool
@@ -16,6 +20,24 @@ struct Logo: View {
     var body: some View {
         ZStack {
             backgroundColor
+            ZStack {
+                Image(systemName: "shield.fill")
+                    .size(.squared(size.width / 1.7))
+                    .foregroundColor(firstShieldColor)
+                Image(systemName: "shield.lefthalf.fill")
+                    .size(.squared(size.width / 1.7))
+                    .foregroundColor(secondShieldColor)
+                VStack {
+                    Text("PG")
+                        .font(.title3)
+                        .fontWeight(.semibold)
+                        .foregroundColor(textColor)
+                    Image(systemName: "lock.fill")
+                        .size(.squared(size.width / 8))
+                        .foregroundColor(textColor)
+                        .padding(.top, -8)
+                }
+            }
         }
         .frame(width: size.width, height: size.height)
         .cornerRadius(curvedCorners ? .medium : .nada)
@@ -45,9 +67,14 @@ struct Logo: View {
 struct Logo_Previews: PreviewProvider {
     static var previews: some View {
         Logo(
-            backgroundColors: [.black, .red],
-            shadesOfFirstBackgroundColor: 1,
+            backgroundColors: [.black, .AccentColor],
+            firstShieldColor: .AccentColor,
+            secondShieldColor: .SecondaryAccentColor,
+            textColor: .white,
+            shadesOfFirstBackgroundColor: 2,
             size: .squared(150),
             curvedCorners: true)
+            .padding(.all, .medium)
+            .previewLayout(.sizeThatFits)
     }
 }

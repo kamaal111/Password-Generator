@@ -75,6 +75,9 @@ struct LogoPlaygroundScreen: View {
     private func logoView(size: CGSize) -> some View {
         Logo(
             backgroundColors: [logoFirstBackgroundColor, logoSecondBackgroundColor],
+            firstShieldColor: .blue,
+            secondShieldColor: .green,
+            textColor: .white,
             shadesOfFirstBackgroundColor: shadesOfLogoFirstBackgroundColor,
             size: size,
             curvedCorners: logoHasCurvedCorners)
