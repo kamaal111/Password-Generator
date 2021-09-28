@@ -44,6 +44,10 @@ struct Logo: View {
 
 struct Logo_Previews: PreviewProvider {
     static var previews: some View {
-        Logo(backgroundColors: [.black, .red], shadesOfFirstBackgroundColor: 1, size: .squared(150), curvedCorners: true)
+        Logo(
+            backgroundColors: [.black, .red],
+            shadesOfFirstBackgroundColor: 1,
+            size: .squared(150),
+            curvedCorners: true)
     }
 }

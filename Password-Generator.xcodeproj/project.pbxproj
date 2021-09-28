@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2C08AD7F26E7FB3A001ECD75 /* JustStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C08AD7E26E7FB3A001ECD75 /* JustStack.swift */; };
-		2C08AD8026E7FB3A001ECD75 /* JustStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C08AD7E26E7FB3A001ECD75 /* JustStack.swift */; };
 		2C08AD8226E7FC33001ECD75 /* HomeMainActionButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C08AD8126E7FC33001ECD75 /* HomeMainActionButtons.swift */; };
 		2C08AD8326E7FC33001ECD75 /* HomeMainActionButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C08AD8126E7FC33001ECD75 /* HomeMainActionButtons.swift */; };
 		2C08ADB226E80A40001ECD75 /* EmptyTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C08ADB126E80A40001ECD75 /* EmptyTest.swift */; };
@@ -89,8 +87,6 @@
 		2C93723326EFF56B004BF5BF /* SavedPasswordDetailScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C93723126EFF56B004BF5BF /* SavedPasswordDetailScreen.swift */; };
 		2CA895C226E55B080057A82C /* Text+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA895C126E55B080057A82C /* Text+extensions.swift */; };
 		2CA895C326E55B080057A82C /* Text+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA895C126E55B080057A82C /* Text+extensions.swift */; };
-		2CA895C526E55C9B0057A82C /* SpacedHStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA895C426E55C9B0057A82C /* SpacedHStack.swift */; };
-		2CA895C626E55C9B0057A82C /* SpacedHStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA895C426E55C9B0057A82C /* SpacedHStack.swift */; };
 		2CA895C826E55EC60057A82C /* VerticalForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA895C726E55EC60057A82C /* VerticalForm.swift */; };
 		2CA895C926E55EC60057A82C /* VerticalForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA895C726E55EC60057A82C /* VerticalForm.swift */; };
 		2CA895CC26E5603F0057A82C /* HomeScreen+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA895CB26E5603F0057A82C /* HomeScreen+ViewModel.swift */; };
@@ -171,7 +167,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2C08AD7E26E7FB3A001ECD75 /* JustStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JustStack.swift; sourceTree = "<group>"; };
 		2C08AD8126E7FC33001ECD75 /* HomeMainActionButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMainActionButtons.swift; sourceTree = "<group>"; };
 		2C08AD8D26E80639001ECD75 /* UnitTestsiOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitTestsiOS.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C08AD9126E80639001ECD75 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -232,7 +227,6 @@
 		2C93722E26EFF524004BF5BF /* StackNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackNavigator.swift; sourceTree = "<group>"; };
 		2C93723126EFF56B004BF5BF /* SavedPasswordDetailScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedPasswordDetailScreen.swift; sourceTree = "<group>"; };
 		2CA895C126E55B080057A82C /* Text+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Text+extensions.swift"; sourceTree = "<group>"; };
-		2CA895C426E55C9B0057A82C /* SpacedHStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpacedHStack.swift; sourceTree = "<group>"; };
 		2CA895C726E55EC60057A82C /* VerticalForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalForm.swift; sourceTree = "<group>"; };
 		2CA895CB26E5603F0057A82C /* HomeScreen+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeScreen+ViewModel.swift"; sourceTree = "<group>"; };
 		2CA895CE26E5618D0057A82C /* DeviceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceModel.swift; sourceTree = "<group>"; };
@@ -651,13 +645,11 @@
 				2CCD0B8026F2933100BE8E21 /* DateDetailsRow.swift */,
 				6017C076270105030023F347 /* FormHeader.swift */,
 				2C08AD8126E7FC33001ECD75 /* HomeMainActionButtons.swift */,
-				2C08AD7E26E7FB3A001ECD75 /* JustStack.swift */,
 				2C6AD48426E50BFC003AF55C /* MainView.swift */,
 				2C3E590A26EA7E4200F75F51 /* NameSheet.swift */,
 				2CE97ECF26EBFD14004D799A /* SavedPasswordListItem.swift */,
 				6056CF3E26F3D603002AA00A /* SecureFloatingField.swift */,
 				2C6AD49226E50E75003AF55C /* SidebarView.swift */,
-				2CA895C426E55C9B0057A82C /* SpacedHStack.swift */,
 				2C6AD49526E51030003AF55C /* TabbarView.swift */,
 				2CA895D426E56BB70057A82C /* ToggleFormField.swift */,
 				2CA895C726E55EC60057A82C /* VerticalForm.swift */,
@@ -1081,7 +1073,6 @@
 				6017C08127010AD50023F347 /* Image+extensions.swift in Sources */,
 				2C6AD49626E51030003AF55C /* TabbarView.swift in Sources */,
 				2CCD0B8126F2933100BE8E21 /* DateDetailsRow.swift in Sources */,
-				2CA895C526E55C9B0057A82C /* SpacedHStack.swift in Sources */,
 				2CD73C4126F7CDE30054C380 /* Optional+extensions.swift in Sources */,
 				6017C06D2700FEFE0023F347 /* DebugFrameSize.swift in Sources */,
 				2C6AD49926E51358003AF55C /* Constants.swift in Sources */,
@@ -1092,7 +1083,6 @@
 				2C614B3C26E6A0070061FF82 /* PasswordHandler.swift in Sources */,
 				2CD73C3626F7C1D50054C380 /* PlaygroundScreen.swift in Sources */,
 				6017C0702700FF1A0023F347 /* BindToFrameSize.swift in Sources */,
-				2C08AD7F26E7FB3A001ECD75 /* JustStack.swift in Sources */,
 				2CFD1D0A26EAA1FD00B7DF4F /* SavedPasswordsScreen.swift in Sources */,
 				2C0D4A0B26E6B72A006CD00D /* CoreDataModel.swift in Sources */,
 				2C6AD49C26E5150D003AF55C /* View+extensions.swift in Sources */,
@@ -1143,11 +1133,9 @@
 				2C6AD49426E50E75003AF55C /* SidebarView.swift in Sources */,
 				2C6AD43926E50124003AF55C /* ContentView.swift in Sources */,
 				2CA895CD26E5603F0057A82C /* HomeScreen+ViewModel.swift in Sources */,
-				2C08AD8026E7FB3A001ECD75 /* JustStack.swift in Sources */,
 				2CCD0B8226F2933100BE8E21 /* DateDetailsRow.swift in Sources */,
 				2CA895C926E55EC60057A82C /* VerticalForm.swift in Sources */,
 				2C4713CC26F13E71007647F7 /* Sequence+extensions.swift in Sources */,
-				2CA895C626E55C9B0057A82C /* SpacedHStack.swift in Sources */,
 				2C6AD49D26E5150D003AF55C /* View+extensions.swift in Sources */,
 				2CA895C326E55B080057A82C /* Text+extensions.swift in Sources */,
 				6017C075270101030023F347 /* LogoPlaygroundScreen.swift in Sources */,

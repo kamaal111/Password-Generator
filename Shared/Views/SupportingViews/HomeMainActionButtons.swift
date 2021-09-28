@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SalmonUI
 
 struct HomeMainActionButtons: View {
     let showSaveAndCopyButton: Bool
@@ -32,7 +33,7 @@ struct HomeMainActionButtons: View {
             }
         }
         #else
-        JustStack {
+        KJustStack {
             if showSaveAndCopyButton {
                 CheckButton(text: .COPY, check: hasCopiedPassword, action: copyPassword)
             }

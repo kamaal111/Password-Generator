@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SalmonUI
 
 struct HomeScreen: View {
     @EnvironmentObject
@@ -18,7 +19,7 @@ struct HomeScreen: View {
 
     var body: some View {
         VerticalForm {
-            SpacedHStack(left: {
+            KSpacedHStack(left: {
                 Text(localized: .LENGTH_LABEL)
             }, right: {
                 Stepper("\(viewModel.letterLength)", value: $viewModel.letterLength, in: Constants.passwordLengthRange)

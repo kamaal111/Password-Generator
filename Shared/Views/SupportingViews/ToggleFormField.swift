@@ -7,6 +7,7 @@
 
 import SwiftUI
 import PGLocale
+import SalmonUI
 
 struct ToggleFormField: View {
     @Binding var value: Bool
@@ -23,7 +24,7 @@ struct ToggleFormField: View {
     }
 
     var body: some View {
-        SpacedHStack(left: {
+        KSpacedHStack(left: {
             Text(text)
         }, right: {
             Toggle("", isOn: $value)
