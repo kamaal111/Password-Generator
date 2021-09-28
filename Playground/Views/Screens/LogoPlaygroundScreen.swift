@@ -14,6 +14,9 @@ struct LogoPlaygroundScreen: View {
 
     @State private var logoFirstBackgroundColor = Self.selectableColors[0]
     @State private var logoSecondBackgroundColor = Self.selectableColors[1]
+    @State private var logoFirstSheildColor = Self.selectableColors[1]
+    @State private var logoSecondSheildColor = Self.selectableColors[2]
+    @State private var logoTextColor = Self.selectableColors[3]
     @State private var logoHasCurvedCorners = true
     @State private var shadesOfLogoFirstBackgroundColor = 3
 
@@ -55,6 +58,21 @@ struct LogoPlaygroundScreen: View {
                     title: "Second background color",
                     selectableColors: Self.selectableColors)
                     .padding(.bottom, .medium)
+                LogoPlaygroundColorSelector(
+                    selectedColor: $logoFirstSheildColor,
+                    title: "First sheild color",
+                    selectableColors: Self.selectableColors)
+                    .padding(.bottom, .medium)
+                LogoPlaygroundColorSelector(
+                    selectedColor: $logoSecondSheildColor,
+                    title: "Second sheild color",
+                    selectableColors: Self.selectableColors)
+                    .padding(.bottom, .medium)
+                LogoPlaygroundColorSelector(
+                    selectedColor: $logoTextColor,
+                    title: "Text color",
+                    selectableColors: Self.selectableColors)
+                    .padding(.bottom, .medium)
             }
         }
         .takeSizeEagerly(alignment: .topLeading)
@@ -75,9 +93,9 @@ struct LogoPlaygroundScreen: View {
     private func logoView(size: CGSize) -> some View {
         Logo(
             backgroundColors: [logoFirstBackgroundColor, logoSecondBackgroundColor],
-            firstShieldColor: .blue,
-            secondShieldColor: .green,
-            textColor: .white,
+            firstShieldColor: logoFirstSheildColor,
+            secondShieldColor: logoSecondSheildColor,
+            textColor: logoTextColor,
             shadesOfFirstBackgroundColor: shadesOfLogoFirstBackgroundColor,
             size: size,
             curvedCorners: logoHasCurvedCorners)
@@ -89,9 +107,10 @@ struct LogoPlaygroundScreen: View {
     }
 
     private static let selectableColors: [Color] = [
-        .blue,
-        .accentColor,
-        .red
+        .black,
+        .AccentColor,
+        .SecondaryAccentColor,
+        .white
     ]
 }
 
