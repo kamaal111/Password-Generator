@@ -20,6 +20,8 @@ struct LogoPlaygroundScreen: View {
     @State private var logoTextColor = Self.selectableColors[3]
     @State private var logoHasCurvedCorners = true
     @State private var shadesOfLogoFirstBackgroundColor = 3
+    @State private var logoIsTransparent = false
+    @State private var exportLogoSize = "200"
 
     var body: some View {
         VStack(alignment: .leading) {
@@ -28,15 +30,24 @@ struct LogoPlaygroundScreen: View {
                     .padding(.bottom, .xs)
                 HStack(alignment: .top) {
                     logoView(size: .squared(150))
-                    Button(action: exportLogo) {
-                        Text("Export Logo")
-                            .foregroundColor(.accentColor)
+                    VStack(alignment: .leading) {
+                        Button(action: exportLogo) {
+                            Text("Export Logo")
+                                .foregroundColor(.accentColor)
+                        }
+                        .buttonStyle(PlainButtonStyle())
+                        KFloatingTextField(text: $exportLogoSize, title: "Export logo size", textFieldType: .numbers)
                     }
-                    .buttonStyle(PlainButtonStyle())
                     .padding(.horizontal, .medium)
                     .padding(.top, .small)
                 }
                 .ktakeWidthEagerly(alignment: .leading)
+                VStack(alignment: .leading) {
+                    Text("Is transparent")
+                    Divider()
+                    Toggle(logoIsTransparent ? "Yup" : "Nope", isOn: $logoIsTransparent)
+                }
+                .padding(.bottom, .medium)
                 VStack(alignment: .leading) {
                     Text("Curved corners")
                     Divider()
@@ -80,6 +91,9 @@ struct LogoPlaygroundScreen: View {
         .padding(.horizontal, .large)
         .padding(.vertical, .medium)
         .navigationTitle(Text("Logo Customizer"))
+        .onChange(of: exportLogoSize, perform: { newValue in
+            exportLogoSize = newValue.filter({ $0.isNumber })
+        })
         #if os(macOS)
         .toolbar(content: {
             ToolbarItem(placement: ToolbarItemPlacement.navigation) {
@@ -88,6 +102,8 @@ struct LogoPlaygroundScreen: View {
                 }
             }
         })
+        #else
+        .navigationBarTitleDisplayMode(.inline)
         #endif
     }
 
@@ -99,11 +115,13 @@ struct LogoPlaygroundScreen: View {
             textColor: logoTextColor,
             shadesOfFirstBackgroundColor: shadesOfLogoFirstBackgroundColor,
             size: size,
-            curvedCorners: logoHasCurvedCorners)
+            curvedCorners: logoHasCurvedCorners,
+            isTransparent: logoIsTransparent)
     }
 
     private func exportLogo() {
-        let logoImage = logoView(size: .squared(200))
+        let size = CGFloat(Double(exportLogoSize)!)
+        let logoImage = logoView(size: .squared(size))
         logoImage.snapshot().download(filename: "logo.png")
     }
 

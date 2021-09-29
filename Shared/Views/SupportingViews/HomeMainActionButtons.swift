@@ -39,7 +39,7 @@ struct HomeMainActionButtons: View {
             }
             Button(action: generatePassword) {
                 Text(localized: .GENERATE_BUTTON)
-                    .takeWidthEagerly()
+                    .ktakeWidthEagerly()
             }
             .disabled(!generateButtonIsEnabled)
             if showSaveAndCopyButton {

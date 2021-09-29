@@ -290,6 +290,7 @@
 		2C6D1D7C2703BD0F004AD36E /* Password-Generator-Dev (macOS).app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Password-Generator-Dev (macOS).app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C6D1D7E2703BDFE004AD36E /* Password-Generator-Dev (macOS)-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Password-Generator-Dev (macOS)-Info.plist"; sourceTree = "<group>"; };
 		2C6D1D7F2703BE8E004AD36E /* macOS-Dev.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "macOS-Dev.entitlements"; sourceTree = "<group>"; };
+		2C7451CB2704F99C00AA082B /* AppStore.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppStore.png; sourceTree = "<group>"; };
 		2C93722826EFEED0004BF5BF /* SavedPasswordsScreen+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SavedPasswordsScreen+ViewModel.swift"; sourceTree = "<group>"; };
 		2C93722B26EFF065004BF5BF /* Clipboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clipboard.swift; sourceTree = "<group>"; };
 		2C93722E26EFF524004BF5BF /* StackNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackNavigator.swift; sourceTree = "<group>"; };
@@ -583,6 +584,7 @@
 		2C6AD45926E503DF003AF55C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2C7451CB2704F99C00AA082B /* AppStore.png */,
 				2C6AD45A26E503E7003AF55C /* Assets */,
 				2C6AD45C26E5040F003AF55C /* Screens */,
 			);
