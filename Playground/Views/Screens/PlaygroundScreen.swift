@@ -7,6 +7,7 @@
 
 #if DEBUG
 import SwiftUI
+import SalmonUI
 
 struct PlaygroundScreen: View {
     @StateObject
@@ -22,7 +23,7 @@ struct PlaygroundScreen: View {
             }
             .buttonStyle(PlainButtonStyle())
         }
-        .takeSizeEagerly(alignment: .topLeading)
+        .ktakeSizeEagerly(alignment: .topLeading)
         .padding(.horizontal, .large)
         .padding(.vertical, .medium)
         .navigationTitle(Text("Playground"))

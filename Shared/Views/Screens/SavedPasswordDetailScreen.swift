@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SalmonUI
 
 struct SavedPasswordDetailScreen: View {
     @EnvironmentObject
@@ -61,10 +62,10 @@ struct SavedPasswordDetailScreen: View {
                 DateDetailsRow(label: .CREATED_LABEL, dateString: viewModel.creationDateString)
                 DateDetailsRow(label: .UPDATED_LABEL, dateString: viewModel.updatedDateString)
             }
-            .takeWidthEagerly()
+            .ktakeWidthEagerly()
         }
         .padding(.all, .medium)
-        .takeSizeEagerly(alignment: .topLeading)
+        .ktakeSizeEagerly(alignment: .topLeading)
         .navigationTitle(Text(viewModel.navigationTitleString))
         .onAppear(perform: handleOnAppear)
     }

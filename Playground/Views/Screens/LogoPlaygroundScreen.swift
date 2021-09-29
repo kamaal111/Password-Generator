@@ -7,6 +7,7 @@
 
 #if DEBUG
 import SwiftUI
+import SalmonUI
 
 struct LogoPlaygroundScreen: View {
     @EnvironmentObject
@@ -35,7 +36,7 @@ struct LogoPlaygroundScreen: View {
                     .padding(.horizontal, .medium)
                     .padding(.top, .small)
                 }
-                .takeWidthEagerly(alignment: .leading)
+                .ktakeWidthEagerly(alignment: .leading)
                 VStack(alignment: .leading) {
                     Text("Curved corners")
                     Divider()
@@ -75,7 +76,7 @@ struct LogoPlaygroundScreen: View {
                     .padding(.bottom, .medium)
             }
         }
-        .takeSizeEagerly(alignment: .topLeading)
+        .ktakeSizeEagerly(alignment: .topLeading)
         .padding(.horizontal, .large)
         .padding(.vertical, .medium)
         .navigationTitle(Text("Logo Customizer"))
