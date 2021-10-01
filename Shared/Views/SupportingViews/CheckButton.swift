@@ -7,6 +7,7 @@
 
 import SwiftUI
 import PGLocale
+import SalmonUI
 
 struct CheckButton: View {
     let text: String
@@ -38,7 +39,7 @@ struct CheckButton: View {
         Button(action: action) {
             HStack {
                 Text(text)
-                    .takeWidthEagerly()
+                    .ktakeWidthEagerly()
                 if check {
                     Image(systemName: "checkmark.circle.fill")
                         .foregroundColor(.green)

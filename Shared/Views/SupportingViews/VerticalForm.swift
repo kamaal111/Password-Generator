@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SalmonUI
 
 struct VerticalForm<Content: View>: View {
     let content: Content
@@ -24,7 +25,7 @@ struct VerticalForm<Content: View>: View {
             content
         }
         .padding(.all, .medium)
-        .takeSizeEagerly(alignment: .topLeading)
+        .ktakeSizeEagerly(alignment: .topLeading)
         #endif
     }
 }

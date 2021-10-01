@@ -33,7 +33,7 @@ struct HomeScreen: View {
             #endif
             Text(viewModel.passwordLabel)
                 .font(.headline)
-                .takeWidthEagerly()
+                .ktakeWidthEagerly()
                 .multilineTextAlignment(.center)
             HomeMainActionButtons(
                 showSaveAndCopyButton: viewModel.showSaveAndCopyButton,

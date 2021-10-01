@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SalmonUI
 
 struct SavedPasswordsScreen: View {
     @EnvironmentObject
@@ -74,7 +75,7 @@ struct SavedPasswordsScreen: View {
     private var sectionHeader: some View {
         Text(localized: .PASSWORDS)
             .foregroundColor(.secondary)
-            .takeWidthEagerly(alignment: .leading)
+            .ktakeWidthEagerly(alignment: .leading)
     }
 
     #if DEBUG

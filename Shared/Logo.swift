@@ -16,17 +16,20 @@ struct Logo: View {
     let shadesOfFirstBackgroundColor: Int
     let size: CGSize
     let curvedCorners: Bool
+    let isTransparent: Bool
 
     var body: some View {
         ZStack {
-            backgroundColor
+            if !isTransparent {
+                backgroundColor
+            }
             // - TODO: ADD BANNER FOR DEV APP
             ZStack {
                 Image(systemName: "shield.fill")
                     .size(.squared(size.width / 1.7))
                     .foregroundColor(firstShieldColor)
                 Image(systemName: "shield.lefthalf.fill")
-                    .size(.squared(size.width / 1.7))
+                    .size(.squared(size.width / 1.65))
                     .foregroundColor(secondShieldColor)
                 VStack {
                     Text("PG")
@@ -74,7 +77,8 @@ struct Logo_Previews: PreviewProvider {
             textColor: .white,
             shadesOfFirstBackgroundColor: 2,
             size: .squared(150),
-            curvedCorners: true)
+            curvedCorners: true,
+            isTransparent: false)
             .padding(.all, .medium)
             .previewLayout(.sizeThatFits)
     }
