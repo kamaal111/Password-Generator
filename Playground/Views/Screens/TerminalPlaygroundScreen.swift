@@ -37,6 +37,13 @@ struct TerminalPlaygroundScreen: View {
 extension Shell {
     @discardableResult
     static func runAppIconGenerator() -> Result<Void, Errors> {
+        let temporaryDirectory = NSTemporaryDirectory()
+        let temporaryFilename = "\(UUID().uuidString).png"
+        guard let temporaryFileURL = NSURL.fileURL(withPathComponents: [
+            temporaryDirectory,
+            temporaryFilename
+        ]) else { return .failure(.temporaryFileWentWrong) }
+
         let bundleResourceURL = Bundle.main.resourceURL!
         let resources: [URL]
         do {
