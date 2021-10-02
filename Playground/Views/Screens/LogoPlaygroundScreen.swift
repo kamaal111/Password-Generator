@@ -114,18 +114,17 @@ struct LogoPlaygroundScreen: View {
         }
         console.log(Date(), shellOutput)
 
-        let content: [URL]
+        let fileManager = FileManager.default
+        let iconSetURL: URL?
         do {
-            content = try FileManager.default.contentsOfDirectory(
-                at: temporaryDirectoryURL,
-                includingPropertiesForKeys: nil,
-                options: [])
+            iconSetURL = try fileManager.findDirectoryOrFile(
+                inDirectory: temporaryDirectoryURL,
+                searchPath: "AppIcon.appiconset")
         } catch {
             console.error(Date(), error.localizedDescription, error)
             return
         }
-
-        guard let iconSetURL = content.find(by: \.lastPathComponent, is: "AppIcon.appiconset") else { return }
+        guard let iconSetURL = iconSetURL else { return }
 
         let savePanel = NSSavePanel()
         savePanel.canCreateDirectories = true
@@ -135,13 +134,20 @@ struct LogoPlaygroundScreen: View {
         savePanel.begin { (result: NSApplication.ModalResponse) in
             if result == .OK {
                 guard let saveURL = savePanel.url else { return }
+                if fileManager.fileExists(atPath: saveURL.path) {
+                    do {
+                        try fileManager.removeItem(at: saveURL)
+                    } catch {
+                        console.error(Date(), error.localizedDescription, error)
+                        return
+                    }
+                }
                 do {
-                    // - TODO: CHECK IF EXISTS THEN DELETE THE OLD ONE
-                    try FileManager.default.moveItem(at: iconSetURL, to: saveURL)
+                    try fileManager.moveItem(at: iconSetURL, to: saveURL)
                 } catch {
                     console.error(Date(), error.localizedDescription, error)
                     do {
-                        try FileManager.default.removeItem(at: iconSetURL)
+                        try fileManager.removeItem(at: iconSetURL)
                     } catch {
                         console.error(Date(), error.localizedDescription, error)
                         return
@@ -152,27 +158,13 @@ struct LogoPlaygroundScreen: View {
                 return
             }
             do {
-                try FileManager.default.removeItem(at: iconSetURL)
+                try fileManager.removeItem(at: iconSetURL)
             } catch {
                 console.error(Date(), error.localizedDescription, error)
                 return
             }
             console.log(Date(), "could not save file", result)
         }
-    }
-}
-
-struct LogoPlaygroundButton: View {
-    let text: String
-    let action: () -> Void
-
-    var body: some View {
-        Button(action: action) {
-            Text(text)
-                .foregroundColor(.accentColor)
-                .fontWeight(.semibold)
-        }
-        .buttonStyle(PlainButtonStyle())
     }
 }
 
@@ -250,12 +242,12 @@ extension Shell {
         }
 
         let bundleResourceURL = Bundle.main.resourceURL!
-        let resources: [URL]
+        let appIconGeneratorName = "app-icon-generator"
+        let appIconGenerator: URL?
         do {
-            resources = try FileManager.default.contentsOfDirectory(
-                at: bundleResourceURL,
-                includingPropertiesForKeys: nil,
-                options: [])
+            appIconGenerator = try FileManager.default.findDirectoryOrFile(
+                inDirectory: bundleResourceURL,
+                searchPath: appIconGeneratorName)
         } catch {
             switch cleanUp(temporaryFileURL: temporaryFileURL) {
             case .failure(let failure): return .failure(failure)
@@ -264,9 +256,7 @@ extension Shell {
             return .failure(.generalError(error: error))
         }
 
-        let appIconGeneratorName = "app-icon-generator"
-        guard let appIconGenerator = resources.find(by: \.lastPathComponent, is: appIconGeneratorName)
-        else {
+        guard let appIconGenerator = appIconGenerator else {
             switch cleanUp(temporaryFileURL: temporaryFileURL) {
             case .failure(let failure): return .failure(failure)
             case .success: break
