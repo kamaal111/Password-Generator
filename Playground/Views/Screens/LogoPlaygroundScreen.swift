@@ -132,39 +132,36 @@ struct LogoPlaygroundScreen: View {
         savePanel.nameFieldStringValue = "AppIcon.appiconset"
         savePanel.level = NSWindow.Level(rawValue: Int(CGWindowLevelForKey(.modalPanelWindow)))
         savePanel.begin { (result: NSApplication.ModalResponse) in
-            if result == .OK {
-                guard let saveURL = savePanel.url else { return }
-                if fileManager.fileExists(atPath: saveURL.path) {
-                    do {
-                        try fileManager.removeItem(at: saveURL)
-                    } catch {
-                        console.error(Date(), error.localizedDescription, error)
-                        return
-                    }
-                }
+            var maybeError: Error?
+            do {
+                try onIconSaveBegin(response: result, saveURL: savePanel.url, iconSetURL: iconSetURL)
+            } catch {
+                maybeError = error
+            }
+            if let maybeError = maybeError {
                 do {
-                    try fileManager.moveItem(at: iconSetURL, to: saveURL)
+                    try fileManager.removeItem(at: iconSetURL)
                 } catch {
                     console.error(Date(), error.localizedDescription, error)
-                    do {
-                        try fileManager.removeItem(at: iconSetURL)
-                    } catch {
-                        console.error(Date(), error.localizedDescription, error)
-                        return
-                    }
                     return
                 }
-                console.log(Date(), "file saved")
-                return
+                console.error(Date(), maybeError.localizedDescription, maybeError)
             }
-            do {
-                try fileManager.removeItem(at: iconSetURL)
-            } catch {
-                console.error(Date(), error.localizedDescription, error)
-                return
-            }
-            console.log(Date(), "could not save file", result)
         }
+    }
+
+    func onIconSaveBegin(response: NSApplication.ModalResponse, saveURL: URL?, iconSetURL: URL) throws {
+        let fileManager = FileManager.default
+        if response == .OK {
+            guard let saveURL = saveURL else { return }
+            if fileManager.fileExists(atPath: saveURL.path) {
+                try fileManager.removeItem(at: saveURL)
+            }
+            try fileManager.moveItem(at: iconSetURL, to: saveURL)
+            console.log(Date(), "file saved")
+            return
+        }
+        console.log(Date(), "could not save file", response)
     }
 }
 
