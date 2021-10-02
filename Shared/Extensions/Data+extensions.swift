@@ -9,7 +9,9 @@ import SwiftUI
 import ConsoleSwift
 
 extension Data {
+    #if canImport(AppKit)
     func download(filename: String) {
+        // - FIXME: REFACTOR THIS TO BE USED IN IMAGES AS WELL
         let savePanel = NSSavePanel()
         savePanel.canCreateDirectories = true
         savePanel.showsTagField = true
@@ -30,4 +32,5 @@ extension Data {
             console.log(Date(), "could not save file", result)
         }
     }
+    #endif
 }

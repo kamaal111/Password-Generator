@@ -99,6 +99,7 @@ struct LogoPlaygroundScreen: View {
         logoToExport.snapshot().download(filename: "logo.png")
     }
 
+    #if canImport(AppKit)
     private func exportLogoAsIconSet() {
         guard let pngData = logoToExport.snapshot().pngData,
         let temporaryDirectoryURL = NSURL.fileURL(withPathComponents: [NSTemporaryDirectory()])
@@ -163,6 +164,7 @@ struct LogoPlaygroundScreen: View {
         }
         console.log(Date(), "could not save file", response)
     }
+    #endif
 }
 
 struct LogoPlaygroundConfigurator: View {
@@ -219,6 +221,7 @@ struct LogoPlaygroundConfigurator: View {
     }
 }
 
+#if canImport(AppKit)
 extension Shell {
     enum AppIconGeneratorErrors: Error {
         case resourceNotFound(name: String)
@@ -281,6 +284,7 @@ extension Shell {
         return .success(Void())
     }
 }
+#endif
 
 private let selectableColors: [Color] = [
     .black,
