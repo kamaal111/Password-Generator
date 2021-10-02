@@ -15,6 +15,7 @@ struct Logo: View {
     let textColor: Color
     let shadesOfFirstBackgroundColor: Int
     let size: CGSize
+    let curveSize: CGFloat
     let curvedCorners: Bool
     let isTransparent: Bool
 
@@ -44,7 +45,7 @@ struct Logo: View {
             }
         }
         .frame(width: size.width, height: size.height)
-        .cornerRadius(curvedCorners ? .medium : .nada)
+        .cornerRadius(curvedCorners ? curveSize : 0)
     }
 
     private var backgroundColor: LinearGradient {
@@ -77,6 +78,7 @@ struct Logo_Previews: PreviewProvider {
             textColor: .white,
             shadesOfFirstBackgroundColor: 2,
             size: .squared(150),
+            curveSize: AppSizes.medium.rawValue,
             curvedCorners: true,
             isTransparent: false)
             .padding(.all, .medium)

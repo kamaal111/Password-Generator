@@ -22,6 +22,7 @@ struct LogoPlaygroundScreen: View {
     @State private var shadesOfLogoFirstBackgroundColor = 3
     @State private var logoIsTransparent = false
     @State private var exportLogoSize = "200"
+    @State private var logoCurvedSize: CGFloat = 16
 
     var body: some View {
         VStack(alignment: .leading) {
@@ -54,6 +55,13 @@ struct LogoPlaygroundScreen: View {
                     Toggle(logoHasCurvedCorners ? "Yup" : "Nope", isOn: $logoHasCurvedCorners)
                 }
                 .padding(.bottom, .medium)
+                #error("TOOOO MUCH")
+//                VStack(alignment: .leading) {
+//                    Text("Curved size")
+//                    Divider()
+//                    Stepper("\(logoCurvedSize)", value: $logoCurvedSize)
+//                }
+//                .padding(.bottom, .medium)
                 LogoPlaygroundColorSelector(
                     selectedColor: $logoFirstBackgroundColor,
                     title: "First background color",
@@ -115,6 +123,7 @@ struct LogoPlaygroundScreen: View {
             textColor: logoTextColor,
             shadesOfFirstBackgroundColor: shadesOfLogoFirstBackgroundColor,
             size: size,
+            curveSize: logoCurvedSize,
             curvedCorners: logoHasCurvedCorners,
             isTransparent: logoIsTransparent)
     }
