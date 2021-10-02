@@ -219,7 +219,7 @@ extension Shell {
         guard let appIconGenerator = resources.find(by: \.lastPathComponent, is: appIconGeneratorName)
         else { return .failure(.resourceNotFound(name: appIconGeneratorName)) }
         let appIconGeneratorPath = urlDecoder(appIconGenerator.relativePath)
-        let output = Shell.zsh("\(appIconGeneratorPath) -o \(output.relativePath) -i \(temporaryFileURL.relativePath)")
+        let output = Shell.zsh("\(appIconGeneratorPath) -o \(output.relativePath) -i \(temporaryFileURL.relativePath) -v")
         return .success(output)
     }
 }
