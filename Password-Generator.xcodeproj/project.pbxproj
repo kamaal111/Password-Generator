@@ -45,8 +45,7 @@
 		2C6AD43926E50124003AF55C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6AD40B26E50120003AF55C /* ContentView.swift */; };
 		2C6AD43A26E50124003AF55C /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6AD40C26E50120003AF55C /* Persistence.swift */; };
 		2C6AD43B26E50124003AF55C /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6AD40C26E50120003AF55C /* Persistence.swift */; };
-		2C6AD43C26E50124003AF55C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C6AD40D26E50124003AF55C /* Assets.xcassets */; };
-		2C6AD43D26E50124003AF55C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C6AD40D26E50124003AF55C /* Assets.xcassets */; };
+		2C6AD43C26E50124003AF55C /* AssetsIOS.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C6AD40D26E50124003AF55C /* AssetsIOS.xcassets */; };
 		2C6AD45026E502AF003AF55C /* ConsoleSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 2C6AD44F26E502AF003AF55C /* ConsoleSwift */; };
 		2C6AD45326E502BD003AF55C /* PersistanceManager in Frameworks */ = {isa = PBXBuildFile; productRef = 2C6AD45226E502BD003AF55C /* PersistanceManager */; };
 		2C6AD45626E502D1003AF55C /* ConsoleSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 2C6AD45526E502D1003AF55C /* ConsoleSwift */; };
@@ -139,8 +138,9 @@
 		2C6D1D732703BD0F004AD36E /* ConsoleSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 2C6D1D2E2703BD0F004AD36E /* ConsoleSwift */; };
 		2C6D1D742703BD0F004AD36E /* PGLocale in Frameworks */ = {isa = PBXBuildFile; productRef = 2C6D1D322703BD0F004AD36E /* PGLocale */; };
 		2C6D1D752703BD0F004AD36E /* ShrimpExtensions in Frameworks */ = {isa = PBXBuildFile; productRef = 2C6D1D332703BD0F004AD36E /* ShrimpExtensions */; };
-		2C6D1D772703BD0F004AD36E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C6AD40D26E50124003AF55C /* Assets.xcassets */; };
 		2C6D1D782703BD0F004AD36E /* sidebarItems.json in Resources */ = {isa = PBXBuildFile; fileRef = 2C6AD46D26E50793003AF55C /* sidebarItems.json */; };
+		2C71003E270905D4006B0F79 /* AssetsMac.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C71003D270905D4006B0F79 /* AssetsMac.xcassets */; };
+		2C71003F270905D4006B0F79 /* AssetsMac.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C71003D270905D4006B0F79 /* AssetsMac.xcassets */; };
 		2C93722926EFEED0004BF5BF /* SavedPasswordsScreen+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C93722826EFEED0004BF5BF /* SavedPasswordsScreen+ViewModel.swift */; };
 		2C93722A26EFEED0004BF5BF /* SavedPasswordsScreen+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C93722826EFEED0004BF5BF /* SavedPasswordsScreen+ViewModel.swift */; };
 		2C93722C26EFF065004BF5BF /* Clipboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C93722B26EFF065004BF5BF /* Clipboard.swift */; };
@@ -275,7 +275,7 @@
 		2C6AD40A26E50120003AF55C /* Password_GeneratorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Password_GeneratorApp.swift; sourceTree = "<group>"; };
 		2C6AD40B26E50120003AF55C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		2C6AD40C26E50120003AF55C /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
-		2C6AD40D26E50124003AF55C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2C6AD40D26E50124003AF55C /* AssetsIOS.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = AssetsIOS.xcassets; sourceTree = "<group>"; };
 		2C6AD41226E50124003AF55C /* Password-Generator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Password-Generator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C6AD41526E50124003AF55C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2C6AD41A26E50124003AF55C /* Password-Generator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Password-Generator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -308,6 +308,7 @@
 		2C6D1D7C2703BD0F004AD36E /* Password-Generator-Dev (macOS).app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Password-Generator-Dev (macOS).app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C6D1D7E2703BDFE004AD36E /* Password-Generator-Dev (macOS)-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Password-Generator-Dev (macOS)-Info.plist"; sourceTree = "<group>"; };
 		2C6D1D7F2703BE8E004AD36E /* macOS-Dev.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "macOS-Dev.entitlements"; sourceTree = "<group>"; };
+		2C71003D270905D4006B0F79 /* AssetsMac.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = AssetsMac.xcassets; sourceTree = "<group>"; };
 		2C7451CB2704F99C00AA082B /* AppStore.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppStore.png; sourceTree = "<group>"; };
 		2C93722826EFEED0004BF5BF /* SavedPasswordsScreen+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SavedPasswordsScreen+ViewModel.swift"; sourceTree = "<group>"; };
 		2C93722B26EFF065004BF5BF /* Clipboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clipboard.swift; sourceTree = "<group>"; };
@@ -627,7 +628,8 @@
 		2C6AD45A26E503E7003AF55C /* Assets */ = {
 			isa = PBXGroup;
 			children = (
-				2C6AD40D26E50124003AF55C /* Assets.xcassets */,
+				2C6AD40D26E50124003AF55C /* AssetsIOS.xcassets */,
+				2C71003D270905D4006B0F79 /* AssetsMac.xcassets */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -1139,7 +1141,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2C6AD43C26E50124003AF55C /* Assets.xcassets in Resources */,
+				2C6AD43C26E50124003AF55C /* AssetsIOS.xcassets in Resources */,
 				2C6AD47126E507E6003AF55C /* tabbarItems.json in Resources */,
 				2C6AD46E26E50793003AF55C /* sidebarItems.json in Resources */,
 			);
@@ -1149,7 +1151,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2C6AD43D26E50124003AF55C /* Assets.xcassets in Resources */,
+				2C71003E270905D4006B0F79 /* AssetsMac.xcassets in Resources */,
 				2C6AD46F26E50793003AF55C /* sidebarItems.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1172,7 +1174,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2C6D1D772703BD0F004AD36E /* Assets.xcassets in Resources */,
+				2C71003F270905D4006B0F79 /* AssetsMac.xcassets in Resources */,
 				2CA504BC27087DF9009E4527 /* app-icon-generator in Resources */,
 				2C6D1D782703BD0F004AD36E /* sidebarItems.json in Resources */,
 			);
