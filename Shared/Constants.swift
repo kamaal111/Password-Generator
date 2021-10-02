@@ -8,7 +8,7 @@
 import Foundation
 
 enum Constants {
-    static let appName = "Password-Generator"
+    static let appName = "Passlify"
     static let passwordLengthRange = 1...256
     static let bundleIdentifier = Bundle.main.bundleIdentifier!
 }

@@ -33,8 +33,8 @@ struct Logo: View {
                     .size(.squared(size.width / 1.65))
                     .foregroundColor(secondShieldColor)
                 VStack {
-                    Text("PG")
-                        .font(.title3)
+                    Text(Constants.appName.splitByCapital.map({ $0.first?.string ?? "" }).joined(separator: ""))
+                        .font(.system(size: 32))
                         .fontWeight(.semibold)
                         .foregroundColor(textColor)
                     Image(systemName: "lock.fill")

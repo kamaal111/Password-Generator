@@ -39,8 +39,8 @@
 		2C69071426E95909000B84EC /* CorePassword+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C69071226E95909000B84EC /* CorePassword+extensions.swift */; };
 		2C6AD43426E50124003AF55C /* Password_Generator.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2C6AD40826E50120003AF55C /* Password_Generator.xcdatamodeld */; };
 		2C6AD43526E50124003AF55C /* Password_Generator.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2C6AD40826E50120003AF55C /* Password_Generator.xcdatamodeld */; };
-		2C6AD43626E50124003AF55C /* Password_GeneratorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6AD40A26E50120003AF55C /* Password_GeneratorApp.swift */; };
-		2C6AD43726E50124003AF55C /* Password_GeneratorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6AD40A26E50120003AF55C /* Password_GeneratorApp.swift */; };
+		2C6AD43626E50124003AF55C /* PasslifyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6AD40A26E50120003AF55C /* PasslifyApp.swift */; };
+		2C6AD43726E50124003AF55C /* PasslifyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6AD40A26E50120003AF55C /* PasslifyApp.swift */; };
 		2C6AD43826E50124003AF55C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6AD40B26E50120003AF55C /* ContentView.swift */; };
 		2C6AD43926E50124003AF55C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6AD40B26E50120003AF55C /* ContentView.swift */; };
 		2C6AD43A26E50124003AF55C /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6AD40C26E50120003AF55C /* Persistence.swift */; };
@@ -81,7 +81,7 @@
 		2C6D1D392703BD0F004AD36E /* SecureFloatingField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6056CF3E26F3D603002AA00A /* SecureFloatingField.swift */; };
 		2C6D1D3A2703BD0F004AD36E /* SavedPasswordListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE97ECF26EBFD14004D799A /* SavedPasswordListItem.swift */; };
 		2C6D1D3B2703BD0F004AD36E /* BindToFrameSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6017C06F2700FF1A0023F347 /* BindToFrameSize.swift */; };
-		2C6D1D3C2703BD0F004AD36E /* Password_GeneratorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6AD40A26E50120003AF55C /* Password_GeneratorApp.swift */; };
+		2C6D1D3C2703BD0F004AD36E /* PasslifyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6AD40A26E50120003AF55C /* PasslifyApp.swift */; };
 		2C6D1D3D2703BD0F004AD36E /* SavedPasswordDetailScreen+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4F863126F264F600A34647 /* SavedPasswordDetailScreen+ViewModel.swift */; };
 		2C6D1D3E2703BD0F004AD36E /* DebugFrameSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6017C06C2700FEFE0023F347 /* DebugFrameSize.swift */; };
 		2C6D1D3F2703BD0F004AD36E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6AD49826E51358003AF55C /* Constants.swift */; };
@@ -272,13 +272,13 @@
 		2C614B3B26E6A0070061FF82 /* PasswordHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordHandler.swift; sourceTree = "<group>"; };
 		2C69071226E95909000B84EC /* CorePassword+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CorePassword+extensions.swift"; sourceTree = "<group>"; };
 		2C6AD40926E50120003AF55C /* Shared.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Shared.xcdatamodel; sourceTree = "<group>"; };
-		2C6AD40A26E50120003AF55C /* Password_GeneratorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Password_GeneratorApp.swift; sourceTree = "<group>"; };
+		2C6AD40A26E50120003AF55C /* PasslifyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasslifyApp.swift; sourceTree = "<group>"; };
 		2C6AD40B26E50120003AF55C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		2C6AD40C26E50120003AF55C /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		2C6AD40D26E50124003AF55C /* AssetsIOS.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = AssetsIOS.xcassets; sourceTree = "<group>"; };
 		2C6AD41226E50124003AF55C /* Password-Generator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Password-Generator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C6AD41526E50124003AF55C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2C6AD41A26E50124003AF55C /* Password-Generator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Password-Generator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2C6AD41A26E50124003AF55C /* Passlify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Passlify.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C6AD41C26E50124003AF55C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2C6AD41D26E50124003AF55C /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
 		2C6AD42226E50124003AF55C /* UITestsiOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UITestsiOS.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -305,7 +305,7 @@
 		2C6AD49B26E5150D003AF55C /* View+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+extensions.swift"; sourceTree = "<group>"; };
 		2C6AD49F26E51650003AF55C /* AppSizes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSizes.swift; sourceTree = "<group>"; };
 		2C6D1D2A2703B67C004AD36E /* Color+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+extensions.swift"; sourceTree = "<group>"; };
-		2C6D1D7C2703BD0F004AD36E /* Password-Generator-Dev (macOS).app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Password-Generator-Dev (macOS).app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2C6D1D7C2703BD0F004AD36E /* Passlify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Passlify.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C6D1D7E2703BDFE004AD36E /* Password-Generator-Dev (macOS)-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Password-Generator-Dev (macOS)-Info.plist"; sourceTree = "<group>"; };
 		2C6D1D7F2703BE8E004AD36E /* macOS-Dev.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "macOS-Dev.entitlements"; sourceTree = "<group>"; };
 		2C71003D270905D4006B0F79 /* AssetsMac.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = AssetsMac.xcassets; sourceTree = "<group>"; };
@@ -525,7 +525,7 @@
 				2C6AD49826E51358003AF55C /* Constants.swift */,
 				2C6AD40B26E50120003AF55C /* ContentView.swift */,
 				6017C0792701062A0023F347 /* Logo.swift */,
-				2C6AD40A26E50120003AF55C /* Password_GeneratorApp.swift */,
+				2C6AD40A26E50120003AF55C /* PasslifyApp.swift */,
 				2C6AD49E26E51632003AF55C /* Enumerations */,
 				2C6AD48E26E50DDB003AF55C /* Extensions */,
 				2C6AD47226E50856003AF55C /* Models */,
@@ -540,12 +540,12 @@
 			isa = PBXGroup;
 			children = (
 				2C6AD41226E50124003AF55C /* Password-Generator.app */,
-				2C6AD41A26E50124003AF55C /* Password-Generator.app */,
+				2C6AD41A26E50124003AF55C /* Passlify.app */,
 				2C6AD42226E50124003AF55C /* UITestsiOS.xctest */,
 				2C6AD42D26E50124003AF55C /* UITestsmacOS.xctest */,
 				2C08AD8D26E80639001ECD75 /* UnitTestsiOS.xctest */,
 				2C08ADA526E80940001ECD75 /* UnitTestsmacOS.xctest */,
-				2C6D1D7C2703BD0F004AD36E /* Password-Generator-Dev (macOS).app */,
+				2C6D1D7C2703BD0F004AD36E /* Passlify.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -991,7 +991,7 @@
 				2C3E590826EA7E2B00F75F51 /* SalmonUI */,
 			);
 			productName = "Password-Generator (macOS)";
-			productReference = 2C6AD41A26E50124003AF55C /* Password-Generator.app */;
+			productReference = 2C6AD41A26E50124003AF55C /* Passlify.app */;
 			productType = "com.apple.product-type.application";
 		};
 		2C6AD42126E50124003AF55C /* UITestsiOS */ = {
@@ -1052,7 +1052,7 @@
 				2C6D1D352703BD0F004AD36E /* SalmonUI */,
 			);
 			productName = "Password-Generator (macOS)";
-			productReference = 2C6D1D7C2703BD0F004AD36E /* Password-Generator-Dev (macOS).app */;
+			productReference = 2C6D1D7C2703BD0F004AD36E /* Passlify.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -1271,7 +1271,7 @@
 				2CA895C226E55B080057A82C /* Text+extensions.swift in Sources */,
 				2C6D1D2B2703B67C004AD36E /* Color+extensions.swift in Sources */,
 				6017C077270105030023F347 /* FormHeader.swift in Sources */,
-				2C6AD43626E50124003AF55C /* Password_GeneratorApp.swift in Sources */,
+				2C6AD43626E50124003AF55C /* PasslifyApp.swift in Sources */,
 				2CA895D526E56BB70057A82C /* ToggleFormField.swift in Sources */,
 				2C6AD48526E50BFC003AF55C /* MainView.swift in Sources */,
 				2C93722F26EFF524004BF5BF /* StackNavigator.swift in Sources */,
@@ -1329,7 +1329,7 @@
 				6056CF4026F3D603002AA00A /* SecureFloatingField.swift in Sources */,
 				2CE97ED126EBFD14004D799A /* SavedPasswordListItem.swift in Sources */,
 				6017C0712700FF1A0023F347 /* BindToFrameSize.swift in Sources */,
-				2C6AD43726E50124003AF55C /* Password_GeneratorApp.swift in Sources */,
+				2C6AD43726E50124003AF55C /* PasslifyApp.swift in Sources */,
 				2C4F863326F264F600A34647 /* SavedPasswordDetailScreen+ViewModel.swift in Sources */,
 				2CE322F027086E6400004F27 /* LogoPlaygroundToggle.swift in Sources */,
 				6017C06E2700FEFE0023F347 /* DebugFrameSize.swift in Sources */,
@@ -1413,7 +1413,7 @@
 				2C6D1D392703BD0F004AD36E /* SecureFloatingField.swift in Sources */,
 				2C6D1D3A2703BD0F004AD36E /* SavedPasswordListItem.swift in Sources */,
 				2C6D1D3B2703BD0F004AD36E /* BindToFrameSize.swift in Sources */,
-				2C6D1D3C2703BD0F004AD36E /* Password_GeneratorApp.swift in Sources */,
+				2C6D1D3C2703BD0F004AD36E /* PasslifyApp.swift in Sources */,
 				2C6D1D3D2703BD0F004AD36E /* SavedPasswordDetailScreen+ViewModel.swift in Sources */,
 				2CE322F127086E6400004F27 /* LogoPlaygroundToggle.swift in Sources */,
 				2C6D1D3E2703BD0F004AD36E /* DebugFrameSize.swift in Sources */,
@@ -1774,7 +1774,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "io.kamaal.Password-Generator";
-				PRODUCT_NAME = "Password-Generator";
+				PRODUCT_NAME = Passlify;
 				SDKROOT = macosx;
 				SWIFT_VERSION = 5.0;
 			};
@@ -1799,7 +1799,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "io.kamaal.Password-Generator";
-				PRODUCT_NAME = "Password-Generator";
+				PRODUCT_NAME = Passlify;
 				SDKROOT = macosx;
 				SWIFT_VERSION = 5.0;
 			};
@@ -1923,7 +1923,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "io.kamaal.Password-Generator-Dev";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Passlify;
 				SDKROOT = macosx;
 				SWIFT_VERSION = 5.0;
 			};
@@ -1948,7 +1948,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "io.kamaal.Password-Generator-Dev";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Passlify;
 				SDKROOT = macosx;
 				SWIFT_VERSION = 5.0;
 			};

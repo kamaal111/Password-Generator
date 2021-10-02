@@ -22,7 +22,7 @@ struct LogoPlaygroundScreen: View {
     @State private var logoHasCurvedCorners = true
     @State private var shadesOfLogoFirstBackgroundColor = 3
     @State private var logoIsTransparent = false
-    @State private var exportLogoSize = "200"
+    @State private var exportLogoSize = "400"
     @State private var logoCurvedSize: CGFloat = 16
 
     var body: some View {
