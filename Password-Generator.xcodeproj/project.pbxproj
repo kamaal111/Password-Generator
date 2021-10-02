@@ -152,6 +152,9 @@
 		2CA504B927087A0F009E4527 /* TerminalPlaygroundScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA504B827087A0F009E4527 /* TerminalPlaygroundScreen.swift */; };
 		2CA504BA27087A0F009E4527 /* TerminalPlaygroundScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA504B827087A0F009E4527 /* TerminalPlaygroundScreen.swift */; };
 		2CA504BB27087A0F009E4527 /* TerminalPlaygroundScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA504B827087A0F009E4527 /* TerminalPlaygroundScreen.swift */; };
+		2CA504BC27087DF9009E4527 /* app-icon-generator in Resources */ = {isa = PBXBuildFile; fileRef = 2CE322E6270869A400004F27 /* app-icon-generator */; };
+		2CA504BE27088581009E4527 /* Shell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA504BD27088581009E4527 /* Shell.swift */; };
+		2CA504BF27088581009E4527 /* Shell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA504BD27088581009E4527 /* Shell.swift */; };
 		2CA895C226E55B080057A82C /* Text+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA895C126E55B080057A82C /* Text+extensions.swift */; };
 		2CA895C326E55B080057A82C /* Text+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA895C126E55B080057A82C /* Text+extensions.swift */; };
 		2CA895C826E55EC60057A82C /* VerticalForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA895C726E55EC60057A82C /* VerticalForm.swift */; };
@@ -305,6 +308,7 @@
 		2C93722E26EFF524004BF5BF /* StackNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackNavigator.swift; sourceTree = "<group>"; };
 		2C93723126EFF56B004BF5BF /* SavedPasswordDetailScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedPasswordDetailScreen.swift; sourceTree = "<group>"; };
 		2CA504B827087A0F009E4527 /* TerminalPlaygroundScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerminalPlaygroundScreen.swift; sourceTree = "<group>"; };
+		2CA504BD27088581009E4527 /* Shell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shell.swift; sourceTree = "<group>"; };
 		2CA895C126E55B080057A82C /* Text+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Text+extensions.swift"; sourceTree = "<group>"; };
 		2CA895C726E55EC60057A82C /* VerticalForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalForm.swift; sourceTree = "<group>"; };
 		2CA895CB26E5603F0057A82C /* HomeScreen+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeScreen+ViewModel.swift"; sourceTree = "<group>"; };
@@ -626,6 +630,7 @@
 				2C93722B26EFF065004BF5BF /* Clipboard.swift */,
 				2C614B3B26E6A0070061FF82 /* PasswordHandler.swift */,
 				2C6AD40C26E50120003AF55C /* Persistence.swift */,
+				2CA504BD27088581009E4527 /* Shell.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -1158,6 +1163,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C6D1D772703BD0F004AD36E /* Assets.xcassets in Resources */,
+				2CA504BC27087DF9009E4527 /* app-icon-generator in Resources */,
 				2C6D1D782703BD0F004AD36E /* sidebarItems.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1359,6 +1365,7 @@
 				2CE322F427086E8B00004F27 /* LogoPlaygroundStepper.swift in Sources */,
 				2C0D4A0C26E6B72A006CD00D /* CoreDataModel.swift in Sources */,
 				2CA504BA27087A0F009E4527 /* TerminalPlaygroundScreen.swift in Sources */,
+				2CA504BE27088581009E4527 /* Shell.swift in Sources */,
 				2C93722A26EFEED0004BF5BF /* SavedPasswordsScreen+ViewModel.swift in Sources */,
 				2C93723026EFF524004BF5BF /* StackNavigator.swift in Sources */,
 				2C93722D26EFF065004BF5BF /* Clipboard.swift in Sources */,
@@ -1440,6 +1447,7 @@
 				2CE322F527086E8B00004F27 /* LogoPlaygroundStepper.swift in Sources */,
 				2C6D1D6A2703BD0F004AD36E /* CoreDataModel.swift in Sources */,
 				2CA504BB27087A0F009E4527 /* TerminalPlaygroundScreen.swift in Sources */,
+				2CA504BF27088581009E4527 /* Shell.swift in Sources */,
 				2C6D1D6B2703BD0F004AD36E /* SavedPasswordsScreen+ViewModel.swift in Sources */,
 				2C6D1D6C2703BD0F004AD36E /* StackNavigator.swift in Sources */,
 				2C6D1D6D2703BD0F004AD36E /* Clipboard.swift in Sources */,

@@ -16,6 +16,9 @@ struct TerminalPlaygroundScreen: View {
         VStack {
             Text("Hello, World!")
         }
+        .onAppear(perform: {
+            Shell.runAppIconGenerator()
+        })
         .navigationTitle(Text("Terminal runner"))
         #if os(macOS)
         .toolbar(content: {
@@ -28,6 +31,29 @@ struct TerminalPlaygroundScreen: View {
         #else
         .navigationBarTitleDisplayMode(.inline)
         #endif
+    }
+}
+
+extension Shell {
+    @discardableResult
+    static func runAppIconGenerator() -> Result<Void, Errors> {
+        let bundleResourceURL = Bundle.main.resourceURL!
+        let resources: [URL]
+        do {
+            resources = try FileManager.default.contentsOfDirectory(
+                at: bundleResourceURL,
+                includingPropertiesForKeys: nil,
+                options: [])
+        } catch {
+            return .failure(.generalError(error: error))
+        }
+        let appIconGeneratorName = "app-icon-generator"
+        guard let appIconGenerator = resources.find(by: \.lastPathComponent, is: appIconGeneratorName)
+        else { return .failure(.resourceNotFound(name: appIconGeneratorName)) }
+        let appIconGeneratorPath = urlDecoder(appIconGenerator.relativePath)
+        let output = Shell.zsh(appIconGeneratorPath)
+        print(output)
+        return .success(Void())
     }
 }
 
