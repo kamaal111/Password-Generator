@@ -5,6 +5,7 @@
 //  Created by Kamaal M Farah on 02/10/2021.
 //
 
+#if DEBUG
 import SwiftUI
 
 struct LogoPlaygroundToggle: View {
@@ -26,3 +27,4 @@ struct LogoPlaygroundToggle_Previews: PreviewProvider {
         LogoPlaygroundToggle(value: .constant(true), text: "Toggling")
     }
 }
+#endif

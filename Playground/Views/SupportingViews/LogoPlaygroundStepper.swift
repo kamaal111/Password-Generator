@@ -5,6 +5,7 @@
 //  Created by Kamaal M Farah on 02/10/2021.
 //
 
+#if DEBUG
 import SwiftUI
 
 struct LogoPlaygroundStepper<V: Strideable>: View {
@@ -27,3 +28,4 @@ struct LogoPlaygroundStepper_Previews: PreviewProvider {
         LogoPlaygroundStepper(value: .constant(22), text: "Steppin", stepperTitle: "22")
     }
 }
+#endif
