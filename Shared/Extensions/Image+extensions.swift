@@ -18,25 +18,7 @@ extension NSImage {
 
     func download(filename: String) {
         guard let pngData = self.pngData else { return }
-        let savePanel = NSSavePanel()
-        savePanel.canCreateDirectories = true
-        savePanel.showsTagField = false
-        savePanel.nameFieldStringValue = filename
-        savePanel.level = NSWindow.Level(rawValue: Int(CGWindowLevelForKey(.modalPanelWindow)))
-        savePanel.begin { (result: NSApplication.ModalResponse) in
-            if result == .OK {
-                guard let saveURL = savePanel.url else { return }
-                do {
-                    try pngData.write(to: saveURL)
-                } catch {
-                    console.error(Date(), error.localizedDescription, error)
-                    return
-                }
-                console.log(Date(), "file saved")
-                return
-            }
-            console.log(Date(), "could not save file", result)
-        }
+        pngData.download(filename: filename)
     }
 }
 #elseif canImport(UIKit)

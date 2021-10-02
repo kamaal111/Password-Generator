@@ -8,6 +8,7 @@
 #if DEBUG
 import SwiftUI
 import SalmonUI
+import ConsoleSwift
 
 struct LogoPlaygroundScreen: View {
     @EnvironmentObject
@@ -100,18 +101,64 @@ struct LogoPlaygroundScreen: View {
 
     private func exportLogoAsIconSet() {
         guard let pngData = logoToExport.snapshot().pngData,
-        let temporaryFileURL = NSURL.fileURL(withPathComponents: [NSTemporaryDirectory()])
+        let temporaryDirectoryURL = NSURL.fileURL(withPathComponents: [NSTemporaryDirectory()])
         else { return }
-//        let temporaryFilename = "AppIcon.appiconset"
-        let shellResult = Shell.runAppIconGenerator(input: pngData, output: temporaryFileURL)
+
+        let shellResult = Shell.runAppIconGenerator(input: pngData, output: temporaryDirectoryURL)
         let shellOutput: String
         switch shellResult {
         case .failure(let failure):
-            print(failure)
+            console.error(Date(), failure.localizedDescription, failure)
             return
         case .success(let success): shellOutput = success
         }
-        print(shellOutput)
+        console.log(Date(), shellOutput)
+
+        let content: [URL]
+        do {
+            content = try FileManager.default.contentsOfDirectory(
+                at: temporaryDirectoryURL,
+                includingPropertiesForKeys: nil,
+                options: [])
+        } catch {
+            console.error(Date(), error.localizedDescription, error)
+            return
+        }
+
+        guard let iconSetURL = content.find(by: \.lastPathComponent, is: "AppIcon.appiconset") else { return }
+
+        let savePanel = NSSavePanel()
+        savePanel.canCreateDirectories = true
+        savePanel.showsTagField = true
+        savePanel.nameFieldStringValue = "AppIcon.appiconset"
+        savePanel.level = NSWindow.Level(rawValue: Int(CGWindowLevelForKey(.modalPanelWindow)))
+        savePanel.begin { (result: NSApplication.ModalResponse) in
+            if result == .OK {
+                guard let saveURL = savePanel.url else { return }
+                do {
+                    // - TODO: CHECK IF EXISTS THEN DELETE THE OLD ONE
+                    try FileManager.default.moveItem(at: iconSetURL, to: saveURL)
+                } catch {
+                    console.error(Date(), error.localizedDescription, error)
+                    do {
+                        try FileManager.default.removeItem(at: iconSetURL)
+                    } catch {
+                        console.error(Date(), error.localizedDescription, error)
+                        return
+                    }
+                    return
+                }
+                console.log(Date(), "file saved")
+                return
+            }
+            do {
+                try FileManager.default.removeItem(at: iconSetURL)
+            } catch {
+                console.error(Date(), error.localizedDescription, error)
+                return
+            }
+            console.log(Date(), "could not save file", result)
+        }
     }
 }
 
@@ -192,11 +239,9 @@ extension Shell {
 
     @discardableResult
     static func runAppIconGenerator(input: Data, output: URL) -> Result<String, AppIconGeneratorErrors> {
-        let temporaryDirectory = NSTemporaryDirectory()
-        let temporaryFilename = "\(UUID().uuidString).png"
         guard let temporaryFileURL = NSURL.fileURL(withPathComponents: [
-            temporaryDirectory,
-            temporaryFilename
+            NSTemporaryDirectory(),
+            "\(UUID().uuidString).png"
         ]) else { return .failure(.temporaryFileWentWrong) }
         do {
             try input.write(to: temporaryFileURL)
@@ -212,15 +257,41 @@ extension Shell {
                 includingPropertiesForKeys: nil,
                 options: [])
         } catch {
+            switch cleanUp(temporaryFileURL: temporaryFileURL) {
+            case .failure(let failure): return .failure(failure)
+            case .success: break
+            }
             return .failure(.generalError(error: error))
         }
 
         let appIconGeneratorName = "app-icon-generator"
         guard let appIconGenerator = resources.find(by: \.lastPathComponent, is: appIconGeneratorName)
-        else { return .failure(.resourceNotFound(name: appIconGeneratorName)) }
+        else {
+            switch cleanUp(temporaryFileURL: temporaryFileURL) {
+            case .failure(let failure): return .failure(failure)
+            case .success: break
+            }
+            return .failure(.resourceNotFound(name: appIconGeneratorName))
+        }
+
         let appIconGeneratorPath = urlDecoder(appIconGenerator.relativePath)
-        let output = Shell.zsh("\(appIconGeneratorPath) -o \(output.relativePath) -i \(temporaryFileURL.relativePath) -v")
+        let command = "\(appIconGeneratorPath) -o \(output.relativePath) -i \(temporaryFileURL.relativePath) -v"
+        let output = Shell.zsh(command)
+
+        switch cleanUp(temporaryFileURL: temporaryFileURL) {
+        case .failure(let failure): return .failure(failure)
+        case .success: break
+        }
         return .success(output)
+    }
+
+    private static func cleanUp(temporaryFileURL: URL) -> Result<Void, AppIconGeneratorErrors> {
+        do {
+            try FileManager.default.removeItem(at: temporaryFileURL)
+        } catch {
+            return .failure(.generalError(error: error))
+        }
+        return .success(Void())
     }
 }
 
