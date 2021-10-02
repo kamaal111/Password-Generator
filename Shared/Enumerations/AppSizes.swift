@@ -10,6 +10,8 @@ import CoreGraphics
 enum AppSizes: CGFloat {
     ///  Size of 0
     case nada = 0
+    /// Size of 2
+    case xxs = 2
     /// Size of 4
     case xs = 4
     /// Size of 8

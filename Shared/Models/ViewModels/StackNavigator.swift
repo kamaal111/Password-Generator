@@ -24,7 +24,6 @@ final class StackNavigator: ObservableObject {
         #if DEBUG
         case playground
         case logoPlayground
-        case terminalPlayground
         #endif
 
         var view: some View {
@@ -34,7 +33,6 @@ final class StackNavigator: ObservableObject {
                 #if DEBUG
                 case .playground: PlaygroundScreen()
                 case .logoPlayground: LogoPlaygroundScreen()
-                case .terminalPlayground: TerminalPlaygroundScreen()
                 #endif
                 }
             }

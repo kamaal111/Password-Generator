@@ -32,11 +32,12 @@ struct LogoPlaygroundScreen: View {
                 HStack(alignment: .top) {
                     logoView(size: .squared(150))
                     VStack(alignment: .leading) {
-                        Button(action: exportLogo) {
-                            Text("Export Logo")
-                                .foregroundColor(.accentColor)
-                        }
-                        .buttonStyle(PlainButtonStyle())
+                        LogoPlaygroundButton(text: "Export Logo", action: exportLogo)
+                        #if canImport(AppKit)
+                        LogoPlaygroundButton(text: "Export Logo as IconSet", action: exportLogoAsIconSet)
+                            .padding(.top, .xs)
+                            .padding(.bottom, .xxs)
+                        #endif
                         KFloatingTextField(text: $exportLogoSize, title: "Export logo size", textFieldType: .numbers)
                     }
                     .padding(.horizontal, .medium)
@@ -88,10 +89,43 @@ struct LogoPlaygroundScreen: View {
             isTransparent: logoIsTransparent)
     }
 
-    private func exportLogo() {
+    private var logoToExport: some View {
         let size = CGFloat(Double(exportLogoSize)!)
-        let logoImage = logoView(size: .squared(size))
-        logoImage.snapshot().download(filename: "logo.png")
+        return logoView(size: .squared(size))
+    }
+
+    private func exportLogo() {
+        logoToExport.snapshot().download(filename: "logo.png")
+    }
+
+    private func exportLogoAsIconSet() {
+        guard let pngData = logoToExport.snapshot().pngData,
+        let temporaryFileURL = NSURL.fileURL(withPathComponents: [NSTemporaryDirectory()])
+        else { return }
+//        let temporaryFilename = "AppIcon.appiconset"
+        let shellResult = Shell.runAppIconGenerator(input: pngData, output: temporaryFileURL)
+        let shellOutput: String
+        switch shellResult {
+        case .failure(let failure):
+            print(failure)
+            return
+        case .success(let success): shellOutput = success
+        }
+        print(shellOutput)
+    }
+}
+
+struct LogoPlaygroundButton: View {
+    let text: String
+    let action: () -> Void
+
+    var body: some View {
+        Button(action: action) {
+            Text(text)
+                .foregroundColor(.accentColor)
+                .fontWeight(.semibold)
+        }
+        .buttonStyle(PlainButtonStyle())
     }
 }
 
@@ -146,6 +180,47 @@ struct LogoPlaygroundConfigurator: View {
             title: "Text color",
             selectableColors: selectableColors)
             .padding(.bottom, .medium)
+    }
+}
+
+extension Shell {
+    enum AppIconGeneratorErrors: Error {
+        case resourceNotFound(name: String)
+        case generalError(error: Error)
+        case temporaryFileWentWrong
+    }
+
+    @discardableResult
+    static func runAppIconGenerator(input: Data, output: URL) -> Result<String, AppIconGeneratorErrors> {
+        let temporaryDirectory = NSTemporaryDirectory()
+        let temporaryFilename = "\(UUID().uuidString).png"
+        guard let temporaryFileURL = NSURL.fileURL(withPathComponents: [
+            temporaryDirectory,
+            temporaryFilename
+        ]) else { return .failure(.temporaryFileWentWrong) }
+        do {
+            try input.write(to: temporaryFileURL)
+        } catch {
+            return .failure(.generalError(error: error))
+        }
+
+        let bundleResourceURL = Bundle.main.resourceURL!
+        let resources: [URL]
+        do {
+            resources = try FileManager.default.contentsOfDirectory(
+                at: bundleResourceURL,
+                includingPropertiesForKeys: nil,
+                options: [])
+        } catch {
+            return .failure(.generalError(error: error))
+        }
+
+        let appIconGeneratorName = "app-icon-generator"
+        guard let appIconGenerator = resources.find(by: \.lastPathComponent, is: appIconGeneratorName)
+        else { return .failure(.resourceNotFound(name: appIconGeneratorName)) }
+        let appIconGeneratorPath = urlDecoder(appIconGenerator.relativePath)
+        let output = Shell.zsh("\(appIconGeneratorPath) -o \(output.relativePath) -i \(temporaryFileURL.relativePath)")
+        return .success(output)
     }
 }
 

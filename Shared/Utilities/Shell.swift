@@ -10,12 +10,6 @@ import Foundation
 struct Shell {
     private init() { }
 
-    enum Errors: Error {
-        case resourceNotFound(name: String)
-        case generalError(error: Error)
-        case temporaryFileWentWrong
-    }
-
     static func zsh(_ command: String) -> String {
         shell("/bin/zsh", command)
     }

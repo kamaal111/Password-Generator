@@ -10,14 +10,14 @@ import ConsoleSwift
 
 #if canImport(AppKit)
 extension NSImage {
-    private var pngData: Data? {
+    var pngData: Data? {
         guard let tiffRepresentation = tiffRepresentation,
-                let bitmapImage = NSBitmapImageRep(data: tiffRepresentation) else { return nil }
+              let bitmapImage = NSBitmapImageRep(data: tiffRepresentation) else { return nil }
         return bitmapImage.representation(using: .png, properties: [:])
     }
 
     func download(filename: String) {
-        guard let pngData = pngData else { return }
+        guard let pngData = self.pngData else { return }
         let savePanel = NSSavePanel()
         savePanel.canCreateDirectories = true
         savePanel.showsTagField = false

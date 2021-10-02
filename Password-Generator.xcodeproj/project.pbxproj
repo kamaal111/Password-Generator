@@ -149,9 +149,6 @@
 		2C93723026EFF524004BF5BF /* StackNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C93722E26EFF524004BF5BF /* StackNavigator.swift */; };
 		2C93723226EFF56B004BF5BF /* SavedPasswordDetailScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C93723126EFF56B004BF5BF /* SavedPasswordDetailScreen.swift */; };
 		2C93723326EFF56B004BF5BF /* SavedPasswordDetailScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C93723126EFF56B004BF5BF /* SavedPasswordDetailScreen.swift */; };
-		2CA504B927087A0F009E4527 /* TerminalPlaygroundScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA504B827087A0F009E4527 /* TerminalPlaygroundScreen.swift */; };
-		2CA504BA27087A0F009E4527 /* TerminalPlaygroundScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA504B827087A0F009E4527 /* TerminalPlaygroundScreen.swift */; };
-		2CA504BB27087A0F009E4527 /* TerminalPlaygroundScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA504B827087A0F009E4527 /* TerminalPlaygroundScreen.swift */; };
 		2CA504BC27087DF9009E4527 /* app-icon-generator in Resources */ = {isa = PBXBuildFile; fileRef = 2CE322E6270869A400004F27 /* app-icon-generator */; };
 		2CA504BE27088581009E4527 /* Shell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA504BD27088581009E4527 /* Shell.swift */; };
 		2CA504BF27088581009E4527 /* Shell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA504BD27088581009E4527 /* Shell.swift */; };
@@ -307,7 +304,6 @@
 		2C93722B26EFF065004BF5BF /* Clipboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clipboard.swift; sourceTree = "<group>"; };
 		2C93722E26EFF524004BF5BF /* StackNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackNavigator.swift; sourceTree = "<group>"; };
 		2C93723126EFF56B004BF5BF /* SavedPasswordDetailScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedPasswordDetailScreen.swift; sourceTree = "<group>"; };
-		2CA504B827087A0F009E4527 /* TerminalPlaygroundScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerminalPlaygroundScreen.swift; sourceTree = "<group>"; };
 		2CA504BD27088581009E4527 /* Shell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shell.swift; sourceTree = "<group>"; };
 		2CA895C126E55B080057A82C /* Text+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Text+extensions.swift"; sourceTree = "<group>"; };
 		2CA895C726E55EC60057A82C /* VerticalForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalForm.swift; sourceTree = "<group>"; };
@@ -878,7 +874,6 @@
 			children = (
 				6017C073270101030023F347 /* LogoPlaygroundScreen.swift */,
 				2CD73C3526F7C1D50054C380 /* PlaygroundScreen.swift */,
-				2CA504B827087A0F009E4527 /* TerminalPlaygroundScreen.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -1274,7 +1269,6 @@
 				6017C074270101030023F347 /* LogoPlaygroundScreen.swift in Sources */,
 				2C156FBD26ED579000DF2110 /* AdaptiveForegroundColorModifier.swift in Sources */,
 				2C6AD47B26E5093B003AF55C /* ScreenModel.swift in Sources */,
-				2CA504B927087A0F009E4527 /* TerminalPlaygroundScreen.swift in Sources */,
 				6017C07A2701062A0023F347 /* Logo.swift in Sources */,
 				2CA895D226E5661C0057A82C /* UserDefaults+extensions.swift in Sources */,
 				2C6AD43A26E50124003AF55C /* Persistence.swift in Sources */,
@@ -1364,7 +1358,6 @@
 				6017C07F270108440023F347 /* LogoPlaygroundColorSelector.swift in Sources */,
 				2CE322F427086E8B00004F27 /* LogoPlaygroundStepper.swift in Sources */,
 				2C0D4A0C26E6B72A006CD00D /* CoreDataModel.swift in Sources */,
-				2CA504BA27087A0F009E4527 /* TerminalPlaygroundScreen.swift in Sources */,
 				2CA504BE27088581009E4527 /* Shell.swift in Sources */,
 				2C93722A26EFEED0004BF5BF /* SavedPasswordsScreen+ViewModel.swift in Sources */,
 				2C93723026EFF524004BF5BF /* StackNavigator.swift in Sources */,
@@ -1446,7 +1439,6 @@
 				2C6D1D692703BD0F004AD36E /* LogoPlaygroundColorSelector.swift in Sources */,
 				2CE322F527086E8B00004F27 /* LogoPlaygroundStepper.swift in Sources */,
 				2C6D1D6A2703BD0F004AD36E /* CoreDataModel.swift in Sources */,
-				2CA504BB27087A0F009E4527 /* TerminalPlaygroundScreen.swift in Sources */,
 				2CA504BF27088581009E4527 /* Shell.swift in Sources */,
 				2C6D1D6B2703BD0F004AD36E /* SavedPasswordsScreen+ViewModel.swift in Sources */,
 				2C6D1D6C2703BD0F004AD36E /* StackNavigator.swift in Sources */,

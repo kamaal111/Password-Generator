@@ -11,7 +11,7 @@ import SalmonUI
 
 struct PlaygroundScreen: View {
     @StateObject
-    private var stackNavigator = StackNavigator(registeredScreens: [.logoPlayground, .terminalPlayground])
+    private var stackNavigator = StackNavigator(registeredScreens: [.logoPlayground])
 
     var body: some View {
         VStack(alignment: .leading) {
@@ -25,15 +25,6 @@ struct PlaygroundScreen: View {
                 .buttonStyle(PlainButtonStyle())
             }
             .padding(.bottom, .small)
-            VStack(alignment: .leading) {
-                FormHeader(title: "Miscellaneous")
-                Button(action: { stackNavigator.navigate(to: .terminalPlayground) }) {
-                    Text("Terminal runner")
-                        .foregroundColor(.accentColor)
-                        .font(.headline)
-                }
-                .buttonStyle(PlainButtonStyle())
-            }
         }
         .ktakeSizeEagerly(alignment: .topLeading)
         .padding(.horizontal, .large)
