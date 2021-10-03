@@ -30,6 +30,9 @@
 		2C4713CB26F13E71007647F7 /* Sequence+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4713CA26F13E71007647F7 /* Sequence+extensions.swift */; };
 		2C4713CC26F13E71007647F7 /* Sequence+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4713CA26F13E71007647F7 /* Sequence+extensions.swift */; };
 		2C49EE59270A4026009BC0F9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C49EE58270A4026009BC0F9 /* LaunchScreen.storyboard */; };
+		2C49EE5B270A43CF009BC0F9 /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C49EE5A270A43CF009BC0F9 /* SplashScreen.swift */; };
+		2C49EE5C270A43E9009BC0F9 /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C49EE5A270A43CF009BC0F9 /* SplashScreen.swift */; };
+		2C49EE5D270A43EA009BC0F9 /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C49EE5A270A43CF009BC0F9 /* SplashScreen.swift */; };
 		2C4F863226F264F600A34647 /* SavedPasswordDetailScreen+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4F863126F264F600A34647 /* SavedPasswordDetailScreen+ViewModel.swift */; };
 		2C4F863326F264F600A34647 /* SavedPasswordDetailScreen+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4F863126F264F600A34647 /* SavedPasswordDetailScreen+ViewModel.swift */; };
 		2C614B3C26E6A0070061FF82 /* PasswordHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C614B3B26E6A0070061FF82 /* PasswordHandler.swift */; };
@@ -275,6 +278,7 @@
 		2C3E590A26EA7E4200F75F51 /* NameSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameSheet.swift; sourceTree = "<group>"; };
 		2C4713CA26F13E71007647F7 /* Sequence+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sequence+extensions.swift"; sourceTree = "<group>"; };
 		2C49EE58270A4026009BC0F9 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		2C49EE5A270A43CF009BC0F9 /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
 		2C4F863126F264F600A34647 /* SavedPasswordDetailScreen+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SavedPasswordDetailScreen+ViewModel.swift"; sourceTree = "<group>"; };
 		2C614B3B26E6A0070061FF82 /* PasswordHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordHandler.swift; sourceTree = "<group>"; };
 		2C69071226E95909000B84EC /* CorePassword+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CorePassword+extensions.swift"; sourceTree = "<group>"; };
@@ -535,6 +539,7 @@
 				2C6AD40B26E50120003AF55C /* ContentView.swift */,
 				6017C0792701062A0023F347 /* Logo.swift */,
 				2C6AD40A26E50120003AF55C /* PasslifyApp.swift */,
+				2C49EE5A270A43CF009BC0F9 /* SplashScreen.swift */,
 				2C6AD49E26E51632003AF55C /* Enumerations */,
 				2C6AD48E26E50DDB003AF55C /* Extensions */,
 				2C6AD47226E50856003AF55C /* Models */,
@@ -1320,6 +1325,7 @@
 				2CD73C4126F7CDE30054C380 /* Optional+extensions.swift in Sources */,
 				6017C06D2700FEFE0023F347 /* DebugFrameSize.swift in Sources */,
 				2C6AD49926E51358003AF55C /* Constants.swift in Sources */,
+				2C49EE5B270A43CF009BC0F9 /* SplashScreen.swift in Sources */,
 				2CBF2B442708F17B0088E18F /* FileManager+extensions.swift in Sources */,
 				2C6AD43426E50124003AF55C /* Password_Generator.xcdatamodeld in Sources */,
 				2C0D4A0626E6B692006CD00D /* CorePassword+CoreDataClass.swift in Sources */,
@@ -1362,6 +1368,7 @@
 				2CD73C3B26F7C7410054C380 /* NSMenuItem+extensions.swift in Sources */,
 				2C6D1D2C2703B67C004AD36E /* Color+extensions.swift in Sources */,
 				6017C078270105030023F347 /* FormHeader.swift in Sources */,
+				2C49EE5C270A43E9009BC0F9 /* SplashScreen.swift in Sources */,
 				2C6AD47C26E5093B003AF55C /* ScreenModel.swift in Sources */,
 				2C3E590426EA7AD200F75F51 /* CheckButton.swift in Sources */,
 				2C6AD43B26E50124003AF55C /* Persistence.swift in Sources */,
@@ -1446,6 +1453,7 @@
 				2C6D1D452703BD0F004AD36E /* NSMenuItem+extensions.swift in Sources */,
 				2C6D1D462703BD0F004AD36E /* Color+extensions.swift in Sources */,
 				2C6D1D472703BD0F004AD36E /* FormHeader.swift in Sources */,
+				2C49EE5D270A43EA009BC0F9 /* SplashScreen.swift in Sources */,
 				2C6D1D482703BD0F004AD36E /* ScreenModel.swift in Sources */,
 				2C6D1D492703BD0F004AD36E /* CheckButton.swift in Sources */,
 				2C6D1D4A2703BD0F004AD36E /* Persistence.swift in Sources */,

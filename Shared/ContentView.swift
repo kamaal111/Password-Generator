@@ -52,12 +52,22 @@ struct ContentView: View {
 
 #if os(iOS)
 struct IOSContentView: View {
+    @State private var showPlayground = true
+
     var body: some View {
-        if DeviceModel.device == .iPad {
-            SidebarView()
-        } else {
-            TabbarView()
+        ZStack {
+            if DeviceModel.device == .iPad {
+                SidebarView()
+            } else {
+                TabbarView()
+            }
         }
+        .withSplashScreen(isActive: showPlayground)
+        .onAppear(perform: {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                withAnimation { showPlayground = false }
+            }
+        })
     }
 }
 #endif
