@@ -10,12 +10,16 @@ import PersistanceManager
 import ConsoleSwift
 import ShrimpExtensions
 import CoreData
+import SwiftUI
 
 final class CoreDataModel: ObservableObject {
 
     @Published private(set) var savedPasswords: [CorePassword] = []
     @Published private(set) var lastGeneratedPassword: String?
     @Published var deletionAlertIsActive = false
+    @Published private var passwordToDeleteID: UUID? {
+        didSet { passwordToDeleteIDDidSet() }
+    }
 
     let persistenceController: PersistanceManager
 
@@ -28,8 +32,26 @@ final class CoreDataModel: ObservableObject {
     }
 
     func onPasswordDelete(_ password: CorePassword) {
-        deletionAlertIsActive = true
-        print("password", password)
+        passwordToDeleteID = password.id
+    }
+
+    func onDefinitePasswordDeletion() {
+        guard let passwordToDeleteID = self.passwordToDeleteID,
+              let index = savedPasswords.findIndex(by: \.id, is: passwordToDeleteID) else { return }
+        self.passwordToDeleteID = nil
+        let password = savedPasswords[index]
+        do {
+            try persistenceController.delete(password)
+        } catch {
+            console.error(Date(), error.localizedDescription, error)
+            return
+        }
+        DispatchQueue.main.async { [weak self] in
+            withAnimation {
+                // - FIXME: SOMEHOW BREAKING, HOW DO I HANDLE?
+                _ = self?.savedPasswords.remove(at: index)
+            }
+        }
     }
 
     func editPassword(id: UUID, args: CorePassword.Args) {
@@ -87,6 +109,14 @@ final class CoreDataModel: ObservableObject {
         }
         savedPasswords = savedPasswords.prepended(savedPassword)
         return true
+    }
+
+    private func passwordToDeleteIDDidSet() {
+        if passwordToDeleteID != nil {
+            deletionAlertIsActive = true
+        } else {
+            deletionAlertIsActive = false
+        }
     }
 
 }

@@ -42,8 +42,10 @@ struct SavedPasswordsScreen: View {
                 // - TODO: LOCALIZE THIS
                 title: Text("Deleting password"),
                 message: Text("Are you sure you want to delete this password?"),
-                // - TODO: DEFINITE DELETE HERE
-                primaryButton: .default(Text("OK"), action: { print("yes definetly") }),
+                primaryButton: .default(Text("OK"), action: {
+                    coreDataModel.onDefinitePasswordDeletion()
+                    viewModel.toggleEditMode()
+                }),
                 secondaryButton: .cancel())
         })
         #if os(macOS)
