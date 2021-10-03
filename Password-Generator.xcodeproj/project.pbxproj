@@ -173,6 +173,9 @@
 		2CBF2B482708F2370088E18F /* LogoPlaygroundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CBF2B472708F2370088E18F /* LogoPlaygroundButton.swift */; };
 		2CBF2B492708F2370088E18F /* LogoPlaygroundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CBF2B472708F2370088E18F /* LogoPlaygroundButton.swift */; };
 		2CBF2B4A2708F2370088E18F /* LogoPlaygroundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CBF2B472708F2370088E18F /* LogoPlaygroundButton.swift */; };
+		2CBFD5262709B67800E9EF82 /* EditMode+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CBFD5252709B67800E9EF82 /* EditMode+extensions.swift */; };
+		2CBFD5272709B67800E9EF82 /* EditMode+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CBFD5252709B67800E9EF82 /* EditMode+extensions.swift */; };
+		2CBFD5282709B67800E9EF82 /* EditMode+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CBFD5252709B67800E9EF82 /* EditMode+extensions.swift */; };
 		2CCD0B7E26F28CFD00BE8E21 /* CopyableDetailsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCD0B7D26F28CFD00BE8E21 /* CopyableDetailsRow.swift */; };
 		2CCD0B7F26F28CFD00BE8E21 /* CopyableDetailsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCD0B7D26F28CFD00BE8E21 /* CopyableDetailsRow.swift */; };
 		2CCD0B8126F2933100BE8E21 /* DateDetailsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCD0B8026F2933100BE8E21 /* DateDetailsRow.swift */; };
@@ -324,6 +327,7 @@
 		2CA895D426E56BB70057A82C /* ToggleFormField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleFormField.swift; sourceTree = "<group>"; };
 		2CBF2B432708F17B0088E18F /* FileManager+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+extensions.swift"; sourceTree = "<group>"; };
 		2CBF2B472708F2370088E18F /* LogoPlaygroundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoPlaygroundButton.swift; sourceTree = "<group>"; };
+		2CBFD5252709B67800E9EF82 /* EditMode+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EditMode+extensions.swift"; sourceTree = "<group>"; };
 		2CCD0B7D26F28CFD00BE8E21 /* CopyableDetailsRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyableDetailsRow.swift; sourceTree = "<group>"; };
 		2CCD0B8026F2933100BE8E21 /* DateDetailsRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateDetailsRow.swift; sourceTree = "<group>"; };
 		2CD73C3526F7C1D50054C380 /* PlaygroundScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaygroundScreen.swift; sourceTree = "<group>"; };
@@ -794,6 +798,7 @@
 			children = (
 				2C6D1D2A2703B67C004AD36E /* Color+extensions.swift */,
 				2C9F52472708B5AE00E86EC6 /* Data+extensions.swift */,
+				2CBFD5252709B67800E9EF82 /* EditMode+extensions.swift */,
 				2CBF2B432708F17B0088E18F /* FileManager+extensions.swift */,
 				6017C08027010AD50023F347 /* Image+extensions.swift */,
 				2CE97ED226EC03BF004D799A /* Notification.Name+extensions.swift */,
@@ -1270,6 +1275,7 @@
 				2C4713CB26F13E71007647F7 /* Sequence+extensions.swift in Sources */,
 				2CA895C226E55B080057A82C /* Text+extensions.swift in Sources */,
 				2C6D1D2B2703B67C004AD36E /* Color+extensions.swift in Sources */,
+				2CBFD5262709B67800E9EF82 /* EditMode+extensions.swift in Sources */,
 				6017C077270105030023F347 /* FormHeader.swift in Sources */,
 				2C6AD43626E50124003AF55C /* PasslifyApp.swift in Sources */,
 				2CA895D526E56BB70057A82C /* ToggleFormField.swift in Sources */,
@@ -1338,6 +1344,7 @@
 				2C156FBE26ED579000DF2110 /* AdaptiveForegroundColorModifier.swift in Sources */,
 				2C08AD8326E7FC33001ECD75 /* HomeMainActionButtons.swift in Sources */,
 				2CA895D326E5661C0057A82C /* UserDefaults+extensions.swift in Sources */,
+				2CBFD5272709B67800E9EF82 /* EditMode+extensions.swift in Sources */,
 				2CE97ED426EC03BF004D799A /* Notification.Name+extensions.swift in Sources */,
 				2CBF2B492708F2370088E18F /* LogoPlaygroundButton.swift in Sources */,
 				2CD73C3B26F7C7410054C380 /* NSMenuItem+extensions.swift in Sources */,
@@ -1422,6 +1429,7 @@
 				2C6D1D412703BD0F004AD36E /* AdaptiveForegroundColorModifier.swift in Sources */,
 				2C6D1D422703BD0F004AD36E /* HomeMainActionButtons.swift in Sources */,
 				2C6D1D432703BD0F004AD36E /* UserDefaults+extensions.swift in Sources */,
+				2CBFD5282709B67800E9EF82 /* EditMode+extensions.swift in Sources */,
 				2C6D1D442703BD0F004AD36E /* Notification.Name+extensions.swift in Sources */,
 				2CBF2B4A2708F2370088E18F /* LogoPlaygroundButton.swift in Sources */,
 				2C6D1D452703BD0F004AD36E /* NSMenuItem+extensions.swift in Sources */,

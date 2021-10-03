@@ -11,6 +11,13 @@ extension SavedPasswordsScreen {
     final class ViewModel: ObservableObject {
 
         @Published private var lastCopiedPasswordID: UUID?
+        @Published var editMode: EditMode = .inactive
+
+        func toggleEditMode() {
+            withAnimation {
+                editMode = editMode.toggled()
+            }
+        }
 
         func hasBeenLastCopied(_ password: CorePassword) -> Bool {
             password.id == lastCopiedPasswordID

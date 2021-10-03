@@ -18,15 +18,6 @@ struct SavedPasswordsScreen: View {
     private var stackNavigator = StackNavigator(registeredScreens: Self.registeredScreens)
 
     var body: some View {
-        #if os(macOS)
-        view
-            .environmentObject(stackNavigator)
-        #else
-        view
-        #endif
-    }
-
-    private var view: some View {
         VerticalForm {
             Section(header: sectionHeader) {
                 #if os(macOS)
@@ -46,6 +37,21 @@ struct SavedPasswordsScreen: View {
             #endif
         })
         .withNavigationPoints(selectedScreen: $stackNavigator.selectedScreen, stackNavigator: stackNavigator)
+        #if os(macOS)
+        .toolbar(content: {
+            trailingNavigationBarItem
+        })
+        #else
+        .navigationBarItems(trailing: trailingNavigationBarItem)
+        .environment(\.editMode, $viewModel.editMode)
+        #endif
+    }
+
+    private var trailingNavigationBarItem: some View {
+        Button(action: viewModel.toggleEditMode) {
+            Text(editMode: viewModel.editMode)
+                .fontWeight(.semibold)
+        }
     }
 
     private var savedPasswordSectionContent: some View {
@@ -59,7 +65,7 @@ struct SavedPasswordsScreen: View {
                     ]
                     stackNavigator.navigate(to: .savedPasswordDetails, options: options)
                 })
-                .contextMenu {
+                .contextMenu(menuItems: {
                     Button(action: { viewModel.copyPassword(from: password) }) {
                         Text(localized: .COPY_PASSWORD)
                     }
@@ -68,8 +74,13 @@ struct SavedPasswordsScreen: View {
                             Text(localized: .COPY_NAME)
                         }
                     }
-                }
+                })
         }
+        .onDelete(perform: { indices in
+            indices.forEach { index in
+                print("index", index)
+            }
+        })
     }
 
     private var sectionHeader: some View {
