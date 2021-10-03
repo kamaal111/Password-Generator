@@ -38,19 +38,16 @@ final class CoreDataModel: ObservableObject {
     func onDefinitePasswordDeletion() {
         guard let passwordToDeleteID = self.passwordToDeleteID,
               let index = savedPasswords.findIndex(by: \.id, is: passwordToDeleteID) else { return }
-        self.passwordToDeleteID = nil
-        let password = savedPasswords[index]
-        do {
-            try persistenceController.delete(password)
-        } catch {
-            console.error(Date(), error.localizedDescription, error)
-            return
-        }
         DispatchQueue.main.async { [weak self] in
-            withAnimation {
-                // - FIXME: SOMEHOW BREAKING, HOW DO I HANDLE?
-                _ = self?.savedPasswords.remove(at: index)
+            guard let self = self else { return }
+            let password = self.savedPasswords.remove(at: index)
+            do {
+                try self.persistenceController.delete(password)
+            } catch {
+                console.error(Date(), error.localizedDescription, error)
+                return
             }
+            self.passwordToDeleteID = nil
         }
     }
 
