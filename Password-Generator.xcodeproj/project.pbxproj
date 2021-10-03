@@ -274,6 +274,7 @@
 		2C0D4A0426E6B692006CD00D /* CorePassword+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CorePassword+CoreDataClass.swift"; sourceTree = "<group>"; };
 		2C0D4A0526E6B692006CD00D /* CorePassword+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CorePassword+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		2C0D4A0A26E6B72A006CD00D /* CoreDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataModel.swift; sourceTree = "<group>"; };
+		2C2F775A270A547F00732531 /* main.go */ = {isa = PBXFileReference; lastKnownFileType = text; path = main.go; sourceTree = "<group>"; };
 		2C3E590226EA7AD200F75F51 /* CheckButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckButton.swift; sourceTree = "<group>"; };
 		2C3E590A26EA7E4200F75F51 /* NameSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameSheet.swift; sourceTree = "<group>"; };
 		2C4713CA26F13E71007647F7 /* Sequence+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sequence+extensions.swift"; sourceTree = "<group>"; };
@@ -505,6 +506,14 @@
 			path = ViewModifiers;
 			sourceTree = "<group>";
 		};
+		2C2F7759270A547F00732531 /* version-bumper */ = {
+			isa = PBXGroup;
+			children = (
+				2C2F775A270A547F00732531 /* main.go */,
+			);
+			path = "version-bumper";
+			sourceTree = "<group>";
+		};
 		2C69071126E958EA000B84EC /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
@@ -673,6 +682,7 @@
 				2C0D49FD26E6ACE1006CD00D /* pre_compile.sh */,
 				2CE322E1270869A400004F27 /* app-icon-generator */,
 				2C6AD45E26E504CA003AF55C /* generate_locales */,
+				2C2F7759270A547F00732531 /* version-bumper */,
 			);
 			path = Scripts;
 			sourceTree = "<group>";
