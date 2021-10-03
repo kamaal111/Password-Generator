@@ -39,10 +39,9 @@ struct SavedPasswordsScreen: View {
         .withNavigationPoints(selectedScreen: $stackNavigator.selectedScreen, stackNavigator: stackNavigator)
         .alert(isPresented: $coreDataModel.deletionAlertIsActive, content: {
             Alert(
-                // - TODO: LOCALIZE THIS
-                title: Text("Deleting password"),
-                message: Text("Are you sure you want to delete this password?"),
-                primaryButton: .default(Text("OK"), action: {
+                title: Text(localized: .DEFINITE_PASSWORD_DELETION_ALERT_TITLE),
+                message: Text(localized: .DEFINITE_PASSWORD_DELETION_ALERT_MESSAGE),
+                primaryButton: .default(Text(localized: .OK), action: {
                     coreDataModel.onDefinitePasswordDeletion()
                     viewModel.toggleEditMode()
                 }),

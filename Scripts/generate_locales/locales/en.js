@@ -30,6 +30,10 @@ const en = {
   CANCEL: "Cancel",
   HELP: "Help",
   DELETE: "Delete",
+  OK: "OK",
+  DEFINITE_PASSWORD_DELETION_ALERT_TITLE: "Deleting password",
+  DEFINITE_PASSWORD_DELETION_ALERT_MESSAGE:
+    "Are you sure you want to delete this password?",
 };
 
 module.exports = en;

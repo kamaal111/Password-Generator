@@ -37,5 +37,8 @@ extension PGLocale {
         case CANCEL
         case HELP
         case DELETE
+        case OK
+        case DEFINITE_PASSWORD_DELETION_ALERT_TITLE
+        case DEFINITE_PASSWORD_DELETION_ALERT_MESSAGE
     }
 }
