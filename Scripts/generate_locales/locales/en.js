@@ -29,6 +29,7 @@ const en = {
   DONE: "Done",
   CANCEL: "Cancel",
   HELP: "Help",
+  DELETE: "Delete",
 };
 
 module.exports = en;

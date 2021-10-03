@@ -36,5 +36,6 @@ extension PGLocale {
         case DONE
         case CANCEL
         case HELP
+        case DELETE
     }
 }

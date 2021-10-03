@@ -6,27 +6,38 @@
 //
 
 import SwiftUI
+import SalmonUI
+import PGLocale
 
 struct SavedPasswordListItem: View {
     #if os(macOS)
     @State private var isHovering = false
+    @State private var isDeleting = false
     #endif
 
     let password: CorePassword
     let hasBeenLastCopied: Bool
+    let editMode: EditMode
     let onPress: () -> Void
+    let onDelete: () -> Void
 
     var body: some View {
         #if os(macOS)
-        Button(action: onPress) {
-            buttonInnerView
-                .padding(.top, 1)
-        }
-        .buttonStyle(PlainButtonStyle())
-        .foregroundColor(isHovering ? .accentColor : .primary)
-        .onHover(perform: { hovering in
-            isHovering = hovering
-        })
+        KDeletableView(
+            isDeleting: $isDeleting,
+            enabled: editMode.isEditing,
+            deleteText: PGLocale.Keys.DELETE.localized,
+            onDelete: onDelete) {
+                Button(action: onPress) {
+                    buttonInnerView
+                        .padding(.top, 1)
+                }
+                .buttonStyle(PlainButtonStyle())
+                .foregroundColor(isHovering ? .accentColor : .primary)
+                .onHover(perform: { hovering in
+                    isHovering = hovering
+                })
+            }
         #else
         Button(action: onPress) {
             buttonInnerView

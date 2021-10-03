@@ -59,11 +59,15 @@ struct SavedPasswordsScreen: View {
             SavedPasswordListItem(
                 password: password,
                 hasBeenLastCopied: viewModel.hasBeenLastCopied(password),
+                editMode: viewModel.editMode,
                 onPress: {
                     let options = [
                         "password_id": password.id.uuidString
                     ]
                     stackNavigator.navigate(to: .savedPasswordDetails, options: options)
+                }, onDelete: {
+                    guard let index = coreDataModel.savedPasswords.findIndex(by: \.id, is: password.id) else { return }
+                    print("index", index)
                 })
                 .contextMenu(menuItems: {
                     Button(action: { viewModel.copyPassword(from: password) }) {
