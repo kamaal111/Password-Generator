@@ -42,11 +42,13 @@ final class CoreDataModel: ObservableObject {
             guard let self = self else { return }
             let removedPassword = self.savedPasswords.remove(at: index)
             self.passwordToDeleteID = nil
-            do {
-                try self.persistenceController.delete(removedPassword)
-            } catch {
-                console.error(Date(), error.localizedDescription, error)
-                return
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak self] in
+                do {
+                    try self?.persistenceController.delete(removedPassword)
+                } catch {
+                    console.error(Date(), error.localizedDescription, error)
+                    return
+                }
             }
         }
     }

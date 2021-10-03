@@ -44,7 +44,7 @@ struct SavedPasswordsScreen: View {
                 message: Text("Are you sure you want to delete this password?"),
                 primaryButton: .default(Text("OK"), action: {
                     coreDataModel.onDefinitePasswordDeletion()
-//                    viewModel.toggleEditMode()
+                    viewModel.toggleEditMode()
                 }),
                 secondaryButton: .cancel())
         })
