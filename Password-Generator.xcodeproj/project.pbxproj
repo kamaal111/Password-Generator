@@ -347,14 +347,11 @@
 		2CD73C3C26F7C7670054C380 /* MenuItemTags.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemTags.swift; sourceTree = "<group>"; };
 		2CD73C3E26F7C9810054C380 /* DeviceShakeViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceShakeViewModifier.swift; sourceTree = "<group>"; };
 		2CD73C4026F7CDE30054C380 /* Optional+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Optional+extensions.swift"; sourceTree = "<group>"; };
-		2CE322E3270869A400004F27 /* pre-commit */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = "pre-commit"; sourceTree = "<group>"; };
 		2CE322E4270869A400004F27 /* go.mod */ = {isa = PBXFileReference; lastKnownFileType = text; path = go.mod; sourceTree = "<group>"; };
 		2CE322E6270869A400004F27 /* app-icon-generator */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = "app-icon-generator"; sourceTree = "<group>"; };
 		2CE322E7270869A400004F27 /* go.sum */ = {isa = PBXFileReference; lastKnownFileType = text; path = go.sum; sourceTree = "<group>"; };
 		2CE322E8270869A400004F27 /* yarn.lock */ = {isa = PBXFileReference; lastKnownFileType = text; path = yarn.lock; sourceTree = "<group>"; };
-		2CE322E9270869A400004F27 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		2CE322EA270869A400004F27 /* package.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = package.json; sourceTree = "<group>"; };
-		2CE322EC270869A400004F27 /* Contents.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Contents.json; sourceTree = "<group>"; };
 		2CE322ED270869A400004F27 /* main.go */ = {isa = PBXFileReference; lastKnownFileType = text; path = main.go; sourceTree = "<group>"; };
 		2CE322EE27086E6400004F27 /* LogoPlaygroundToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoPlaygroundToggle.swift; sourceTree = "<group>"; };
 		2CE322F227086E8B00004F27 /* LogoPlaygroundStepper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoPlaygroundStepper.swift; sourceTree = "<group>"; };
@@ -866,25 +863,14 @@
 		2CE322E1270869A400004F27 /* app-icon-generator */ = {
 			isa = PBXGroup;
 			children = (
-				2CE322E9270869A400004F27 /* .gitignore */,
 				2CE322ED270869A400004F27 /* main.go */,
 				2CE322EA270869A400004F27 /* package.json */,
 				2CE322E8270869A400004F27 /* yarn.lock */,
 				2CE322E4270869A400004F27 /* go.mod */,
 				2CE322E7270869A400004F27 /* go.sum */,
-				2CE322E2270869A400004F27 /* .husky */,
-				2CE322EB270869A400004F27 /* assets */,
 				2CE322E5270869A400004F27 /* bin */,
 			);
 			path = "app-icon-generator";
-			sourceTree = "<group>";
-		};
-		2CE322E2270869A400004F27 /* .husky */ = {
-			isa = PBXGroup;
-			children = (
-				2CE322E3270869A400004F27 /* pre-commit */,
-			);
-			path = .husky;
 			sourceTree = "<group>";
 		};
 		2CE322E5270869A400004F27 /* bin */ = {
@@ -893,14 +879,6 @@
 				2CE322E6270869A400004F27 /* app-icon-generator */,
 			);
 			path = bin;
-			sourceTree = "<group>";
-		};
-		2CE322EB270869A400004F27 /* assets */ = {
-			isa = PBXGroup;
-			children = (
-				2CE322EC270869A400004F27 /* Contents.json */,
-			);
-			path = assets;
 			sourceTree = "<group>";
 		};
 		6017C072270100E90023F347 /* Screens */ = {
