@@ -37,6 +37,15 @@ struct SavedPasswordsScreen: View {
             #endif
         })
         .withNavigationPoints(selectedScreen: $stackNavigator.selectedScreen, stackNavigator: stackNavigator)
+        .alert(isPresented: $coreDataModel.deletionAlertIsActive, content: {
+            Alert(
+                // - TODO: LOCALIZE THIS
+                title: Text("Deleting password"),
+                message: Text("Are you sure you want to delete this password?"),
+                // - TODO: DEFINITE DELETE HERE
+                primaryButton: .default(Text("OK"), action: { print("yes definetly") }),
+                secondaryButton: .cancel())
+        })
         #if os(macOS)
         .toolbar(content: {
             trailingNavigationBarItem

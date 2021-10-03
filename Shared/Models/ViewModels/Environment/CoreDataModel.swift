@@ -15,6 +15,7 @@ final class CoreDataModel: ObservableObject {
 
     @Published private(set) var savedPasswords: [CorePassword] = []
     @Published private(set) var lastGeneratedPassword: String?
+    @Published var deletionAlertIsActive = false
 
     let persistenceController: PersistanceManager
 
@@ -27,6 +28,7 @@ final class CoreDataModel: ObservableObject {
     }
 
     func onPasswordDelete(_ password: CorePassword) {
+        deletionAlertIsActive = true
         print("password", password)
     }
 
