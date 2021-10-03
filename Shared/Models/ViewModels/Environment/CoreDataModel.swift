@@ -40,14 +40,14 @@ final class CoreDataModel: ObservableObject {
               let index = savedPasswords.findIndex(by: \.id, is: passwordToDeleteID) else { return }
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
-            let password = self.savedPasswords.remove(at: index)
+            let removedPassword = self.savedPasswords.remove(at: index)
+            self.passwordToDeleteID = nil
             do {
-                try self.persistenceController.delete(password)
+                try self.persistenceController.delete(removedPassword)
             } catch {
                 console.error(Date(), error.localizedDescription, error)
                 return
             }
-            self.passwordToDeleteID = nil
         }
     }
 
