@@ -26,6 +26,10 @@ final class CoreDataModel: ObservableObject {
         }
     }
 
+    func onPasswordDelete(_ password: CorePassword) {
+        print("password", password)
+    }
+
     func editPassword(id: UUID, args: CorePassword.Args) {
         guard let index = savedPasswords.firstIndex(where: { $0.id == id }) else { return }
         let password = savedPasswords[index]

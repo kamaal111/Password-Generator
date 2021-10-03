@@ -65,10 +65,7 @@ struct SavedPasswordsScreen: View {
                         "password_id": password.id.uuidString
                     ]
                     stackNavigator.navigate(to: .savedPasswordDetails, options: options)
-                }, onDelete: {
-                    guard let index = coreDataModel.savedPasswords.findIndex(by: \.id, is: password.id) else { return }
-                    print("index", index)
-                })
+                }, onDelete: { coreDataModel.onPasswordDelete(password) })
                 .contextMenu(menuItems: {
                     Button(action: { viewModel.copyPassword(from: password) }) {
                         Text(localized: .COPY_PASSWORD)
@@ -81,9 +78,12 @@ struct SavedPasswordsScreen: View {
                 })
         }
         .onDelete(perform: { indices in
+            var password: CorePassword?
             indices.forEach { index in
-                print("index", index)
+                password = coreDataModel.savedPasswords[index]
             }
+            guard let password = password else { return }
+            coreDataModel.onPasswordDelete(password)
         })
     }
 
