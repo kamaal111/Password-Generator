@@ -29,6 +29,7 @@
 		2C3E590C26EA7E4200F75F51 /* NameSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3E590A26EA7E4200F75F51 /* NameSheet.swift */; };
 		2C4713CB26F13E71007647F7 /* Sequence+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4713CA26F13E71007647F7 /* Sequence+extensions.swift */; };
 		2C4713CC26F13E71007647F7 /* Sequence+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4713CA26F13E71007647F7 /* Sequence+extensions.swift */; };
+		2C49EE59270A4026009BC0F9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C49EE58270A4026009BC0F9 /* LaunchScreen.storyboard */; };
 		2C4F863226F264F600A34647 /* SavedPasswordDetailScreen+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4F863126F264F600A34647 /* SavedPasswordDetailScreen+ViewModel.swift */; };
 		2C4F863326F264F600A34647 /* SavedPasswordDetailScreen+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4F863126F264F600A34647 /* SavedPasswordDetailScreen+ViewModel.swift */; };
 		2C614B3C26E6A0070061FF82 /* PasswordHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C614B3B26E6A0070061FF82 /* PasswordHandler.swift */; };
@@ -273,6 +274,7 @@
 		2C3E590226EA7AD200F75F51 /* CheckButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckButton.swift; sourceTree = "<group>"; };
 		2C3E590A26EA7E4200F75F51 /* NameSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameSheet.swift; sourceTree = "<group>"; };
 		2C4713CA26F13E71007647F7 /* Sequence+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sequence+extensions.swift"; sourceTree = "<group>"; };
+		2C49EE58270A4026009BC0F9 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2C4F863126F264F600A34647 /* SavedPasswordDetailScreen+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SavedPasswordDetailScreen+ViewModel.swift"; sourceTree = "<group>"; };
 		2C614B3B26E6A0070061FF82 /* PasswordHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordHandler.swift; sourceTree = "<group>"; };
 		2C69071226E95909000B84EC /* CorePassword+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CorePassword+extensions.swift"; sourceTree = "<group>"; };
@@ -527,6 +529,7 @@
 		2C6AD40726E50120003AF55C /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				2C49EE58270A4026009BC0F9 /* LaunchScreen.storyboard */,
 				2CD73C3826F7C5FD0054C380 /* AppDelegate_macOS.swift */,
 				2C6AD49826E51358003AF55C /* Constants.swift */,
 				2C6AD40B26E50120003AF55C /* ContentView.swift */,
@@ -1154,6 +1157,7 @@
 				2C7D5CEC270A3609001BD216 /* Media.xcassets in Resources */,
 				2C6AD43C26E50124003AF55C /* AssetsIOS.xcassets in Resources */,
 				2C7D5CE8270A33B8001BD216 /* Colors.xcassets in Resources */,
+				2C49EE59270A4026009BC0F9 /* LaunchScreen.storyboard in Resources */,
 				2C6AD47126E507E6003AF55C /* tabbarItems.json in Resources */,
 				2C6AD46E26E50793003AF55C /* sidebarItems.json in Resources */,
 			);
