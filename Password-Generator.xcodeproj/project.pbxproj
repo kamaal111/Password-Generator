@@ -210,6 +210,7 @@
 		2CE97ED426EC03BF004D799A /* Notification.Name+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE97ED226EC03BF004D799A /* Notification.Name+extensions.swift */; };
 		2CFD1D0A26EAA1FD00B7DF4F /* SavedPasswordsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CFD1D0926EAA1FD00B7DF4F /* SavedPasswordsScreen.swift */; };
 		2CFD1D0B26EAA1FD00B7DF4F /* SavedPasswordsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CFD1D0926EAA1FD00B7DF4F /* SavedPasswordsScreen.swift */; };
+		6000F7D1270AD7A600E58707 /* Password_GeneratorScreenshotsIOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6000F7D0270AD7A600E58707 /* Password_GeneratorScreenshotsIOS.swift */; };
 		6017C06D2700FEFE0023F347 /* DebugFrameSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6017C06C2700FEFE0023F347 /* DebugFrameSize.swift */; };
 		6017C06E2700FEFE0023F347 /* DebugFrameSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6017C06C2700FEFE0023F347 /* DebugFrameSize.swift */; };
 		6017C074270101030023F347 /* LogoPlaygroundScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6017C073270101030023F347 /* LogoPlaygroundScreen.swift */; };
@@ -255,6 +256,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 2C6AD41926E50124003AF55C;
 			remoteInfo = "Password-Generator (macOS)";
+		};
+		6000F7D4270AD7A600E58707 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2C6AD40326E50120003AF55C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2C6AD41126E50124003AF55C;
+			remoteInfo = "Password-Generator (iOS)";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -359,6 +367,8 @@
 		2CE97ECF26EBFD14004D799A /* SavedPasswordListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedPasswordListItem.swift; sourceTree = "<group>"; };
 		2CE97ED226EC03BF004D799A /* Notification.Name+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification.Name+extensions.swift"; sourceTree = "<group>"; };
 		2CFD1D0926EAA1FD00B7DF4F /* SavedPasswordsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedPasswordsScreen.swift; sourceTree = "<group>"; };
+		6000F7CE270AD7A600E58707 /* Password-GeneratorScreenshots (iOS).xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Password-GeneratorScreenshots (iOS).xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6000F7D0270AD7A600E58707 /* Password_GeneratorScreenshotsIOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Password_GeneratorScreenshotsIOS.swift; sourceTree = "<group>"; };
 		6017C06C2700FEFE0023F347 /* DebugFrameSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugFrameSize.swift; sourceTree = "<group>"; };
 		6017C073270101030023F347 /* LogoPlaygroundScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoPlaygroundScreen.swift; sourceTree = "<group>"; };
 		6017C076270105030023F347 /* FormHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormHeader.swift; sourceTree = "<group>"; };
@@ -431,6 +441,13 @@
 				2C6D1D732703BD0F004AD36E /* ConsoleSwift in Frameworks */,
 				2C6D1D742703BD0F004AD36E /* PGLocale in Frameworks */,
 				2C6D1D752703BD0F004AD36E /* ShrimpExtensions in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6000F7CB270AD7A600E58707 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -566,6 +583,7 @@
 				2C08AD8D26E80639001ECD75 /* UnitTestsiOS.xctest */,
 				2C08ADA526E80940001ECD75 /* UnitTestsmacOS.xctest */,
 				2C6D1D7C2703BD0F004AD36E /* Passlify.app */,
+				6000F7CE270AD7A600E58707 /* Password-GeneratorScreenshots (iOS).xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -622,6 +640,7 @@
 				2C08AD9C26E807B6001ECD75 /* UnitTestsiOS-Bridging-Header.h */,
 				2C08ADB026E80A40001ECD75 /* UnitTestsmacOS-Bridging-Header.h */,
 				2C08ADB126E80A40001ECD75 /* EmptyTest.swift */,
+				6000F7D9270AD7BD00E58707 /* Screenshots */,
 				2C08AD9926E806AA001ECD75 /* UI */,
 				2C08AD9726E80683001ECD75 /* Unit */,
 			);
@@ -891,6 +910,14 @@
 			path = bin;
 			sourceTree = "<group>";
 		};
+		6000F7D9270AD7BD00E58707 /* Screenshots */ = {
+			isa = PBXGroup;
+			children = (
+				6000F7D0270AD7A600E58707 /* Password_GeneratorScreenshotsIOS.swift */,
+			);
+			path = Screenshots;
+			sourceTree = "<group>";
+		};
 		6017C072270100E90023F347 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
@@ -1061,13 +1088,31 @@
 			productReference = 2C6D1D7C2703BD0F004AD36E /* Passlify.app */;
 			productType = "com.apple.product-type.application";
 		};
+		6000F7CD270AD7A600E58707 /* Password-GeneratorScreenshots (iOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6000F7D6270AD7A600E58707 /* Build configuration list for PBXNativeTarget "Password-GeneratorScreenshots (iOS)" */;
+			buildPhases = (
+				6000F7CA270AD7A600E58707 /* Sources */,
+				6000F7CB270AD7A600E58707 /* Frameworks */,
+				6000F7CC270AD7A600E58707 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6000F7D5270AD7A600E58707 /* PBXTargetDependency */,
+			);
+			name = "Password-GeneratorScreenshots (iOS)";
+			productName = "Password-GeneratorScreenshots";
+			productReference = 6000F7CE270AD7A600E58707 /* Password-GeneratorScreenshots (iOS).xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		2C6AD40326E50120003AF55C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1250;
+				LastSwiftUpdateCheck = 1300;
 				LastUpgradeCheck = 1300;
 				TargetAttributes = {
 					2C08AD8C26E80639001ECD75 = {
@@ -1096,6 +1141,10 @@
 						LastSwiftMigration = 1250;
 						TestTargetID = 2C6AD41926E50124003AF55C;
 					};
+					6000F7CD270AD7A600E58707 = {
+						CreatedOnToolsVersion = 13.0;
+						TestTargetID = 2C6AD41126E50124003AF55C;
+					};
 				};
 			};
 			buildConfigurationList = 2C6AD40626E50120003AF55C /* Build configuration list for PBXProject "Password-Generator" */;
@@ -1119,6 +1168,7 @@
 			targets = (
 				2C6AD41126E50124003AF55C /* Password-Generator (iOS) */,
 				2C6AD41926E50124003AF55C /* Password-Generator (macOS) */,
+				6000F7CD270AD7A600E58707 /* Password-GeneratorScreenshots (iOS) */,
 				2C6AD42126E50124003AF55C /* UITestsiOS */,
 				2C6AD42C26E50124003AF55C /* UITestsmacOS */,
 				2C08AD8C26E80639001ECD75 /* UnitTestsiOS */,
@@ -1190,6 +1240,13 @@
 				2C7D5CEA270A33B8001BD216 /* Colors.xcassets in Resources */,
 				2CA504BC27087DF9009E4527 /* app-icon-generator in Resources */,
 				2C6D1D782703BD0F004AD36E /* sidebarItems.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6000F7CC270AD7A600E58707 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1490,6 +1547,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		6000F7CA270AD7A600E58707 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6000F7D1270AD7A600E58707 /* Password_GeneratorScreenshotsIOS.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -1512,6 +1577,11 @@
 			isa = PBXTargetDependency;
 			target = 2C6AD41926E50124003AF55C /* Password-Generator (macOS) */;
 			targetProxy = 2C6AD42E26E50124003AF55C /* PBXContainerItemProxy */;
+		};
+		6000F7D5270AD7A600E58707 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2C6AD41126E50124003AF55C /* Password-Generator (iOS) */;
+			targetProxy = 6000F7D4270AD7A600E58707 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1976,6 +2046,57 @@
 			};
 			name = Release;
 		};
+		6000F7D7270AD7A600E58707 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = DXUKH9VF73;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "io.kamaal.Password-GeneratorScreenshots";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Password-Generator (iOS)";
+			};
+			name = Debug;
+		};
+		6000F7D8270AD7A600E58707 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = DXUKH9VF73;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "io.kamaal.Password-GeneratorScreenshots";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Password-Generator (iOS)";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -2047,6 +2168,15 @@
 			buildConfigurations = (
 				2C6D1D7A2703BD0F004AD36E /* Debug */,
 				2C6D1D7B2703BD0F004AD36E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6000F7D6270AD7A600E58707 /* Build configuration list for PBXNativeTarget "Password-GeneratorScreenshots (iOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6000F7D7270AD7A600E58707 /* Debug */,
+				6000F7D8270AD7A600E58707 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
