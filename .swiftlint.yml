@@ -46,6 +46,7 @@ excluded:
   - Packages/*/Package.swift
   - Shared/Models/CoreData/*/*.swift
   - Tests
+  - vendor
 identifier_name:
   min_length:
     warning: 2
