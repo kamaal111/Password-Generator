@@ -49,5 +49,4 @@ project.xcworkspace/
 # CocoaPods
 Pods/
 
-JazzyDocs
-Shared/Resources/Assets/Assets.xcassets/Secrets.dataset/content.json
+vendor
