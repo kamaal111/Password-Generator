@@ -8,6 +8,7 @@ on:
       - "release/**"
 jobs:
   test:
+    name: Test
     timeout-minutes: 15
     runs-on: macos-latest
     steps:
@@ -29,6 +30,7 @@ jobs:
       - name: Setup - Ruby and bundler dependencies
         uses: ruby/setup-ruby@v1
         with:
+          ruby-version: 2.6
           bundler-cache: true
 
       - name: Test
