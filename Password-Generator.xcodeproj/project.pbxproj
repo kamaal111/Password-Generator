@@ -282,6 +282,8 @@
 		2C0D4A0426E6B692006CD00D /* CorePassword+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CorePassword+CoreDataClass.swift"; sourceTree = "<group>"; };
 		2C0D4A0526E6B692006CD00D /* CorePassword+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CorePassword+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		2C0D4A0A26E6B72A006CD00D /* CoreDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataModel.swift; sourceTree = "<group>"; };
+		2C198ED4270CF08A00542684 /* import_signing_certificate.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = import_signing_certificate.sh; sourceTree = "<group>"; };
+		2C198ED5270CF1F400542684 /* import_provisioning_profile.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = import_provisioning_profile.sh; sourceTree = "<group>"; };
 		2C2F775A270A547F00732531 /* main.go */ = {isa = PBXFileReference; lastKnownFileType = text; path = main.go; sourceTree = "<group>"; };
 		2C3E590226EA7AD200F75F51 /* CheckButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckButton.swift; sourceTree = "<group>"; };
 		2C3E590A26EA7E4200F75F51 /* NameSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameSheet.swift; sourceTree = "<group>"; };
@@ -700,10 +702,12 @@
 		2C6AD45D26E504BF003AF55C /* Scripts */ = {
 			isa = PBXGroup;
 			children = (
+				2C198ED5270CF1F400542684 /* import_provisioning_profile.sh */,
+				2C198ED4270CF08A00542684 /* import_signing_certificate.sh */,
 				2C0D49FD26E6ACE1006CD00D /* pre_compile.sh */,
 				60B4C54E270C290200E7F1A3 /* run_tests.sh */,
+				60937A16270CB10A005F13F0 /* set_up_xcode_version.sh */,
 				2CE322E1270869A400004F27 /* app-icon-generator */,
-				60937A17270CB10E005F13F0 /* CICD */,
 				2C6AD45E26E504CA003AF55C /* generate_locales */,
 				2C2F7759270A547F00732531 /* version-bumper */,
 			);
@@ -940,14 +944,6 @@
 				2CBF2B472708F2370088E18F /* LogoPlaygroundButton.swift */,
 			);
 			path = SupportingViews;
-			sourceTree = "<group>";
-		};
-		60937A17270CB10E005F13F0 /* CICD */ = {
-			isa = PBXGroup;
-			children = (
-				60937A16270CB10A005F13F0 /* set_up_xcode_version.sh */,
-			);
-			path = CICD;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1818,7 +1814,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_TEAM = DXUKH9VF73;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Targets/iOS/Info.plist;
@@ -1842,7 +1838,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_TEAM = DXUKH9VF73;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Targets/iOS/Info.plist;
@@ -1870,7 +1866,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_TEAM = DXUKH9VF73;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
@@ -1897,7 +1893,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_TEAM = DXUKH9VF73;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
@@ -2027,7 +2023,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_TEAM = DXUKH9VF73;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
@@ -2054,7 +2050,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_TEAM = DXUKH9VF73;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
