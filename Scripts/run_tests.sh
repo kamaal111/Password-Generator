@@ -25,7 +25,8 @@ test_all_destinations() {
       for destination in "${iOS_destinations[@]}"
       do 
         for scheme in "${iOS_test_schemes[@]}"
-        do 
+        do
+        echo "testing $scheme on $destination"
         xcode_test "$scheme" "$destination"
         done
     done
