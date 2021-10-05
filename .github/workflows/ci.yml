@@ -47,6 +47,10 @@ jobs:
         run: |
           sh Scripts/import_provisioning_profile.sh
 
+      - name: Bump build number
+        run: |
+          BUILD_NUMBER=${{github.run_number}} go run Scripts/version-bumper/*.go
+
       - name: Test
         run: |
           sh Scripts/run_tests.sh
