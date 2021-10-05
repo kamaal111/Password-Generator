@@ -63,3 +63,7 @@ jobs:
       - name: Test
         run: |
           sh Scripts/run_tests.sh
+
+      - name: Build app
+        run: |
+          bundle exec fastlane gym
