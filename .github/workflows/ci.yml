@@ -24,7 +24,7 @@ jobs:
 
       - name: Setup - Xcode
         run: |
-          sudo xcode-select --switch /Applications/Xcode_13.0.app/Contents/Developer
+          sh Scripts/CICD/set_up_xcode_version.sh
 
       - name: Setup - Ruby and bundler dependencies
         uses: ruby/setup-ruby@v1
