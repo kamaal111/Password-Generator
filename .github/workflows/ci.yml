@@ -24,6 +24,10 @@ jobs:
         with:
           ref: ${{ github.ref }}
 
+      - name: Git submodule update
+        run: |
+          git pull --recurse-submodules
+
       - name: Setup - Xcode
         run: |
           sh Scripts/set_up_xcode_version.sh
