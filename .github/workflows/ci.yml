@@ -25,9 +25,6 @@ jobs:
       - name: Setup - Xcode
         run: |
           sudo xcode-select --switch /Applications/Xcode_13.0.app/Contents/Developer
-        # uses: maxim-lobanov/setup-xcode@v1
-        # with:
-        #   xcode-version: "12.4"
 
       - name: Setup - Ruby and bundler dependencies
         uses: ruby/setup-ruby@v1
@@ -37,5 +34,4 @@ jobs:
 
       - name: Test
         run: |
-          set -o pipefail && xcodebuild test -project Password-Generator.xcodeproj -scheme "Password-Generator (iOS)" \
-            -destination "platform=iOS Simulator,name=iPhone 12 Pro Max" | bundle exec xcpretty || exit 1
+          sh Scripts/run_tests.sh
