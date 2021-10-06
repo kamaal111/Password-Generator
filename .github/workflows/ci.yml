@@ -70,7 +70,7 @@ jobs:
 
       - name: Bump build number
         run: |
-          BUILD_NUMBER=${{github.run_number}} go run Scripts/version-bumper/*.go
+          go run Scripts/version-bumper/*.go -bn ${{github.run_number}} -ip Targets/iOS/Info.plist
 
       - name: Setup - Xcode
         run: |
