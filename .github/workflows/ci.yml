@@ -26,10 +26,6 @@ jobs:
         run: |
           sh Scripts/run_tests.sh
 
-      - name: Build app
-        run: |
-          bundle exec fastlane gym
-
   deployIOS:
     name: deploy iOS
     timeout-minutes: 15
@@ -72,6 +68,10 @@ jobs:
         with:
           ruby-version: 2.6
           bundler-cache: true
+
+      - name: Build app
+        run: |
+          bundle exec fastlane gym
 
       - name: Upload app to App Store Connect
         env:
