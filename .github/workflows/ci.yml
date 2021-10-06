@@ -11,14 +11,7 @@ jobs:
     name: Test
     timeout-minutes: 15
     runs-on: macos-latest
-    env:
-      PRODUCT_NAME: Passlify
     steps:
-      - name: Cancel previous jobs
-        uses: styfle/cancel-workflow-action@0.9.1
-        with:
-          access_token: ${{ github.token }}
-
       - name: Git - Checkout
         uses: actions/checkout@v2
         with:
@@ -29,6 +22,22 @@ jobs:
         run: |
           sh Scripts/set_up_xcode_version.sh
 
+      - name: Test
+        run: |
+          sh Scripts/run_tests.sh
+
+      - name: Build app
+        run: |
+          bundle exec fastlane gym
+
+  deployIOS:
+    name: deploy iOS
+    timeout-minutes: 15
+    runs-on: macos-latest
+    needs: [test]
+    env:
+      PRODUCT_NAME: Passlify
+    steps:
       - name: Import signing certificate
         env:
           SIGNING_CERTIFICATE_P12_DATA: ${{ secrets.SIGNING_CERTIFICATE_P12_DATA }}
@@ -63,14 +72,6 @@ jobs:
         with:
           ruby-version: 2.6
           bundler-cache: true
-
-      - name: Test
-        run: |
-          sh Scripts/run_tests.sh
-
-      - name: Build app
-        run: |
-          bundle exec fastlane gym
 
       - name: Upload app to App Store Connect
         env:
