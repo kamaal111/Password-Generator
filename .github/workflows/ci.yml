@@ -14,9 +14,6 @@ jobs:
     steps:
       - name: Git - Checkout
         uses: actions/checkout@v2
-        with:
-          ref: ${{ github.ref }}
-          submodules: recursive
 
       - name: Setup - Xcode
         run: |
@@ -40,6 +37,12 @@ jobs:
     env:
       PRODUCT_NAME: Passlify
     steps:
+      - name: Git - Checkout
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.ref }}
+          submodules: recursive
+
       - name: Import signing certificate
         env:
           SIGNING_CERTIFICATE_P12_DATA: ${{ secrets.SIGNING_CERTIFICATE_P12_DATA }}
@@ -68,6 +71,16 @@ jobs:
       - name: Bump build number
         run: |
           BUILD_NUMBER=${{github.run_number}} go run Scripts/version-bumper/*.go
+
+      - name: Setup - Xcode
+        run: |
+          sh Scripts/set_up_xcode_version.sh
+
+      - name: Setup - Ruby and bundler dependencies
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.6
+          bundler-cache: true
 
       - name: Build app
         run: |
