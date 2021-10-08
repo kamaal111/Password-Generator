@@ -5,7 +5,7 @@
 	<key>provisioningProfiles</key>
 	<dict>
 		<key>io.kamaal.Password-Generator</key>
-		<string>~/Library/MobileDevice/Provisioning\ Profiles/profile.mobileprovision</string>
+		<string>~/Library/MobileDevice/Provisioning\ Profiles/profile.provisionprofile</string>
 	</dict>
 </dict>
 </plist>
