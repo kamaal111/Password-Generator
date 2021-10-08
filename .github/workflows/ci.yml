@@ -97,6 +97,7 @@ jobs:
     name: deploy macOS
     timeout-minutes: 15
     runs-on: macos-latest
+    # needs: [test]
     env:
       PRODUCT_NAME: Passlify
     steps:
@@ -127,7 +128,7 @@ jobs:
 
       - name: Import provisioning profile
         env:
-          PROVISIONING_PROFILE_DATA: ${{ secrets.PROVISIONING_PROFILE_MAC_DATA }}
+          PROVISIONING_PROFILE_MAC_DATA: ${{ secrets.PROVISIONING_PROFILE_MAC_DATA }}
         run: |
           sh Scripts/import_provisioning_profile.sh
 
