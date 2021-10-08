@@ -2,38 +2,101 @@ name: CI
 on:
   push:
     branches:
-      - main
-      - develop
+      # - main
+      # - develop
       - "feature/**"
       - "release/**"
 jobs:
-  test:
-    name: Test
+  # test:
+  #   name: Test
+  #   timeout-minutes: 15
+  #   runs-on: macos-latest
+  #   steps:
+  #     - name: Git - Checkout
+  #       uses: actions/checkout@v2
+
+  #     - name: Setup - Xcode
+  #       run: |
+  #         sh Scripts/set_up_xcode_version.sh
+
+  #     - name: Setup - Ruby and bundler dependencies
+  #       uses: ruby/setup-ruby@v1
+  #       with:
+  #         ruby-version: 2.6
+  #         bundler-cache: true
+
+  #     - name: Test
+  #       run: |
+  #         sh Scripts/run_tests.sh
+
+  # deployIOS:
+  #   name: deploy iOS
+  #   timeout-minutes: 15
+  #   runs-on: macos-latest
+  #   needs: [test]
+  #   env:
+  #     PRODUCT_NAME: Passlify
+  #   steps:
+  #     - name: Git - Checkout
+  #       uses: actions/checkout@v2
+  #       with:
+  #         ref: ${{ github.ref }}
+  #         submodules: recursive
+
+  #     - name: Import signing certificate
+  #       env:
+  #         SIGNING_CERTIFICATE_P12_DATA: ${{ secrets.SIGNING_CERTIFICATE_P12_DATA }}
+  #         SIGNING_CERTIFICATE_PASSWORD: ${{ secrets.SIGNING_CERTIFICATE_PASSWORD }}
+  #       run: |
+  #         set -euo pipefail
+
+  #         security create-keychain -p "" build.keychain
+  #         security list-keychains -s build.keychain
+  #         security default-keychain -s build.keychain
+  #         security unlock-keychain -p "" build.keychain
+  #         security set-keychain-settings
+  #         security import <(echo $SIGNING_CERTIFICATE_P12_DATA | base64 --decode) \
+  #                         -f pkcs12 \
+  #                         -k build.keychain \
+  #                         -P $SIGNING_CERTIFICATE_PASSWORD \
+  #                         -T /usr/bin/codesign
+  #         security set-key-partition-list -S apple-tool:,apple: -s -k "" build.keychain
+
+  #     - name: Import provisioning profile
+  #       env:
+  #         PROVISIONING_PROFILE_DATA: ${{ secrets.PROVISIONING_PROFILE_DATA }}
+  #       run: |
+  #         sh Scripts/import_provisioning_profile.sh
+
+  #     - name: Bump build number
+  #       run: |
+  #         go run Scripts/version-bumper/*.go -bn ${{github.run_number}} -ip Targets/iOS/Info.plist
+
+  #     - name: Setup - Xcode
+  #       run: |
+  #         sh Scripts/set_up_xcode_version.sh
+
+  #     - name: Setup - Ruby and bundler dependencies
+  #       uses: ruby/setup-ruby@v1
+  #       with:
+  #         ruby-version: 2.6
+  #         bundler-cache: true
+
+  #     - name: Build app
+  #       run: |
+  #         bundle exec fastlane gym
+
+  #     - name: Upload app to App Store Connect
+  #       env:
+  #         APP_STORE_CONNECT_USERNAME: ${{ secrets.APP_STORE_CONNECT_USERNAME }}
+  #         APP_STORE_CONNECT_PASSWORD: ${{ secrets.APP_STORE_CONNECT_PASSWORD }}
+  #       run: |
+  #         xcrun altool --upload-app -t ios -f "$PRODUCT_NAME.ipa" -u "$APP_STORE_CONNECT_USERNAME" -p "$APP_STORE_CONNECT_PASSWORD"
+
+  deployMacOS:
+    name: deploy macOS
     timeout-minutes: 15
     runs-on: macos-latest
-    steps:
-      - name: Git - Checkout
-        uses: actions/checkout@v2
-
-      - name: Setup - Xcode
-        run: |
-          sh Scripts/set_up_xcode_version.sh
-
-      - name: Setup - Ruby and bundler dependencies
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: 2.6
-          bundler-cache: true
-
-      - name: Test
-        run: |
-          sh Scripts/run_tests.sh
-
-  deployIOS:
-    name: deploy iOS
-    timeout-minutes: 15
-    runs-on: macos-latest
-    needs: [test]
     env:
       PRODUCT_NAME: Passlify
     steps:
@@ -42,53 +105,3 @@ jobs:
         with:
           ref: ${{ github.ref }}
           submodules: recursive
-
-      - name: Import signing certificate
-        env:
-          SIGNING_CERTIFICATE_P12_DATA: ${{ secrets.SIGNING_CERTIFICATE_P12_DATA }}
-          SIGNING_CERTIFICATE_PASSWORD: ${{ secrets.SIGNING_CERTIFICATE_PASSWORD }}
-        run: |
-          set -euo pipefail
-
-          security create-keychain -p "" build.keychain
-          security list-keychains -s build.keychain
-          security default-keychain -s build.keychain
-          security unlock-keychain -p "" build.keychain
-          security set-keychain-settings
-          security import <(echo $SIGNING_CERTIFICATE_P12_DATA | base64 --decode) \
-                          -f pkcs12 \
-                          -k build.keychain \
-                          -P $SIGNING_CERTIFICATE_PASSWORD \
-                          -T /usr/bin/codesign
-          security set-key-partition-list -S apple-tool:,apple: -s -k "" build.keychain
-
-      - name: Import provisioning profile
-        env:
-          PROVISIONING_PROFILE_DATA: ${{ secrets.PROVISIONING_PROFILE_DATA }}
-        run: |
-          sh Scripts/import_provisioning_profile.sh
-
-      - name: Bump build number
-        run: |
-          go run Scripts/version-bumper/*.go -bn ${{github.run_number}} -ip Targets/iOS/Info.plist
-
-      - name: Setup - Xcode
-        run: |
-          sh Scripts/set_up_xcode_version.sh
-
-      - name: Setup - Ruby and bundler dependencies
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: 2.6
-          bundler-cache: true
-
-      - name: Build app
-        run: |
-          bundle exec fastlane gym
-
-      - name: Upload app to App Store Connect
-        env:
-          APP_STORE_CONNECT_USERNAME: ${{ secrets.APP_STORE_CONNECT_USERNAME }}
-          APP_STORE_CONNECT_PASSWORD: ${{ secrets.APP_STORE_CONNECT_PASSWORD }}
-        run: |
-          xcrun altool --upload-app -t ios -f "$PRODUCT_NAME.ipa" -u "$APP_STORE_CONNECT_USERNAME" -p "$APP_STORE_CONNECT_PASSWORD"
