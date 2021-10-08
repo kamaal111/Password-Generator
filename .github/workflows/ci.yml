@@ -84,7 +84,7 @@ jobs:
 
   #     - name: Build app
   #       run: |
-  #         bundle exec fastlane gym --scheme "Password-Generator (iOS)" --clean
+  #         bundle exec fastlane gym --scheme "Password-Generator (iOS)"
 
   #     - name: Upload app to App Store Connect
   #       env:
@@ -147,7 +147,7 @@ jobs:
 
       - name: Build app
         run: |
-          bundle exec fastlane gym --scheme "Password-Generator (macOS)" --clean
+          bundle exec fastlane gym --scheme "Password-Generator (macOS)"
 
       - name: Upload app to App Store Connect
         env:
