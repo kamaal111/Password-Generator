@@ -293,6 +293,7 @@
 		2C537B9F2710DD8F00D56BE6 /* Gymfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Gymfile; sourceTree = "<group>"; };
 		2C537BA02710DD8F00D56BE6 /* Appfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Appfile; sourceTree = "<group>"; };
 		2C537BA12710DD8F00D56BE6 /* Fastfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Fastfile; sourceTree = "<group>"; };
+		2C537BA32710EE3900D56BE6 /* ExportOptions.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ExportOptions.plist; sourceTree = "<group>"; };
 		2C614B3B26E6A0070061FF82 /* PasswordHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordHandler.swift; sourceTree = "<group>"; };
 		2C69071226E95909000B84EC /* CorePassword+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CorePassword+extensions.swift"; sourceTree = "<group>"; };
 		2C6AD40926E50120003AF55C /* Shared.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Shared.xcdatamodel; sourceTree = "<group>"; };
@@ -543,6 +544,7 @@
 				2C537BA02710DD8F00D56BE6 /* Appfile */,
 				2C537BA12710DD8F00D56BE6 /* Fastfile */,
 				2C537B9F2710DD8F00D56BE6 /* Gymfile */,
+				2C537BA32710EE3900D56BE6 /* ExportOptions.plist */,
 			);
 			path = fastlane;
 			sourceTree = "<group>";
