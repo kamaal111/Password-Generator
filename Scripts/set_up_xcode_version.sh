@@ -6,4 +6,4 @@
 #  Created by Kamaal Farah on 05/10/2021.
 #  
 
-sudo xcode-select --switch /Applications/Xcode_13.0.app/Contents/Developer
+sudo xcode-select --switch /Applications/Xcode_12.5.app/Contents/Developer
