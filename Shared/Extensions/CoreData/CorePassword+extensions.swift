@@ -27,7 +27,8 @@ extension CorePassword {
         return .success(self)
     }
 
-    static func saveNew(args: Args, context: NSManagedObjectContext) -> Result<CorePassword, Error> {
+    @discardableResult
+    static func saveNew(args: Args, context: NSManagedObjectContext, save: Bool = true) -> Result<CorePassword, Error> {
         let password = CorePassword(context: context)
         password.id = UUID()
         password.name = args.name
@@ -35,10 +36,12 @@ extension CorePassword {
         let now = Date()
         password.creationDate = now
         password.updatedDate = now
-        do {
-            try context.save()
-        } catch {
-            return .failure(error)
+        if save {
+            do {
+                try context.save()
+            } catch {
+                return .failure(error)
+            }
         }
         return .success(password)
     }
