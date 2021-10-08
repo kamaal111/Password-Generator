@@ -1,0 +1,8 @@
+output_name("Passlify")
+export_team_id("DXUKH9VF73")
+clean(true)
+include_symbols(true)
+include_bitcode(true)
+verbose(true)
+export_method("app-store")
+export_options("fastlane/ExportOptions.plist")

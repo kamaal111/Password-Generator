@@ -291,6 +291,10 @@
 		2C49EE58270A4026009BC0F9 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2C49EE5A270A43CF009BC0F9 /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
 		2C4F863126F264F600A34647 /* SavedPasswordDetailScreen+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SavedPasswordDetailScreen+ViewModel.swift"; sourceTree = "<group>"; };
+		2C537B9F2710DD8F00D56BE6 /* Gymfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Gymfile; sourceTree = "<group>"; };
+		2C537BA02710DD8F00D56BE6 /* Appfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Appfile; sourceTree = "<group>"; };
+		2C537BA12710DD8F00D56BE6 /* Fastfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Fastfile; sourceTree = "<group>"; };
+		2C537BA22710DDB700D56BE6 /* ExportOptions.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ExportOptions.plist; sourceTree = "<group>"; };
 		2C614B3B26E6A0070061FF82 /* PasswordHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordHandler.swift; sourceTree = "<group>"; };
 		2C69071226E95909000B84EC /* CorePassword+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CorePassword+extensions.swift"; sourceTree = "<group>"; };
 		2C6AD40926E50120003AF55C /* Shared.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Shared.xcdatamodel; sourceTree = "<group>"; };
@@ -535,6 +539,17 @@
 			path = "version-bumper";
 			sourceTree = "<group>";
 		};
+		2C537B9E2710DD8F00D56BE6 /* fastlane */ = {
+			isa = PBXGroup;
+			children = (
+				2C537BA02710DD8F00D56BE6 /* Appfile */,
+				2C537BA12710DD8F00D56BE6 /* Fastfile */,
+				2C537B9F2710DD8F00D56BE6 /* Gymfile */,
+				2C537BA22710DDB700D56BE6 /* ExportOptions.plist */,
+			);
+			path = fastlane;
+			sourceTree = "<group>";
+		};
 		2C69071126E958EA000B84EC /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
@@ -546,6 +561,7 @@
 		2C6AD40226E50120003AF55C = {
 			isa = PBXGroup;
 			children = (
+				2C537B9E2710DD8F00D56BE6 /* fastlane */,
 				2C6AD45426E502D1003AF55C /* Frameworks */,
 				2C6AD45F26E5054A003AF55C /* Packages */,
 				2CD73C3326F7C1A70054C380 /* Playground */,
