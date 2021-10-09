@@ -100,7 +100,7 @@ jobs:
 
   deployMacOS:
     name: deploy macOS
-    timeout-minutes: 15
+    # timeout-minutes: 15
     runs-on: macos-latest
     # needs: [test]
     env:
