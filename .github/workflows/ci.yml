@@ -55,11 +55,13 @@ jobs:
   #         security default-keychain -s build.keychain
   #         security unlock-keychain -p "" build.keychain
   #         security set-keychain-settings
+
   #         security import <(echo $SIGNING_CERTIFICATE_P12_DATA | base64 --decode) \
   #                         -f pkcs12 \
   #                         -k build.keychain \
   #                         -P $SIGNING_CERTIFICATE_PASSWORD \
   #                         -T /usr/bin/codesign
+
   #         security set-key-partition-list -S apple-tool:,apple: -s -k "" build.keychain
 
   #     - name: Import provisioning profile
@@ -164,6 +166,7 @@ jobs:
         env:
           THIRD_PARTY_MAC_INSTALLER_NAME: "3rd Party Mac Developer Application: Kamaal Farah (DXUKH9VF73)"
         run: |
+          security find-certificate -a
           codesign -f -s "$THIRD_PARTY_MAC_INSTALLER_NAME" --entitlements Targets/macOS/macOS.entitlements "$PRODUCT_NAME".app
           xcrun productbuild --component "$PRODUCT_NAME".app /Applications/ "$PRODUCT_NAME".unsigned.pkg
           xcrun productsign --sign "$THIRD_PARTY_MAC_INSTALLER_NAME" "$PRODUCT_NAME".unsigned.pkg "$PRODUCT_NAME".pkg
