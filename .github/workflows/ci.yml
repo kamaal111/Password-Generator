@@ -103,6 +103,7 @@ jobs:
     # needs: [test]
     env:
       PRODUCT_NAME: Passlify
+      SCHEME: Password-Generator (macOS)
     steps:
       - name: Git - Checkout
         uses: actions/checkout@v2
@@ -154,11 +155,11 @@ jobs:
 
       - name: Build app
         run: |
-          bundle exec fastlane gym --scheme "Password-Generator (macOS)" --verbose
+          bundle exec fastlane gym --scheme "$SCHEME" --verbose
 
       - name: Upload app to App Store Connect
         env:
           APP_STORE_CONNECT_USERNAME: ${{ secrets.APP_STORE_CONNECT_USERNAME }}
           APP_STORE_CONNECT_PASSWORD: ${{ secrets.APP_STORE_CONNECT_PASSWORD }}
         run: |
-          xcrun altool --upload-app -t osx -f "$PRODUCT_NAME.app" -u "$APP_STORE_CONNECT_USERNAME" -p "$APP_STORE_CONNECT_PASSWORD"
+          xcrun altool --upload-app -t osx -f "$PRODUCT_NAME".pkg -u "$APP_STORE_CONNECT_USERNAME" -p "$APP_STORE_CONNECT_PASSWORD"
