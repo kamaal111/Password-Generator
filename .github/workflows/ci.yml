@@ -166,13 +166,13 @@ jobs:
         run: |
           bundle exec fastlane gym --scheme "$SCHEME" --verbose
 
-      # - name: Code sign app
-      #   env:
-      #     THIRD_PARTY_MAC_INSTALLER_NAME: "3rd Party Mac Developer Application: Kamaal Farah (DXUKH9VF73)"
-      #   run: |
-      #     codesign -vfs "$THIRD_PARTY_MAC_INSTALLER_NAME" "$PRODUCT_NAME".app
-      #     xcrun productbuild --component "$PRODUCT_NAME".app /Applications/ "$PRODUCT_NAME".unsigned.pkg
-      #     xcrun productsign --sign "$THIRD_PARTY_MAC_INSTALLER_NAME" "$PRODUCT_NAME".unsigned.pkg "$PRODUCT_NAME".pkg
+      - name: Code sign app
+        env:
+          THIRD_PARTY_MAC_INSTALLER_NAME: "3rd Party Mac Developer Application: Kamaal Farah (DXUKH9VF73)"
+        run: |
+          codesign -vfs "$THIRD_PARTY_MAC_INSTALLER_NAME" "$PRODUCT_NAME".app
+          xcrun productbuild --component "$PRODUCT_NAME".app /Applications/ "$PRODUCT_NAME".unsigned.pkg
+          xcrun productsign --sign "$THIRD_PARTY_MAC_INSTALLER_NAME" "$PRODUCT_NAME".unsigned.pkg "$PRODUCT_NAME".pkg
 
       - name: Upload app to App Store Connect
         env:
