@@ -6,6 +6,8 @@ on:
       - develop
       - "feature/**"
       - "release/**"
+env:
+  PRODUCT_NAME: Passlify
 jobs:
   # test:
   #   name: Test
@@ -34,8 +36,6 @@ jobs:
   #   timeout-minutes: 15
   #   runs-on: macos-latest
   #   needs: [test]
-  #   env:
-  #     PRODUCT_NAME: Passlify
   #   steps:
   #     - name: Git - Checkout
   #       uses: actions/checkout@v2
@@ -102,7 +102,6 @@ jobs:
     runs-on: macos-latest
     # needs: [test]
     env:
-      PRODUCT_NAME: Passlify
       SCHEME: Password-Generator (macOS)
     steps:
       - name: Git - Checkout
@@ -170,7 +169,8 @@ jobs:
         env:
           THIRD_PARTY_MAC_INSTALLER_NAME: "3rd Party Mac Developer Application: Kamaal Farah (DXUKH9VF73)"
         run: |
-          codesign -vfs "$THIRD_PARTY_MAC_INSTALLER_NAME" "$PRODUCT_NAME".app
+          echo "$PRODUCT_NAME".app
+          codesign -f -s "$THIRD_PARTY_MAC_INSTALLER_NAME" --entitlements Targets/macOS/macOS.entitlements "$PRODUCT_NAME".app
           xcrun productbuild --component "$PRODUCT_NAME".app /Applications/ "$PRODUCT_NAME".unsigned.pkg
           xcrun productsign --sign "$THIRD_PARTY_MAC_INSTALLER_NAME" "$PRODUCT_NAME".unsigned.pkg "$PRODUCT_NAME".pkg
 
