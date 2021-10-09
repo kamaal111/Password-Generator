@@ -173,8 +173,6 @@ jobs:
           THIRD_PARTY_MAC_INSTALLER_NAME: "3rd Party Mac Developer Installer: Kamaal Farah (DXUKH9VF73)"
           APPLE_DISTRIBUTION_CERTIFICATE_NAME: "Apple Distribution: Kamaal Farah (DXUKH9VF73)"
         run: |
-          codesign -f -s "$APPLE_DISTRIBUTION_CERTIFICATE_NAME" --entitlements Targets/macOS/macOS.entitlements "$PRODUCT_NAME".app
-
           xcrun productbuild --component "$PRODUCT_NAME".app /Applications/ "$PRODUCT_NAME".unsigned.pkg
           xcrun productsign --sign "$THIRD_PARTY_MAC_INSTALLER_NAME" "$PRODUCT_NAME".unsigned.pkg "$PRODUCT_NAME".pkg
 
