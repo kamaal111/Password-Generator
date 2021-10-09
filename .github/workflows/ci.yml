@@ -143,11 +143,14 @@ jobs:
       - name: Import provisioning profile
         env:
           PROVISIONING_PROFILE_DATA: ${{ secrets.PROVISIONING_PROFILE_MAC_DATA }}
+          LOCATION_TO_SAVE: ~/Library/MobileDevice/Provisioning\ Profiles
         run: |
           set -euo pipefail
 
-          mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
-          echo "$PROVISIONING_PROFILE_DATA" | base64 --decode > ~/Library/MobileDevice/Provisioning\ Profiles/profile.provisionprofile
+          mkdir -p "$LOCATION_TO_SAVE"
+          echo "$PROVISIONING_PROFILE_DATA" | base64 --decode > "$LOCATION_TO_SAVE"/profile.provisionprofile
+
+          security find-identity
 
       - name: Bump build number
         run: |
