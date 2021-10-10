@@ -1,3 +1,5 @@
+# Gymfile
+
 output_name("Passlify")
 export_team_id("DXUKH9VF73")
 clean(true)
@@ -6,3 +8,4 @@ include_bitcode(true)
 export_method("app-store")
 export_options("fastlane/ExportOptions.plist")
 skip_package_pkg(false)
+installer_cert_name("3rd Party Mac Developer Installer: Kamaal Farah (DXUKH9VF73)")
