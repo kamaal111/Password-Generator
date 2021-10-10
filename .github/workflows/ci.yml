@@ -172,12 +172,10 @@ jobs:
           bundler-cache: true
 
       - name: Build app
+        # run: |
+        #   bundle exec fastlane gym --scheme "$SCHEME" --verbose
         run: |
-          bundle exec fastlane gym --scheme "$SCHEME" --verbose
-
-      - name: Resign with entitlement
-        run: |
-          codesign -d --entitlements Targets/macOS/macOS.entitlements "$PRODUCT_NAME".app
+          xcodebuild -exportArchive -exportFormat app -archivePath "$PRODUCT_NAME".xcarchive -exportPath "$PRODUCT_NAME".app -exportProvisioningProfile "~/Library/MobileDevice/Provisioning\ Profiles/profile.provisionprofile"
 
       - name: Create PKG
         timeout-minutes: 1
