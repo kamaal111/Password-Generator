@@ -175,6 +175,10 @@ jobs:
         run: |
           bundle exec fastlane gym --scheme "$SCHEME" --verbose
 
+      - name: Resign with entitlement
+        run: |
+          codesign -d --entitlements Targets/macOS/macOS.entitlements "$PRODUCT_NAME".app
+
       - name: Create PKG
         timeout-minutes: 1
         run: |
