@@ -176,7 +176,7 @@ jobs:
           bundle exec fastlane gym --scheme "$SCHEME" --verbose
 
       - name: Create PKG
-        timeout-minutes: 2
+        timeout-minutes: 1
         run: |
           xcrun productbuild --component "$PRODUCT_NAME".app /Applications/ "$PRODUCT_NAME".unsigned.pkg
 
@@ -184,7 +184,10 @@ jobs:
         timeout-minutes: 2
         env:
           THIRD_PARTY_MAC_INSTALLER_NAME: "3rd Party Mac Developer Installer: Kamaal Farah (DXUKH9VF73)"
+          KEYCHAIN_PASSPHRASE: ${{ secrets.KEYCHAIN_PASSPHRASE }}
         run: |
+          security unlock-keychain -p "$KEYCHAIN_PASSPHRASE" build.keychain
+
           xcrun productsign --sign "$THIRD_PARTY_MAC_INSTALLER_NAME" "$PRODUCT_NAME".unsigned.pkg "$PRODUCT_NAME".pkg
 
       - name: Upload app to App Store Connect
