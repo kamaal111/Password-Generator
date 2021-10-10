@@ -170,14 +170,24 @@ jobs:
             -configuration Release -destination generic/platform=macOS \
             -archivePath "$PRODUCT_NAME".xcarchive clean archive | bundle exec xcpretty || exit 1
 
+      - name: Codesign app
+        env:
+          ROVISIONING_PROFILE_DATA: ${{ secrets.PROVISIONING_PROFILE_MAC_DATA }}
+          ENTITLEMENTS_FILE_PATH: Targets/macOS/macOS.entitlements
+          DISTRIBUTION_CERTIFICATE_NAME: "Apple Distribution: Kamaal Farah (DXUKH9VF73)"
+        run: |
+          APP_PATH="$PRODUCT_NAME.xcarchive/Products/Applications/$PRODUCT_NAME.app"
+
+          codesign -d --entitlements "$ENTITLEMENTS_FILE_PATH" "$APP_PATH"
+          echo "$PROVISIONING_PROFILE_DATA" | base64 --decode > "$APP_PATH"/Contents/embedded.provisionprofile
+          codesign -f -s "$DISTRIBUTION_CERTIFICATE_NAME" -i io.kamaal.Password-Generator --entitlements T"$ENTITLEMENTS_FILE_PATH" -vv "$APP_PATH"
+
       - name: Create PKG
         env:
           PROVISIONING_PROFILE_DATA: ${{ secrets.PROVISIONING_PROFILE_MAC_DATA }}
         run: |
           APP_PATH="$PRODUCT_NAME.xcarchive/Products/Applications/$PRODUCT_NAME.app"
 
-          codesign -d --entitlements Targets/macOS/macOS.entitlements "$APP_PATH"
-          echo "$PROVISIONING_PROFILE_DATA" | base64 --decode > "$APP_PATH"/Contents/embedded.provisionprofile
           xcrun productbuild --component "$APP_PATH" /Applications/ "$PRODUCT_NAME".unsigned.pkg
 
       - name: Sign PKG
