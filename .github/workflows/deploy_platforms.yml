@@ -185,8 +185,11 @@ jobs:
             -archivePath "$PRODUCT_NAME".xcarchive clean archive | bundle exec xcpretty || exit 1
 
       - name: Create PKG
+        env:
+          PROVISIONING_PROFILE_DATA: ${{ secrets.PROVISIONING_PROFILE_MAC_DATA }}
         timeout-minutes: 1
         run: |
+          echo "$PROVISIONING_PROFILE_DATA" | base64 --decode > Passlify.xcarchive/Products/Applications/"$PRODUCT_NAME".app/Contents/embedded.provisionprofile
           xcrun productbuild --component Passlify.xcarchive/Products/Applications/"$PRODUCT_NAME".app /Applications/ "$PRODUCT_NAME".unsigned.pkg
 
       - name: Sign PKG
