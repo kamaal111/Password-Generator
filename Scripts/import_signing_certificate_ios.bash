@@ -1,6 +1,6 @@
-#!/bin/sh
+#!/bin/bash
 
-#  import_signing_certificate.sh
+#  import_signing_certificate_ios.bash
 #  Password-Generator
 #
 #  Created by Kamaal M Farah on 05/10/2021.
@@ -8,14 +8,16 @@
 
 set -euo pipefail
 
-security create-keychain -p "" build.keychain
+security create-keychain -p "$KEYCHAIN_PASSPHRASE" build.keychain
 security list-keychains -s build.keychain
 security default-keychain -s build.keychain
-security unlock-keychain -p "" build.keychain
+security unlock-keychain -p "$KEYCHAIN_PASSPHRASE" build.keychain
 security set-keychain-settings
+
 security import <(echo $SIGNING_CERTIFICATE_P12_DATA | base64 --decode) \
                 -f pkcs12 \
                 -k build.keychain \
                 -P $SIGNING_CERTIFICATE_PASSWORD \
                 -T /usr/bin/codesign
-security set-key-partition-list -S apple-tool:,apple: -s -k "" build.keychain
+
+security set-key-partition-list -S apple-tool:,apple: -s -k "$KEYCHAIN_PASSPHRASE" build.keychain

@@ -49,21 +49,7 @@ jobs:
           SIGNING_CERTIFICATE_PASSWORD: ${{ secrets.SIGNING_CERTIFICATE_PASSWORD }}
           KEYCHAIN_PASSPHRASE: ${{ secrets.KEYCHAIN_PASSPHRASE }}
         run: |
-          set -euo pipefail
-
-          security create-keychain -p "$KEYCHAIN_PASSPHRASE" build.keychain
-          security list-keychains -s build.keychain
-          security default-keychain -s build.keychain
-          security unlock-keychain -p "$KEYCHAIN_PASSPHRASE" build.keychain
-          security set-keychain-settings
-
-          security import <(echo $SIGNING_CERTIFICATE_P12_DATA | base64 --decode) \
-                          -f pkcs12 \
-                          -k build.keychain \
-                          -P $SIGNING_CERTIFICATE_PASSWORD \
-                          -T /usr/bin/codesign
-
-          security set-key-partition-list -S apple-tool:,apple: -s -k "$KEYCHAIN_PASSPHRASE" build.keychain
+          bash Scripts/import_signing_certificate_ios.bash
 
       - name: Import provisioning profile
         env:
@@ -187,9 +173,9 @@ jobs:
       - name: Create PKG
         env:
           PROVISIONING_PROFILE_DATA: ${{ secrets.PROVISIONING_PROFILE_MAC_DATA }}
-          APP_PATH: "$PRODUCT_NAME.xcarchive/Products/Applications/$PRODUCT_NAME.app"
-        timeout-minutes: 1
         run: |
+          APP_PATH="$PRODUCT_NAME.xcarchive/Products/Applications/$PRODUCT_NAME.app"
+
           codesign -d --entitlements Targets/macOS/macOS.entitlements "$APP_PATH"
           echo "$PROVISIONING_PROFILE_DATA" | base64 --decode > "$APP_PATH"/Contents/embedded.provisionprofile
           xcrun productbuild --component P"$APP_PATH" /Applications/ "$PRODUCT_NAME".unsigned.pkg
