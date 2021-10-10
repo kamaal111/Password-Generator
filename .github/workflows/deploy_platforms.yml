@@ -7,7 +7,6 @@ on:
       - "release/**"
 env:
   PRODUCT_NAME: Passlify
-  BUILD_NUMBER: 74
 jobs:
   test:
     name: Test
