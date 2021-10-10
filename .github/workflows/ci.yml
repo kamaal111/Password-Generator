@@ -172,7 +172,7 @@ jobs:
         env:
           THIRD_PARTY_MAC_INSTALLER_NAME: "3rd Party Mac Developer Installer: Kamaal Farah (DXUKH9VF73)"
         run: |
-          xcrun productbuild --component "$PRODUCT_NAME".app /Applications/ "$PRODUCT_NAME".unsigned.pkg
+          xcrun productbuild --component "$PRODUCT_NAME".app /Applications/ "$PRODUCT_NAME".pkg
 
       - name: Upload app to App Store Connect
         env:
