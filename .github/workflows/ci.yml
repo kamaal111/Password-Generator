@@ -107,12 +107,14 @@ jobs:
       SCHEME: Password-Generator (macOS)
     steps:
       - name: Git - Checkout
+        timeout-minutes: 1
         uses: actions/checkout@v2
         with:
           ref: ${{ github.ref }}
           submodules: recursive
 
       - name: Import signing certificate
+        timeout-minutes: 1
         env:
           SIGNING_CERTIFICATE_P12_DATA: ${{ secrets.SIGNING_CERTIFICATE_P12_DATA }}
           SIGNING_CERTIFICATE_PASSWORD: ${{ secrets.SIGNING_CERTIFICATE_PASSWORD }}
@@ -142,6 +144,7 @@ jobs:
           security set-key-partition-list -S apple-tool:,apple: -s -k "$KEYCHAIN_PASSPHRASE" build.keychain
 
       - name: Import provisioning profile
+        timeout-minutes: 1
         env:
           PROVISIONING_PROFILE_DATA: ${{ secrets.PROVISIONING_PROFILE_MAC_DATA }}
           LOCATION_TO_SAVE: ~/Library/MobileDevice/Provisioning\ Profiles
@@ -152,14 +155,17 @@ jobs:
           echo "$PROVISIONING_PROFILE_DATA" | base64 --decode > "$LOCATION_TO_SAVE"/profile.provisionprofile
 
       - name: Bump build number
+        timeout-minutes: 1
         run: |
           go run Scripts/version-bumper/*.go -bn ${{github.run_number}} -ip Targets/macOS/Info.plist
 
       - name: Setup - Xcode
+        timeout-minutes: 1
         run: |
           sh Scripts/set_up_xcode_version.sh
 
       - name: Setup - Ruby and bundler dependencies
+        timeout-minutes: 2
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: 2.6
@@ -169,11 +175,16 @@ jobs:
         run: |
           bundle exec fastlane gym --scheme "$SCHEME" --verbose
 
-      - name: Code sign app
+      - name: Create PKG
+        timeout-minutes: 2
+        run: |
+          xcrun productbuild --component "$PRODUCT_NAME".app /Applications/ "$PRODUCT_NAME".unsigned.pkg
+
+      - name: Sign PKG
+        timeout-minutes: 2
         env:
           THIRD_PARTY_MAC_INSTALLER_NAME: "3rd Party Mac Developer Installer: Kamaal Farah (DXUKH9VF73)"
         run: |
-          xcrun productbuild --component "$PRODUCT_NAME".app /Applications/ "$PRODUCT_NAME".unsigned.pkg
           xcrun productsign --sign "$THIRD_PARTY_MAC_INSTALLER_NAME" "$PRODUCT_NAME".unsigned.pkg "$PRODUCT_NAME".pkg
 
       - name: Upload app to App Store Connect
