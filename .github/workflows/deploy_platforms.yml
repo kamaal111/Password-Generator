@@ -1,0 +1,200 @@
+name: Deploy on platforms
+on:
+  push:
+    branches:
+      - main
+      - develop
+      - "release/**"
+env:
+  PRODUCT_NAME: Passlify
+jobs:
+  test:
+    name: Test
+    timeout-minutes: 15
+    runs-on: macos-latest
+    steps:
+      - name: Git - Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup - Xcode
+        run: |
+          sh Scripts/set_up_xcode_version.sh
+
+      - name: Setup - Ruby and bundler dependencies
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.6
+          bundler-cache: true
+
+      - name: Test
+        run: |
+          sh Scripts/run_tests.sh
+
+  deployIOS:
+    name: deploy iOS
+    timeout-minutes: 15
+    runs-on: macos-latest
+    needs: [test]
+    steps:
+      - name: Git - Checkout
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.ref }}
+          submodules: recursive
+
+      - name: Import signing certificate
+        timeout-minutes: 1
+        env:
+          SIGNING_CERTIFICATE_P12_DATA: ${{ secrets.SIGNING_CERTIFICATE_P12_DATA }}
+          SIGNING_CERTIFICATE_PASSWORD: ${{ secrets.SIGNING_CERTIFICATE_PASSWORD }}
+          KEYCHAIN_PASSPHRASE: ${{ secrets.KEYCHAIN_PASSPHRASE }}
+        run: |
+          set -euo pipefail
+
+          security create-keychain -p "$KEYCHAIN_PASSPHRASE" build.keychain
+          security list-keychains -s build.keychain
+          security default-keychain -s build.keychain
+          security unlock-keychain -p "$KEYCHAIN_PASSPHRASE" build.keychain
+          security set-keychain-settings
+
+          security import <(echo $SIGNING_CERTIFICATE_P12_DATA | base64 --decode) \
+                          -f pkcs12 \
+                          -k build.keychain \
+                          -P $SIGNING_CERTIFICATE_PASSWORD \
+                          -T /usr/bin/codesign
+
+          security set-key-partition-list -S apple-tool:,apple: -s -k "$KEYCHAIN_PASSPHRASE" build.keychain
+
+      - name: Import provisioning profile
+        env:
+          PROVISIONING_PROFILE_DATA: ${{ secrets.PROVISIONING_PROFILE_DATA }}
+        run: |
+          set -euo pipefail
+
+          mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
+          echo "$PROVISIONING_PROFILE_DATA" | base64 --decode > ~/Library/MobileDevice/Provisioning\ Profiles/profile.mobileprovision
+
+      - name: Bump build number
+        run: |
+          let build_number=${{github.run_number}}
+          let build_number=$build_number + 72
+          go run Scripts/version-bumper/*.go -bn "$build_number" -ip Targets/iOS/Info.plist
+
+      - name: Setup - Xcode
+        run: |
+          sh Scripts/set_up_xcode_version.sh
+
+      - name: Setup - Ruby and bundler dependencies
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.6
+          bundler-cache: true
+
+      - name: Build app
+        run: |
+          bundle exec fastlane gym --scheme "Password-Generator (iOS)"
+
+      - name: Upload app to App Store Connect
+        env:
+          APP_STORE_CONNECT_USERNAME: ${{ secrets.APP_STORE_CONNECT_USERNAME }}
+          APP_STORE_CONNECT_PASSWORD: ${{ secrets.APP_STORE_CONNECT_PASSWORD }}
+        run: |
+          xcrun altool --upload-app -t ios -f "$PRODUCT_NAME".ipa -u "$APP_STORE_CONNECT_USERNAME" -p "$APP_STORE_CONNECT_PASSWORD"
+
+  # deployMacOS:
+  #   name: deploy macOS
+  #   timeout-minutes: 15
+  #   runs-on: macos-latest
+  #   needs: [test]
+  #   env:
+  #     SCHEME: Password-Generator (macOS)
+  #   steps:
+  #     - name: Git - Checkout
+  #       timeout-minutes: 1
+  #       uses: actions/checkout@v2
+  #       with:
+  #         ref: ${{ github.ref }}
+  #         submodules: recursive
+
+  #     - name: Import signing certificate
+  #       timeout-minutes: 1
+  #       env:
+  #         SIGNING_CERTIFICATE_P12_DATA: ${{ secrets.SIGNING_CERTIFICATE_P12_DATA }}
+  #         SIGNING_CERTIFICATE_PASSWORD: ${{ secrets.SIGNING_CERTIFICATE_PASSWORD }}
+  #         THIRD_PARTY_MAC_INSTALLER_CERTIFICATE: ${{ secrets.THIRD_PARTY_MAC_INSTALLER_CERTIFICATE }}
+  #         THIRD_PARTY_MAC_INSTALLER_PASSWORD: ${{ secrets.THIRD_PARTY_MAC_INSTALLER_PASSWORD }}
+  #         KEYCHAIN_PASSPHRASE: ${{ secrets.KEYCHAIN_PASSPHRASE }}
+  #       run: |
+  #         set -euo pipefail
+
+  #         security create-keychain -p "$KEYCHAIN_PASSPHRASE" build.keychain
+  #         security list-keychains -s build.keychain
+  #         security default-keychain -s build.keychain
+  #         security unlock-keychain -p "$KEYCHAIN_PASSPHRASE" build.keychain
+  #         security set-keychain-settings
+
+  #         security import <(echo $SIGNING_CERTIFICATE_P12_DATA | base64 --decode) \
+  #                         -f pkcs12 \
+  #                         -k build.keychain \
+  #                         -P $SIGNING_CERTIFICATE_PASSWORD \
+  #                         -T /usr/bin/codesign
+  #         security import <(echo $THIRD_PARTY_MAC_INSTALLER_CERTIFICATE | base64 --decode) \
+  #                         -f pkcs12 \
+  #                         -k build.keychain \
+  #                         -P $THIRD_PARTY_MAC_INSTALLER_PASSWORD \
+  #                         -T /usr/bin/productsign
+
+  #         security set-key-partition-list -S apple-tool:,apple: -s -k "$KEYCHAIN_PASSPHRASE" build.keychain
+
+  #     - name: Import provisioning profile
+  #       timeout-minutes: 1
+  #       env:
+  #         PROVISIONING_PROFILE_DATA: ${{ secrets.PROVISIONING_PROFILE_MAC_DATA }}
+  #         LOCATION_TO_SAVE: ~/Library/MobileDevice/Provisioning\ Profiles
+  #       run: |
+  #         set -euo pipefail
+
+  #         mkdir -p "$LOCATION_TO_SAVE"
+  #         echo "$PROVISIONING_PROFILE_DATA" | base64 --decode > "$LOCATION_TO_SAVE"/profile.provisionprofile
+
+  #     - name: Bump build number
+  #       timeout-minutes: 1
+  #       run: |
+  #         let build_number=${{github.run_number}}
+  #         let build_number=$build_number + 72
+  #         go run Scripts/version-bumper/*.go -bn "$build_number" -ip Targets/macOS/Info.plist
+
+  #     - name: Setup - Xcode
+  #       timeout-minutes: 1
+  #       run: |
+  #         sh Scripts/set_up_xcode_version.sh
+
+  #     - name: Setup - Ruby and bundler dependencies
+  #       timeout-minutes: 2
+  #       uses: ruby/setup-ruby@v1
+  #       with:
+  #         ruby-version: 2.6
+  #         bundler-cache: true
+
+  #     - name: Build app
+  #       run: |
+  #         bundle exec fastlane gym --scheme "$SCHEME" --verbose
+
+  #     - name: Create PKG
+  #       timeout-minutes: 1
+  #       run: |
+  #         xcrun productbuild --component "$PRODUCT_NAME".app /Applications/ "$PRODUCT_NAME".unsigned.pkg
+
+  #     - name: Sign PKG
+  #       timeout-minutes: 2
+  #       env:
+  #         THIRD_PARTY_MAC_INSTALLER_NAME: "3rd Party Mac Developer Installer: Kamaal Farah (DXUKH9VF73)"
+  #       run: |
+  #         xcrun productsign --sign "$THIRD_PARTY_MAC_INSTALLER_NAME" "$PRODUCT_NAME".unsigned.pkg "$PRODUCT_NAME".pkg
+
+  #     - name: Upload app to App Store Connect
+  #       env:
+  #         APP_STORE_CONNECT_USERNAME: ${{ secrets.APP_STORE_CONNECT_USERNAME }}
+  #         APP_STORE_CONNECT_PASSWORD: ${{ secrets.APP_STORE_CONNECT_PASSWORD }}
+  #       run: |
+  #         xcrun altool --upload-app -t osx -f "$PRODUCT_NAME".pkg -u "$APP_STORE_CONNECT_USERNAME" -p "$APP_STORE_CONNECT_PASSWORD"

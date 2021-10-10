@@ -39,6 +39,19 @@ struct PersistenceController {
 
     static let preview: PersistanceManager = {
         let result = PersistenceController(inMemory: true).sharedInststance
+        let names = [
+            "Bank of Skyrim",
+            "Life savings vault",
+            "Very important account",
+            "Guessable password",
+            "Main gaming account",
+            "Credentials",
+            "Identity"
+        ]
+        for name in names {
+            let args = CorePassword.Args(name: name, value: "password")
+            CorePassword.saveNew(args: args, context: result.context!, save: false)
+        }
         return result
     }()
 }

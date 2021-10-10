@@ -52,3 +52,7 @@ Pods/
 vendor
 
 secrets
+Passlify.app
+Passlify.app.dSYM.zip
+Passlify.pkg
+Passlify.unsigned.pkg

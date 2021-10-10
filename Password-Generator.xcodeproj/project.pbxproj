@@ -283,7 +283,6 @@
 		2C0D4A0526E6B692006CD00D /* CorePassword+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CorePassword+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		2C0D4A0A26E6B72A006CD00D /* CoreDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataModel.swift; sourceTree = "<group>"; };
 		2C198ED4270CF08A00542684 /* import_signing_certificate.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = import_signing_certificate.sh; sourceTree = "<group>"; };
-		2C198ED5270CF1F400542684 /* import_provisioning_profile.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = import_provisioning_profile.sh; sourceTree = "<group>"; };
 		2C2F775A270A547F00732531 /* main.go */ = {isa = PBXFileReference; lastKnownFileType = text; path = main.go; sourceTree = "<group>"; };
 		2C3E590226EA7AD200F75F51 /* CheckButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckButton.swift; sourceTree = "<group>"; };
 		2C3E590A26EA7E4200F75F51 /* NameSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameSheet.swift; sourceTree = "<group>"; };
@@ -291,6 +290,10 @@
 		2C49EE58270A4026009BC0F9 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2C49EE5A270A43CF009BC0F9 /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
 		2C4F863126F264F600A34647 /* SavedPasswordDetailScreen+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SavedPasswordDetailScreen+ViewModel.swift"; sourceTree = "<group>"; };
+		2C537B9F2710DD8F00D56BE6 /* Gymfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Gymfile; sourceTree = "<group>"; };
+		2C537BA02710DD8F00D56BE6 /* Appfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Appfile; sourceTree = "<group>"; };
+		2C537BA12710DD8F00D56BE6 /* Fastfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Fastfile; sourceTree = "<group>"; };
+		2C537BA32710EE3900D56BE6 /* ExportOptions.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ExportOptions.plist; sourceTree = "<group>"; };
 		2C614B3B26E6A0070061FF82 /* PasswordHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordHandler.swift; sourceTree = "<group>"; };
 		2C69071226E95909000B84EC /* CorePassword+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CorePassword+extensions.swift"; sourceTree = "<group>"; };
 		2C6AD40926E50120003AF55C /* Shared.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Shared.xcdatamodel; sourceTree = "<group>"; };
@@ -535,6 +538,17 @@
 			path = "version-bumper";
 			sourceTree = "<group>";
 		};
+		2C537B9E2710DD8F00D56BE6 /* fastlane */ = {
+			isa = PBXGroup;
+			children = (
+				2C537BA02710DD8F00D56BE6 /* Appfile */,
+				2C537BA12710DD8F00D56BE6 /* Fastfile */,
+				2C537B9F2710DD8F00D56BE6 /* Gymfile */,
+				2C537BA32710EE3900D56BE6 /* ExportOptions.plist */,
+			);
+			path = fastlane;
+			sourceTree = "<group>";
+		};
 		2C69071126E958EA000B84EC /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
@@ -546,6 +560,7 @@
 		2C6AD40226E50120003AF55C = {
 			isa = PBXGroup;
 			children = (
+				2C537B9E2710DD8F00D56BE6 /* fastlane */,
 				2C6AD45426E502D1003AF55C /* Frameworks */,
 				2C6AD45F26E5054A003AF55C /* Packages */,
 				2CD73C3326F7C1A70054C380 /* Playground */,
@@ -702,7 +717,6 @@
 		2C6AD45D26E504BF003AF55C /* Scripts */ = {
 			isa = PBXGroup;
 			children = (
-				2C198ED5270CF1F400542684 /* import_provisioning_profile.sh */,
 				2C198ED4270CF08A00542684 /* import_signing_certificate.sh */,
 				2C0D49FD26E6ACE1006CD00D /* pre_compile.sh */,
 				60B4C54E270C290200E7F1A3 /* run_tests.sh */,
@@ -1814,7 +1828,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 72;
 				DEVELOPMENT_TEAM = DXUKH9VF73;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Targets/iOS/Info.plist;
@@ -1838,7 +1852,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 72;
 				DEVELOPMENT_TEAM = DXUKH9VF73;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Targets/iOS/Info.plist;
@@ -1866,7 +1880,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 72;
 				DEVELOPMENT_TEAM = DXUKH9VF73;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
@@ -1891,9 +1905,9 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Targets/macOS/macOS.entitlements;
 				CODE_SIGN_IDENTITY = "-";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 72;
 				DEVELOPMENT_TEAM = DXUKH9VF73;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
@@ -1906,6 +1920,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "io.kamaal.Password-Generator";
 				PRODUCT_NAME = Passlify;
+				PROVISIONING_PROFILE_SPECIFIER = "Passlify Mac App Store distribution";
 				SDKROOT = macosx;
 				SWIFT_VERSION = 5.0;
 			};
@@ -2023,7 +2038,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 72;
 				DEVELOPMENT_TEAM = DXUKH9VF73;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
@@ -2050,7 +2065,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 72;
 				DEVELOPMENT_TEAM = DXUKH9VF73;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
