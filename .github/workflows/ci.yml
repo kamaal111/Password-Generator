@@ -100,7 +100,7 @@ jobs:
 
   deployMacOS:
     name: deploy macOS
-    # timeout-minutes: 15
+    timeout-minutes: 15
     runs-on: macos-latest
     # needs: [test]
     env:
@@ -171,10 +171,8 @@ jobs:
       - name: Code sign app
         env:
           THIRD_PARTY_MAC_INSTALLER_NAME: "3rd Party Mac Developer Installer: Kamaal Farah (DXUKH9VF73)"
-          APPLE_DISTRIBUTION_CERTIFICATE_NAME: "Apple Distribution: Kamaal Farah (DXUKH9VF73)"
         run: |
           xcrun productbuild --component "$PRODUCT_NAME".app /Applications/ "$PRODUCT_NAME".unsigned.pkg
-          xcrun productsign --sign "$THIRD_PARTY_MAC_INSTALLER_NAME" "$PRODUCT_NAME".unsigned.pkg "$PRODUCT_NAME".pkg
 
       - name: Upload app to App Store Connect
         env:
