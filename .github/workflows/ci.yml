@@ -176,6 +176,8 @@ jobs:
       #   bundle exec fastlane gym --scheme "$SCHEME" --verbose
 
       - name: Archive app
+        env:
+          PROVISIONING_PROFILE_MAC_ID: ${{ secrets.PROVISIONING_PROFILE_MAC_ID }}
         run: |
           set -o pipefail && xcodebuild -scheme "$SCHEME" -project Password-Generator.xcodeproj \
             -configuration Release -destination generic/platform=macOS \
@@ -183,8 +185,7 @@ jobs:
 
           set -o pipefail && xcodebuild -exportArchive -archivePath "$PRODUCT_NAME".xcarchive \
             -exportPath . -exportOptionsPlist fastlane/ExportOptions.plist \
-            PROVISIONING_PROFILE="~/Library/MobileDevice/Provisioning\ Profiles/profile.provisionprofile" \
-            -allowProvisioningUpdates | bundle exec xcpretty || exit 1
+            PROVISIONING_PROFILE="$PROVISIONING_PROFILE_MAC_ID" | bundle exec xcpretty || exit 1
 
       - name: Create PKG
         timeout-minutes: 1
