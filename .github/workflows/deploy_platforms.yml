@@ -178,7 +178,7 @@ jobs:
 
           codesign -d --entitlements Targets/macOS/macOS.entitlements "$APP_PATH"
           echo "$PROVISIONING_PROFILE_DATA" | base64 --decode > "$APP_PATH"/Contents/embedded.provisionprofile
-          xcrun productbuild --component P"$APP_PATH" /Applications/ "$PRODUCT_NAME".unsigned.pkg
+          xcrun productbuild --component "$APP_PATH" /Applications/ "$PRODUCT_NAME".unsigned.pkg
 
       - name: Sign PKG
         timeout-minutes: 2
