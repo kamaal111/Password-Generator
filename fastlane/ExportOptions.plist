@@ -2,10 +2,9 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>provisioningProfiles</key>
-	<dict>
-		<key>io.kamaal.Password-Generator</key>
-		<string>~/Library/MobileDevice/Provisioning\ Profiles/profile.provisionprofile</string>
-	</dict>
+	<key>teamID</key>
+	<string>DXUKH9VF73</string>
+	<key>method</key>
+	<string>app-store</string>
 </dict>
 </plist>

@@ -171,11 +171,17 @@ jobs:
           ruby-version: 2.6
           bundler-cache: true
 
-      - name: Build app
-        # run: |
-        #   bundle exec fastlane gym --scheme "$SCHEME" --verbose
+      # - name: Build app
+      # run: |
+      #   bundle exec fastlane gym --scheme "$SCHEME" --verbose
+
+      - name: Archive app
         run: |
-          xcodebuild -exportArchive -exportFormat app -archivePath "$PRODUCT_NAME".xcarchive -exportPath "$PRODUCT_NAME".app -exportProvisioningProfile "~/Library/MobileDevice/Provisioning\ Profiles/profile.provisionprofile"
+          xcodebuild -scheme '$SCHEME' -project 'Password-Generator.xcodeproj' \
+            -configuration 'Release' -destination 'generic/platform=macOS' \
+            -archivePath "$PRODUCT_NAME".xcarchive clean archive
+
+          xcodebuild -exportArchive -archivePath "$PRODUCT_NAME".xcarchive -exportPath . -exportOptionsPlist fastlane/ExportOptions.plist
 
       - name: Create PKG
         timeout-minutes: 1
