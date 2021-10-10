@@ -6,6 +6,8 @@ on:
       - develop
       - "feature/**"
       - "release/**"
+env:
+  PRODUCT_NAME: Passlify
 jobs:
   # test:
   #   name: Test
@@ -34,8 +36,6 @@ jobs:
   #   timeout-minutes: 15
   #   runs-on: macos-latest
   #   needs: [test]
-  #   env:
-  #     PRODUCT_NAME: Passlify
   #   steps:
   #     - name: Git - Checkout
   #       uses: actions/checkout@v2
@@ -55,11 +55,13 @@ jobs:
   #         security default-keychain -s build.keychain
   #         security unlock-keychain -p "" build.keychain
   #         security set-keychain-settings
+
   #         security import <(echo $SIGNING_CERTIFICATE_P12_DATA | base64 --decode) \
   #                         -f pkcs12 \
   #                         -k build.keychain \
   #                         -P $SIGNING_CERTIFICATE_PASSWORD \
   #                         -T /usr/bin/codesign
+
   #         security set-key-partition-list -S apple-tool:,apple: -s -k "" build.keychain
 
   #     - name: Import provisioning profile
@@ -94,15 +96,14 @@ jobs:
   #         APP_STORE_CONNECT_USERNAME: ${{ secrets.APP_STORE_CONNECT_USERNAME }}
   #         APP_STORE_CONNECT_PASSWORD: ${{ secrets.APP_STORE_CONNECT_PASSWORD }}
   #       run: |
-  #         xcrun altool --upload-app -t ios -f "$PRODUCT_NAME.ipa" -u "$APP_STORE_CONNECT_USERNAME" -p "$APP_STORE_CONNECT_PASSWORD"
+  #         xcrun altool --upload-app -t ios -f "$PRODUCT_NAME".ipa -u "$APP_STORE_CONNECT_USERNAME" -p "$APP_STORE_CONNECT_PASSWORD"
 
   deployMacOS:
     name: deploy macOS
-    timeout-minutes: 15
+    # timeout-minutes: 15
     runs-on: macos-latest
     # needs: [test]
     env:
-      PRODUCT_NAME: Passlify
       SCHEME: Password-Generator (macOS)
     steps:
       - name: Git - Checkout
@@ -115,6 +116,8 @@ jobs:
         env:
           SIGNING_CERTIFICATE_P12_DATA: ${{ secrets.SIGNING_CERTIFICATE_P12_DATA }}
           SIGNING_CERTIFICATE_PASSWORD: ${{ secrets.SIGNING_CERTIFICATE_PASSWORD }}
+          THIRD_PARTY_MAC_INSTALLER_CERTIFICATE: ${{ secrets.THIRD_PARTY_MAC_INSTALLER_CERTIFICATE }}
+          THIRD_PARTY_MAC_INSTALLER_PASSWORD: ${{ secrets.THIRD_PARTY_MAC_INSTALLER_PASSWORD }}
         run: |
           set -euo pipefail
 
@@ -123,21 +126,29 @@ jobs:
           security default-keychain -s build.keychain
           security unlock-keychain -p "" build.keychain
           security set-keychain-settings
+
           security import <(echo $SIGNING_CERTIFICATE_P12_DATA | base64 --decode) \
                           -f pkcs12 \
                           -k build.keychain \
                           -P $SIGNING_CERTIFICATE_PASSWORD \
                           -T /usr/bin/codesign
+          security import <(echo $THIRD_PARTY_MAC_INSTALLER_CERTIFICATE | base64 --decode) \
+                          -f pkcs12 \
+                          -k build.keychain \
+                          -P $THIRD_PARTY_MAC_INSTALLER_PASSWORD \
+                          -T /usr/bin/codesign
+
           security set-key-partition-list -S apple-tool:,apple: -s -k "" build.keychain
 
       - name: Import provisioning profile
         env:
           PROVISIONING_PROFILE_DATA: ${{ secrets.PROVISIONING_PROFILE_MAC_DATA }}
+          LOCATION_TO_SAVE: ~/Library/MobileDevice/Provisioning\ Profiles
         run: |
           set -euo pipefail
 
-          mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
-          echo "$PROVISIONING_PROFILE_DATA" | base64 --decode > ~/Library/MobileDevice/Provisioning\ Profiles/profile.provisionprofile
+          mkdir -p "$LOCATION_TO_SAVE"
+          echo "$PROVISIONING_PROFILE_DATA" | base64 --decode > "$LOCATION_TO_SAVE"/profile.provisionprofile
 
       - name: Bump build number
         run: |
@@ -156,6 +167,14 @@ jobs:
       - name: Build app
         run: |
           bundle exec fastlane gym --scheme "$SCHEME" --verbose
+
+      - name: Code sign app
+        env:
+          THIRD_PARTY_MAC_INSTALLER_NAME: "3rd Party Mac Developer Installer: Kamaal Farah (DXUKH9VF73)"
+          APPLE_DISTRIBUTION_CERTIFICATE_NAME: "Apple Distribution: Kamaal Farah (DXUKH9VF73)"
+        run: |
+          xcrun productbuild --component "$PRODUCT_NAME".app /Applications/ "$PRODUCT_NAME".unsigned.pkg
+          xcrun productsign --sign "$THIRD_PARTY_MAC_INSTALLER_NAME" "$PRODUCT_NAME".unsigned.pkg "$PRODUCT_NAME".pkg
 
       - name: Upload app to App Store Connect
         env:
