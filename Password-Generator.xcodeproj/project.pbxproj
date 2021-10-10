@@ -282,8 +282,11 @@
 		2C0D4A0426E6B692006CD00D /* CorePassword+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CorePassword+CoreDataClass.swift"; sourceTree = "<group>"; };
 		2C0D4A0526E6B692006CD00D /* CorePassword+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CorePassword+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		2C0D4A0A26E6B72A006CD00D /* CoreDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataModel.swift; sourceTree = "<group>"; };
-		2C198ED4270CF08A00542684 /* import_signing_certificate.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = import_signing_certificate.sh; sourceTree = "<group>"; };
-		2C2F775A270A547F00732531 /* main.go */ = {isa = PBXFileReference; lastKnownFileType = text; path = main.go; sourceTree = "<group>"; };
+		2C34697D27137C7A00B3DB6D /* VersionBumperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionBumperTests.swift; sourceTree = "<group>"; };
+		2C34697E27137C7A00B3DB6D /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		2C34697F27137C7A00B3DB6D /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
+		2C34698227137C7A00B3DB6D /* VersionBumper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionBumper.swift; sourceTree = "<group>"; };
+		2C34698327137C7B00B3DB6D /* Package.resolved */ = {isa = PBXFileReference; lastKnownFileType = text; path = Package.resolved; sourceTree = "<group>"; };
 		2C3E590226EA7AD200F75F51 /* CheckButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckButton.swift; sourceTree = "<group>"; };
 		2C3E590A26EA7E4200F75F51 /* NameSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameSheet.swift; sourceTree = "<group>"; };
 		2C4713CA26F13E71007647F7 /* Sequence+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sequence+extensions.swift"; sourceTree = "<group>"; };
@@ -371,6 +374,7 @@
 		2CE322F227086E8B00004F27 /* LogoPlaygroundStepper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoPlaygroundStepper.swift; sourceTree = "<group>"; };
 		2CE97ECF26EBFD14004D799A /* SavedPasswordListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedPasswordListItem.swift; sourceTree = "<group>"; };
 		2CE97ED226EC03BF004D799A /* Notification.Name+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification.Name+extensions.swift"; sourceTree = "<group>"; };
+		2CF832A62713605F00436705 /* import_signing_certificate_ios.bash */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = import_signing_certificate_ios.bash; sourceTree = "<group>"; };
 		2CFD1D0926EAA1FD00B7DF4F /* SavedPasswordsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedPasswordsScreen.swift; sourceTree = "<group>"; };
 		6000F7CE270AD7A600E58707 /* Password-GeneratorScreenshots (iOS).xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Password-GeneratorScreenshots (iOS).xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6000F7D0270AD7A600E58707 /* Password_GeneratorScreenshotsIOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Password_GeneratorScreenshotsIOS.swift; sourceTree = "<group>"; };
@@ -533,7 +537,43 @@
 		2C2F7759270A547F00732531 /* version-bumper */ = {
 			isa = PBXGroup;
 			children = (
-				2C2F775A270A547F00732531 /* main.go */,
+				2C34697E27137C7A00B3DB6D /* README.md */,
+				2C34698327137C7B00B3DB6D /* Package.resolved */,
+				2C34697F27137C7A00B3DB6D /* Package.swift */,
+				2C34698027137C7A00B3DB6D /* Sources */,
+				2C34697B27137C7A00B3DB6D /* Tests */,
+			);
+			path = "version-bumper";
+			sourceTree = "<group>";
+		};
+		2C34697B27137C7A00B3DB6D /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				2C34697C27137C7A00B3DB6D /* VersionBumperTests */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		2C34697C27137C7A00B3DB6D /* VersionBumperTests */ = {
+			isa = PBXGroup;
+			children = (
+				2C34697D27137C7A00B3DB6D /* VersionBumperTests.swift */,
+			);
+			path = VersionBumperTests;
+			sourceTree = "<group>";
+		};
+		2C34698027137C7A00B3DB6D /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				2C34698127137C7A00B3DB6D /* version-bumper */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		2C34698127137C7A00B3DB6D /* version-bumper */ = {
+			isa = PBXGroup;
+			children = (
+				2C34698227137C7A00B3DB6D /* VersionBumper.swift */,
 			);
 			path = "version-bumper";
 			sourceTree = "<group>";
@@ -717,7 +757,7 @@
 		2C6AD45D26E504BF003AF55C /* Scripts */ = {
 			isa = PBXGroup;
 			children = (
-				2C198ED4270CF08A00542684 /* import_signing_certificate.sh */,
+				2CF832A62713605F00436705 /* import_signing_certificate_ios.bash */,
 				2C0D49FD26E6ACE1006CD00D /* pre_compile.sh */,
 				60B4C54E270C290200E7F1A3 /* run_tests.sh */,
 				60937A16270CB10A005F13F0 /* set_up_xcode_version.sh */,
@@ -1828,7 +1868,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 72;
+				CURRENT_PROJECT_VERSION = 89;
 				DEVELOPMENT_TEAM = DXUKH9VF73;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Targets/iOS/Info.plist;
@@ -1852,7 +1892,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 72;
+				CURRENT_PROJECT_VERSION = 89;
 				DEVELOPMENT_TEAM = DXUKH9VF73;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Targets/iOS/Info.plist;
@@ -1880,7 +1920,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 72;
+				CURRENT_PROJECT_VERSION = 89;
 				DEVELOPMENT_TEAM = DXUKH9VF73;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
@@ -1907,7 +1947,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 72;
+				CURRENT_PROJECT_VERSION = 89;
 				DEVELOPMENT_TEAM = DXUKH9VF73;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
@@ -2038,7 +2078,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 72;
+				CURRENT_PROJECT_VERSION = 89;
 				DEVELOPMENT_TEAM = DXUKH9VF73;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
@@ -2065,7 +2105,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 72;
+				CURRENT_PROJECT_VERSION = 89;
 				DEVELOPMENT_TEAM = DXUKH9VF73;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
