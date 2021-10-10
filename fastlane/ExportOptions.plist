@@ -6,5 +6,10 @@
 	<string>DXUKH9VF73</string>
 	<key>method</key>
 	<string>app-store</string>
+	<key>provisioningProfiles</key>
+	<dict>
+		<key>io.kamaal.Password-Generator</key>
+		<string>~/Library/MobileDevice/Provisioning\ Profiles/profile.provisionprofile</string>
+	</dict>
 </dict>
 </plist>

@@ -177,11 +177,12 @@ jobs:
 
       - name: Archive app
         run: |
-          xcodebuild -scheme "$SCHEME" -project Password-Generator.xcodeproj \
+          set -o pipefail && xcodebuild -scheme "$SCHEME" -project Password-Generator.xcodeproj \
             -configuration Release -destination generic/platform=macOS \
-            -archivePath "$PRODUCT_NAME".xcarchive clean archive
+            -archivePath "$PRODUCT_NAME".xcarchive clean archive | bundle exec xcpretty || exit 1
 
-          xcodebuild -exportArchive -archivePath "$PRODUCT_NAME".xcarchive -exportPath . -exportOptionsPlist fastlane/ExportOptions.plist
+          set -o pipefail && xcodebuild -exportArchive -archivePath "$PRODUCT_NAME".xcarchive \
+            -exportPath . -exportOptionsPlist fastlane/ExportOptions.plist | bundle exec xcpretty || exit 1
 
       - name: Create PKG
         timeout-minutes: 1
