@@ -76,7 +76,9 @@ jobs:
 
       - name: Bump build number
         run: |
-          go run Scripts/version-bumper/*.go -bn ${{github.run_number}} -ip Targets/iOS/Info.plist
+          let build_number=${{github.run_number}}
+          let build_number=$build_number + 72
+          go run Scripts/version-bumper/*.go -bn "$build_number" -ip Targets/iOS/Info.plist
 
       - name: Setup - Xcode
         run: |
@@ -158,7 +160,9 @@ jobs:
       - name: Bump build number
         timeout-minutes: 1
         run: |
-          go run Scripts/version-bumper/*.go -bn ${{github.run_number}} -ip Targets/macOS/Info.plist
+          let build_number=${{github.run_number}}
+          let build_number=$build_number + 72
+          go run Scripts/version-bumper/*.go -bn "$build_number" -ip Targets/macOS/Info.plist
 
       - name: Setup - Xcode
         timeout-minutes: 1
