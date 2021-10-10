@@ -182,7 +182,8 @@ jobs:
             -archivePath "$PRODUCT_NAME".xcarchive clean archive | bundle exec xcpretty || exit 1
 
           set -o pipefail && xcodebuild -exportArchive -archivePath "$PRODUCT_NAME".xcarchive \
-            -exportPath . -exportOptionsPlist fastlane/ExportOptions.plist | bundle exec xcpretty || exit 1
+            -exportPath . -exportOptionsPlist fastlane/ExportOptions.plist \
+            PROVISIONING_PROFILE="~/Library/MobileDevice/Provisioning\ Profiles/profile.provisionprofile" | bundle exec xcpretty || exit 1
 
       - name: Create PKG
         timeout-minutes: 1
