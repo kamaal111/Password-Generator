@@ -118,13 +118,14 @@ jobs:
           SIGNING_CERTIFICATE_PASSWORD: ${{ secrets.SIGNING_CERTIFICATE_PASSWORD }}
           THIRD_PARTY_MAC_INSTALLER_CERTIFICATE: ${{ secrets.THIRD_PARTY_MAC_INSTALLER_CERTIFICATE }}
           THIRD_PARTY_MAC_INSTALLER_PASSWORD: ${{ secrets.THIRD_PARTY_MAC_INSTALLER_PASSWORD }}
+          KEYCHAIN_PASSPHRASE: ${{ secrets.KEYCHAIN_PASSPHRASE }}
         run: |
           set -euo pipefail
 
-          security create-keychain -p "" build.keychain
+          security create-keychain -p "$KEYCHAIN_PASSPHRASE" build.keychain
           security list-keychains -s build.keychain
           security default-keychain -s build.keychain
-          security unlock-keychain -p "" build.keychain
+          security unlock-keychain -p "$KEYCHAIN_PASSPHRASE" build.keychain
           security set-keychain-settings
 
           security import <(echo $SIGNING_CERTIFICATE_P12_DATA | base64 --decode) \
@@ -138,7 +139,7 @@ jobs:
                           -P $THIRD_PARTY_MAC_INSTALLER_PASSWORD \
                           -T /usr/bin/codesign
 
-          security set-key-partition-list -S apple-tool:,apple: -s -k "" build.keychain
+          security set-key-partition-list -S apple-tool:,apple: -s -k "$KEYCHAIN_PASSPHRASE" build.keychain
 
       - name: Import provisioning profile
         env:
@@ -172,7 +173,8 @@ jobs:
         env:
           THIRD_PARTY_MAC_INSTALLER_NAME: "3rd Party Mac Developer Installer: Kamaal Farah (DXUKH9VF73)"
         run: |
-          xcrun productbuild --component "$PRODUCT_NAME".app /Applications/ "$PRODUCT_NAME".pkg
+          xcrun productbuild --component "$PRODUCT_NAME".app /Applications/ "$PRODUCT_NAME".unsigned.pkg
+          xcrun productsign --sign "$THIRD_PARTY_MAC_INSTALLER_NAME" "$PRODUCT_NAME".unsigned.pkg "$PRODUCT_NAME".pkg
 
       - name: Upload app to App Store Connect
         env:
