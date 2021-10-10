@@ -60,6 +60,10 @@ jobs:
           mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
           echo "$PROVISIONING_PROFILE_DATA" | base64 --decode > ~/Library/MobileDevice/Provisioning\ Profiles/profile.mobileprovision
 
+      - name: Setup - Xcode
+        run: |
+          sh Scripts/set_up_xcode_version.sh
+
       - name: Bump build number
         env:
           INFO_PLIST_PATH: Targets/iOS/Info.plist
@@ -70,10 +74,6 @@ jobs:
           let build_number=$build_number+72
 
           swift run version-bumper -b "$build_number" -i ../../"$INFO_PLIST_PATH"
-
-      - name: Setup - Xcode
-        run: |
-          sh Scripts/set_up_xcode_version.sh
 
       - name: Setup - Ruby and bundler dependencies
         uses: ruby/setup-ruby@v1

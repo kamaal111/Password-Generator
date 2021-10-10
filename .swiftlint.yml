@@ -47,6 +47,7 @@ excluded:
   - Shared/Models/CoreData/*/*.swift
   - Tests
   - vendor
+  - Scripts
 identifier_name:
   min_length:
     warning: 2
