@@ -43,5 +43,6 @@ extension PGLocale {
         case SETTINGS
         case FEEDBACK_APP
         case SEND_FEEDBACK
+        case VERSION
     }
 }

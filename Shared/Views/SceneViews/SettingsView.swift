@@ -23,6 +23,10 @@ struct SettingsView: View {
                 imageSystemName: "paperplane",
                 action: viewModel.onFeedbackPress)
                 .disabled(!viewModel.sendFeedbackButtonIsEnabled)
+            if let versionText = viewModel.versionText {
+                SettingsFormRow(label: .VERSION, value: versionText)
+                    .padding(.horizontal, .xs)
+            }
         }
         .padding(.horizontal, .large)
         .padding(.vertical, .medium)

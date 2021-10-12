@@ -37,6 +37,7 @@ const en = {
   SETTINGS: "Settings",
   FEEDBACK_APP: "Feedback %@",
   SEND_FEEDBACK: "Send feedback",
+  VERSION: "Version",
 };
 
 module.exports = en;

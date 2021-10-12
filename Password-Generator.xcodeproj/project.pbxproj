@@ -16,6 +16,9 @@
 		2C00B0082716251E00001AAB /* SettingsView+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C00B0072716251E00001AAB /* SettingsView+ViewModel.swift */; };
 		2C00B0092716251E00001AAB /* SettingsView+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C00B0072716251E00001AAB /* SettingsView+ViewModel.swift */; };
 		2C00B00A2716251E00001AAB /* SettingsView+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C00B0072716251E00001AAB /* SettingsView+ViewModel.swift */; };
+		2C00B00C271628D700001AAB /* SettingsFormRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C00B00B271628D700001AAB /* SettingsFormRow.swift */; };
+		2C00B00D271628D700001AAB /* SettingsFormRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C00B00B271628D700001AAB /* SettingsFormRow.swift */; };
+		2C00B00E271628D700001AAB /* SettingsFormRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C00B00B271628D700001AAB /* SettingsFormRow.swift */; };
 		2C08AD8226E7FC33001ECD75 /* HomeMainActionButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C08AD8126E7FC33001ECD75 /* HomeMainActionButtons.swift */; };
 		2C08AD8326E7FC33001ECD75 /* HomeMainActionButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C08AD8126E7FC33001ECD75 /* HomeMainActionButtons.swift */; };
 		2C08ADB226E80A40001ECD75 /* EmptyTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C08ADB126E80A40001ECD75 /* EmptyTest.swift */; };
@@ -279,6 +282,7 @@
 		2C00AFFF271621D800001AAB /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		2C00B003271623F800001AAB /* SettingsFormButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsFormButton.swift; sourceTree = "<group>"; };
 		2C00B0072716251E00001AAB /* SettingsView+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsView+ViewModel.swift"; sourceTree = "<group>"; };
+		2C00B00B271628D700001AAB /* SettingsFormRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsFormRow.swift; sourceTree = "<group>"; };
 		2C08AD8126E7FC33001ECD75 /* HomeMainActionButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMainActionButtons.swift; sourceTree = "<group>"; };
 		2C08AD8D26E80639001ECD75 /* UnitTestsiOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitTestsiOS.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C08AD9126E80639001ECD75 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -897,6 +901,7 @@
 				2CE97ECF26EBFD14004D799A /* SavedPasswordListItem.swift */,
 				6056CF3E26F3D603002AA00A /* SecureFloatingField.swift */,
 				2C00B003271623F800001AAB /* SettingsFormButton.swift */,
+				2C00B00B271628D700001AAB /* SettingsFormRow.swift */,
 				2C6AD49226E50E75003AF55C /* SidebarView.swift */,
 				2C6AD49526E51030003AF55C /* TabbarView.swift */,
 				2CA895D426E56BB70057A82C /* ToggleFormField.swift */,
@@ -1436,6 +1441,7 @@
 				2C00B004271623F800001AAB /* SettingsFormButton.swift in Sources */,
 				2CE97ED026EBFD14004D799A /* SavedPasswordListItem.swift in Sources */,
 				2C93723226EFF56B004BF5BF /* SavedPasswordDetailScreen.swift in Sources */,
+				2C00B00C271628D700001AAB /* SettingsFormRow.swift in Sources */,
 				2C6AD4A026E51650003AF55C /* AppSizes.swift in Sources */,
 				2C4F863226F264F600A34647 /* SavedPasswordDetailScreen+ViewModel.swift in Sources */,
 				2C69071326E95909000B84EC /* CorePassword+extensions.swift in Sources */,
@@ -1532,6 +1538,7 @@
 				2C6AD49D26E5150D003AF55C /* View+extensions.swift in Sources */,
 				2CA895C326E55B080057A82C /* Text+extensions.swift in Sources */,
 				6017C075270101030023F347 /* LogoPlaygroundScreen.swift in Sources */,
+				2C00B00D271628D700001AAB /* SettingsFormRow.swift in Sources */,
 				2CD73C4226F7CDE30054C380 /* Optional+extensions.swift in Sources */,
 				2CD73C3726F7C1D50054C380 /* PlaygroundScreen.swift in Sources */,
 				2C81ACED2709DEFA00D387CA /* Array+extensions.swift in Sources */,
@@ -1620,6 +1627,7 @@
 				2C6D1D602703BD0F004AD36E /* View+extensions.swift in Sources */,
 				2C6D1D612703BD0F004AD36E /* Text+extensions.swift in Sources */,
 				2C6D1D622703BD0F004AD36E /* LogoPlaygroundScreen.swift in Sources */,
+				2C00B00E271628D700001AAB /* SettingsFormRow.swift in Sources */,
 				2C6D1D632703BD0F004AD36E /* Optional+extensions.swift in Sources */,
 				2C6D1D642703BD0F004AD36E /* PlaygroundScreen.swift in Sources */,
 				2C81ACEE2709DEFA00D387CA /* Array+extensions.swift in Sources */,

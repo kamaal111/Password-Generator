@@ -11,23 +11,28 @@ import PGLocale
 extension SettingsView {
     final class ViewModel: ObservableObject {
 
+        var versionText: String? {
+            Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
+        }
+
+        var sendFeedbackButtonIsEnabled: Bool {
+            #if canImport(MessageUI)
+            return false
+//            let canSendMail = MFMailComposeViewController.canSendMail()
+//            return canSendMail
+            #elseif os(macOS)
+            return true
+            #endif
+        }
+
         func onFeedbackPress() {
             #if os(iOS)
-            activeSheet = .feedback
+//            activeSheet = .feedback
             #elseif os(macOS)
             guard let service = NSSharingService(named: NSSharingService.Name.composeEmail) else { return }
             service.subject = PGLocale.Keys.FEEDBACK_APP.localized(with: [Constants.appName])
             service.recipients = [Constants.email]
             service.perform(withItems: [])
-            #endif
-        }
-
-        var sendFeedbackButtonIsEnabled: Bool {
-            #if canImport(MessageUI)
-            let canSendMail = MFMailComposeViewController.canSendMail()
-            return canSendMail
-            #elseif os(macOS)
-            return true
             #endif
         }
 
