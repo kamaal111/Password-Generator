@@ -6,10 +6,27 @@
 //
 
 import SwiftUI
+import SalmonUI
 
 struct SettingsView: View {
+    @StateObject
+    private var viewModel = ViewModel()
+
     var body: some View {
-        Text("Hello, World!")
+        VStack {
+            #if os(macOS)
+            FormHeader(title: .SETTINGS)
+                .padding(.bottom, .xs)
+            #endif
+            SettingsFormButton(
+                title: .SEND_FEEDBACK,
+                imageSystemName: "paperplane",
+                action: viewModel.onFeedbackPress)
+                .disabled(!viewModel.sendFeedbackButtonIsEnabled)
+        }
+        .padding(.horizontal, .large)
+        .padding(.vertical, .medium)
+        .ktakeSizeEagerly(alignment: .topLeading)
     }
 }
 
