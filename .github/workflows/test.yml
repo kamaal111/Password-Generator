@@ -3,8 +3,6 @@ on:
   push:
     branches:
       - "feature/**"
-env:
-  PRODUCT_NAME: Passlify
 jobs:
   test:
     name: Test
