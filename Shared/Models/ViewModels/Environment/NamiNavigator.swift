@@ -25,6 +25,7 @@ final class NamiNavigator: ObservableObject {
     enum NavigationStacks: Int, CaseIterable, Codable {
         case home = 0
         case savedPasswords = 1
+        case settings = 2
         #if DEBUG && os(macOS)
         case playground = 420
         #endif

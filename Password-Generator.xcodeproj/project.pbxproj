@@ -7,6 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C00B000271621D800001AAB /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C00AFFF271621D800001AAB /* SettingsView.swift */; };
+		2C00B001271621D800001AAB /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C00AFFF271621D800001AAB /* SettingsView.swift */; };
+		2C00B002271621D800001AAB /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C00AFFF271621D800001AAB /* SettingsView.swift */; };
+		2C00B004271623F800001AAB /* SettingsFormButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C00B003271623F800001AAB /* SettingsFormButton.swift */; };
+		2C00B005271623F800001AAB /* SettingsFormButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C00B003271623F800001AAB /* SettingsFormButton.swift */; };
+		2C00B006271623F800001AAB /* SettingsFormButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C00B003271623F800001AAB /* SettingsFormButton.swift */; };
+		2C00B0082716251E00001AAB /* SettingsView+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C00B0072716251E00001AAB /* SettingsView+ViewModel.swift */; };
+		2C00B0092716251E00001AAB /* SettingsView+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C00B0072716251E00001AAB /* SettingsView+ViewModel.swift */; };
+		2C00B00A2716251E00001AAB /* SettingsView+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C00B0072716251E00001AAB /* SettingsView+ViewModel.swift */; };
+		2C00B00C271628D700001AAB /* SettingsFormRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C00B00B271628D700001AAB /* SettingsFormRow.swift */; };
+		2C00B00D271628D700001AAB /* SettingsFormRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C00B00B271628D700001AAB /* SettingsFormRow.swift */; };
+		2C00B00E271628D700001AAB /* SettingsFormRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C00B00B271628D700001AAB /* SettingsFormRow.swift */; };
+		2C00B01027162DAA00001AAB /* FeedbackSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C00B00F27162DAA00001AAB /* FeedbackSheet.swift */; };
 		2C08AD8226E7FC33001ECD75 /* HomeMainActionButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C08AD8126E7FC33001ECD75 /* HomeMainActionButtons.swift */; };
 		2C08AD8326E7FC33001ECD75 /* HomeMainActionButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C08AD8126E7FC33001ECD75 /* HomeMainActionButtons.swift */; };
 		2C08ADB226E80A40001ECD75 /* EmptyTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C08ADB126E80A40001ECD75 /* EmptyTest.swift */; };
@@ -267,6 +280,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2C00AFFF271621D800001AAB /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		2C00B003271623F800001AAB /* SettingsFormButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsFormButton.swift; sourceTree = "<group>"; };
+		2C00B0072716251E00001AAB /* SettingsView+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsView+ViewModel.swift"; sourceTree = "<group>"; };
+		2C00B00B271628D700001AAB /* SettingsFormRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsFormRow.swift; sourceTree = "<group>"; };
+		2C00B00F27162DAA00001AAB /* FeedbackSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackSheet.swift; sourceTree = "<group>"; };
 		2C08AD8126E7FC33001ECD75 /* HomeMainActionButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMainActionButtons.swift; sourceTree = "<group>"; };
 		2C08AD8D26E80639001ECD75 /* UnitTestsiOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitTestsiOS.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C08AD9126E80639001ECD75 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -465,6 +483,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2C00AFFE271621B600001AAB /* SceneViews */ = {
+			isa = PBXGroup;
+			children = (
+				2C6AD40B26E50120003AF55C /* ContentView.swift */,
+				2C00AFFF271621D800001AAB /* SettingsView.swift */,
+			);
+			path = SceneViews;
+			sourceTree = "<group>";
+		};
 		2C08AD8526E7FFC7001ECD75 /* Targets */ = {
 			isa = PBXGroup;
 			children = (
@@ -618,7 +645,6 @@
 				2C49EE58270A4026009BC0F9 /* LaunchScreen.storyboard */,
 				2CD73C3826F7C5FD0054C380 /* AppDelegate_macOS.swift */,
 				2C6AD49826E51358003AF55C /* Constants.swift */,
-				2C6AD40B26E50120003AF55C /* ContentView.swift */,
 				6017C0792701062A0023F347 /* Logo.swift */,
 				2C6AD40A26E50120003AF55C /* PasslifyApp.swift */,
 				2C49EE5A270A43CF009BC0F9 /* SplashScreen.swift */,
@@ -855,6 +881,7 @@
 		2C6AD48226E50BE6003AF55C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				2C00AFFE271621B600001AAB /* SceneViews */,
 				2C6AD48726E50C50003AF55C /* Screens */,
 				2C6AD48326E50BEF003AF55C /* SupportingViews */,
 				2C156FBB26ED577400DF2110 /* ViewModifiers */,
@@ -875,10 +902,13 @@
 				2C3E590A26EA7E4200F75F51 /* NameSheet.swift */,
 				2CE97ECF26EBFD14004D799A /* SavedPasswordListItem.swift */,
 				6056CF3E26F3D603002AA00A /* SecureFloatingField.swift */,
+				2C00B003271623F800001AAB /* SettingsFormButton.swift */,
+				2C00B00B271628D700001AAB /* SettingsFormRow.swift */,
 				2C6AD49226E50E75003AF55C /* SidebarView.swift */,
 				2C6AD49526E51030003AF55C /* TabbarView.swift */,
 				2CA895D426E56BB70057A82C /* ToggleFormField.swift */,
 				2CA895C726E55EC60057A82C /* VerticalForm.swift */,
+				2C00B00F27162DAA00001AAB /* FeedbackSheet.swift */,
 			);
 			path = SupportingViews;
 			sourceTree = "<group>";
@@ -930,6 +960,7 @@
 				2CA895CB26E5603F0057A82C /* HomeScreen+ViewModel.swift */,
 				2C4F863126F264F600A34647 /* SavedPasswordDetailScreen+ViewModel.swift */,
 				2C93722826EFEED0004BF5BF /* SavedPasswordsScreen+ViewModel.swift */,
+				2C00B0072716251E00001AAB /* SettingsView+ViewModel.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1410,8 +1441,10 @@
 				2C93722F26EFF524004BF5BF /* StackNavigator.swift in Sources */,
 				2CA895C826E55EC60057A82C /* VerticalForm.swift in Sources */,
 				2CCD0B7E26F28CFD00BE8E21 /* CopyableDetailsRow.swift in Sources */,
+				2C00B004271623F800001AAB /* SettingsFormButton.swift in Sources */,
 				2CE97ED026EBFD14004D799A /* SavedPasswordListItem.swift in Sources */,
 				2C93723226EFF56B004BF5BF /* SavedPasswordDetailScreen.swift in Sources */,
+				2C00B00C271628D700001AAB /* SettingsFormRow.swift in Sources */,
 				2C6AD4A026E51650003AF55C /* AppSizes.swift in Sources */,
 				2C4F863226F264F600A34647 /* SavedPasswordDetailScreen+ViewModel.swift in Sources */,
 				2C69071326E95909000B84EC /* CorePassword+extensions.swift in Sources */,
@@ -1427,15 +1460,18 @@
 				2C93722C26EFF065004BF5BF /* Clipboard.swift in Sources */,
 				6017C08127010AD50023F347 /* Image+extensions.swift in Sources */,
 				2CBF2B482708F2370088E18F /* LogoPlaygroundButton.swift in Sources */,
+				2C00B01027162DAA00001AAB /* FeedbackSheet.swift in Sources */,
 				2C6AD49626E51030003AF55C /* TabbarView.swift in Sources */,
 				2CCD0B8126F2933100BE8E21 /* DateDetailsRow.swift in Sources */,
 				2CD73C4126F7CDE30054C380 /* Optional+extensions.swift in Sources */,
 				6017C06D2700FEFE0023F347 /* DebugFrameSize.swift in Sources */,
 				2C6AD49926E51358003AF55C /* Constants.swift in Sources */,
 				2C49EE5B270A43CF009BC0F9 /* SplashScreen.swift in Sources */,
+				2C00B0082716251E00001AAB /* SettingsView+ViewModel.swift in Sources */,
 				2CBF2B442708F17B0088E18F /* FileManager+extensions.swift in Sources */,
 				2C6AD43426E50124003AF55C /* Password_Generator.xcdatamodeld in Sources */,
 				2C0D4A0626E6B692006CD00D /* CorePassword+CoreDataClass.swift in Sources */,
+				2C00B000271621D800001AAB /* SettingsView.swift in Sources */,
 				2C93722926EFEED0004BF5BF /* SavedPasswordsScreen+ViewModel.swift in Sources */,
 				2C6AD49326E50E75003AF55C /* SidebarView.swift in Sources */,
 				2C614B3C26E6A0070061FF82 /* PasswordHandler.swift in Sources */,
@@ -1479,8 +1515,11 @@
 				2C6AD47C26E5093B003AF55C /* ScreenModel.swift in Sources */,
 				2C3E590426EA7AD200F75F51 /* CheckButton.swift in Sources */,
 				2C6AD43B26E50124003AF55C /* Persistence.swift in Sources */,
+				2C00B005271623F800001AAB /* SettingsFormButton.swift in Sources */,
 				6056CF3D26F3D13A002AA00A /* EditMode.swift in Sources */,
+				2C00B001271621D800001AAB /* SettingsView.swift in Sources */,
 				2CFD1D0B26EAA1FD00B7DF4F /* SavedPasswordsScreen.swift in Sources */,
+				2C00B0092716251E00001AAB /* SettingsView+ViewModel.swift in Sources */,
 				2C93723326EFF56B004BF5BF /* SavedPasswordDetailScreen.swift in Sources */,
 				2C69071426E95909000B84EC /* CorePassword+extensions.swift in Sources */,
 				2C0D4A0726E6B692006CD00D /* CorePassword+CoreDataClass.swift in Sources */,
@@ -1503,6 +1542,7 @@
 				2C6AD49D26E5150D003AF55C /* View+extensions.swift in Sources */,
 				2CA895C326E55B080057A82C /* Text+extensions.swift in Sources */,
 				6017C075270101030023F347 /* LogoPlaygroundScreen.swift in Sources */,
+				2C00B00D271628D700001AAB /* SettingsFormRow.swift in Sources */,
 				2CD73C4226F7CDE30054C380 /* Optional+extensions.swift in Sources */,
 				2CD73C3726F7C1D50054C380 /* PlaygroundScreen.swift in Sources */,
 				2C81ACED2709DEFA00D387CA /* Array+extensions.swift in Sources */,
@@ -1564,8 +1604,11 @@
 				2C6D1D482703BD0F004AD36E /* ScreenModel.swift in Sources */,
 				2C6D1D492703BD0F004AD36E /* CheckButton.swift in Sources */,
 				2C6D1D4A2703BD0F004AD36E /* Persistence.swift in Sources */,
+				2C00B006271623F800001AAB /* SettingsFormButton.swift in Sources */,
 				2C6D1D4B2703BD0F004AD36E /* EditMode.swift in Sources */,
+				2C00B002271621D800001AAB /* SettingsView.swift in Sources */,
 				2C6D1D4C2703BD0F004AD36E /* SavedPasswordsScreen.swift in Sources */,
+				2C00B00A2716251E00001AAB /* SettingsView+ViewModel.swift in Sources */,
 				2C6D1D4D2703BD0F004AD36E /* SavedPasswordDetailScreen.swift in Sources */,
 				2C6D1D4E2703BD0F004AD36E /* CorePassword+extensions.swift in Sources */,
 				2C6D1D4F2703BD0F004AD36E /* CorePassword+CoreDataClass.swift in Sources */,
@@ -1588,6 +1631,7 @@
 				2C6D1D602703BD0F004AD36E /* View+extensions.swift in Sources */,
 				2C6D1D612703BD0F004AD36E /* Text+extensions.swift in Sources */,
 				2C6D1D622703BD0F004AD36E /* LogoPlaygroundScreen.swift in Sources */,
+				2C00B00E271628D700001AAB /* SettingsFormRow.swift in Sources */,
 				2C6D1D632703BD0F004AD36E /* Optional+extensions.swift in Sources */,
 				2C6D1D642703BD0F004AD36E /* PlaygroundScreen.swift in Sources */,
 				2C81ACEE2709DEFA00D387CA /* Array+extensions.swift in Sources */,
@@ -1877,6 +1921,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "io.kamaal.Password-Generator";
 				PRODUCT_NAME = "Password-Generator";
 				SDKROOT = iphoneos;
@@ -1901,6 +1946,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "io.kamaal.Password-Generator";
 				PRODUCT_NAME = "Password-Generator";
 				PROVISIONING_PROFILE_SPECIFIER = "Passlify App Store distribution";
@@ -1931,6 +1977,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "io.kamaal.Password-Generator";
 				PRODUCT_NAME = Passlify;
 				SDKROOT = macosx;
@@ -1958,6 +2005,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "io.kamaal.Password-Generator";
 				PRODUCT_NAME = Passlify;
 				PROVISIONING_PROFILE_SPECIFIER = "Passlify Mac App Store distribution";
@@ -2089,6 +2137,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "io.kamaal.Password-Generator-Dev";
 				PRODUCT_NAME = Passlify;
 				SDKROOT = macosx;
@@ -2116,6 +2165,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "io.kamaal.Password-Generator-Dev";
 				PRODUCT_NAME = Passlify;
 				SDKROOT = macosx;

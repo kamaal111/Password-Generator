@@ -10,5 +10,12 @@
         "title": "SAVED_PASSWORDS",
         "system_image": "lock.fill",
         "navigation_point": 1
+    },
+    {
+        "id": "29d83a4d-a141-4b4b-a587-af28245d0a4c",
+        "title": "SETTINGS",
+        "system_image": "gearshape.fill",
+        "navigation_point": 2,
+        "excluded_platforms": ["macOS"]
     }
 ]
