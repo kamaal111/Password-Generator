@@ -7,6 +7,7 @@ on:
       - "release/**"
 env:
   PRODUCT_NAME: Passlify
+  APP_VERSION: "1.1.0"
 jobs:
   test:
     name: Test
@@ -73,7 +74,7 @@ jobs:
           let build_number=${{ github.run_number }}
           let build_number=$build_number+72
 
-          swift run version-bumper -b "$build_number" -i ../../"$INFO_PLIST_PATH"
+          swift run version-bumper -b "$build_number" -i ../../"$INFO_PLIST_PATH" -v "$APP_VERSION"
 
       - name: Setup - Ruby and bundler dependencies
         uses: ruby/setup-ruby@v1
