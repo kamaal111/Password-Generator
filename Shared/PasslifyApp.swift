@@ -21,5 +21,11 @@ struct PasslifyApp: App {
             ContentView()
                 .environment(\.managedObjectContext, persistenceController.context!)
         }
+        #if os(macOS)
+        Settings {
+            SettingsView()
+                .frame(width: 350, height: 305)
+        }
+        #endif
     }
 }
