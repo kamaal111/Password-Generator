@@ -7,6 +7,9 @@
 
 import SwiftUI
 import PGLocale
+#if canImport(MessageUI)
+import MessageUI
+#endif
 
 extension SettingsView {
     final class ViewModel: ObservableObject {

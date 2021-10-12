@@ -31,6 +31,10 @@ struct SettingsView: View {
         .padding(.horizontal, .large)
         .padding(.vertical, .medium)
         .ktakeSizeEagerly(alignment: .topLeading)
+        #if os(iOS)
+        .navigationTitle(Text(localized: .SETTINGS))
+        .navigationBarTitleDisplayMode(.large)
+        #endif
     }
 }
 
