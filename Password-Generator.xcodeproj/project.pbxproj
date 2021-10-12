@@ -19,6 +19,7 @@
 		2C00B00C271628D700001AAB /* SettingsFormRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C00B00B271628D700001AAB /* SettingsFormRow.swift */; };
 		2C00B00D271628D700001AAB /* SettingsFormRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C00B00B271628D700001AAB /* SettingsFormRow.swift */; };
 		2C00B00E271628D700001AAB /* SettingsFormRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C00B00B271628D700001AAB /* SettingsFormRow.swift */; };
+		2C00B01027162DAA00001AAB /* FeedbackSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C00B00F27162DAA00001AAB /* FeedbackSheet.swift */; };
 		2C08AD8226E7FC33001ECD75 /* HomeMainActionButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C08AD8126E7FC33001ECD75 /* HomeMainActionButtons.swift */; };
 		2C08AD8326E7FC33001ECD75 /* HomeMainActionButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C08AD8126E7FC33001ECD75 /* HomeMainActionButtons.swift */; };
 		2C08ADB226E80A40001ECD75 /* EmptyTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C08ADB126E80A40001ECD75 /* EmptyTest.swift */; };
@@ -283,6 +284,7 @@
 		2C00B003271623F800001AAB /* SettingsFormButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsFormButton.swift; sourceTree = "<group>"; };
 		2C00B0072716251E00001AAB /* SettingsView+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsView+ViewModel.swift"; sourceTree = "<group>"; };
 		2C00B00B271628D700001AAB /* SettingsFormRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsFormRow.swift; sourceTree = "<group>"; };
+		2C00B00F27162DAA00001AAB /* FeedbackSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackSheet.swift; sourceTree = "<group>"; };
 		2C08AD8126E7FC33001ECD75 /* HomeMainActionButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMainActionButtons.swift; sourceTree = "<group>"; };
 		2C08AD8D26E80639001ECD75 /* UnitTestsiOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitTestsiOS.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C08AD9126E80639001ECD75 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -906,6 +908,7 @@
 				2C6AD49526E51030003AF55C /* TabbarView.swift */,
 				2CA895D426E56BB70057A82C /* ToggleFormField.swift */,
 				2CA895C726E55EC60057A82C /* VerticalForm.swift */,
+				2C00B00F27162DAA00001AAB /* FeedbackSheet.swift */,
 			);
 			path = SupportingViews;
 			sourceTree = "<group>";
@@ -1457,6 +1460,7 @@
 				2C93722C26EFF065004BF5BF /* Clipboard.swift in Sources */,
 				6017C08127010AD50023F347 /* Image+extensions.swift in Sources */,
 				2CBF2B482708F2370088E18F /* LogoPlaygroundButton.swift in Sources */,
+				2C00B01027162DAA00001AAB /* FeedbackSheet.swift in Sources */,
 				2C6AD49626E51030003AF55C /* TabbarView.swift in Sources */,
 				2CCD0B8126F2933100BE8E21 /* DateDetailsRow.swift in Sources */,
 				2CD73C4126F7CDE30054C380 /* Optional+extensions.swift in Sources */,

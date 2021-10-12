@@ -25,7 +25,9 @@ struct SettingsView: View {
                 .disabled(!viewModel.sendFeedbackButtonIsEnabled)
             if let versionText = viewModel.versionText {
                 SettingsFormRow(label: .VERSION, value: versionText)
+                    #if os(macOS)
                     .padding(.horizontal, .xs)
+                    #endif
             }
         }
         .padding(.horizontal, .large)
@@ -34,8 +36,26 @@ struct SettingsView: View {
         #if os(iOS)
         .navigationTitle(Text(localized: .SETTINGS))
         .navigationBarTitleDisplayMode(.large)
+        .sheet(isPresented: $viewModel.showSheet) {
+            settingsSheet()
+        }
         #endif
     }
+
+    #if os(iOS)
+    private func settingsSheet() -> some View {
+        switch viewModel.activeSheet {
+        case .feedback:
+            return FeedbackSheet(isShown: $viewModel.showSheet,
+                                 result: $viewModel.feedbackResult,
+                                 email: Constants.email)
+        default:
+            return FeedbackSheet(isShown: $viewModel.showSheet,
+                                 result: $viewModel.feedbackResult,
+                                 email: Constants.email)
+        }
+    }
+    #endif
 }
 
 struct SettingsView_Previews: PreviewProvider {

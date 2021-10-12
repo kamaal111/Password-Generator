@@ -14,15 +14,22 @@ import MessageUI
 extension SettingsView {
     final class ViewModel: ObservableObject {
 
+        @Published var showSheet = false
+        @Published private(set) var activeSheet: ActiveSheet? {
+            didSet { activeSheetDidSet() }
+        }
+        #if canImport(MessageUI)
+        @Published var feedbackResult: Result<MFMailComposeResult, Error>?
+        #endif
+
         var versionText: String? {
             Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
         }
 
         var sendFeedbackButtonIsEnabled: Bool {
             #if canImport(MessageUI)
-            return false
-//            let canSendMail = MFMailComposeViewController.canSendMail()
-//            return canSendMail
+            let canSendMail = MFMailComposeViewController.canSendMail()
+            return canSendMail
             #elseif os(macOS)
             return true
             #endif
@@ -30,7 +37,7 @@ extension SettingsView {
 
         func onFeedbackPress() {
             #if os(iOS)
-//            activeSheet = .feedback
+            activeSheet = .feedback
             #elseif os(macOS)
             guard let service = NSSharingService(named: NSSharingService.Name.composeEmail) else { return }
             service.subject = PGLocale.Keys.FEEDBACK_APP.localized(with: [Constants.appName])
@@ -39,5 +46,16 @@ extension SettingsView {
             #endif
         }
 
+        private func activeSheetDidSet() {
+            guard activeSheet != nil else { return }
+            showSheet = true
+        }
+
+    }
+}
+
+extension SettingsView.ViewModel {
+    enum ActiveSheet {
+        case feedback
     }
 }
