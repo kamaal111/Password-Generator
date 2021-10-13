@@ -2,35 +2,12 @@ name: Deploy on platforms
 on:
   push:
     branches:
-      - main
       - develop
       - "release/**"
 env:
   PRODUCT_NAME: Passlify
   APP_VERSION: "1.1.0"
 jobs:
-  test:
-    name: Test
-    timeout-minutes: 15
-    runs-on: macos-latest
-    steps:
-      - name: Git - Checkout
-        uses: actions/checkout@v2
-
-      - name: Setup - Xcode
-        run: |
-          sh Scripts/set_up_xcode_version.sh
-
-      - name: Setup - Ruby and bundler dependencies
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: 2.6
-          bundler-cache: true
-
-      - name: Test
-        run: |
-          sh Scripts/run_tests.sh
-
   deployIOS:
     name: deploy iOS
     timeout-minutes: 15

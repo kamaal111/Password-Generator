@@ -2,6 +2,8 @@ name: Test
 on:
   push:
     branches:
+      - develop
+      - "release/**"
       - "feature/**"
 jobs:
   test:
