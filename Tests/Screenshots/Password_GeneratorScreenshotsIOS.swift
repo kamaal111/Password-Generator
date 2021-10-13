@@ -21,6 +21,7 @@ class Password_GeneratorScreenshotsIOS: XCTestCase {
 
     func testExample() throws {
         let app = XCUIApplication()
+        setupSnapshot(app)
         app.launch()
     }
 
