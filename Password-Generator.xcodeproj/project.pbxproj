@@ -303,6 +303,7 @@
 		2C0D4A0A26E6B72A006CD00D /* CoreDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataModel.swift; sourceTree = "<group>"; };
 		2C1C27E727176F8C00954E68 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotHelper.swift; sourceTree = "<group>"; };
 		2C1C27E927176F9900954E68 /* Snapfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Snapfile; sourceTree = "<group>"; };
+		2C1C27EA27177DB700954E68 /* deploy_macos_app.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = deploy_macos_app.sh; sourceTree = "<group>"; };
 		2C34697D27137C7A00B3DB6D /* VersionBumperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionBumperTests.swift; sourceTree = "<group>"; };
 		2C34697E27137C7A00B3DB6D /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		2C34697F27137C7A00B3DB6D /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
@@ -789,6 +790,7 @@
 			isa = PBXGroup;
 			children = (
 				2CF832A62713605F00436705 /* import_signing_certificate_ios.bash */,
+				2C1C27EA27177DB700954E68 /* deploy_macos_app.sh */,
 				2C0D49FD26E6ACE1006CD00D /* pre_compile.sh */,
 				60B4C54E270C290200E7F1A3 /* run_tests.sh */,
 				60937A16270CB10A005F13F0 /* set_up_xcode_version.sh */,
