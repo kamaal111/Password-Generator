@@ -24,6 +24,7 @@ struct HomeScreen: View {
             }, right: {
                 Stepper("\(viewModel.letterLength)", value: $viewModel.letterLength, in: Constants.passwordLengthRange)
                     .accessibility(identifier: "password-length-stepper")
+                    .accessibilityLabel(Text("Password length stepper"))
             })
             ToggleFormField(value: $viewModel.lowercaseLettersEnabled, text: .LOWERCASE_LETTERS)
             ToggleFormField(value: $viewModel.capitalLettersEnabled, text: .CAPITAL_LETTERS)
