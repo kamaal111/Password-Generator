@@ -21,6 +21,7 @@ class Password_GeneratorScreenshotsIOS: XCTestCase {
 
     func testExample() throws {
         let app = XCUIApplication()
+        app.launchArguments.append("isUITesting")
         setupSnapshot(app)
         app.launch()
 
@@ -32,6 +33,7 @@ class Password_GeneratorScreenshotsIOS: XCTestCase {
 
 }
 
+// - TODO: PUT THIS IN A SEPERATE FILE
 extension XCUIElement {
     func incrementStepperUntil(value: Int) {
         guard let stepperValue = self.value as? String, let stepperValueInt = Int(stepperValue) else {

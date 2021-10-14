@@ -12,7 +12,12 @@ extension HomeScreen {
     final class ViewModel: ObservableObject {
 
         @Published var letterLength: Int {
-            didSet { UserDefaults.letterLength = letterLength }
+            didSet {
+                // - TODO: PUT THIS IN A SEPERATE FUNCTION
+                if !CommandLine.launchArgumentIncludes(value: .isUITesting) {
+                    UserDefaults.letterLength = letterLength
+                }
+            }
         }
         @Published var lowercaseLettersEnabled: Bool {
             didSet { UserDefaults.lowercaseLettersEnabled = lowercaseLettersEnabled }
@@ -34,7 +39,12 @@ extension HomeScreen {
         @Published var duplicatesExistAlertIsShown = false
 
         init() {
-            self.letterLength = UserDefaults.letterLength ?? 16
+            if let userDefaultsLetterLength = UserDefaults.letterLength,
+                !CommandLine.launchArgumentIncludes(value: .isUITesting) {
+                self.letterLength = userDefaultsLetterLength
+            } else {
+                self.letterLength = 16
+            }
             self.lowercaseLettersEnabled = UserDefaults.lowercaseLettersEnabled ?? true
             self.capitalLettersEnabled = UserDefaults.capitalLettersEnabled ?? true
             self.numeralsEnabled = UserDefaults.numeralsEnabled ?? true
@@ -132,5 +142,16 @@ extension HomeScreen {
             copyPassword()
         }
 
+    }
+}
+
+// - TODO: PUT THIS IN A SEPERATE FILE
+extension CommandLine {
+    enum ExpectedValues: String {
+        case isUITesting
+    }
+
+    static func launchArgumentIncludes(value: ExpectedValues) -> Bool {
+        CommandLine.arguments.contains(value.rawValue)
     }
 }
