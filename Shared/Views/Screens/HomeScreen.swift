@@ -23,8 +23,7 @@ struct HomeScreen: View {
                 Text(localized: .LENGTH_LABEL)
             }, right: {
                 Stepper("\(viewModel.letterLength)", value: $viewModel.letterLength, in: Constants.passwordLengthRange)
-                    .accessibility(identifier: "password-length-stepper")
-                    .accessibilityLabel(Text("Password length stepper"))
+                    .accessibilityIdentifier("password-length-stepper")
             })
             ToggleFormField(value: $viewModel.lowercaseLettersEnabled, text: .LOWERCASE_LETTERS)
             ToggleFormField(value: $viewModel.capitalLettersEnabled, text: .CAPITAL_LETTERS)
@@ -37,6 +36,7 @@ struct HomeScreen: View {
                 .font(.headline)
                 .ktakeWidthEagerly()
                 .multilineTextAlignment(.center)
+                .accessibilityIdentifier("password-label")
             HomeMainActionButtons(
                 showSaveAndCopyButton: viewModel.showSaveAndCopyButton,
                 generateButtonIsEnabled: viewModel.generateButtonIsEnabled,

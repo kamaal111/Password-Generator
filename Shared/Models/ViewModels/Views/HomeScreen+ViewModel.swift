@@ -12,12 +12,7 @@ extension HomeScreen {
     final class ViewModel: ObservableObject {
 
         @Published var letterLength: Int {
-            didSet {
-                // - TODO: PUT THIS IN A SEPERATE FUNCTION
-                if !CommandLine.launchArgumentIncludes(value: .isUITesting) {
-                    UserDefaults.letterLength = letterLength
-                }
-            }
+            didSet { letterLengthDidSet() }
         }
         @Published var lowercaseLettersEnabled: Bool {
             didSet { UserDefaults.lowercaseLettersEnabled = lowercaseLettersEnabled }
@@ -39,8 +34,7 @@ extension HomeScreen {
         @Published var duplicatesExistAlertIsShown = false
 
         init() {
-            if let userDefaultsLetterLength = UserDefaults.letterLength,
-                !CommandLine.launchArgumentIncludes(value: .isUITesting) {
+            if let userDefaultsLetterLength = UserDefaults.letterLength, !Config.isUITest {
                 self.letterLength = userDefaultsLetterLength
             } else {
                 self.letterLength = 16
@@ -119,6 +113,13 @@ extension HomeScreen {
             withAnimation { lastCopiedPassword = currentPassword }
         }
 
+        @objc
+        private func handleCopyShortcutTriggeredNotification(_ notifcation: Notification? = nil) {
+            guard let notificationPassword = notifcation?.object as? String,
+                  notificationPassword == currentPassword else { return }
+            copyPassword()
+        }
+
         private func setupObservers() {
             #if os(macOS)
             NotificationCenter.default.addObserver(
@@ -135,23 +136,11 @@ extension HomeScreen {
             #endif
         }
 
-        @objc
-        private func handleCopyShortcutTriggeredNotification(_ notifcation: Notification? = nil) {
-            guard let notificationPassword = notifcation?.object as? String,
-                  notificationPassword == currentPassword else { return }
-            copyPassword()
+        func letterLengthDidSet() {
+            if !Config.isUITest {
+                UserDefaults.letterLength = letterLength
+            }
         }
 
-    }
-}
-
-// - TODO: PUT THIS IN A SEPERATE FILE
-extension CommandLine {
-    enum ExpectedValues: String {
-        case isUITesting
-    }
-
-    static func launchArgumentIncludes(value: ExpectedValues) -> Bool {
-        CommandLine.arguments.contains(value.rawValue)
     }
 }

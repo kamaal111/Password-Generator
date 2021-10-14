@@ -199,6 +199,12 @@
 		2CBFD5262709B67800E9EF82 /* EditMode+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CBFD5252709B67800E9EF82 /* EditMode+extensions.swift */; };
 		2CBFD5272709B67800E9EF82 /* EditMode+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CBFD5252709B67800E9EF82 /* EditMode+extensions.swift */; };
 		2CBFD5282709B67800E9EF82 /* EditMode+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CBFD5252709B67800E9EF82 /* EditMode+extensions.swift */; };
+		2CC49F5C2718A132006AD8A3 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC49F5B2718A132006AD8A3 /* Config.swift */; };
+		2CC49F5D2718A132006AD8A3 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC49F5B2718A132006AD8A3 /* Config.swift */; };
+		2CC49F5E2718A132006AD8A3 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC49F5B2718A132006AD8A3 /* Config.swift */; };
+		2CC49F602718A193006AD8A3 /* CommandLine+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC49F5F2718A193006AD8A3 /* CommandLine+extensions.swift */; };
+		2CC49F612718A193006AD8A3 /* CommandLine+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC49F5F2718A193006AD8A3 /* CommandLine+extensions.swift */; };
+		2CC49F622718A193006AD8A3 /* CommandLine+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC49F5F2718A193006AD8A3 /* CommandLine+extensions.swift */; };
 		2CCD0B7E26F28CFD00BE8E21 /* CopyableDetailsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCD0B7D26F28CFD00BE8E21 /* CopyableDetailsRow.swift */; };
 		2CCD0B7F26F28CFD00BE8E21 /* CopyableDetailsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCD0B7D26F28CFD00BE8E21 /* CopyableDetailsRow.swift */; };
 		2CCD0B8126F2933100BE8E21 /* DateDetailsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCD0B8026F2933100BE8E21 /* DateDetailsRow.swift */; };
@@ -224,6 +230,7 @@
 		2CE97ED426EC03BF004D799A /* Notification.Name+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE97ED226EC03BF004D799A /* Notification.Name+extensions.swift */; };
 		2CFD1D0A26EAA1FD00B7DF4F /* SavedPasswordsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CFD1D0926EAA1FD00B7DF4F /* SavedPasswordsScreen.swift */; };
 		2CFD1D0B26EAA1FD00B7DF4F /* SavedPasswordsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CFD1D0926EAA1FD00B7DF4F /* SavedPasswordsScreen.swift */; };
+		2CFD3DFD2718BF2E00871A1D /* PGLocale in Frameworks */ = {isa = PBXBuildFile; productRef = 2CFD3DFC2718BF2E00871A1D /* PGLocale */; };
 		6000F7D1270AD7A600E58707 /* Password_GeneratorScreenshotsIOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6000F7D0270AD7A600E58707 /* Password_GeneratorScreenshotsIOS.swift */; };
 		6017C06D2700FEFE0023F347 /* DebugFrameSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6017C06C2700FEFE0023F347 /* DebugFrameSize.swift */; };
 		6017C06E2700FEFE0023F347 /* DebugFrameSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6017C06C2700FEFE0023F347 /* DebugFrameSize.swift */; };
@@ -378,6 +385,8 @@
 		2CBF2B432708F17B0088E18F /* FileManager+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+extensions.swift"; sourceTree = "<group>"; };
 		2CBF2B472708F2370088E18F /* LogoPlaygroundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoPlaygroundButton.swift; sourceTree = "<group>"; };
 		2CBFD5252709B67800E9EF82 /* EditMode+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EditMode+extensions.swift"; sourceTree = "<group>"; };
+		2CC49F5B2718A132006AD8A3 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		2CC49F5F2718A193006AD8A3 /* CommandLine+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CommandLine+extensions.swift"; sourceTree = "<group>"; };
 		2CCD0B7D26F28CFD00BE8E21 /* CopyableDetailsRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyableDetailsRow.swift; sourceTree = "<group>"; };
 		2CCD0B8026F2933100BE8E21 /* DateDetailsRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateDetailsRow.swift; sourceTree = "<group>"; };
 		2CD73C3526F7C1D50054C380 /* PlaygroundScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaygroundScreen.swift; sourceTree = "<group>"; };
@@ -481,6 +490,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2CFD3DFD2718BF2E00871A1D /* PGLocale in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -650,6 +660,7 @@
 			children = (
 				2C49EE58270A4026009BC0F9 /* LaunchScreen.storyboard */,
 				2CD73C3826F7C5FD0054C380 /* AppDelegate_macOS.swift */,
+				2CC49F5B2718A132006AD8A3 /* Config.swift */,
 				2C6AD49826E51358003AF55C /* Constants.swift */,
 				6017C0792701062A0023F347 /* Logo.swift */,
 				2C6AD40A26E50120003AF55C /* PasslifyApp.swift */,
@@ -935,6 +946,7 @@
 			children = (
 				2C81ACEB2709DEFA00D387CA /* Array+extensions.swift */,
 				2C6D1D2A2703B67C004AD36E /* Color+extensions.swift */,
+				2CC49F5F2718A193006AD8A3 /* CommandLine+extensions.swift */,
 				2C9F52472708B5AE00E86EC6 /* Data+extensions.swift */,
 				2CBFD5252709B67800E9EF82 /* EditMode+extensions.swift */,
 				2CBF2B432708F17B0088E18F /* FileManager+extensions.swift */,
@@ -1202,6 +1214,9 @@
 				6000F7D5270AD7A600E58707 /* PBXTargetDependency */,
 			);
 			name = "Password-GeneratorScreenshots (iOS)";
+			packageProductDependencies = (
+				2CFD3DFC2718BF2E00871A1D /* PGLocale */,
+			);
 			productName = "Password-GeneratorScreenshots";
 			productReference = 6000F7CE270AD7A600E58707 /* Password-GeneratorScreenshots (iOS).xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
@@ -1446,6 +1461,7 @@
 				2CA895D526E56BB70057A82C /* ToggleFormField.swift in Sources */,
 				2C6AD48526E50BFC003AF55C /* MainView.swift in Sources */,
 				2C93722F26EFF524004BF5BF /* StackNavigator.swift in Sources */,
+				2CC49F602718A193006AD8A3 /* CommandLine+extensions.swift in Sources */,
 				2CA895C826E55EC60057A82C /* VerticalForm.swift in Sources */,
 				2CCD0B7E26F28CFD00BE8E21 /* CopyableDetailsRow.swift in Sources */,
 				2C00B004271623F800001AAB /* SettingsFormButton.swift in Sources */,
@@ -1493,6 +1509,7 @@
 				2C6AD43826E50124003AF55C /* ContentView.swift in Sources */,
 				2CA895CF26E5618D0057A82C /* DeviceModel.swift in Sources */,
 				2C6AD48C26E50CAD003AF55C /* AppSidebar.swift in Sources */,
+				2CC49F5C2718A132006AD8A3 /* Config.swift in Sources */,
 				2CA895CC26E5603F0057A82C /* HomeScreen+ViewModel.swift in Sources */,
 				2C81ACEC2709DEFA00D387CA /* Array+extensions.swift in Sources */,
 			);
@@ -1541,6 +1558,7 @@
 				2CD73C3926F7C5FD0054C380 /* AppDelegate_macOS.swift in Sources */,
 				6017C08227010AD50023F347 /* Image+extensions.swift in Sources */,
 				2C6AD49426E50E75003AF55C /* SidebarView.swift in Sources */,
+				2CC49F5D2718A132006AD8A3 /* Config.swift in Sources */,
 				2C6AD43926E50124003AF55C /* ContentView.swift in Sources */,
 				2CA895CD26E5603F0057A82C /* HomeScreen+ViewModel.swift in Sources */,
 				2CCD0B8226F2933100BE8E21 /* DateDetailsRow.swift in Sources */,
@@ -1562,6 +1580,7 @@
 				2C0D4A0C26E6B72A006CD00D /* CoreDataModel.swift in Sources */,
 				2CA504BE27088581009E4527 /* Shell.swift in Sources */,
 				2C93722A26EFEED0004BF5BF /* SavedPasswordsScreen+ViewModel.swift in Sources */,
+				2CC49F612718A193006AD8A3 /* CommandLine+extensions.swift in Sources */,
 				2C93723026EFF524004BF5BF /* StackNavigator.swift in Sources */,
 				2C9F52492708B5AE00E86EC6 /* Data+extensions.swift in Sources */,
 				2C93722D26EFF065004BF5BF /* Clipboard.swift in Sources */,
@@ -1630,6 +1649,7 @@
 				2C6D1D582703BD0F004AD36E /* AppDelegate_macOS.swift in Sources */,
 				2C6D1D592703BD0F004AD36E /* Image+extensions.swift in Sources */,
 				2C6D1D5A2703BD0F004AD36E /* SidebarView.swift in Sources */,
+				2CC49F5E2718A132006AD8A3 /* Config.swift in Sources */,
 				2C6D1D5B2703BD0F004AD36E /* ContentView.swift in Sources */,
 				2C6D1D5C2703BD0F004AD36E /* HomeScreen+ViewModel.swift in Sources */,
 				2C6D1D5D2703BD0F004AD36E /* DateDetailsRow.swift in Sources */,
@@ -1651,6 +1671,7 @@
 				2C6D1D6A2703BD0F004AD36E /* CoreDataModel.swift in Sources */,
 				2CA504BF27088581009E4527 /* Shell.swift in Sources */,
 				2C6D1D6B2703BD0F004AD36E /* SavedPasswordsScreen+ViewModel.swift in Sources */,
+				2CC49F622718A193006AD8A3 /* CommandLine+extensions.swift in Sources */,
 				2C6D1D6C2703BD0F004AD36E /* StackNavigator.swift in Sources */,
 				2C9F524A2708B5AE00E86EC6 /* Data+extensions.swift in Sources */,
 				2C6D1D6D2703BD0F004AD36E /* Clipboard.swift in Sources */,
@@ -2459,6 +2480,10 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 2C6D1D362703BD0F004AD36E /* XCRemoteSwiftPackageReference "SalmonUI" */;
 			productName = SalmonUI;
+		};
+		2CFD3DFC2718BF2E00871A1D /* PGLocale */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = PGLocale;
 		};
 /* End XCSwiftPackageProductDependency section */
 

@@ -6,15 +6,12 @@
 //
 
 import XCTest
+import PGLocale
 
 class Password_GeneratorScreenshotsIOS: XCTestCase {
 
     override func setUpWithError() throws {
         continueAfterFailure = false
-    }
-
-    override class var runsForEachTargetApplicationUIConfiguration: Bool {
-        false
     }
 
     override func tearDownWithError() throws { }
@@ -28,30 +25,39 @@ class Password_GeneratorScreenshotsIOS: XCTestCase {
         let passwordLengthStepper = app.steppers["password-length-stepper"]
         _ = passwordLengthStepper.waitForExistence(timeout: 20)
 
-        passwordLengthStepper.incrementStepperUntil(value: 32)
+        try passwordLengthStepper.incrementStepperUntil(value: 32)
+
+        let generatePasswordButton = app.buttons[PGLocale.Keys.GENERATE_BUTTON.localized]
+        generatePasswordButton.tap()
+
+        let passwordLabel = app.staticTexts["password-label"]
+        let passwordLabelValue = try XCTUnwrap(passwordLabel.value as? String)
+        XCTAssertNotEqual(passwordLabelValue, PGLocale.Keys.PASSWORD_PLACEHOLDER.localized)
+
+        let copyButton = app.buttons[PGLocale.Keys.COPY.localized]
+        copyButton.tap()
+
+        let copyCheckmark = app.images["checkmark-\(PGLocale.Keys.COPY.localized)"]
+        _ = copyCheckmark.waitForExistence(timeout: 5)
+        XCTAssert(copyCheckmark.exists)
+
+        snapshot("home screen")
     }
 
 }
 
 // - TODO: PUT THIS IN A SEPERATE FILE
 extension XCUIElement {
-    func incrementStepperUntil(value: Int) {
-        guard let stepperValue = self.value as? String, let stepperValueInt = Int(stepperValue) else {
-            XCTFail("stepper does not have a int value")
-            return
-        }
+    func incrementStepperUntil(value: Int) throws {
+        let stepperValue = try XCTUnwrap(self.value as? String)
+        let stepperValueInt = try XCTUnwrap(Int(stepperValue))
 
         let remainder = value - stepperValueInt
         for _ in 0..<remainder {
             self.incrementStepper()
         }
 
-        guard let stepperValue = self.value as? String, let stepperValueInt = Int(stepperValue) else {
-            XCTFail("stepper does not have a int value")
-            return
-        }
-
-        XCTAssertEqual(stepperValueInt, value)
+        XCTAssertEqual(Int(self.value as? String ?? "") ?? 0, value)
     }
 
     func incrementStepper() {
