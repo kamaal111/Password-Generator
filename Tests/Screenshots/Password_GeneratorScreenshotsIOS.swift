@@ -22,7 +22,19 @@ final class Password_GeneratorScreenshotsIOS: XCTestCase {
 
     override func tearDownWithError() throws { }
 
-    func testExample() throws {
+    func testLightMode() throws {
+        if let darkModeStateIndex = app.launchArguments.firstIndex(of: "UITestingDarkMode") {
+            app.launchArguments.remove(at: darkModeStateIndex)
+        }
+        app.launchArguments.append("UITestingLightMode")
+        try screenshotFlow()
+    }
+
+    func testDarkMode() throws {
+        if let lightModeStateIndex = app.launchArguments.firstIndex(of: "UITestingLightMode") {
+            app.launchArguments.remove(at: lightModeStateIndex)
+        }
+        app.launchArguments.append("UITestingDarkMode")
         try screenshotFlow()
     }
 

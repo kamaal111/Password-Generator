@@ -10,6 +10,8 @@ import Foundation
 extension CommandLine {
     enum ExpectedValues: String {
         case isUITesting
+        case uiTestingLightMode = "UITestingLightMode"
+        case uiTestingDarkMode = "UITestingDarkMode"
     }
 
     static func launchArgumentIncludes(value: ExpectedValues) -> Bool {
