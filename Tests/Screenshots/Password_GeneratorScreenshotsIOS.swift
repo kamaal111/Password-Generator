@@ -27,7 +27,7 @@ final class Password_GeneratorScreenshotsIOS: XCTestCase {
             app.launchArguments.remove(at: darkModeStateIndex)
         }
         app.launchArguments.append("UITestingLightMode")
-        try screenshotFlow()
+        try screenshotFlow(scheme: "light")
     }
 
     func testDarkMode() throws {
@@ -35,16 +35,16 @@ final class Password_GeneratorScreenshotsIOS: XCTestCase {
             app.launchArguments.remove(at: lightModeStateIndex)
         }
         app.launchArguments.append("UITestingDarkMode")
-        try screenshotFlow()
+        try screenshotFlow(scheme: "dark")
     }
 
-    private func screenshotFlow() throws {
-        try homescreenScreenshot()
-        savedPasswordsScreenShot()
-        passwordDetailsScreenshot()
+    private func screenshotFlow(scheme: String) throws {
+        try homescreenScreenshot(scheme: scheme)
+        savedPasswordsScreenShot(scheme: scheme)
+        passwordDetailsScreenshot(scheme: scheme)
     }
 
-    private func homescreenScreenshot() throws {
+    private func homescreenScreenshot(scheme: String) throws {
         let passwordLengthStepper = app.steppers["password-length-stepper"]
         _ = passwordLengthStepper.waitForExistence(timeout: 20)
 
@@ -64,10 +64,10 @@ final class Password_GeneratorScreenshotsIOS: XCTestCase {
         _ = copyCheckmark.waitForExistence(timeout: 5)
         XCTAssert(copyCheckmark.exists)
 
-        snapshot("home screen")
+        snapshot("home screen \(scheme)")
     }
 
-    private func savedPasswordsScreenShot() {
+    private func savedPasswordsScreenShot(scheme: String) {
         switch UIDevice.current.userInterfaceIdiom {
         case .phone: app.tabBars.buttons.element(boundBy: 1).tap()
         case .pad:
@@ -88,14 +88,14 @@ final class Password_GeneratorScreenshotsIOS: XCTestCase {
         default: XCTFail("not implemented")
         }
 
-        snapshot("saved passwords")
+        snapshot("saved passwords \(scheme)")
     }
 
-    private func passwordDetailsScreenshot() {
+    private func passwordDetailsScreenshot(scheme: String) {
         let savedPasswordOption = app.buttons["Very important account"]
         savedPasswordOption.tap()
 
-        snapshot("password details")
+        snapshot("password details \(scheme)")
     }
 
 }
