@@ -41,6 +41,7 @@ final class Password_GeneratorScreenshotsIOS: XCTestCase {
     private func screenshotFlow() throws {
         try homescreenScreenshot()
         savedPasswordsScreenShot()
+        passwordDetailsScreenshot()
     }
 
     private func homescreenScreenshot() throws {
@@ -88,6 +89,13 @@ final class Password_GeneratorScreenshotsIOS: XCTestCase {
         }
 
         snapshot("saved passwords")
+    }
+
+    private func passwordDetailsScreenshot() {
+        let savedPasswordOption = app.buttons["Very important account"]
+        savedPasswordOption.tap()
+
+        snapshot("password details")
     }
 
 }
