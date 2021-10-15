@@ -10,41 +10,39 @@ import PGLocale
 
 final class Password_GeneratorScreenshotsIOS: XCTestCase {
 
-    let app = XCUIApplication()
-
     override func setUpWithError() throws {
         continueAfterFailure = false
-
-        app.launchArguments.append("isUITesting")
-        setupSnapshot(app)
-        app.launch()
     }
 
     override func tearDownWithError() throws { }
 
     func testLightMode() throws {
-        if let darkModeStateIndex = app.launchArguments.firstIndex(of: "UITestingDarkMode") {
-            app.launchArguments.remove(at: darkModeStateIndex)
-        }
+        let app = XCUIApplication()
+        app.launchArguments.append("isUITesting")
+        setupSnapshot(app)
+        app.launch()
+
         app.launchArguments.append("UITestingLightMode")
-        try screenshotFlow(scheme: "light")
+        try screenshotFlow(app: app, scheme: "light")
     }
 
     func testDarkMode() throws {
-        if let lightModeStateIndex = app.launchArguments.firstIndex(of: "UITestingLightMode") {
-            app.launchArguments.remove(at: lightModeStateIndex)
-        }
+        let app = XCUIApplication()
+        app.launchArguments.append("isUITesting")
+        setupSnapshot(app)
+        app.launch()
+
         app.launchArguments.append("UITestingDarkMode")
-        try screenshotFlow(scheme: "dark")
+        try screenshotFlow(app: app, scheme: "dark")
     }
 
-    private func screenshotFlow(scheme: String) throws {
-        try homescreenScreenshot(scheme: scheme)
-        savedPasswordsScreenShot(scheme: scheme)
-        passwordDetailsScreenshot(scheme: scheme)
+    private func screenshotFlow(app: XCUIElement, scheme: String) throws {
+        try homescreenScreenshot(app: app, scheme: scheme)
+        savedPasswordsScreenShot(app: app, scheme: scheme)
+        passwordDetailsScreenshot(app: app, scheme: scheme)
     }
 
-    private func homescreenScreenshot(scheme: String) throws {
+    private func homescreenScreenshot(app: XCUIElement, scheme: String) throws {
         let passwordLengthStepper = app.steppers["password-length-stepper"]
         _ = passwordLengthStepper.waitForExistence(timeout: 20)
 
@@ -67,7 +65,7 @@ final class Password_GeneratorScreenshotsIOS: XCTestCase {
         snapshot("home screen \(scheme)")
     }
 
-    private func savedPasswordsScreenShot(scheme: String) {
+    private func savedPasswordsScreenShot(app: XCUIElement, scheme: String) {
         switch UIDevice.current.userInterfaceIdiom {
         case .phone: app.tabBars.buttons.element(boundBy: 1).tap()
         case .pad:
@@ -91,7 +89,7 @@ final class Password_GeneratorScreenshotsIOS: XCTestCase {
         snapshot("saved passwords \(scheme)")
     }
 
-    private func passwordDetailsScreenshot(scheme: String) {
+    private func passwordDetailsScreenshot(app: XCUIElement, scheme: String) {
         let savedPasswordOption = app.buttons["Very important account"]
         savedPasswordOption.tap()
 

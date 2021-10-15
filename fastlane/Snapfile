@@ -5,13 +5,10 @@ devices([
   "iPhone 13 Pro",
   "iPad Pro (12.9-inch) (5th generation)"
 ])
-
 languages([
   "en-US"
 ])
-
 output_directory("./Screenshots")
-
 clear_previous_screenshots(true)
-
 override_status_bar(true)
+stop_after_first_error(true)
