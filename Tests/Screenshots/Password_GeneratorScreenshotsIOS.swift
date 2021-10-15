@@ -18,21 +18,25 @@ final class Password_GeneratorScreenshotsIOS: XCTestCase {
 
     func testLightMode() throws {
         let app = XCUIApplication()
-        app.launchArguments.append("isUITesting")
         setupSnapshot(app)
+
+        app.launchArguments.append("isUITesting")
+        app.launchArguments.append("UITestingLightMode")
+
         app.launch()
 
-        app.launchArguments.append("UITestingLightMode")
         try screenshotFlow(app: app, scheme: "light")
     }
 
     func testDarkMode() throws {
         let app = XCUIApplication()
-        app.launchArguments.append("isUITesting")
         setupSnapshot(app)
+
+        app.launchArguments.append("isUITesting")
+        app.launchArguments.append("UITestingDarkMode")
+
         app.launch()
 
-        app.launchArguments.append("UITestingDarkMode")
         try screenshotFlow(app: app, scheme: "dark")
     }
 

@@ -12,7 +12,12 @@ struct PasslifyApp: App {
     #if os(macOS)
     @NSApplicationDelegateAdaptor
     private var appDelegate: AppDelegate
+    #else
+    @UIApplicationDelegateAdaptor
+    private var appDelegate: AppDelegate
     #endif
+
+    init() { }
 
     private let persistenceController = PersistenceController.shared
 
@@ -20,10 +25,6 @@ struct PasslifyApp: App {
         WindowGroup {
             ContentView()
                 .environment(\.managedObjectContext, persistenceController.context!)
-                // - TODO: MAKE THIS ONLY WORK FOR WHEN TAKING SCREENSHOTS
-                #if DEBUG
-                .colorScheme(CommandLine.launchArgumentIncludes(value: .uiTestingDarkMode) ? .dark : .light)
-                #endif
         }
         #if os(macOS)
         Settings {
