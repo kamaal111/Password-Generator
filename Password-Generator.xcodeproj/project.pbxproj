@@ -418,6 +418,7 @@
 		6056CF3C26F3D13A002AA00A /* EditMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditMode.swift; sourceTree = "<group>"; };
 		6056CF3E26F3D603002AA00A /* SecureFloatingField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureFloatingField.swift; sourceTree = "<group>"; };
 		60937A16270CB10A005F13F0 /* set_up_xcode_version.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = set_up_xcode_version.sh; sourceTree = "<group>"; };
+		609CF9DA2719608E003C604D /* snapshots_ios.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = snapshots_ios.sh; sourceTree = "<group>"; };
 		60B4C54E270C290200E7F1A3 /* run_tests.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = run_tests.sh; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -805,6 +806,7 @@
 				2C0D49FD26E6ACE1006CD00D /* pre_compile.sh */,
 				60B4C54E270C290200E7F1A3 /* run_tests.sh */,
 				60937A16270CB10A005F13F0 /* set_up_xcode_version.sh */,
+				609CF9DA2719608E003C604D /* snapshots_ios.sh */,
 				2CE322E1270869A400004F27 /* app-icon-generator */,
 				2C6AD45E26E504CA003AF55C /* generate_locales */,
 				2C2F7759270A547F00732531 /* version-bumper */,
