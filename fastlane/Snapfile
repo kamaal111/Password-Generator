@@ -8,7 +8,7 @@ devices([
 languages([
   "en-US"
 ])
-output_directory("./Screenshots")
+output_directory("./fastlane/screenshots")
 clear_previous_screenshots(true)
 override_status_bar(true)
 stop_after_first_error(true)
