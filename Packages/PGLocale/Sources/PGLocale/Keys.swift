@@ -40,5 +40,9 @@ extension PGLocale {
         case OK
         case DEFINITE_PASSWORD_DELETION_ALERT_TITLE
         case DEFINITE_PASSWORD_DELETION_ALERT_MESSAGE
+        case SETTINGS
+        case FEEDBACK_APP
+        case SEND_FEEDBACK
+        case VERSION
     }
 }

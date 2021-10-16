@@ -11,4 +11,5 @@ enum Constants {
     static let appName = "Passlify"
     static let passwordLengthRange = 1...256
     static let bundleIdentifier = Bundle.main.bundleIdentifier!
+    static let email = "app.kamaal@gmail.com"
 }

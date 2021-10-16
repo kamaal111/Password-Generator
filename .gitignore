@@ -56,3 +56,7 @@ Passlify.app
 Passlify.app.dSYM.zip
 Passlify.pkg
 Passlify.unsigned.pkg
+
+fastlane/metadata/review_information/email_address.txt
+fastlane/metadata/review_information/phone_number.txt
+fastlane/Deliverfile

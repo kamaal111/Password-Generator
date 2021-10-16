@@ -24,7 +24,7 @@ final class CoreDataModel: ObservableObject {
     let persistenceController: PersistanceManager
 
     init(preview: Bool = false) {
-        if preview {
+        if preview || Config.isUITest {
             self.persistenceController = PersistenceController.preview
         } else {
             self.persistenceController = PersistenceController.shared

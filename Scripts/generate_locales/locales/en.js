@@ -34,6 +34,10 @@ const en = {
   DEFINITE_PASSWORD_DELETION_ALERT_TITLE: "Deleting password",
   DEFINITE_PASSWORD_DELETION_ALERT_MESSAGE:
     "Are you sure you want to delete this password?",
+  SETTINGS: "Settings",
+  FEEDBACK_APP: "Feedback %@",
+  SEND_FEEDBACK: "Send feedback",
+  VERSION: "Version",
 };
 
 module.exports = en;

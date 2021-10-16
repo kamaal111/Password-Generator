@@ -6,7 +6,7 @@
 //
 
 import XCTest
-@testable import Password_Generator
+@testable import Passlify
 
 class PasswordHandlerTests: XCTestCase {
 
