@@ -1,0 +1,1 @@
+A very handy password manager that generates safe passwords
