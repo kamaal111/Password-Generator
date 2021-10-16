@@ -52,6 +52,13 @@ jobs:
           ruby-version: 2.6
           bundler-cache: true
 
+      - name: Generate sensitive content
+        env:
+          EMAIL_ADDRESS: ${{ secrets.EMAIL_ADDRESS }}
+          PHONE_NUMBER: ${{ secrets.PHONE_NUMBER }}
+        run: |
+          EMAIL_ADDRESS= go run Scripts/generate-sensetive-content/*.go
+
       - name: Take snapshots
         run: |
           sh Scripts/snapshots_ios.sh
