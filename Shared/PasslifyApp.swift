@@ -12,9 +12,14 @@ struct PasslifyApp: App {
     #if os(macOS)
     @NSApplicationDelegateAdaptor
     private var appDelegate: AppDelegate
+    #else
+    @UIApplicationDelegateAdaptor
+    private var appDelegate: AppDelegate
     #endif
 
-    let persistenceController = PersistenceController.shared
+    init() { }
+
+    private let persistenceController = PersistenceController.shared
 
     var body: some Scene {
         WindowGroup {

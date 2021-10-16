@@ -31,5 +31,7 @@ struct FormHeader: View {
 struct FormHeader_Previews: PreviewProvider {
     static var previews: some View {
         FormHeader(title: "Titler")
+            .previewLayout(.sizeThatFits)
+            .padding(.all, .medium)
     }
 }

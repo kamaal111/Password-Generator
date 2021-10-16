@@ -12,7 +12,7 @@ extension HomeScreen {
     final class ViewModel: ObservableObject {
 
         @Published var letterLength: Int {
-            didSet { UserDefaults.letterLength = letterLength }
+            didSet { letterLengthDidSet() }
         }
         @Published var lowercaseLettersEnabled: Bool {
             didSet { UserDefaults.lowercaseLettersEnabled = lowercaseLettersEnabled }
@@ -34,7 +34,11 @@ extension HomeScreen {
         @Published var duplicatesExistAlertIsShown = false
 
         init() {
-            self.letterLength = UserDefaults.letterLength ?? 16
+            if let userDefaultsLetterLength = UserDefaults.letterLength, !Config.isUITest {
+                self.letterLength = userDefaultsLetterLength
+            } else {
+                self.letterLength = 16
+            }
             self.lowercaseLettersEnabled = UserDefaults.lowercaseLettersEnabled ?? true
             self.capitalLettersEnabled = UserDefaults.capitalLettersEnabled ?? true
             self.numeralsEnabled = UserDefaults.numeralsEnabled ?? true
@@ -109,6 +113,13 @@ extension HomeScreen {
             withAnimation { lastCopiedPassword = currentPassword }
         }
 
+        @objc
+        private func handleCopyShortcutTriggeredNotification(_ notifcation: Notification? = nil) {
+            guard let notificationPassword = notifcation?.object as? String,
+                  notificationPassword == currentPassword else { return }
+            copyPassword()
+        }
+
         private func setupObservers() {
             #if os(macOS)
             NotificationCenter.default.addObserver(
@@ -125,11 +136,10 @@ extension HomeScreen {
             #endif
         }
 
-        @objc
-        private func handleCopyShortcutTriggeredNotification(_ notifcation: Notification? = nil) {
-            guard let notificationPassword = notifcation?.object as? String,
-                  notificationPassword == currentPassword else { return }
-            copyPassword()
+        func letterLengthDidSet() {
+            if !Config.isUITest {
+                UserDefaults.letterLength = letterLength
+            }
         }
 
     }

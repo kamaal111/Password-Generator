@@ -41,7 +41,7 @@ struct PersistenceController {
         let result = PersistenceController(inMemory: true).sharedInststance
         let names = [
             "Bank of Skyrim",
-            "Life savings vault",
+            "Lifesavings vault",
             "Very important account",
             "Guessable password",
             "Main gaming account",

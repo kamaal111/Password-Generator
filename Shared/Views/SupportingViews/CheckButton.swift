@@ -43,6 +43,7 @@ struct CheckButton: View {
                 if check {
                     Image(systemName: "checkmark.circle.fill")
                         .foregroundColor(.green)
+                        .accessibilityIdentifier("checkmark-\(text)")
                 }
             }
         }
