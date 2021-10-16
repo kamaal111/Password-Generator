@@ -28,6 +28,32 @@ jobs:
         run: |
           sh Scripts/run_tests.sh
 
+  appStoreContent:
+    name: App Store content
+    runs-on: macos-latest
+    needs: [test]
+    if: contains('refs/heads/release', github.ref)
+    steps:
+      - name: Git - Checkout
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.ref }}
+          submodules: recursive
+
+      - name: Setup - Xcode
+        run: |
+          sh Scripts/set_up_xcode_version.sh
+
+      - name: Setup - Ruby and bundler dependencies
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.6
+          bundler-cache: true
+
+      - name: Checking
+        run: |
+          echo "releasin"
+
   deployIOS:
     name: deploy iOS
     timeout-minutes: 15
