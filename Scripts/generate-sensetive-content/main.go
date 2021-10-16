@@ -24,10 +24,10 @@ func main() {
 
 	deliverFileContent := fmt.Sprintf(`#  Deliverfile
 	
-	username %s
-	force true
-	automatic_release false
-	sync_screenshots true`, emailAddress)
+username "%s"
+force true
+automatic_release false
+sync_screenshots true`, emailAddress)
 	deliverFileContentData := []byte(fmt.Sprintf("%s\n", deliverFileContent))
 	err = ioutil.WriteFile("fastlane/Deliverfile", deliverFileContentData, 0777)
 	if err != nil {
