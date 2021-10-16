@@ -312,6 +312,58 @@
 		2C0D4A0A26E6B72A006CD00D /* CoreDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataModel.swift; sourceTree = "<group>"; };
 		2C16FB422719F34900990575 /* AppDelegate_iOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate_iOS.swift; sourceTree = "<group>"; };
 		2C16FB442719F36D00990575 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		2C187A9C271B2FCF003A0E38 /* download_screenshots.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = download_screenshots.sh; sourceTree = "<group>"; };
+		2C187A9D271B2FF5003A0E38 /* download_metadata.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = download_metadata.sh; sourceTree = "<group>"; };
+		2C187A9E271B3180003A0E38 /* Gemfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Gemfile; sourceTree = "<group>"; };
+		2C187A9F271B3190003A0E38 /* Gemfile.lock */ = {isa = PBXFileReference; lastKnownFileType = text; path = Gemfile.lock; sourceTree = "<group>"; };
+		2C187AA0271B3196003A0E38 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		2C187AA1271B319B003A0E38 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		2C187AA2271B31B0003A0E38 /* Deliverfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Deliverfile; sourceTree = "<group>"; };
+		2C187AA4271B31BF003A0E38 /* copyright.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = copyright.txt; sourceTree = "<group>"; };
+		2C187AA5271B31BF003A0E38 /* secondary_first_sub_category.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = secondary_first_sub_category.txt; sourceTree = "<group>"; };
+		2C187AA6271B31BF003A0E38 /* secondary_category.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = secondary_category.txt; sourceTree = "<group>"; };
+		2C187AA7271B31BF003A0E38 /* secondary_second_sub_category.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = secondary_second_sub_category.txt; sourceTree = "<group>"; };
+		2C187AA8271B31BF003A0E38 /* primary_second_sub_category.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = primary_second_sub_category.txt; sourceTree = "<group>"; };
+		2C187AAA271B31BF003A0E38 /* phone_number.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = phone_number.txt; sourceTree = "<group>"; };
+		2C187AAB271B31BF003A0E38 /* demo_user.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = demo_user.txt; sourceTree = "<group>"; };
+		2C187AAC271B31BF003A0E38 /* notes.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = notes.txt; sourceTree = "<group>"; };
+		2C187AAD271B31BF003A0E38 /* email_address.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = email_address.txt; sourceTree = "<group>"; };
+		2C187AAE271B31BF003A0E38 /* last_name.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = last_name.txt; sourceTree = "<group>"; };
+		2C187AAF271B31BF003A0E38 /* first_name.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = first_name.txt; sourceTree = "<group>"; };
+		2C187AB0271B31BF003A0E38 /* demo_password.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = demo_password.txt; sourceTree = "<group>"; };
+		2C187AB1271B31BF003A0E38 /* primary_first_sub_category.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = primary_first_sub_category.txt; sourceTree = "<group>"; };
+		2C187AB3271B31BF003A0E38 /* privacy_url.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = privacy_url.txt; sourceTree = "<group>"; };
+		2C187AB4271B31BF003A0E38 /* subtitle.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = subtitle.txt; sourceTree = "<group>"; };
+		2C187AB5271B31BF003A0E38 /* support_url.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = support_url.txt; sourceTree = "<group>"; };
+		2C187AB6271B31BF003A0E38 /* keywords.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = keywords.txt; sourceTree = "<group>"; };
+		2C187AB7271B31BF003A0E38 /* apple_tv_privacy_policy.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = apple_tv_privacy_policy.txt; sourceTree = "<group>"; };
+		2C187AB8271B31BF003A0E38 /* promotional_text.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = promotional_text.txt; sourceTree = "<group>"; };
+		2C187AB9271B31BF003A0E38 /* release_notes.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = release_notes.txt; sourceTree = "<group>"; };
+		2C187ABA271B31BF003A0E38 /* name.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = name.txt; sourceTree = "<group>"; };
+		2C187ABB271B31BF003A0E38 /* marketing_url.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = marketing_url.txt; sourceTree = "<group>"; };
+		2C187ABC271B31BF003A0E38 /* description.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = description.txt; sourceTree = "<group>"; };
+		2C187ABD271B31BF003A0E38 /* primary_category.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = primary_category.txt; sourceTree = "<group>"; };
+		2C187ABF271B31E0003A0E38 /* README.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
+		2C187AC1271B31E0003A0E38 /* iPhone 8 Plus-password details dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPhone 8 Plus-password details dark.png"; sourceTree = "<group>"; };
+		2C187AC2271B31E0003A0E38 /* iPhone 13 Pro-password details light.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPhone 13 Pro-password details light.png"; sourceTree = "<group>"; };
+		2C187AC3271B31E0003A0E38 /* iPhone 13 Pro-saved passwords dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPhone 13 Pro-saved passwords dark.png"; sourceTree = "<group>"; };
+		2C187AC4271B31E0003A0E38 /* iPhone 8 Plus-saved passwords dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPhone 8 Plus-saved passwords dark.png"; sourceTree = "<group>"; };
+		2C187AC5271B31E0003A0E38 /* iPad Pro (12.9-inch) (5th generation)-home screen dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPad Pro (12.9-inch) (5th generation)-home screen dark.png"; sourceTree = "<group>"; };
+		2C187AC6271B31E0003A0E38 /* iPad Pro (12.9-inch) (5th generation)-home screen light.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPad Pro (12.9-inch) (5th generation)-home screen light.png"; sourceTree = "<group>"; };
+		2C187AC7271B31E0003A0E38 /* iPhone 8 Plus-saved passwords light.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPhone 8 Plus-saved passwords light.png"; sourceTree = "<group>"; };
+		2C187AC8271B31E0003A0E38 /* iPhone 13 Pro-home screen light.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPhone 13 Pro-home screen light.png"; sourceTree = "<group>"; };
+		2C187AC9271B31E0003A0E38 /* iPad Pro (12.9-inch) (5th generation)-saved passwords dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPad Pro (12.9-inch) (5th generation)-saved passwords dark.png"; sourceTree = "<group>"; };
+		2C187ACA271B31E0003A0E38 /* iPhone 13 Pro-home screen dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPhone 13 Pro-home screen dark.png"; sourceTree = "<group>"; };
+		2C187ACB271B31E0003A0E38 /* iPhone 8 Plus-password details light.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPhone 8 Plus-password details light.png"; sourceTree = "<group>"; };
+		2C187ACC271B31E0003A0E38 /* iPhone 13 Pro-saved passwords light.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPhone 13 Pro-saved passwords light.png"; sourceTree = "<group>"; };
+		2C187ACD271B31E0003A0E38 /* iPhone 8 Plus-home screen light.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPhone 8 Plus-home screen light.png"; sourceTree = "<group>"; };
+		2C187ACE271B31E0003A0E38 /* iPad Pro (12.9-inch) (5th generation)-password details dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPad Pro (12.9-inch) (5th generation)-password details dark.png"; sourceTree = "<group>"; };
+		2C187ACF271B31E0003A0E38 /* iPad Pro (12.9-inch) (5th generation)-password details light.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPad Pro (12.9-inch) (5th generation)-password details light.png"; sourceTree = "<group>"; };
+		2C187AD0271B31E0003A0E38 /* iPhone 13 Pro-password details dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPhone 13 Pro-password details dark.png"; sourceTree = "<group>"; };
+		2C187AD1271B31E0003A0E38 /* iPhone 8 Plus-home screen dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPhone 8 Plus-home screen dark.png"; sourceTree = "<group>"; };
+		2C187AD2271B31E0003A0E38 /* iPad Pro (12.9-inch) (5th generation)-saved passwords light.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPad Pro (12.9-inch) (5th generation)-saved passwords light.png"; sourceTree = "<group>"; };
+		2C187AD3271B31E0003A0E38 /* screenshots.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = screenshots.html; sourceTree = "<group>"; };
+		2C187AD4271B35DE003A0E38 /* Preview.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = Preview.html; sourceTree = "<group>"; };
 		2C1C27E727176F8C00954E68 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotHelper.swift; sourceTree = "<group>"; };
 		2C1C27E927176F9900954E68 /* Snapfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Snapfile; sourceTree = "<group>"; };
 		2C1C27EA27177DB700954E68 /* deploy_macos_app.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = deploy_macos_app.sh; sourceTree = "<group>"; };
@@ -580,6 +632,88 @@
 			path = ViewModifiers;
 			sourceTree = "<group>";
 		};
+		2C187AA3271B31BF003A0E38 /* metadata */ = {
+			isa = PBXGroup;
+			children = (
+				2C187AA4271B31BF003A0E38 /* copyright.txt */,
+				2C187ABD271B31BF003A0E38 /* primary_category.txt */,
+				2C187AB1271B31BF003A0E38 /* primary_first_sub_category.txt */,
+				2C187AA8271B31BF003A0E38 /* primary_second_sub_category.txt */,
+				2C187AA6271B31BF003A0E38 /* secondary_category.txt */,
+				2C187AA5271B31BF003A0E38 /* secondary_first_sub_category.txt */,
+				2C187AA7271B31BF003A0E38 /* secondary_second_sub_category.txt */,
+				2C187AB2271B31BF003A0E38 /* en-US */,
+				2C187AA9271B31BF003A0E38 /* review_information */,
+			);
+			path = metadata;
+			sourceTree = "<group>";
+		};
+		2C187AA9271B31BF003A0E38 /* review_information */ = {
+			isa = PBXGroup;
+			children = (
+				2C187AAA271B31BF003A0E38 /* phone_number.txt */,
+				2C187AAB271B31BF003A0E38 /* demo_user.txt */,
+				2C187AAC271B31BF003A0E38 /* notes.txt */,
+				2C187AAD271B31BF003A0E38 /* email_address.txt */,
+				2C187AAE271B31BF003A0E38 /* last_name.txt */,
+				2C187AAF271B31BF003A0E38 /* first_name.txt */,
+				2C187AB0271B31BF003A0E38 /* demo_password.txt */,
+			);
+			path = review_information;
+			sourceTree = "<group>";
+		};
+		2C187AB2271B31BF003A0E38 /* en-US */ = {
+			isa = PBXGroup;
+			children = (
+				2C187AB3271B31BF003A0E38 /* privacy_url.txt */,
+				2C187AB4271B31BF003A0E38 /* subtitle.txt */,
+				2C187AB5271B31BF003A0E38 /* support_url.txt */,
+				2C187AB6271B31BF003A0E38 /* keywords.txt */,
+				2C187AB7271B31BF003A0E38 /* apple_tv_privacy_policy.txt */,
+				2C187AB8271B31BF003A0E38 /* promotional_text.txt */,
+				2C187AB9271B31BF003A0E38 /* release_notes.txt */,
+				2C187ABA271B31BF003A0E38 /* name.txt */,
+				2C187ABB271B31BF003A0E38 /* marketing_url.txt */,
+				2C187ABC271B31BF003A0E38 /* description.txt */,
+			);
+			path = "en-US";
+			sourceTree = "<group>";
+		};
+		2C187ABE271B31E0003A0E38 /* screenshots */ = {
+			isa = PBXGroup;
+			children = (
+				2C187ABF271B31E0003A0E38 /* README.txt */,
+				2C187AC0271B31E0003A0E38 /* en-US */,
+				2C187AD3271B31E0003A0E38 /* screenshots.html */,
+			);
+			path = screenshots;
+			sourceTree = "<group>";
+		};
+		2C187AC0271B31E0003A0E38 /* en-US */ = {
+			isa = PBXGroup;
+			children = (
+				2C187AC1271B31E0003A0E38 /* iPhone 8 Plus-password details dark.png */,
+				2C187AC2271B31E0003A0E38 /* iPhone 13 Pro-password details light.png */,
+				2C187AC3271B31E0003A0E38 /* iPhone 13 Pro-saved passwords dark.png */,
+				2C187AC4271B31E0003A0E38 /* iPhone 8 Plus-saved passwords dark.png */,
+				2C187AC5271B31E0003A0E38 /* iPad Pro (12.9-inch) (5th generation)-home screen dark.png */,
+				2C187AC6271B31E0003A0E38 /* iPad Pro (12.9-inch) (5th generation)-home screen light.png */,
+				2C187AC7271B31E0003A0E38 /* iPhone 8 Plus-saved passwords light.png */,
+				2C187AC8271B31E0003A0E38 /* iPhone 13 Pro-home screen light.png */,
+				2C187AC9271B31E0003A0E38 /* iPad Pro (12.9-inch) (5th generation)-saved passwords dark.png */,
+				2C187ACA271B31E0003A0E38 /* iPhone 13 Pro-home screen dark.png */,
+				2C187ACB271B31E0003A0E38 /* iPhone 8 Plus-password details light.png */,
+				2C187ACC271B31E0003A0E38 /* iPhone 13 Pro-saved passwords light.png */,
+				2C187ACD271B31E0003A0E38 /* iPhone 8 Plus-home screen light.png */,
+				2C187ACE271B31E0003A0E38 /* iPad Pro (12.9-inch) (5th generation)-password details dark.png */,
+				2C187ACF271B31E0003A0E38 /* iPad Pro (12.9-inch) (5th generation)-password details light.png */,
+				2C187AD0271B31E0003A0E38 /* iPhone 13 Pro-password details dark.png */,
+				2C187AD1271B31E0003A0E38 /* iPhone 8 Plus-home screen dark.png */,
+				2C187AD2271B31E0003A0E38 /* iPad Pro (12.9-inch) (5th generation)-saved passwords light.png */,
+			);
+			path = "en-US";
+			sourceTree = "<group>";
+		};
 		2C2F7759270A547F00732531 /* version-bumper */ = {
 			isa = PBXGroup;
 			children = (
@@ -628,11 +762,15 @@
 			isa = PBXGroup;
 			children = (
 				2C537BA02710DD8F00D56BE6 /* Appfile */,
+				2C187AA2271B31B0003A0E38 /* Deliverfile */,
 				2C537BA12710DD8F00D56BE6 /* Fastfile */,
 				2C537B9F2710DD8F00D56BE6 /* Gymfile */,
 				2C1C27E927176F9900954E68 /* Snapfile */,
+				2C187AD4271B35DE003A0E38 /* Preview.html */,
 				2C537BA32710EE3900D56BE6 /* ExportOptions.plist */,
 				2C1C27E727176F8C00954E68 /* SnapshotHelper.swift */,
+				2C187AA3271B31BF003A0E38 /* metadata */,
+				2C187ABE271B31E0003A0E38 /* screenshots */,
 			);
 			path = fastlane;
 			sourceTree = "<group>";
@@ -648,6 +786,10 @@
 		2C6AD40226E50120003AF55C = {
 			isa = PBXGroup;
 			children = (
+				2C187A9E271B3180003A0E38 /* Gemfile */,
+				2C187AA0271B3196003A0E38 /* LICENSE */,
+				2C187A9F271B3190003A0E38 /* Gemfile.lock */,
+				2C187AA1271B319B003A0E38 /* README.md */,
 				2C537B9E2710DD8F00D56BE6 /* fastlane */,
 				2C6AD45426E502D1003AF55C /* Frameworks */,
 				2C6AD45F26E5054A003AF55C /* Packages */,
@@ -809,6 +951,8 @@
 			children = (
 				2CF832A62713605F00436705 /* import_signing_certificate_ios.bash */,
 				2C1C27EA27177DB700954E68 /* deploy_macos_app.sh */,
+				2C187A9D271B2FF5003A0E38 /* download_metadata.sh */,
+				2C187A9C271B2FCF003A0E38 /* download_screenshots.sh */,
 				2C0D49FD26E6ACE1006CD00D /* pre_compile.sh */,
 				60B4C54E270C290200E7F1A3 /* run_tests.sh */,
 				60937A16270CB10A005F13F0 /* set_up_xcode_version.sh */,
