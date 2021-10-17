@@ -16,32 +16,21 @@ struct KeychainPlaygroundScreen: View {
 
     var body: some View {
         VStack(alignment: .leading) {
-            Button(action: {
-                let createdPasswordResult = KeychainHanger
-                    .createPassword(password: "kamaru21", username: "kamaalio", website: "kamaal.io", type: .internet)
-
-                let hangerItem: HangerItem
-                switch createdPasswordResult {
-                case .failure(let failure):
-                    switch failure {
-                    case .failure(let code): print("failed with code \(code)")
-                    }
-                    return
-                case .success(let success):
-                    guard let success = success else {
-                        return
-                    }
-                    hangerItem = success
-                }
-
-                print(hangerItem.password)
-                print(hangerItem.original)
-            }) {
-                Text("Create dictionary")
+            Button(action: savePassword) {
+                Text("Create password")
                     .foregroundColor(.accentColor)
                     .font(.headline)
             }
             .buttonStyle(PlainButtonStyle())
+            .padding(.bottom, .xs)
+
+            Button(action: getPassword) {
+                Text("Get password")
+                    .foregroundColor(.accentColor)
+                    .font(.headline)
+            }
+            .buttonStyle(PlainButtonStyle())
+            .padding(.bottom, .xs)
         }
         .ktakeSizeEagerly(alignment: .topLeading)
         .padding(.horizontal, .large)
@@ -52,52 +41,101 @@ struct KeychainPlaygroundScreen: View {
         .navigationBarTitleDisplayMode(.inline)
         #endif
     }
+
+    private func savePassword() {
+        let savedPassword = KeychainHanger
+            .savePassword(password: "kamaru21", username: "kamaalio2", website: "kamaal.io", type: .internet)
+
+        print(savedPassword.status)
+        print(savedPassword.item?.password ?? "")
+        print(savedPassword.item?.original ?? [:])
+    }
+
+    private func getPassword() {
+        let result = KeychainHanger.getPasswords(website: "kamaal.io", amount: 5, type: .internet)
+
+        print(result.status)
+        result.item?.forEach({ item in
+            print(item.password ?? "")
+            print(item.username ?? "")
+            print(item.original)
+        })
+    }
 }
 
 struct KeychainHanger {
     private init() { }
 
-    static func createPassword(
+    static func getPasswords(website: String, amount: Int, type: KHPasswordTypes) -> KHResult<[KHItem]?> {
+        let getItemsQuery = [
+            kSecClass: kSecClassInternetPassword,
+            kSecAttrServer: website,
+            kSecReturnAttributes: true,
+            kSecReturnData: true,
+            kSecMatchLimit: amount
+        ] as CFDictionary
+
+        var getItemsReference: AnyObject?
+        let getItemsStatus = SecItemCopyMatching(getItemsQuery, &getItemsReference)
+
+        let getItemsResults: [NSDictionary]
+        if let unwrappedReference = getItemsReference as? NSDictionary {
+            getItemsResults = [unwrappedReference]
+        } else if let unwrappedReference = getItemsReference as? [NSDictionary] {
+            getItemsResults = unwrappedReference
+        } else {
+            return KHResult(status: getItemsStatus, item: nil)
+        }
+
+        let hangerItems = getItemsResults.map { item in
+            KHItem(original: item)
+        }
+        return KHResult(status: getItemsStatus, item: hangerItems)
+    }
+
+    static func savePassword(
         password: String,
         username: String,
         website: String,
-        type: KHPasswordTypes) -> Result<HangerItem?, KHCreatePasswordErrors> {
-            let securityClass: CFString
-            switch type {
-            case .internet: securityClass = kSecClassInternetPassword
-            case .generic: securityClass = kSecClassGenericPassword
-            }
+        type: KHPasswordTypes) -> KHResult<KHItem?> {
             let keychainItemQuery = [
                 kSecValueData: password.data(using: .utf8)!,
                 kSecAttrAccount: username,
                 kSecAttrServer: website,
-                kSecClass: securityClass,
+                kSecClass: type.securityClass,
                 kSecReturnData: true,
                 kSecReturnAttributes: true
             ] as CFDictionary
 
             var setItemReference: AnyObject?
             let itemAddedStatus = SecItemAdd(keychainItemQuery, &setItemReference)
-            if itemAddedStatus != 0 {
-                return .failure(.failure(code: itemAddedStatus))
+
+            guard let setItemResult = setItemReference as? NSDictionary else {
+                return KHResult(status: itemAddedStatus, item: nil)
             }
 
-            guard let setItemResult = setItemReference as? NSDictionary else { return .success(nil) }
-
-            return .success(HangerItem(original: setItemResult))
+            return KHResult(status: itemAddedStatus, item: KHItem(original: setItemResult))
     }
 }
 
-enum KHCreatePasswordErrors: Error {
-    case failure(code: OSStatus)
+struct KHResult<T> {
+    let status: OSStatus
+    let item: T
 }
 
 enum KHPasswordTypes {
     case internet
     case generic
+
+    var securityClass: CFString {
+        switch self {
+        case .internet: return kSecClassInternetPassword
+        case .generic: return kSecClassGenericPassword
+        }
+    }
 }
 
-struct HangerItem {
+struct KHItem {
     let original: NSDictionary
 
     init(original: NSDictionary) {
@@ -107,6 +145,10 @@ struct HangerItem {
     var password: String? {
         guard let passwordData = original[kSecValueData] as? Data else { return nil }
         return String(data: passwordData, encoding: .utf8)
+    }
+
+    var username: String? {
+        original[kSecAttrAccount] as? String
     }
 }
 
