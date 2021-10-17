@@ -74,7 +74,6 @@ jobs:
     needs: [test]
     env:
       PRODUCT_NAME: Passlify
-      APP_VERSION: "1.1.0"
       INITIAL_BUILD_NUMBER: 7
     if: contains(github.ref, 'refs/heads/release/') || github.ref == 'refs/heads/develop'
     steps:
