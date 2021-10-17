@@ -64,9 +64,7 @@ struct LogoPlaygroundScreen: View {
         .onChange(of: exportLogoSize, perform: { newValue in
             exportLogoSize = newValue.filter({ $0.isNumber })
         })
-        .macBackButton(action: {
-            stackNavigator.navigate(to: nil)
-        })
+        .macBackButton(action: { stackNavigator.navigate(to: nil) })
         #if os(iOS)
         .navigationBarTitleDisplayMode(.inline)
         #endif
