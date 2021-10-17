@@ -52,7 +52,7 @@ struct KeychainPlaygroundScreen: View {
     }
 
     private func getPassword() {
-        let result = KeychainHanger.getPasswords(website: "kamaal.io", amount: 5, type: .internet)
+        let result = KeychainHanger.getPasswords(website: "kamaal.io", account: nil, amount: 5, type: .internet)
 
         print(result.status)
         result.item?.forEach({ item in
@@ -66,31 +66,40 @@ struct KeychainPlaygroundScreen: View {
 struct KeychainHanger {
     private init() { }
 
-    static func getPasswords(website: String, amount: Int, type: KHPasswordTypes) -> KHResult<[KHItem]?> {
-        let getItemsQuery = [
-            kSecClass: kSecClassInternetPassword,
-            kSecAttrServer: website,
-            kSecReturnAttributes: true,
-            kSecReturnData: true,
-            kSecMatchLimit: amount
-        ] as CFDictionary
+    static func getPasswords(
+        website: String?,
+        account: String?,
+        amount: Int,
+        type: KHPasswordTypes) -> KHResult<[KHItem]?> {
+            var getItemsQuery: [CFString: Any] = [
+                kSecClass: kSecClassInternetPassword,
+                kSecReturnAttributes: true,
+                kSecReturnData: true,
+                kSecMatchLimit: amount
+            ]
+            if let account = account {
+                getItemsQuery[kSecAttrAccount] = account
+            }
+            if let website = website {
+                getItemsQuery[kSecAttrServer] = website
+            }
 
-        var getItemsReference: AnyObject?
-        let getItemsStatus = SecItemCopyMatching(getItemsQuery, &getItemsReference)
+            var getItemsReference: AnyObject?
+            let getItemsStatus = SecItemCopyMatching(getItemsQuery  as CFDictionary, &getItemsReference)
 
-        let getItemsResults: [NSDictionary]
-        if let unwrappedReference = getItemsReference as? NSDictionary {
-            getItemsResults = [unwrappedReference]
-        } else if let unwrappedReference = getItemsReference as? [NSDictionary] {
-            getItemsResults = unwrappedReference
-        } else {
-            return KHResult(status: getItemsStatus, item: nil)
-        }
+            let getItemsResults: [NSDictionary]
+            if let unwrappedReference = getItemsReference as? NSDictionary {
+                getItemsResults = [unwrappedReference]
+            } else if let unwrappedReference = getItemsReference as? [NSDictionary] {
+                getItemsResults = unwrappedReference
+            } else {
+                return KHResult(status: getItemsStatus, item: nil)
+            }
 
-        let hangerItems = getItemsResults.map { item in
-            KHItem(original: item)
-        }
-        return KHResult(status: getItemsStatus, item: hangerItems)
+            let hangerItems = getItemsResults.map { item in
+                KHItem(original: item)
+            }
+            return KHResult(status: getItemsStatus, item: hangerItems)
     }
 
     static func savePassword(
