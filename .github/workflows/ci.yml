@@ -42,10 +42,15 @@ jobs:
           ref: ${{ github.ref }}
           submodules: recursive
 
-      - name: Setup - Xcode
+      - name: Echo branch
+        env:
+          GITHUB_REF: ${{ github.ref }}
         run: |
-          echo "$github.ref"
-          sh Scripts/set_up_xcode_version.sh
+          echo "$GITHUB_REF"
+
+      # - name: Setup - Xcode
+      #   run: |
+      #     sh Scripts/set_up_xcode_version.sh
 
       # - name: Setup - Ruby and bundler dependencies
       #   uses: ruby/setup-ruby@v1
