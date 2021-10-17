@@ -6,35 +6,35 @@ on:
       - "release/**"
       - "feature/**"
 jobs:
-  test:
-    name: Test
-    timeout-minutes: 15
-    runs-on: macos-latest
-    steps:
-      - name: Git - Checkout
-        uses: actions/checkout@v2
+  # test:
+  #   name: Test
+  #   timeout-minutes: 15
+  #   runs-on: macos-latest
+  #   steps:
+  #     - name: Git - Checkout
+  #       uses: actions/checkout@v2
 
-      - name: Setup - Xcode
-        run: |
-          sh Scripts/set_up_xcode_version.sh
+  #     - name: Setup - Xcode
+  #       run: |
+  #         sh Scripts/set_up_xcode_version.sh
 
-      - name: Setup - Ruby and bundler dependencies
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: 2.6
-          bundler-cache: true
+  #     - name: Setup - Ruby and bundler dependencies
+  #       uses: ruby/setup-ruby@v1
+  #       with:
+  #         ruby-version: 2.6
+  #         bundler-cache: true
 
-      - name: Test
-        run: |
-          sh Scripts/run_tests.sh
+  #     - name: Test
+  #       run: |
+  #         sh Scripts/run_tests.sh
 
   appStoreContent:
     name: App Store content
     runs-on: macos-latest
-    needs: [test]
+    # needs: [test]
     env:
       FASTLANE_ENABLE_BETA_DELIVER_SYNC_SCREENSHOTS: true
-    if: contains('refs/heads/release**', github.ref)
+    # if: contains('refs/heads/release', github.ref)
     steps:
       - name: Git - Checkout
         uses: actions/checkout@v2
@@ -44,91 +44,92 @@ jobs:
 
       - name: Setup - Xcode
         run: |
+          echo "$github.ref"
           sh Scripts/set_up_xcode_version.sh
 
-      - name: Setup - Ruby and bundler dependencies
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: 2.6
-          bundler-cache: true
+      # - name: Setup - Ruby and bundler dependencies
+      #   uses: ruby/setup-ruby@v1
+      #   with:
+      #     ruby-version: 2.6
+      #     bundler-cache: true
 
-      - name: Generate sensitive content
-        env:
-          EMAIL_ADDRESS: ${{ secrets.EMAIL_ADDRESS }}
-          PHONE_NUMBER: ${{ secrets.PHONE_NUMBER }}
-        run: |
-          EMAIL_ADDRESS= go run Scripts/generate-sensetive-content/*.go
+      # - name: Generate sensitive content
+      #   env:
+      #     EMAIL_ADDRESS: ${{ secrets.EMAIL_ADDRESS }}
+      #     PHONE_NUMBER: ${{ secrets.PHONE_NUMBER }}
+      #   run: |
+      #     EMAIL_ADDRESS= go run Scripts/generate-sensetive-content/*.go
 
-      - name: Take snapshots
-        run: |
-          sh Scripts/snapshots_ios.sh
+      # - name: Take snapshots
+      #   run: |
+      #     sh Scripts/snapshots_ios.sh
 
-      - name: Upload app store connect content
-        run: |
-          bundle exec fastlane deliver
+      # - name: Upload app store connect content
+      #   run: |
+      #     bundle exec fastlane deliver
 
-  deployIOS:
-    name: deploy iOS
-    timeout-minutes: 15
-    runs-on: macos-latest
-    needs: [test]
-    env:
-      PRODUCT_NAME: Passlify
-      APP_VERSION: "1.1.0"
-      INITIAL_BUILD_NUMBER: 97
-    if: contains('refs/heads/develop
-      refs/heads/release', github.ref)
-    steps:
-      - name: Git - Checkout
-        uses: actions/checkout@v2
-        with:
-          ref: ${{ github.ref }}
-          submodules: recursive
+  # deployIOS:
+  #   name: deploy iOS
+  #   timeout-minutes: 15
+  #   runs-on: macos-latest
+  #   needs: [test]
+  #   env:
+  #     PRODUCT_NAME: Passlify
+  #     APP_VERSION: "1.1.0"
+  #     INITIAL_BUILD_NUMBER: 97
+  #   if: contains('refs/heads/develop
+  #     refs/heads/release', github.ref)
+  #   steps:
+  #     - name: Git - Checkout
+  #       uses: actions/checkout@v2
+  #       with:
+  #         ref: ${{ github.ref }}
+  #         submodules: recursive
 
-      - name: Import signing certificate
-        timeout-minutes: 1
-        env:
-          SIGNING_CERTIFICATE_P12_DATA: ${{ secrets.SIGNING_CERTIFICATE_P12_DATA }}
-          SIGNING_CERTIFICATE_PASSWORD: ${{ secrets.SIGNING_CERTIFICATE_PASSWORD }}
-          KEYCHAIN_PASSPHRASE: ${{ secrets.KEYCHAIN_PASSPHRASE }}
-        run: |
-          bash Scripts/import_signing_certificate_ios.bash
+  #     - name: Import signing certificate
+  #       timeout-minutes: 1
+  #       env:
+  #         SIGNING_CERTIFICATE_P12_DATA: ${{ secrets.SIGNING_CERTIFICATE_P12_DATA }}
+  #         SIGNING_CERTIFICATE_PASSWORD: ${{ secrets.SIGNING_CERTIFICATE_PASSWORD }}
+  #         KEYCHAIN_PASSPHRASE: ${{ secrets.KEYCHAIN_PASSPHRASE }}
+  #       run: |
+  #         bash Scripts/import_signing_certificate_ios.bash
 
-      - name: Import provisioning profile
-        env:
-          PROVISIONING_PROFILE_DATA: ${{ secrets.PROVISIONING_PROFILE_DATA }}
-        run: |
-          set -euo pipefail
+  #     - name: Import provisioning profile
+  #       env:
+  #         PROVISIONING_PROFILE_DATA: ${{ secrets.PROVISIONING_PROFILE_DATA }}
+  #       run: |
+  #         set -euo pipefail
 
-          mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
-          echo "$PROVISIONING_PROFILE_DATA" | base64 --decode > ~/Library/MobileDevice/Provisioning\ Profiles/profile.mobileprovision
+  #         mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
+  #         echo "$PROVISIONING_PROFILE_DATA" | base64 --decode > ~/Library/MobileDevice/Provisioning\ Profiles/profile.mobileprovision
 
-      - name: Setup - Xcode
-        run: |
-          sh Scripts/set_up_xcode_version.sh
+  #     - name: Setup - Xcode
+  #       run: |
+  #         sh Scripts/set_up_xcode_version.sh
 
-      - name: Bump build number
-        env:
-          INFO_PLIST_PATH: Targets/iOS/Info.plist
-        run: |
-          let build_number=${{ github.run_number }}
-          let build_number=$build_number+$INITIAL_BUILD_NUMBER
+  #     - name: Bump build number
+  #       env:
+  #         INFO_PLIST_PATH: Targets/iOS/Info.plist
+  #       run: |
+  #         let build_number=${{ github.run_number }}
+  #         let build_number=$build_number+$INITIAL_BUILD_NUMBER
 
-          ./Scripts/version-bumper/bin/version-bumper -b "$build_number" -i "$INFO_PLIST_PATH"
+  #         ./Scripts/version-bumper/bin/version-bumper -b "$build_number" -i "$INFO_PLIST_PATH"
 
-      - name: Setup - Ruby and bundler dependencies
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: 2.6
-          bundler-cache: true
+  #     - name: Setup - Ruby and bundler dependencies
+  #       uses: ruby/setup-ruby@v1
+  #       with:
+  #         ruby-version: 2.6
+  #         bundler-cache: true
 
-      - name: Build app
-        run: |
-          bundle exec fastlane gym --scheme "Password-Generator (iOS)"
+  #     - name: Build app
+  #       run: |
+  #         bundle exec fastlane gym --scheme "Password-Generator (iOS)"
 
-      - name: Upload app to App Store Connect
-        env:
-          APP_STORE_CONNECT_USERNAME: ${{ secrets.APP_STORE_CONNECT_USERNAME }}
-          APP_STORE_CONNECT_PASSWORD: ${{ secrets.APP_STORE_CONNECT_PASSWORD }}
-        run: |
-          xcrun altool --upload-app -t ios -f "$PRODUCT_NAME".ipa -u "$APP_STORE_CONNECT_USERNAME" -p "$APP_STORE_CONNECT_PASSWORD"
+  #     - name: Upload app to App Store Connect
+  #       env:
+  #         APP_STORE_CONNECT_USERNAME: ${{ secrets.APP_STORE_CONNECT_USERNAME }}
+  #         APP_STORE_CONNECT_PASSWORD: ${{ secrets.APP_STORE_CONNECT_PASSWORD }}
+  #       run: |
+  #         xcrun altool --upload-app -t ios -f "$PRODUCT_NAME".ipa -u "$APP_STORE_CONNECT_USERNAME" -p "$APP_STORE_CONNECT_PASSWORD"
