@@ -34,7 +34,7 @@ jobs:
     # needs: [test]
     env:
       FASTLANE_ENABLE_BETA_DELIVER_SYNC_SCREENSHOTS: true
-    # if: contains('refs/heads/release', github.ref)
+    if: contains(github.ref, 'refs/heads/release/')
     steps:
       - name: Git - Checkout
         uses: actions/checkout@v2
@@ -81,7 +81,7 @@ jobs:
   #   env:
   #     PRODUCT_NAME: Passlify
   #     APP_VERSION: "1.1.0"
-  #     INITIAL_BUILD_NUMBER: 97
+  #     INITIAL_BUILD_NUMBER: 7
   #   if: contains('refs/heads/develop
   #     refs/heads/release', github.ref)
   #   steps:
