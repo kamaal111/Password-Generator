@@ -57,7 +57,7 @@ jobs:
           EMAIL_ADDRESS: ${{ secrets.EMAIL_ADDRESS }}
           PHONE_NUMBER: ${{ secrets.PHONE_NUMBER }}
         run: |
-          EMAIL_ADDRESS= go run Scripts/generate-sensetive-content/*.go
+          go run Scripts/generate-sensetive-content/*.go
 
       - name: Take snapshots
         run: |
