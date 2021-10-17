@@ -64,7 +64,8 @@ jobs:
       - name: Authenticate fastlane
         env:
           EMAIL_ADDRESS: ${{ secrets.APP_STORE_CONNECT_USERNAME }}
-          FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD: ${{ secrets.APP_STORE_CONNECT_PASSWORD }}
+          FASTLANE_PASSWORD: ${{ secrets.APP_STORE_CONNECT_PASSWORD }}
+          # FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD: ${{ secrets.APP_STORE_CONNECT_PASSWORD }}
         run: |
           bundle exec fastlane spaceauth -u "$EMAIL_ADDRESS"
 
