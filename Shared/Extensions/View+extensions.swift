@@ -35,6 +35,19 @@ extension View {
         #endif
     }
 
+    func macBackButton(action: @escaping () -> Void) -> some View {
+        self
+            #if os(macOS)
+            .toolbar(content: {
+                ToolbarItem(placement: .navigation) {
+                    Button(action: action) {
+                        Image(systemName: "chevron.left")
+                    }
+                }
+            })
+            #endif
+    }
+
     #if os(iOS)
     func snapshot() -> UIImage {
         let controller = UIHostingController(rootView: self)

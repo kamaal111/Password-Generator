@@ -192,6 +192,9 @@
 		2CA895D326E5661C0057A82C /* UserDefaults+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA895D126E5661C0057A82C /* UserDefaults+extensions.swift */; };
 		2CA895D526E56BB70057A82C /* ToggleFormField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA895D426E56BB70057A82C /* ToggleFormField.swift */; };
 		2CA895D626E56BB70057A82C /* ToggleFormField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA895D426E56BB70057A82C /* ToggleFormField.swift */; };
+		2CB7C4A2271CA36C005B13C0 /* KeychainPlaygroundScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB7C4A1271CA36C005B13C0 /* KeychainPlaygroundScreen.swift */; };
+		2CB7C4A3271CA36C005B13C0 /* KeychainPlaygroundScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB7C4A1271CA36C005B13C0 /* KeychainPlaygroundScreen.swift */; };
+		2CB7C4A4271CA36C005B13C0 /* KeychainPlaygroundScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB7C4A1271CA36C005B13C0 /* KeychainPlaygroundScreen.swift */; };
 		2CBF2B442708F17B0088E18F /* FileManager+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CBF2B432708F17B0088E18F /* FileManager+extensions.swift */; };
 		2CBF2B452708F17B0088E18F /* FileManager+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CBF2B432708F17B0088E18F /* FileManager+extensions.swift */; };
 		2CBF2B462708F17B0088E18F /* FileManager+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CBF2B432708F17B0088E18F /* FileManager+extensions.swift */; };
@@ -418,6 +421,7 @@
 		2CA895CE26E5618D0057A82C /* DeviceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceModel.swift; sourceTree = "<group>"; };
 		2CA895D126E5661C0057A82C /* UserDefaults+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+extensions.swift"; sourceTree = "<group>"; };
 		2CA895D426E56BB70057A82C /* ToggleFormField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleFormField.swift; sourceTree = "<group>"; };
+		2CB7C4A1271CA36C005B13C0 /* KeychainPlaygroundScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainPlaygroundScreen.swift; sourceTree = "<group>"; };
 		2CBF2B432708F17B0088E18F /* FileManager+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+extensions.swift"; sourceTree = "<group>"; };
 		2CBF2B472708F2370088E18F /* LogoPlaygroundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoPlaygroundButton.swift; sourceTree = "<group>"; };
 		2CBFD5252709B67800E9EF82 /* EditMode+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EditMode+extensions.swift"; sourceTree = "<group>"; };
@@ -1137,6 +1141,7 @@
 		6017C072270100E90023F347 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				2CB7C4A1271CA36C005B13C0 /* KeychainPlaygroundScreen.swift */,
 				6017C073270101030023F347 /* LogoPlaygroundScreen.swift */,
 				2CD73C3526F7C1D50054C380 /* PlaygroundScreen.swift */,
 			);
@@ -1581,6 +1586,7 @@
 				2C6AD47B26E5093B003AF55C /* ScreenModel.swift in Sources */,
 				6017C07A2701062A0023F347 /* Logo.swift in Sources */,
 				2CA895D226E5661C0057A82C /* UserDefaults+extensions.swift in Sources */,
+				2CB7C4A2271CA36C005B13C0 /* KeychainPlaygroundScreen.swift in Sources */,
 				2C6AD43A26E50124003AF55C /* Persistence.swift in Sources */,
 				2CE97ED326EC03BF004D799A /* Notification.Name+extensions.swift in Sources */,
 				2C6AD48926E50C60003AF55C /* HomeScreen.swift in Sources */,
@@ -1680,6 +1686,7 @@
 				2C614B3D26E6A0070061FF82 /* PasswordHandler.swift in Sources */,
 				2CCD0B7F26F28CFD00BE8E21 /* CopyableDetailsRow.swift in Sources */,
 				2C6AD48D26E50CAD003AF55C /* AppSidebar.swift in Sources */,
+				2CB7C4A3271CA36C005B13C0 /* KeychainPlaygroundScreen.swift in Sources */,
 				2CD73C4326F7D0910054C380 /* DeviceShakeViewModifier.swift in Sources */,
 				6017C07F270108440023F347 /* LogoPlaygroundColorSelector.swift in Sources */,
 				2CE322F427086E8B00004F27 /* LogoPlaygroundStepper.swift in Sources */,
@@ -1771,6 +1778,7 @@
 				2C6D1D652703BD0F004AD36E /* PasswordHandler.swift in Sources */,
 				2C6D1D662703BD0F004AD36E /* CopyableDetailsRow.swift in Sources */,
 				2C6D1D672703BD0F004AD36E /* AppSidebar.swift in Sources */,
+				2CB7C4A4271CA36C005B13C0 /* KeychainPlaygroundScreen.swift in Sources */,
 				2C6D1D682703BD0F004AD36E /* DeviceShakeViewModifier.swift in Sources */,
 				2C6D1D692703BD0F004AD36E /* LogoPlaygroundColorSelector.swift in Sources */,
 				2CE322F527086E8B00004F27 /* LogoPlaygroundStepper.swift in Sources */,

@@ -11,18 +11,15 @@ import SalmonUI
 
 struct PlaygroundScreen: View {
     @StateObject
-    private var stackNavigator = StackNavigator(registeredScreens: [.logoPlayground])
+    private var stackNavigator = StackNavigator(registeredScreens: [.logoPlayground, .keychainPlayground])
 
     var body: some View {
         VStack(alignment: .leading) {
             VStack(alignment: .leading) {
                 FormHeader(title: "Features")
-                Button(action: { stackNavigator.navigate(to: .logoPlayground) }) {
-                    Text("Customize logo")
-                        .foregroundColor(.accentColor)
-                        .font(.headline)
-                }
-                .buttonStyle(PlainButtonStyle())
+                    .padding(.bottom, .xs)
+                navigationButton(title: "Customize logo", screen: .logoPlayground)
+                navigationButton(title: "Keychain playground", screen: .keychainPlayground)
             }
             .padding(.bottom, .small)
         }
@@ -34,6 +31,16 @@ struct PlaygroundScreen: View {
         #if os(iOS)
         .navigationBarTitleDisplayMode(.inline)
         #endif
+    }
+
+    private func navigationButton(title: String, screen: StackNavigator.Screens) -> some View {
+        Button(action: { stackNavigator.navigate(to: screen) }) {
+            Text(title)
+                .foregroundColor(.accentColor)
+                .font(.headline)
+        }
+        .buttonStyle(PlainButtonStyle())
+        .padding(.bottom, .xs)
     }
 }
 
