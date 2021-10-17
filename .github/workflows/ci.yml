@@ -52,7 +52,7 @@ jobs:
 
       - name: Generate sensitive content
         env:
-          EMAIL_ADDRESS: ${{ secrets.EMAIL_ADDRESS }}
+          EMAIL_ADDRESS: ${{ secrets.APP_STORE_CONNECT_USERNAME }}
           PHONE_NUMBER: ${{ secrets.PHONE_NUMBER }}
         run: |
           go run Scripts/generate-sensetive-content/*.go
@@ -64,7 +64,7 @@ jobs:
       - name: Upload app store connect content
         env:
           FASTLANE_ENABLE_BETA_DELIVER_SYNC_SCREENSHOTS: true
-          FASTLANE_PASSWORD: ${{ secrets.APP_STORE_CONNECT_PASSWORD }}
+          FASTLANE_PASSWORD: ${{ secrets.FASTLANE_PASSWORD }}
         run: |
           bundle exec fastlane deliver
 
