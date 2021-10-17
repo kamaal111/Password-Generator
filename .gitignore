@@ -60,3 +60,6 @@ Passlify.unsigned.pkg
 fastlane/metadata/review_information/email_address.txt
 fastlane/metadata/review_information/phone_number.txt
 fastlane/Deliverfile
+
+fastlane/Preview.html
+fastlane/screenshots

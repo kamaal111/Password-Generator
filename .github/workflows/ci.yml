@@ -32,9 +32,7 @@ jobs:
     name: App Store content
     runs-on: macos-latest
     needs: [test]
-    env:
-      FASTLANE_ENABLE_BETA_DELIVER_SYNC_SCREENSHOTS: true
-    if: contains('refs/heads/release', github.ref)
+    if: contains(github.ref, 'refs/heads/release/') && false
     steps:
       - name: Git - Checkout
         uses: actions/checkout@v2
@@ -54,16 +52,20 @@ jobs:
 
       - name: Generate sensitive content
         env:
-          EMAIL_ADDRESS: ${{ secrets.EMAIL_ADDRESS }}
+          EMAIL_ADDRESS: ${{ secrets.APP_STORE_CONNECT_USERNAME }}
           PHONE_NUMBER: ${{ secrets.PHONE_NUMBER }}
         run: |
-          EMAIL_ADDRESS= go run Scripts/generate-sensetive-content/*.go
+          go run Scripts/generate-sensetive-content/*.go
 
       - name: Take snapshots
         run: |
           sh Scripts/snapshots_ios.sh
 
       - name: Upload app store connect content
+        env:
+          FASTLANE_ENABLE_BETA_DELIVER_SYNC_SCREENSHOTS: true
+          FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD: ${{ secrets.APP_STORE_CONNECT_PASSWORD }}
+
         run: |
           bundle exec fastlane deliver
 
@@ -74,10 +76,8 @@ jobs:
     needs: [test]
     env:
       PRODUCT_NAME: Passlify
-      APP_VERSION: "1.1.0"
-      INITIAL_BUILD_NUMBER: 97
-    if: contains('refs/heads/develop
-      refs/heads/release', github.ref)
+      INITIAL_BUILD_NUMBER: 7
+    if: contains(github.ref, 'refs/heads/release/') || github.ref == 'refs/heads/develop'
     steps:
       - name: Git - Checkout
         uses: actions/checkout@v2
@@ -111,12 +111,10 @@ jobs:
         env:
           INFO_PLIST_PATH: Targets/iOS/Info.plist
         run: |
-          cd Scripts/version-bumper
-
           let build_number=${{ github.run_number }}
           let build_number=$build_number+$INITIAL_BUILD_NUMBER
 
-          ./Scripts/version-bumper/bin/version-bumper -b "$build_number" -i ../../"$INFO_PLIST_PATH"
+          ./Scripts/version-bumper/bin/version-bumper -b "$build_number" -i "$INFO_PLIST_PATH"
 
       - name: Setup - Ruby and bundler dependencies
         uses: ruby/setup-ruby@v1
