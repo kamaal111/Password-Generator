@@ -16,7 +16,7 @@ struct KeychainPlaygroundScreen: View {
 
     var body: some View {
         VStack(alignment: .leading) {
-            Button(action: savePassword) {
+            Button(action: saveItem) {
                 Text("Create password")
                     .foregroundColor(.accentColor)
                     .font(.headline)
@@ -24,8 +24,20 @@ struct KeychainPlaygroundScreen: View {
             .buttonStyle(PlainButtonStyle())
             .padding(.bottom, .xs)
 
-            Button(action: getPassword) {
+            Button(action: getItems) {
                 Text("Get password")
+                    .foregroundColor(.accentColor)
+                    .font(.headline)
+            }
+            .buttonStyle(PlainButtonStyle())
+            .padding(.bottom, .xs)
+
+            Button(action: {
+                let status = KeychainHanger
+                    .updateItems(query: .init(username: "kamaalio", website: "kamaal.io"), password: "kamaru22")
+                print("Operation finished with status: \(status)")
+            }) {
+                Text("Update password")
                     .foregroundColor(.accentColor)
                     .font(.headline)
             }
@@ -42,17 +54,18 @@ struct KeychainPlaygroundScreen: View {
         #endif
     }
 
-    private func savePassword() {
+    private func saveItem() {
         let savedPassword = KeychainHanger
-            .savePassword(password: "kamaru21", username: "kamaalio2", website: "kamaal.io", type: .internet)
+            .saveItem(password: "kamaru21", query: .init(username: "kamaalio", website: "kamaal.io"), type: .internet)
 
         print(savedPassword.status)
         print(savedPassword.item?.password ?? "")
         print(savedPassword.item?.original ?? [:])
     }
 
-    private func getPassword() {
-        let result = KeychainHanger.getPasswords(website: "kamaal.io", account: nil, amount: 5, type: .internet)
+    private func getItems() {
+        let result = KeychainHanger
+            .getItems(query: .init(username: nil, website: "kamaal.io"), amount: 5, type: .internet)
 
         print(result.status)
         result.item?.forEach({ item in
@@ -66,9 +79,29 @@ struct KeychainPlaygroundScreen: View {
 struct KeychainHanger {
     private init() { }
 
-    static func getPasswords(
-        website: String?,
-        account: String?,
+    static func updateItems(query: KHQuery, password: String) -> OSStatus {
+        var getItemsQuery: [CFString: Any] = [
+            kSecClass: kSecClassInternetPassword,
+            kSecReturnData: true,
+            kSecReturnAttributes: true
+        ]
+        if let username = query.username {
+            getItemsQuery[kSecAttrAccount] = username
+        }
+        if let website = query.website {
+            getItemsQuery[kSecAttrServer] = website
+        }
+
+        let updateFields = [
+          kSecValueData: password.data(using: .utf8)!
+        ] as CFDictionary
+
+        let status = SecItemUpdate(getItemsQuery as CFDictionary, updateFields)
+        return status
+    }
+
+    static func getItems(
+        query: KHQuery,
         amount: Int,
         type: KHPasswordTypes) -> KHResult<[KHItem]?> {
             var getItemsQuery: [CFString: Any] = [
@@ -77,15 +110,15 @@ struct KeychainHanger {
                 kSecReturnData: true,
                 kSecMatchLimit: amount
             ]
-            if let account = account {
-                getItemsQuery[kSecAttrAccount] = account
+            if let username = query.username {
+                getItemsQuery[kSecAttrAccount] = username
             }
-            if let website = website {
+            if let website = query.website {
                 getItemsQuery[kSecAttrServer] = website
             }
 
             var getItemsReference: AnyObject?
-            let getItemsStatus = SecItemCopyMatching(getItemsQuery  as CFDictionary, &getItemsReference)
+            let getItemsStatus = SecItemCopyMatching(getItemsQuery as CFDictionary, &getItemsReference)
 
             let getItemsResults: [NSDictionary]
             if let unwrappedReference = getItemsReference as? NSDictionary {
@@ -102,22 +135,25 @@ struct KeychainHanger {
             return KHResult(status: getItemsStatus, item: hangerItems)
     }
 
-    static func savePassword(
+    static func saveItem(
         password: String,
-        username: String,
-        website: String,
+        query: KHQuery,
         type: KHPasswordTypes) -> KHResult<KHItem?> {
-            let keychainItemQuery = [
+            var keychainItemQuery: [CFString: Any] = [
                 kSecValueData: password.data(using: .utf8)!,
-                kSecAttrAccount: username,
-                kSecAttrServer: website,
                 kSecClass: type.securityClass,
                 kSecReturnData: true,
                 kSecReturnAttributes: true
-            ] as CFDictionary
+            ]
+            if let username = query.username {
+                keychainItemQuery[kSecAttrAccount] = username
+            }
+            if let website = query.website {
+                keychainItemQuery[kSecAttrServer] = website
+            }
 
             var setItemReference: AnyObject?
-            let itemAddedStatus = SecItemAdd(keychainItemQuery, &setItemReference)
+            let itemAddedStatus = SecItemAdd(keychainItemQuery as CFDictionary, &setItemReference)
 
             guard let setItemResult = setItemReference as? NSDictionary else {
                 return KHResult(status: itemAddedStatus, item: nil)
@@ -125,6 +161,11 @@ struct KeychainHanger {
 
             return KHResult(status: itemAddedStatus, item: KHItem(original: setItemResult))
     }
+}
+
+struct KHQuery {
+    let username: String?
+    let website: String?
 }
 
 struct KHResult<T> {
