@@ -233,6 +233,9 @@
 		2CE97ED126EBFD14004D799A /* SavedPasswordListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE97ECF26EBFD14004D799A /* SavedPasswordListItem.swift */; };
 		2CE97ED326EC03BF004D799A /* Notification.Name+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE97ED226EC03BF004D799A /* Notification.Name+extensions.swift */; };
 		2CE97ED426EC03BF004D799A /* Notification.Name+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE97ED226EC03BF004D799A /* Notification.Name+extensions.swift */; };
+		2CEA20B0271F658600507106 /* KeychainHanger in Frameworks */ = {isa = PBXBuildFile; productRef = 2CEA20AF271F658600507106 /* KeychainHanger */; };
+		2CEA20B2271F659500507106 /* KeychainHanger in Frameworks */ = {isa = PBXBuildFile; productRef = 2CEA20B1271F659500507106 /* KeychainHanger */; };
+		2CEA20B4271F659E00507106 /* KeychainHanger in Frameworks */ = {isa = PBXBuildFile; productRef = 2CEA20B3271F659E00507106 /* KeychainHanger */; };
 		2CFD1D0A26EAA1FD00B7DF4F /* SavedPasswordsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CFD1D0926EAA1FD00B7DF4F /* SavedPasswordsScreen.swift */; };
 		2CFD1D0B26EAA1FD00B7DF4F /* SavedPasswordsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CFD1D0926EAA1FD00B7DF4F /* SavedPasswordsScreen.swift */; };
 		2CFD3DFD2718BF2E00871A1D /* PGLocale in Frameworks */ = {isa = PBXBuildFile; productRef = 2CFD3DFC2718BF2E00871A1D /* PGLocale */; };
@@ -482,6 +485,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C6AD45326E502BD003AF55C /* PersistanceManager in Frameworks */,
+				2CEA20B0271F658600507106 /* KeychainHanger in Frameworks */,
 				2C3E590726EA7E2200F75F51 /* SalmonUI in Frameworks */,
 				2C6AD45026E502AF003AF55C /* ConsoleSwift in Frameworks */,
 				2C6AD46426E5075F003AF55C /* PGLocale in Frameworks */,
@@ -494,6 +498,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C6AD45826E502D5003AF55C /* PersistanceManager in Frameworks */,
+				2CEA20B2271F659500507106 /* KeychainHanger in Frameworks */,
 				2C3E590926EA7E2B00F75F51 /* SalmonUI in Frameworks */,
 				2C6AD45626E502D1003AF55C /* ConsoleSwift in Frameworks */,
 				2C6AD46226E5075A003AF55C /* PGLocale in Frameworks */,
@@ -520,6 +525,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C6D1D712703BD0F004AD36E /* PersistanceManager in Frameworks */,
+				2CEA20B4271F659E00507106 /* KeychainHanger in Frameworks */,
 				2C6D1D722703BD0F004AD36E /* SalmonUI in Frameworks */,
 				2C6D1D732703BD0F004AD36E /* ConsoleSwift in Frameworks */,
 				2C6D1D742703BD0F004AD36E /* PGLocale in Frameworks */,
@@ -1218,6 +1224,7 @@
 				2C6AD46326E5075F003AF55C /* PGLocale */,
 				2C6AD47E26E5098C003AF55C /* ShrimpExtensions */,
 				2C3E590626EA7E2200F75F51 /* SalmonUI */,
+				2CEA20AF271F658600507106 /* KeychainHanger */,
 			);
 			productName = "Password-Generator (iOS)";
 			productReference = 2C6AD41226E50124003AF55C /* Passlify.app */;
@@ -1243,6 +1250,7 @@
 				2C6AD46126E5075A003AF55C /* PGLocale */,
 				2C6AD48026E509A2003AF55C /* ShrimpExtensions */,
 				2C3E590826EA7E2B00F75F51 /* SalmonUI */,
+				2CEA20B1271F659500507106 /* KeychainHanger */,
 			);
 			productName = "Password-Generator (macOS)";
 			productReference = 2C6AD41A26E50124003AF55C /* Passlify.app */;
@@ -1304,6 +1312,7 @@
 				2C6D1D322703BD0F004AD36E /* PGLocale */,
 				2C6D1D332703BD0F004AD36E /* ShrimpExtensions */,
 				2C6D1D352703BD0F004AD36E /* SalmonUI */,
+				2CEA20B3271F659E00507106 /* KeychainHanger */,
 			);
 			productName = "Password-Generator (macOS)";
 			productReference = 2C6D1D7C2703BD0F004AD36E /* Passlify.app */;
@@ -1385,6 +1394,7 @@
 				2C6AD45126E502BD003AF55C /* XCRemoteSwiftPackageReference "PersistanceManager" */,
 				2C6AD47D26E5098C003AF55C /* XCRemoteSwiftPackageReference "ShrimpExtensions" */,
 				2C3E590526EA7E2200F75F51 /* XCRemoteSwiftPackageReference "SalmonUI" */,
+				2CEA20AE271F658600507106 /* XCRemoteSwiftPackageReference "KeychainHanger" */,
 			);
 			productRefGroup = 2C6AD41326E50124003AF55C /* Products */;
 			projectDirPath = "";
@@ -2524,6 +2534,14 @@
 				minimumVersion = 4.2.0;
 			};
 		};
+		2CEA20AE271F658600507106 /* XCRemoteSwiftPackageReference "KeychainHanger" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kamaal111/KeychainHanger.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -2598,6 +2616,21 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 2C6D1D362703BD0F004AD36E /* XCRemoteSwiftPackageReference "SalmonUI" */;
 			productName = SalmonUI;
+		};
+		2CEA20AF271F658600507106 /* KeychainHanger */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2CEA20AE271F658600507106 /* XCRemoteSwiftPackageReference "KeychainHanger" */;
+			productName = KeychainHanger;
+		};
+		2CEA20B1271F659500507106 /* KeychainHanger */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2CEA20AE271F658600507106 /* XCRemoteSwiftPackageReference "KeychainHanger" */;
+			productName = KeychainHanger;
+		};
+		2CEA20B3271F659E00507106 /* KeychainHanger */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2CEA20AE271F658600507106 /* XCRemoteSwiftPackageReference "KeychainHanger" */;
+			productName = KeychainHanger;
 		};
 		2CFD3DFC2718BF2E00871A1D /* PGLocale */ = {
 			isa = XCSwiftPackageProductDependency;
