@@ -34,15 +34,16 @@ struct KeychainPlaygroundScreen: View {
             .buttonStyle(PlainButtonStyle())
             .padding(.bottom, .xs)
 
-            Button(action: {
-                let status = keychainHanger
-                    .updateItems(
-                        query: .init(username: "kamaalio", application: "kamaal.io"),
-                        password: "kamaru22",
-                        type: .generic)
-                print("Operation finished with status: \(status)")
-            }) {
+            Button(action: updateItem) {
                 Text("Update password")
+                    .foregroundColor(.accentColor)
+                    .font(.headline)
+            }
+            .buttonStyle(PlainButtonStyle())
+            .padding(.bottom, .xs)
+
+            Button(action: deleteItems) {
+                Text("Delete password")
                     .foregroundColor(.accentColor)
                     .font(.headline)
             }
@@ -59,13 +60,24 @@ struct KeychainPlaygroundScreen: View {
         #endif
     }
 
+    private func updateItem() {
+        let status = keychainHanger
+            .updateItems(
+                query: .init(username: "kamaalio", application: "kamaal.io"),
+                account: nil,
+                password: "kamaru22",
+                application: nil,
+                type: .internet)
+        print("Operation finished with status: \(status)")
+    }
+
     private func saveItem() {
         let savedPassword = keychainHanger
             .saveItem(
                 password: "kamaru21",
                 username: "kamaalio",
                 application: "kamaal.io",
-                type: .generic)
+                type: .internet)
 
         print(savedPassword.status)
         print(savedPassword.item?.password ?? "")
@@ -74,7 +86,7 @@ struct KeychainPlaygroundScreen: View {
 
     private func getItems() {
         let result = keychainHanger
-            .getItems(query: .init(username: nil, application: "kamaal.io"), amount: 5, type: .generic)
+            .getItems(query: .init(username: nil, application: "kamaal.io"), amount: 5, type: .internet)
 
         print(result.status)
         result.item?.forEach({ item in
@@ -83,30 +95,63 @@ struct KeychainPlaygroundScreen: View {
             print(item.original)
         })
     }
+
+    private func deleteItems() {
+        keychainHanger.deleteItems(query: .init(username: "kamaalio", application: "kamaal.io"), type: .internet)
+        print("item deleted")
+    }
 }
 
 struct KeychainHanger {
     let prefix: String
 
-    func updateItems(query: KHQuery, password: String, type: KHPasswordTypes) -> OSStatus {
-        var getItemsQuery: [CFString: Any] = [
+    func deleteItems(query: KHQuery, type: KHPasswordTypes) {
+        var deleteItemsQuery: [CFString: Any] = [
             kSecClass: type.securityClass,
             kSecReturnData: true,
             kSecReturnAttributes: true
         ]
         if let username = query.username {
-            getItemsQuery[kSecAttrAccount] = username
+            deleteItemsQuery[kSecAttrAccount] = username
         }
         if let application = query.application {
-            getItemsQuery[kSecAttrServer] = applicationWithPrefix(prefix: prefix, application: application)
+            deleteItemsQuery[kSecAttrServer] = applicationWithPrefix(prefix: prefix, application: application)
         }
 
-        let updateFields = [
-          kSecValueData: password.data(using: .utf8)!
-        ] as CFDictionary
+        SecItemDelete(deleteItemsQuery as CFDictionary)
+    }
 
-        let status = SecItemUpdate(getItemsQuery as CFDictionary, updateFields)
-        return status
+    func updateItems(
+        query: KHQuery,
+        account: String?,
+        password: String?,
+        application: String?,
+        type: KHPasswordTypes) -> OSStatus {
+            var getItemsQuery: [CFString: Any] = [
+                kSecClass: type.securityClass,
+                kSecReturnData: true,
+                kSecReturnAttributes: true
+            ]
+            if let username = query.username {
+                getItemsQuery[kSecAttrAccount] = username
+            }
+            if let application = query.application {
+                getItemsQuery[kSecAttrServer] = applicationWithPrefix(prefix: prefix, application: application)
+            }
+
+            var updateFields: [CFString: Any] = [:]
+            if let account = account {
+                updateFields[kSecAttrAccount] = account
+            }
+            if let password = password {
+                updateFields[kSecValueData] = password.data(using: .utf8)!
+            }
+            if let application = application {
+                updateFields[kSecAttrServer] = applicationWithPrefix(prefix: prefix, application: application)
+            }
+
+            let status = SecItemUpdate(getItemsQuery as CFDictionary, updateFields as CFDictionary)
+            return status
     }
 
     func getItems(
@@ -194,12 +239,10 @@ struct KHResult<T> {
 
 enum KHPasswordTypes {
     case internet
-    case generic
 
     var securityClass: CFString {
         switch self {
         case .internet: return kSecClassInternetPassword
-        case .generic: return kSecClassGenericPassword
         }
     }
 }
