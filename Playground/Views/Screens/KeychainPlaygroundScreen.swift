@@ -14,6 +14,8 @@ struct KeychainPlaygroundScreen: View {
     @EnvironmentObject
     private var stackNavigator: StackNavigator
 
+    private let keychainHanger = KeychainHanger(prefix: Constants.bundleIdentifier)
+
     var body: some View {
         VStack(alignment: .leading) {
             Button(action: saveItem) {
@@ -33,8 +35,11 @@ struct KeychainPlaygroundScreen: View {
             .padding(.bottom, .xs)
 
             Button(action: {
-                let status = KeychainHanger
-                    .updateItems(query: .init(username: "kamaalio", website: "kamaal.io"), password: "kamaru22")
+                let status = keychainHanger
+                    .updateItems(
+                        query: .init(username: "kamaalio", application: "kamaal.io"),
+                        password: "kamaru22",
+                        type: .generic)
                 print("Operation finished with status: \(status)")
             }) {
                 Text("Update password")
@@ -55,8 +60,12 @@ struct KeychainPlaygroundScreen: View {
     }
 
     private func saveItem() {
-        let savedPassword = KeychainHanger
-            .saveItem(password: "kamaru21", query: .init(username: "kamaalio", website: "kamaal.io"), type: .internet)
+        let savedPassword = keychainHanger
+            .saveItem(
+                password: "kamaru21",
+                username: "kamaalio",
+                application: "kamaal.io",
+                type: .generic)
 
         print(savedPassword.status)
         print(savedPassword.item?.password ?? "")
@@ -64,8 +73,8 @@ struct KeychainPlaygroundScreen: View {
     }
 
     private func getItems() {
-        let result = KeychainHanger
-            .getItems(query: .init(username: nil, website: "kamaal.io"), amount: 5, type: .internet)
+        let result = keychainHanger
+            .getItems(query: .init(username: nil, application: "kamaal.io"), amount: 5, type: .generic)
 
         print(result.status)
         result.item?.forEach({ item in
@@ -77,19 +86,19 @@ struct KeychainPlaygroundScreen: View {
 }
 
 struct KeychainHanger {
-    private init() { }
+    let prefix: String
 
-    static func updateItems(query: KHQuery, password: String) -> OSStatus {
+    func updateItems(query: KHQuery, password: String, type: KHPasswordTypes) -> OSStatus {
         var getItemsQuery: [CFString: Any] = [
-            kSecClass: kSecClassInternetPassword,
+            kSecClass: type.securityClass,
             kSecReturnData: true,
             kSecReturnAttributes: true
         ]
         if let username = query.username {
             getItemsQuery[kSecAttrAccount] = username
         }
-        if let website = query.website {
-            getItemsQuery[kSecAttrServer] = website
+        if let application = query.application {
+            getItemsQuery[kSecAttrServer] = applicationWithPrefix(prefix: prefix, application: application)
         }
 
         let updateFields = [
@@ -100,12 +109,12 @@ struct KeychainHanger {
         return status
     }
 
-    static func getItems(
+    func getItems(
         query: KHQuery,
         amount: Int,
         type: KHPasswordTypes) -> KHResult<[KHItem]?> {
             var getItemsQuery: [CFString: Any] = [
-                kSecClass: kSecClassInternetPassword,
+                kSecClass: type.securityClass,
                 kSecReturnAttributes: true,
                 kSecReturnData: true,
                 kSecMatchLimit: amount
@@ -113,8 +122,8 @@ struct KeychainHanger {
             if let username = query.username {
                 getItemsQuery[kSecAttrAccount] = username
             }
-            if let website = query.website {
-                getItemsQuery[kSecAttrServer] = website
+            if let application = query.application {
+                getItemsQuery[kSecAttrServer] = applicationWithPrefix(prefix: prefix, application: application)
             }
 
             var getItemsReference: AnyObject?
@@ -135,9 +144,10 @@ struct KeychainHanger {
             return KHResult(status: getItemsStatus, item: hangerItems)
     }
 
-    static func saveItem(
+    func saveItem(
         password: String,
-        query: KHQuery,
+        username: String?,
+        application: String?,
         type: KHPasswordTypes) -> KHResult<KHItem?> {
             var keychainItemQuery: [CFString: Any] = [
                 kSecValueData: password.data(using: .utf8)!,
@@ -145,11 +155,11 @@ struct KeychainHanger {
                 kSecReturnData: true,
                 kSecReturnAttributes: true
             ]
-            if let username = query.username {
+            if let username = username {
                 keychainItemQuery[kSecAttrAccount] = username
             }
-            if let website = query.website {
-                keychainItemQuery[kSecAttrServer] = website
+            if let application = application {
+                keychainItemQuery[kSecAttrServer] = applicationWithPrefix(prefix: prefix, application: application)
             }
 
             var setItemReference: AnyObject?
@@ -161,11 +171,20 @@ struct KeychainHanger {
 
             return KHResult(status: itemAddedStatus, item: KHItem(original: setItemResult))
     }
+
+    private func applicationWithPrefix(prefix: String, application: String) -> String? {
+        "\(prefix).\(application)"
+    }
 }
 
 struct KHQuery {
     let username: String?
-    let website: String?
+    let application: String?
+
+    init(username: String?, application: String?) {
+        self.username = username
+        self.application = application
+    }
 }
 
 struct KHResult<T> {
