@@ -12,4 +12,5 @@ enum Constants {
     static let passwordLengthRange = 1...256
     static let bundleIdentifier = Bundle.main.bundleIdentifier!
     static let email = "app.kamaal@gmail.com"
+    static let cloudContainerId = "iCloud.com.\(bundleIdentifier)"
 }

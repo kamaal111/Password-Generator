@@ -474,6 +474,7 @@
 		60937A16270CB10A005F13F0 /* set_up_xcode_version.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = set_up_xcode_version.sh; sourceTree = "<group>"; };
 		609CF9DA2719608E003C604D /* snapshots_ios.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = snapshots_ios.sh; sourceTree = "<group>"; };
 		60B4C54E270C290200E7F1A3 /* run_tests.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = run_tests.sh; sourceTree = "<group>"; };
+		60E11135272081D60056E1E8 /* Password-Generator (iOS).entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Password-Generator (iOS).entitlements"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -761,6 +762,7 @@
 		2C6AD40226E50120003AF55C = {
 			isa = PBXGroup;
 			children = (
+				60E11135272081D60056E1E8 /* Password-Generator (iOS).entitlements */,
 				2C187A9E271B3180003A0E38 /* Gemfile */,
 				2C187AA0271B3196003A0E38 /* LICENSE */,
 				2C187A9F271B3190003A0E38 /* Gemfile.lock */,
@@ -2090,6 +2092,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Password-Generator (iOS).entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 109;
 				DEVELOPMENT_TEAM = DXUKH9VF73;
@@ -2114,6 +2117,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Password-Generator (iOS).entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 109;
