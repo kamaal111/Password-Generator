@@ -11,15 +11,26 @@ import SalmonUI
 
 struct PlaygroundScreen: View {
     @StateObject
-    private var stackNavigator = StackNavigator(registeredScreens: [.logoPlayground, .keychainPlayground])
+    private var stackNavigator = StackNavigator(registeredScreens: [
+        .logoPlayground,
+        .keychainPlayground,
+        .cloudPlayground
+    ])
 
     var body: some View {
         VStack(alignment: .leading) {
             VStack(alignment: .leading) {
                 FormHeader(title: "Features")
                     .padding(.bottom, .xs)
-                navigationButton(title: "Customize logo", screen: .logoPlayground)
-                navigationButton(title: "Keychain playground", screen: .keychainPlayground)
+                ForEach(Self.navigationButtonsData, id: \.self) { data in
+                    Button(action: { stackNavigator.navigate(to: data.screen) }) {
+                        Text(data.title)
+                            .foregroundColor(.accentColor)
+                            .font(.headline)
+                    }
+                    .buttonStyle(PlainButtonStyle())
+                    .padding(.bottom, .xs)
+                }
             }
             .padding(.bottom, .small)
         }
@@ -33,14 +44,15 @@ struct PlaygroundScreen: View {
         #endif
     }
 
-    private func navigationButton(title: String, screen: StackNavigator.Screens) -> some View {
-        Button(action: { stackNavigator.navigate(to: screen) }) {
-            Text(title)
-                .foregroundColor(.accentColor)
-                .font(.headline)
-        }
-        .buttonStyle(PlainButtonStyle())
-        .padding(.bottom, .xs)
+    private static let navigationButtonsData = [
+        NavigationButtonModel(title: "Customize logo", screen: .logoPlayground),
+        NavigationButtonModel(title: "Keychain playground", screen: .keychainPlayground),
+        NavigationButtonModel(title: "Cloud playground", screen: .cloudPlayground)
+    ]
+
+    private struct NavigationButtonModel: Hashable {
+        let title: String
+        let screen: StackNavigator.Screens
     }
 }
 

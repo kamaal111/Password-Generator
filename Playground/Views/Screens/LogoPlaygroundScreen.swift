@@ -26,7 +26,7 @@ struct LogoPlaygroundScreen: View {
     @State private var logoCurvedSize: CGFloat = 16
 
     var body: some View {
-        VStack(alignment: .leading) {
+        FeaturePlaygroundScreenWrapper(title: "Logo Customizer") {
             ScrollView(showsIndicators: false) {
                 FormHeader(title: "App logo")
                     .padding(.bottom, .xs)
@@ -57,17 +57,9 @@ struct LogoPlaygroundScreen: View {
                     logoCurvedSize: $logoCurvedSize)
             }
         }
-        .ktakeSizeEagerly(alignment: .topLeading)
-        .padding(.horizontal, .large)
-        .padding(.vertical, .medium)
-        .navigationTitle(Text("Logo Customizer"))
         .onChange(of: exportLogoSize, perform: { newValue in
             exportLogoSize = newValue.filter({ $0.isNumber })
         })
-        .macBackButton(action: { stackNavigator.navigate(to: nil) })
-        #if os(iOS)
-        .navigationBarTitleDisplayMode(.inline)
-        #endif
     }
 
     private func logoView(size: CGSize) -> some View {

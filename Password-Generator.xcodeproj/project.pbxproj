@@ -258,6 +258,12 @@
 		6069B01E271FFBDF006BD320 /* ICloutKit in Frameworks */ = {isa = PBXBuildFile; productRef = 6069B01D271FFBDF006BD320 /* ICloutKit */; };
 		6069B020271FFBF7006BD320 /* ICloutKit in Frameworks */ = {isa = PBXBuildFile; productRef = 6069B01F271FFBF7006BD320 /* ICloutKit */; };
 		6069B022271FFBFF006BD320 /* ICloutKit in Frameworks */ = {isa = PBXBuildFile; productRef = 6069B021271FFBFF006BD320 /* ICloutKit */; };
+		6069B024271FFC5C006BD320 /* CloudPlaygroundScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6069B023271FFC5C006BD320 /* CloudPlaygroundScreen.swift */; };
+		6069B025271FFC5C006BD320 /* CloudPlaygroundScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6069B023271FFC5C006BD320 /* CloudPlaygroundScreen.swift */; };
+		6069B026271FFC5C006BD320 /* CloudPlaygroundScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6069B023271FFC5C006BD320 /* CloudPlaygroundScreen.swift */; };
+		6069B028271FFF27006BD320 /* FeaturePlaygroundScreenWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6069B027271FFF27006BD320 /* FeaturePlaygroundScreenWrapper.swift */; };
+		6069B029271FFF27006BD320 /* FeaturePlaygroundScreenWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6069B027271FFF27006BD320 /* FeaturePlaygroundScreenWrapper.swift */; };
+		6069B02A271FFF27006BD320 /* FeaturePlaygroundScreenWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6069B027271FFF27006BD320 /* FeaturePlaygroundScreenWrapper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -463,6 +469,8 @@
 		6017C08027010AD50023F347 /* Image+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+extensions.swift"; sourceTree = "<group>"; };
 		6056CF3C26F3D13A002AA00A /* EditMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditMode.swift; sourceTree = "<group>"; };
 		6056CF3E26F3D603002AA00A /* SecureFloatingField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureFloatingField.swift; sourceTree = "<group>"; };
+		6069B023271FFC5C006BD320 /* CloudPlaygroundScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudPlaygroundScreen.swift; sourceTree = "<group>"; };
+		6069B027271FFF27006BD320 /* FeaturePlaygroundScreenWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturePlaygroundScreenWrapper.swift; sourceTree = "<group>"; };
 		60937A16270CB10A005F13F0 /* set_up_xcode_version.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = set_up_xcode_version.sh; sourceTree = "<group>"; };
 		609CF9DA2719608E003C604D /* snapshots_ios.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = snapshots_ios.sh; sourceTree = "<group>"; };
 		60B4C54E270C290200E7F1A3 /* run_tests.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = run_tests.sh; sourceTree = "<group>"; };
@@ -1153,6 +1161,7 @@
 		6017C072270100E90023F347 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				6069B023271FFC5C006BD320 /* CloudPlaygroundScreen.swift */,
 				2CB7C4A1271CA36C005B13C0 /* KeychainPlaygroundScreen.swift */,
 				6017C073270101030023F347 /* LogoPlaygroundScreen.swift */,
 				2CD73C3526F7C1D50054C380 /* PlaygroundScreen.swift */,
@@ -1163,10 +1172,11 @@
 		6017C07C270108340023F347 /* SupportingViews */ = {
 			isa = PBXGroup;
 			children = (
+				6069B027271FFF27006BD320 /* FeaturePlaygroundScreenWrapper.swift */,
+				2CBF2B472708F2370088E18F /* LogoPlaygroundButton.swift */,
 				6017C07D270108440023F347 /* LogoPlaygroundColorSelector.swift */,
 				2CE322F227086E8B00004F27 /* LogoPlaygroundStepper.swift */,
 				2CE322EE27086E6400004F27 /* LogoPlaygroundToggle.swift */,
-				2CBF2B472708F2370088E18F /* LogoPlaygroundButton.swift */,
 			);
 			path = SupportingViews;
 			sourceTree = "<group>";
@@ -1596,6 +1606,7 @@
 				2CCD0B7E26F28CFD00BE8E21 /* CopyableDetailsRow.swift in Sources */,
 				2C00B004271623F800001AAB /* SettingsFormButton.swift in Sources */,
 				2CE97ED026EBFD14004D799A /* SavedPasswordListItem.swift in Sources */,
+				6069B024271FFC5C006BD320 /* CloudPlaygroundScreen.swift in Sources */,
 				2C93723226EFF56B004BF5BF /* SavedPasswordDetailScreen.swift in Sources */,
 				2C00B00C271628D700001AAB /* SettingsFormRow.swift in Sources */,
 				2C6AD4A026E51650003AF55C /* AppSizes.swift in Sources */,
@@ -1620,6 +1631,7 @@
 				2CD73C4126F7CDE30054C380 /* Optional+extensions.swift in Sources */,
 				6017C06D2700FEFE0023F347 /* DebugFrameSize.swift in Sources */,
 				2C6AD49926E51358003AF55C /* Constants.swift in Sources */,
+				6069B028271FFF27006BD320 /* FeaturePlaygroundScreenWrapper.swift in Sources */,
 				2C49EE5B270A43CF009BC0F9 /* SplashScreen.swift in Sources */,
 				2C00B0082716251E00001AAB /* SettingsView+ViewModel.swift in Sources */,
 				2CBF2B442708F17B0088E18F /* FileManager+extensions.swift in Sources */,
@@ -1662,6 +1674,7 @@
 				2C08AD8326E7FC33001ECD75 /* HomeMainActionButtons.swift in Sources */,
 				2CA895D326E5661C0057A82C /* UserDefaults+extensions.swift in Sources */,
 				2CBFD5272709B67800E9EF82 /* EditMode+extensions.swift in Sources */,
+				6069B029271FFF27006BD320 /* FeaturePlaygroundScreenWrapper.swift in Sources */,
 				2CE97ED426EC03BF004D799A /* Notification.Name+extensions.swift in Sources */,
 				2CBF2B492708F2370088E18F /* LogoPlaygroundButton.swift in Sources */,
 				2CD73C3B26F7C7410054C380 /* NSMenuItem+extensions.swift in Sources */,
@@ -1677,6 +1690,7 @@
 				2CFD1D0B26EAA1FD00B7DF4F /* SavedPasswordsScreen.swift in Sources */,
 				2C00B0092716251E00001AAB /* SettingsView+ViewModel.swift in Sources */,
 				2C93723326EFF56B004BF5BF /* SavedPasswordDetailScreen.swift in Sources */,
+				6069B025271FFC5C006BD320 /* CloudPlaygroundScreen.swift in Sources */,
 				2C69071426E95909000B84EC /* CorePassword+extensions.swift in Sources */,
 				2C0D4A0726E6B692006CD00D /* CorePassword+CoreDataClass.swift in Sources */,
 				6017C07B2701062A0023F347 /* Logo.swift in Sources */,
@@ -1754,6 +1768,7 @@
 				2C6D1D422703BD0F004AD36E /* HomeMainActionButtons.swift in Sources */,
 				2C6D1D432703BD0F004AD36E /* UserDefaults+extensions.swift in Sources */,
 				2CBFD5282709B67800E9EF82 /* EditMode+extensions.swift in Sources */,
+				6069B02A271FFF27006BD320 /* FeaturePlaygroundScreenWrapper.swift in Sources */,
 				2C6D1D442703BD0F004AD36E /* Notification.Name+extensions.swift in Sources */,
 				2CBF2B4A2708F2370088E18F /* LogoPlaygroundButton.swift in Sources */,
 				2C6D1D452703BD0F004AD36E /* NSMenuItem+extensions.swift in Sources */,
@@ -1769,6 +1784,7 @@
 				2C6D1D4C2703BD0F004AD36E /* SavedPasswordsScreen.swift in Sources */,
 				2C00B00A2716251E00001AAB /* SettingsView+ViewModel.swift in Sources */,
 				2C6D1D4D2703BD0F004AD36E /* SavedPasswordDetailScreen.swift in Sources */,
+				6069B026271FFC5C006BD320 /* CloudPlaygroundScreen.swift in Sources */,
 				2C6D1D4E2703BD0F004AD36E /* CorePassword+extensions.swift in Sources */,
 				2C6D1D4F2703BD0F004AD36E /* CorePassword+CoreDataClass.swift in Sources */,
 				2C6D1D502703BD0F004AD36E /* Logo.swift in Sources */,

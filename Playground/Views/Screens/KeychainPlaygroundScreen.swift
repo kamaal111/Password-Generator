@@ -17,7 +17,7 @@ struct KeychainPlaygroundScreen: View {
     private let keychainHanger = KeychainHanger(prefix: Constants.bundleIdentifier)
 
     var body: some View {
-        VStack(alignment: .leading) {
+        FeaturePlaygroundScreenWrapper(title: "Keychain playground") {
             Button(action: saveItem) {
                 Text("Create password")
                     .foregroundColor(.accentColor)
@@ -50,14 +50,6 @@ struct KeychainPlaygroundScreen: View {
             .buttonStyle(PlainButtonStyle())
             .padding(.bottom, .xs)
         }
-        .ktakeSizeEagerly(alignment: .topLeading)
-        .padding(.horizontal, .large)
-        .padding(.vertical, .medium)
-        .navigationTitle(Text("Keychain playground"))
-        .macBackButton(action: { stackNavigator.navigate(to: nil) })
-        #if os(iOS)
-        .navigationBarTitleDisplayMode(.inline)
-        #endif
     }
 
     private func updateItem() {
