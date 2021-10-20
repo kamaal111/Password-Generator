@@ -2074,7 +2074,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.0;
+				MARKETING_VERSION = 1.1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "io.kamaal.Password-Generator";
 				PRODUCT_NAME = Passlify;
 				SDKROOT = iphoneos;
@@ -2099,7 +2099,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.0;
+				MARKETING_VERSION = 1.1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "io.kamaal.Password-Generator";
 				PRODUCT_NAME = Passlify;
 				PROVISIONING_PROFILE_SPECIFIER = "Passlify App Store distribution";
@@ -2130,7 +2130,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 1.1.0;
+				MARKETING_VERSION = 1.1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "io.kamaal.Password-Generator";
 				PRODUCT_NAME = Passlify;
 				SDKROOT = macosx;
@@ -2158,7 +2158,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 1.1.0;
+				MARKETING_VERSION = 1.1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "io.kamaal.Password-Generator";
 				PRODUCT_NAME = Passlify;
 				PROVISIONING_PROFILE_SPECIFIER = "Passlify Mac App Store distribution";
@@ -2290,7 +2290,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 1.1.0;
+				MARKETING_VERSION = 1.1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "io.kamaal.Password-Generator-Dev";
 				PRODUCT_NAME = Passlify;
 				SDKROOT = macosx;
@@ -2318,7 +2318,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 1.1.0;
+				MARKETING_VERSION = 1.1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "io.kamaal.Password-Generator-Dev";
 				PRODUCT_NAME = Passlify;
 				SDKROOT = macosx;
