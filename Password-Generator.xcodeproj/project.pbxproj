@@ -20,6 +20,8 @@
 		2C00B00D271628D700001AAB /* SettingsFormRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C00B00B271628D700001AAB /* SettingsFormRow.swift */; };
 		2C00B00E271628D700001AAB /* SettingsFormRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C00B00B271628D700001AAB /* SettingsFormRow.swift */; };
 		2C00B01027162DAA00001AAB /* FeedbackSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C00B00F27162DAA00001AAB /* FeedbackSheet.swift */; };
+		2C0436A82720ADB400F65677 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C0436A72720ADB400F65677 /* CloudKit.framework */; };
+		2C0436A92720AE4700F65677 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C0436A72720ADB400F65677 /* CloudKit.framework */; };
 		2C08AD8226E7FC33001ECD75 /* HomeMainActionButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C08AD8126E7FC33001ECD75 /* HomeMainActionButtons.swift */; };
 		2C08AD8326E7FC33001ECD75 /* HomeMainActionButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C08AD8126E7FC33001ECD75 /* HomeMainActionButtons.swift */; };
 		2C08ADB226E80A40001ECD75 /* EmptyTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C08ADB126E80A40001ECD75 /* EmptyTest.swift */; };
@@ -210,6 +212,7 @@
 		2CC49F602718A193006AD8A3 /* CommandLine+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC49F5F2718A193006AD8A3 /* CommandLine+extensions.swift */; };
 		2CC49F612718A193006AD8A3 /* CommandLine+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC49F5F2718A193006AD8A3 /* CommandLine+extensions.swift */; };
 		2CC49F622718A193006AD8A3 /* CommandLine+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC49F5F2718A193006AD8A3 /* CommandLine+extensions.swift */; };
+		2CCC99552720AAC1003403F0 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CCC99542720AAC1003403F0 /* CloudKit.framework */; };
 		2CCD0B7E26F28CFD00BE8E21 /* CopyableDetailsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCD0B7D26F28CFD00BE8E21 /* CopyableDetailsRow.swift */; };
 		2CCD0B7F26F28CFD00BE8E21 /* CopyableDetailsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCD0B7D26F28CFD00BE8E21 /* CopyableDetailsRow.swift */; };
 		2CCD0B8126F2933100BE8E21 /* DateDetailsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCD0B8026F2933100BE8E21 /* DateDetailsRow.swift */; };
@@ -310,6 +313,8 @@
 		2C00B0072716251E00001AAB /* SettingsView+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsView+ViewModel.swift"; sourceTree = "<group>"; };
 		2C00B00B271628D700001AAB /* SettingsFormRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsFormRow.swift; sourceTree = "<group>"; };
 		2C00B00F27162DAA00001AAB /* FeedbackSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackSheet.swift; sourceTree = "<group>"; };
+		2C0436A72720ADB400F65677 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		2C0436AA2720AE8400F65677 /* Password-Generator (iOS).entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Password-Generator (iOS).entitlements"; sourceTree = "<group>"; };
 		2C08AD8126E7FC33001ECD75 /* HomeMainActionButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMainActionButtons.swift; sourceTree = "<group>"; };
 		2C08AD8D26E80639001ECD75 /* UnitTestsiOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitTestsiOS.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C08AD9126E80639001ECD75 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -439,6 +444,7 @@
 		2CBFD5252709B67800E9EF82 /* EditMode+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EditMode+extensions.swift"; sourceTree = "<group>"; };
 		2CC49F5B2718A132006AD8A3 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		2CC49F5F2718A193006AD8A3 /* CommandLine+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CommandLine+extensions.swift"; sourceTree = "<group>"; };
+		2CCC99542720AAC1003403F0 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS15.0.sdk/System/Library/Frameworks/CloudKit.framework; sourceTree = DEVELOPER_DIR; };
 		2CCD0B7D26F28CFD00BE8E21 /* CopyableDetailsRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyableDetailsRow.swift; sourceTree = "<group>"; };
 		2CCD0B8026F2933100BE8E21 /* DateDetailsRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateDetailsRow.swift; sourceTree = "<group>"; };
 		2CD73C3526F7C1D50054C380 /* PlaygroundScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaygroundScreen.swift; sourceTree = "<group>"; };
@@ -474,7 +480,6 @@
 		60937A16270CB10A005F13F0 /* set_up_xcode_version.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = set_up_xcode_version.sh; sourceTree = "<group>"; };
 		609CF9DA2719608E003C604D /* snapshots_ios.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = snapshots_ios.sh; sourceTree = "<group>"; };
 		60B4C54E270C290200E7F1A3 /* run_tests.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = run_tests.sh; sourceTree = "<group>"; };
-		60E11135272081D60056E1E8 /* Password-Generator (iOS).entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Password-Generator (iOS).entitlements"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -501,6 +506,7 @@
 				2C3E590726EA7E2200F75F51 /* SalmonUI in Frameworks */,
 				2C6AD45026E502AF003AF55C /* ConsoleSwift in Frameworks */,
 				2C6AD46426E5075F003AF55C /* PGLocale in Frameworks */,
+				2CCC99552720AAC1003403F0 /* CloudKit.framework in Frameworks */,
 				6069B01E271FFBDF006BD320 /* ICloutKit in Frameworks */,
 				2C6AD47F26E5098C003AF55C /* ShrimpExtensions in Frameworks */,
 			);
@@ -515,6 +521,7 @@
 				2C3E590926EA7E2B00F75F51 /* SalmonUI in Frameworks */,
 				2C6AD45626E502D1003AF55C /* ConsoleSwift in Frameworks */,
 				2C6AD46226E5075A003AF55C /* PGLocale in Frameworks */,
+				2C0436A82720ADB400F65677 /* CloudKit.framework in Frameworks */,
 				6069B020271FFBF7006BD320 /* ICloutKit in Frameworks */,
 				2C6AD48126E509A2003AF55C /* ShrimpExtensions in Frameworks */,
 			);
@@ -543,6 +550,7 @@
 				2C6D1D722703BD0F004AD36E /* SalmonUI in Frameworks */,
 				2C6D1D732703BD0F004AD36E /* ConsoleSwift in Frameworks */,
 				2C6D1D742703BD0F004AD36E /* PGLocale in Frameworks */,
+				2C0436A92720AE4700F65677 /* CloudKit.framework in Frameworks */,
 				6069B022271FFBFF006BD320 /* ICloutKit in Frameworks */,
 				2C6D1D752703BD0F004AD36E /* ShrimpExtensions in Frameworks */,
 			);
@@ -762,7 +770,6 @@
 		2C6AD40226E50120003AF55C = {
 			isa = PBXGroup;
 			children = (
-				60E11135272081D60056E1E8 /* Password-Generator (iOS).entitlements */,
 				2C187A9E271B3180003A0E38 /* Gemfile */,
 				2C187AA0271B3196003A0E38 /* LICENSE */,
 				2C187A9F271B3190003A0E38 /* Gemfile.lock */,
@@ -819,6 +826,7 @@
 		2C6AD41426E50124003AF55C /* iOS */ = {
 			isa = PBXGroup;
 			children = (
+				2C0436AA2720AE8400F65677 /* Password-Generator (iOS).entitlements */,
 				2C6AD41526E50124003AF55C /* Info.plist */,
 			);
 			path = iOS;
@@ -878,6 +886,8 @@
 		2C6AD45426E502D1003AF55C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2C0436A72720ADB400F65677 /* CloudKit.framework */,
+				2CCC99542720AAC1003403F0 /* CloudKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -2092,9 +2102,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "Password-Generator (iOS).entitlements";
+				CODE_SIGN_ENTITLEMENTS = "Targets/iOS/Password-Generator (iOS).entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 109;
+				CURRENT_PROJECT_VERSION = 124;
 				DEVELOPMENT_TEAM = DXUKH9VF73;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Targets/iOS/Info.plist;
@@ -2117,10 +2127,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "Password-Generator (iOS).entitlements";
+				CODE_SIGN_ENTITLEMENTS = "Targets/iOS/Password-Generator (iOS).entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 109;
+				CURRENT_PROJECT_VERSION = 124;
 				DEVELOPMENT_TEAM = DXUKH9VF73;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Targets/iOS/Info.plist;
@@ -2146,10 +2156,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Targets/macOS/macOS.entitlements;
-				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 109;
+				CURRENT_PROJECT_VERSION = 124;
 				DEVELOPMENT_TEAM = DXUKH9VF73;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
@@ -2174,10 +2184,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Targets/macOS/macOS.entitlements;
-				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_IDENTITY = "3rd Party Mac Developer Application";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 109;
+				CURRENT_PROJECT_VERSION = 124;
 				DEVELOPMENT_TEAM = DXUKH9VF73;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
@@ -2306,10 +2316,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "Targets/macOS/macOS-Dev.entitlements";
-				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 109;
+				CURRENT_PROJECT_VERSION = 124;
 				DEVELOPMENT_TEAM = DXUKH9VF73;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
@@ -2334,10 +2344,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "Targets/macOS/macOS-Dev.entitlements";
-				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 109;
+				CURRENT_PROJECT_VERSION = 124;
 				DEVELOPMENT_TEAM = DXUKH9VF73;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
