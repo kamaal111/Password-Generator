@@ -192,6 +192,9 @@
 		2CA895D326E5661C0057A82C /* UserDefaults+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA895D126E5661C0057A82C /* UserDefaults+extensions.swift */; };
 		2CA895D526E56BB70057A82C /* ToggleFormField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA895D426E56BB70057A82C /* ToggleFormField.swift */; };
 		2CA895D626E56BB70057A82C /* ToggleFormField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA895D426E56BB70057A82C /* ToggleFormField.swift */; };
+		2CB7C4A2271CA36C005B13C0 /* KeychainPlaygroundScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB7C4A1271CA36C005B13C0 /* KeychainPlaygroundScreen.swift */; };
+		2CB7C4A3271CA36C005B13C0 /* KeychainPlaygroundScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB7C4A1271CA36C005B13C0 /* KeychainPlaygroundScreen.swift */; };
+		2CB7C4A4271CA36C005B13C0 /* KeychainPlaygroundScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB7C4A1271CA36C005B13C0 /* KeychainPlaygroundScreen.swift */; };
 		2CBF2B442708F17B0088E18F /* FileManager+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CBF2B432708F17B0088E18F /* FileManager+extensions.swift */; };
 		2CBF2B452708F17B0088E18F /* FileManager+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CBF2B432708F17B0088E18F /* FileManager+extensions.swift */; };
 		2CBF2B462708F17B0088E18F /* FileManager+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CBF2B432708F17B0088E18F /* FileManager+extensions.swift */; };
@@ -230,6 +233,9 @@
 		2CE97ED126EBFD14004D799A /* SavedPasswordListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE97ECF26EBFD14004D799A /* SavedPasswordListItem.swift */; };
 		2CE97ED326EC03BF004D799A /* Notification.Name+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE97ED226EC03BF004D799A /* Notification.Name+extensions.swift */; };
 		2CE97ED426EC03BF004D799A /* Notification.Name+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE97ED226EC03BF004D799A /* Notification.Name+extensions.swift */; };
+		2CEA20B0271F658600507106 /* KeychainHanger in Frameworks */ = {isa = PBXBuildFile; productRef = 2CEA20AF271F658600507106 /* KeychainHanger */; };
+		2CEA20B2271F659500507106 /* KeychainHanger in Frameworks */ = {isa = PBXBuildFile; productRef = 2CEA20B1271F659500507106 /* KeychainHanger */; };
+		2CEA20B4271F659E00507106 /* KeychainHanger in Frameworks */ = {isa = PBXBuildFile; productRef = 2CEA20B3271F659E00507106 /* KeychainHanger */; };
 		2CFD1D0A26EAA1FD00B7DF4F /* SavedPasswordsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CFD1D0926EAA1FD00B7DF4F /* SavedPasswordsScreen.swift */; };
 		2CFD1D0B26EAA1FD00B7DF4F /* SavedPasswordsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CFD1D0926EAA1FD00B7DF4F /* SavedPasswordsScreen.swift */; };
 		2CFD3DFD2718BF2E00871A1D /* PGLocale in Frameworks */ = {isa = PBXBuildFile; productRef = 2CFD3DFC2718BF2E00871A1D /* PGLocale */; };
@@ -418,6 +424,7 @@
 		2CA895CE26E5618D0057A82C /* DeviceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceModel.swift; sourceTree = "<group>"; };
 		2CA895D126E5661C0057A82C /* UserDefaults+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+extensions.swift"; sourceTree = "<group>"; };
 		2CA895D426E56BB70057A82C /* ToggleFormField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleFormField.swift; sourceTree = "<group>"; };
+		2CB7C4A1271CA36C005B13C0 /* KeychainPlaygroundScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainPlaygroundScreen.swift; sourceTree = "<group>"; };
 		2CBF2B432708F17B0088E18F /* FileManager+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+extensions.swift"; sourceTree = "<group>"; };
 		2CBF2B472708F2370088E18F /* LogoPlaygroundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoPlaygroundButton.swift; sourceTree = "<group>"; };
 		2CBFD5252709B67800E9EF82 /* EditMode+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EditMode+extensions.swift"; sourceTree = "<group>"; };
@@ -478,6 +485,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C6AD45326E502BD003AF55C /* PersistanceManager in Frameworks */,
+				2CEA20B0271F658600507106 /* KeychainHanger in Frameworks */,
 				2C3E590726EA7E2200F75F51 /* SalmonUI in Frameworks */,
 				2C6AD45026E502AF003AF55C /* ConsoleSwift in Frameworks */,
 				2C6AD46426E5075F003AF55C /* PGLocale in Frameworks */,
@@ -490,6 +498,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C6AD45826E502D5003AF55C /* PersistanceManager in Frameworks */,
+				2CEA20B2271F659500507106 /* KeychainHanger in Frameworks */,
 				2C3E590926EA7E2B00F75F51 /* SalmonUI in Frameworks */,
 				2C6AD45626E502D1003AF55C /* ConsoleSwift in Frameworks */,
 				2C6AD46226E5075A003AF55C /* PGLocale in Frameworks */,
@@ -516,6 +525,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C6D1D712703BD0F004AD36E /* PersistanceManager in Frameworks */,
+				2CEA20B4271F659E00507106 /* KeychainHanger in Frameworks */,
 				2C6D1D722703BD0F004AD36E /* SalmonUI in Frameworks */,
 				2C6D1D732703BD0F004AD36E /* ConsoleSwift in Frameworks */,
 				2C6D1D742703BD0F004AD36E /* PGLocale in Frameworks */,
@@ -1137,6 +1147,7 @@
 		6017C072270100E90023F347 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				2CB7C4A1271CA36C005B13C0 /* KeychainPlaygroundScreen.swift */,
 				6017C073270101030023F347 /* LogoPlaygroundScreen.swift */,
 				2CD73C3526F7C1D50054C380 /* PlaygroundScreen.swift */,
 			);
@@ -1213,6 +1224,7 @@
 				2C6AD46326E5075F003AF55C /* PGLocale */,
 				2C6AD47E26E5098C003AF55C /* ShrimpExtensions */,
 				2C3E590626EA7E2200F75F51 /* SalmonUI */,
+				2CEA20AF271F658600507106 /* KeychainHanger */,
 			);
 			productName = "Password-Generator (iOS)";
 			productReference = 2C6AD41226E50124003AF55C /* Passlify.app */;
@@ -1238,6 +1250,7 @@
 				2C6AD46126E5075A003AF55C /* PGLocale */,
 				2C6AD48026E509A2003AF55C /* ShrimpExtensions */,
 				2C3E590826EA7E2B00F75F51 /* SalmonUI */,
+				2CEA20B1271F659500507106 /* KeychainHanger */,
 			);
 			productName = "Password-Generator (macOS)";
 			productReference = 2C6AD41A26E50124003AF55C /* Passlify.app */;
@@ -1299,6 +1312,7 @@
 				2C6D1D322703BD0F004AD36E /* PGLocale */,
 				2C6D1D332703BD0F004AD36E /* ShrimpExtensions */,
 				2C6D1D352703BD0F004AD36E /* SalmonUI */,
+				2CEA20B3271F659E00507106 /* KeychainHanger */,
 			);
 			productName = "Password-Generator (macOS)";
 			productReference = 2C6D1D7C2703BD0F004AD36E /* Passlify.app */;
@@ -1380,6 +1394,7 @@
 				2C6AD45126E502BD003AF55C /* XCRemoteSwiftPackageReference "PersistanceManager" */,
 				2C6AD47D26E5098C003AF55C /* XCRemoteSwiftPackageReference "ShrimpExtensions" */,
 				2C3E590526EA7E2200F75F51 /* XCRemoteSwiftPackageReference "SalmonUI" */,
+				2CEA20AE271F658600507106 /* XCRemoteSwiftPackageReference "KeychainHanger" */,
 			);
 			productRefGroup = 2C6AD41326E50124003AF55C /* Products */;
 			projectDirPath = "";
@@ -1581,6 +1596,7 @@
 				2C6AD47B26E5093B003AF55C /* ScreenModel.swift in Sources */,
 				6017C07A2701062A0023F347 /* Logo.swift in Sources */,
 				2CA895D226E5661C0057A82C /* UserDefaults+extensions.swift in Sources */,
+				2CB7C4A2271CA36C005B13C0 /* KeychainPlaygroundScreen.swift in Sources */,
 				2C6AD43A26E50124003AF55C /* Persistence.swift in Sources */,
 				2CE97ED326EC03BF004D799A /* Notification.Name+extensions.swift in Sources */,
 				2C6AD48926E50C60003AF55C /* HomeScreen.swift in Sources */,
@@ -1680,6 +1696,7 @@
 				2C614B3D26E6A0070061FF82 /* PasswordHandler.swift in Sources */,
 				2CCD0B7F26F28CFD00BE8E21 /* CopyableDetailsRow.swift in Sources */,
 				2C6AD48D26E50CAD003AF55C /* AppSidebar.swift in Sources */,
+				2CB7C4A3271CA36C005B13C0 /* KeychainPlaygroundScreen.swift in Sources */,
 				2CD73C4326F7D0910054C380 /* DeviceShakeViewModifier.swift in Sources */,
 				6017C07F270108440023F347 /* LogoPlaygroundColorSelector.swift in Sources */,
 				2CE322F427086E8B00004F27 /* LogoPlaygroundStepper.swift in Sources */,
@@ -1771,6 +1788,7 @@
 				2C6D1D652703BD0F004AD36E /* PasswordHandler.swift in Sources */,
 				2C6D1D662703BD0F004AD36E /* CopyableDetailsRow.swift in Sources */,
 				2C6D1D672703BD0F004AD36E /* AppSidebar.swift in Sources */,
+				2CB7C4A4271CA36C005B13C0 /* KeychainPlaygroundScreen.swift in Sources */,
 				2C6D1D682703BD0F004AD36E /* DeviceShakeViewModifier.swift in Sources */,
 				2C6D1D692703BD0F004AD36E /* LogoPlaygroundColorSelector.swift in Sources */,
 				2CE322F527086E8B00004F27 /* LogoPlaygroundStepper.swift in Sources */,
@@ -2516,6 +2534,14 @@
 				minimumVersion = 4.2.0;
 			};
 		};
+		2CEA20AE271F658600507106 /* XCRemoteSwiftPackageReference "KeychainHanger" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kamaal111/KeychainHanger.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -2590,6 +2616,21 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 2C6D1D362703BD0F004AD36E /* XCRemoteSwiftPackageReference "SalmonUI" */;
 			productName = SalmonUI;
+		};
+		2CEA20AF271F658600507106 /* KeychainHanger */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2CEA20AE271F658600507106 /* XCRemoteSwiftPackageReference "KeychainHanger" */;
+			productName = KeychainHanger;
+		};
+		2CEA20B1271F659500507106 /* KeychainHanger */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2CEA20AE271F658600507106 /* XCRemoteSwiftPackageReference "KeychainHanger" */;
+			productName = KeychainHanger;
+		};
+		2CEA20B3271F659E00507106 /* KeychainHanger */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2CEA20AE271F658600507106 /* XCRemoteSwiftPackageReference "KeychainHanger" */;
+			productName = KeychainHanger;
 		};
 		2CFD3DFC2718BF2E00871A1D /* PGLocale */ = {
 			isa = XCSwiftPackageProductDependency;
