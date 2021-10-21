@@ -16,6 +16,7 @@ extension Notification.Name {
     #else
     static let deviceDidShake = Notification.Name(constructKey(with: "deviceDidShake"))
     #endif
+    static let iCloudChanges = Notification.Name(constructKey(with: "iCloudChanges"))
 
     private static func constructKey(with value: String) -> String {
         "\(Constants.bundleIdentifier).notifications.\(value)"

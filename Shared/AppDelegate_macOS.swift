@@ -7,11 +7,39 @@
 
 import AppKit
 import PGLocale
+import ConsoleSwift
 
 class AppDelegate: NSObject, NSApplicationDelegate {
+
+    private let cloudKitController = CloudKitController.shared
+
     func applicationDidFinishLaunching(_ notification: Notification) {
         guard let app = notification.object as? NSApplication else { return }
+
         buildMenu(app)
+
+        app.registerForRemoteNotifications()
+        cloudKitController.subscripeToAll()
+    }
+
+}
+
+// MARK: Notifications
+
+extension AppDelegate {
+    func application(_ application: NSApplication, didReceiveRemoteNotification userInfo: [String: Any]) {
+        if let notification = CKNotification(fromRemoteNotificationDictionary: userInfo) {
+            console.log(Date(), "CloudKit database changed", notification)
+            NotificationCenter.default.post(name: .iCloudChanges, object: notification)
+        }
+    }
+
+    func application(_ application: NSApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        console.log(Date(), "deviceToken", deviceToken.hexString)
+    }
+
+    func application(_ application: NSApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        console.log(Date(), error.localizedDescription, error)
     }
 }
 

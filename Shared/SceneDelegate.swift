@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import ConsoleSwift
 
 class SceneDelegate: NSObject, UIWindowSceneDelegate {
 
@@ -26,8 +27,11 @@ class SceneDelegate: NSObject, UIWindowSceneDelegate {
             #endif
     }
 
-    // MARK: Life Cycle Methods
+}
 
+// MARK: Life Cycle Methods
+
+extension SceneDelegate {
     func sceneDidDisconnect(_ scene: UIScene) { }
 
     func sceneDidBecomeActive(_ scene: UIScene) { }
@@ -40,8 +44,7 @@ class SceneDelegate: NSObject, UIWindowSceneDelegate {
         do {
             try PersistenceController.shared.save()
         } catch {
-            print("Could not save when entering background", error)
+            console.error(Date(), "Could not save when entering background", error)
         }
     }
-
 }

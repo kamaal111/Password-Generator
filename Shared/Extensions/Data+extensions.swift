@@ -9,6 +9,13 @@ import SwiftUI
 import ConsoleSwift
 
 extension Data {
+    var hexString: String {
+        let hexString = self
+            .map({ String(format: "%02.2hhx", $0) })
+            .joined()
+        return hexString
+    }
+
     #if canImport(AppKit)
     func download(filename: String) {
         // - FIXME: REFACTOR THIS TO BE USED IN IMAGES AS WELL
