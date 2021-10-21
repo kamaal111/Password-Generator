@@ -20,7 +20,8 @@ final class CloudKitController {
     static let shared = CloudKitController()
 
     func subscripeToAll() {
-        fetchAllSubcriptions { [weak self] result in
+        #if !targetEnvironment(simulator)
+        iCloutKit.fetchAllSubscriptions { [weak self] result in
             guard let self = self else { return }
 
             let subscriptions: [CKSubscription]
@@ -71,10 +72,7 @@ final class CloudKitController {
                     }
                 })
         }
-    }
-
-    private func fetchAllSubcriptions(completion: @escaping (Result<[CKSubscription], Error>) -> Void) {
-        iCloutKit.fetchAllSubscriptions(completion: completion)
+        #endif
     }
 
 }
