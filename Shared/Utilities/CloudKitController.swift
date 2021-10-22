@@ -19,6 +19,29 @@ final class CloudKitController {
 
     static let shared = CloudKitController()
 
+    func save(_ record: CKRecord, completion: @escaping (Result<CKRecord?, Error>) -> Void) {
+        let preparedRecord = record
+        preparedRecord["updated_date"] = Date()
+        iCloutKit.save(preparedRecord, completion: completion)
+    }
+
+    #if !os(macOS)
+    @available(macOS 12.0.0, iOS 15.0.0, *)
+    func save(_ record: CKRecord) async -> Result<CKRecord?, Error> {
+        let preparedRecord = record
+        preparedRecord["updated_date"] = Date()
+        return await withCheckedContinuation { continuation in
+            iCloutKit.save(preparedRecord, completion: { result in
+                continuation.resume(returning: result)
+            })
+        }
+    }
+    #endif
+
+    func getAccountStatus(completion: @escaping (Result<Bool, Error>) -> Void) {
+        iCloutKit.getAccountStatus(completion: completion)
+    }
+
     func subscripeToAll() {
         #if !targetEnvironment(simulator)
         iCloutKit.fetchAllSubscriptions { [weak self] result in

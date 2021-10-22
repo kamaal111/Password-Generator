@@ -7,6 +7,7 @@
 
 import Foundation
 import CoreData
+import CloudKit
 
 extension CorePassword {
     static let entityName = String(describing: CorePassword.self)
@@ -14,7 +15,38 @@ extension CorePassword {
     var maskedValue: String {
         value.map({ _ in "*" }).joined()
     }
+}
 
+// - MARK: Core Data helpers
+
+extension CorePassword {
+    static func checkForDuplicatePasswords(_ password: String, context: NSManagedObjectContext) -> Bool {
+        let fetchRequest = NSFetchRequest<CorePassword>(entityName: entityName)
+        fetchRequest.predicate = NSPredicate(format: "value == %@", password)
+        let fetchedPasswords: [CorePassword]
+        do {
+            fetchedPasswords = try context.fetch(fetchRequest)
+        } catch {
+            return false
+        }
+        return !fetchedPasswords.isEmpty
+    }
+
+    static func fetchAllPasswords(context: NSManagedObjectContext) -> Result<[CorePassword], Error> {
+        let fetchRequest = NSFetchRequest<CorePassword>(entityName: entityName)
+        let fetchedPasswords: [CorePassword]
+        do {
+            fetchedPasswords = try context.fetch(fetchRequest)
+        } catch {
+            return .failure(error)
+        }
+        return .success(fetchedPasswords)
+    }
+}
+
+// - MARK: Core Data modifications
+
+extension CorePassword {
     func edit(args: Args) -> Result<CorePassword, Error> {
         self.name = args.name
         self.value = args.value
@@ -46,29 +78,6 @@ extension CorePassword {
         return .success(password)
     }
 
-    static func checkForDuplicatePasswords(_ password: String, context: NSManagedObjectContext) -> Bool {
-        let fetchRequest = NSFetchRequest<CorePassword>(entityName: entityName)
-        fetchRequest.predicate = NSPredicate(format: "value == %@", password)
-        let fetchedPasswords: [CorePassword]
-        do {
-            fetchedPasswords = try context.fetch(fetchRequest)
-        } catch {
-            return false
-        }
-        return !fetchedPasswords.isEmpty
-    }
-
-    static func fetchAllPasswords(context: NSManagedObjectContext) -> Result<[CorePassword], Error> {
-        let fetchRequest = NSFetchRequest<CorePassword>(entityName: entityName)
-        let fetchedPasswords: [CorePassword]
-        do {
-            fetchedPasswords = try context.fetch(fetchRequest)
-        } catch {
-            return .failure(error)
-        }
-        return .success(fetchedPasswords)
-    }
-
     struct Args {
         let name: String?
         let value: String
@@ -81,5 +90,38 @@ extension CorePassword {
         init(value: String) {
             self.init(name: nil, value: value)
         }
+    }
+}
+
+// - MARK: Cloud helpers
+
+extension CorePassword {
+    static let recordType = String(describing: CorePassword.self)
+
+    enum RecordKeys: String, CaseIterable {
+        case name
+        case id
+        case updatedDate = "updated_date"
+        case creationDate = "creation_date"
+        case value
+    }
+
+    var ckRecord: CKRecord {
+        let record = CKRecord(recordType: Self.recordType)
+        record[RecordKeys.name.rawValue] = name
+        record[RecordKeys.value.rawValue] = value.nsString
+        record[RecordKeys.id.rawValue] = id.nsString
+        record[RecordKeys.updatedDate.rawValue] = updatedDate
+        record[RecordKeys.creationDate.rawValue] = creationDate
+        return record
+    }
+
+    func ckRecord(from record: CKRecord) -> CKRecord {
+        let currentRecord = ckRecord
+        let recordToUpdate = record
+        RecordKeys.allCases.forEach { recordKey in
+            recordToUpdate[recordKey.rawValue] = currentRecord[recordKey.rawValue]
+        }
+        return recordToUpdate
     }
 }
