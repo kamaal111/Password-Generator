@@ -171,6 +171,9 @@
 		2C81ACEC2709DEFA00D387CA /* Array+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C81ACEB2709DEFA00D387CA /* Array+extensions.swift */; };
 		2C81ACED2709DEFA00D387CA /* Array+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C81ACEB2709DEFA00D387CA /* Array+extensions.swift */; };
 		2C81ACEE2709DEFA00D387CA /* Array+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C81ACEB2709DEFA00D387CA /* Array+extensions.swift */; };
+		2C8C2954272353D80065AA17 /* PlaygroundFormButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8C2953272353D80065AA17 /* PlaygroundFormButton.swift */; };
+		2C8C2955272353D80065AA17 /* PlaygroundFormButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8C2953272353D80065AA17 /* PlaygroundFormButton.swift */; };
+		2C8C2956272353D80065AA17 /* PlaygroundFormButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8C2953272353D80065AA17 /* PlaygroundFormButton.swift */; };
 		2C93722926EFEED0004BF5BF /* SavedPasswordsScreen+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C93722826EFEED0004BF5BF /* SavedPasswordsScreen+ViewModel.swift */; };
 		2C93722A26EFEED0004BF5BF /* SavedPasswordsScreen+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C93722826EFEED0004BF5BF /* SavedPasswordsScreen+ViewModel.swift */; };
 		2C93722C26EFF065004BF5BF /* Clipboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C93722B26EFF065004BF5BF /* Clipboard.swift */; };
@@ -433,6 +436,7 @@
 		2C7D5CE7270A33B8001BD216 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		2C7D5CEB270A3609001BD216 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		2C81ACEB2709DEFA00D387CA /* Array+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+extensions.swift"; sourceTree = "<group>"; };
+		2C8C2953272353D80065AA17 /* PlaygroundFormButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaygroundFormButton.swift; sourceTree = "<group>"; };
 		2C93722826EFEED0004BF5BF /* SavedPasswordsScreen+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SavedPasswordsScreen+ViewModel.swift"; sourceTree = "<group>"; };
 		2C93722B26EFF065004BF5BF /* Clipboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clipboard.swift; sourceTree = "<group>"; };
 		2C93722E26EFF524004BF5BF /* StackNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackNavigator.swift; sourceTree = "<group>"; };
@@ -1199,6 +1203,7 @@
 				6017C07D270108440023F347 /* LogoPlaygroundColorSelector.swift */,
 				2CE322F227086E8B00004F27 /* LogoPlaygroundStepper.swift */,
 				2CE322EE27086E6400004F27 /* LogoPlaygroundToggle.swift */,
+				2C8C2953272353D80065AA17 /* PlaygroundFormButton.swift */,
 			);
 			path = SupportingViews;
 			sourceTree = "<group>";
@@ -1644,6 +1649,7 @@
 				2C6AD43A26E50124003AF55C /* Persistence.swift in Sources */,
 				2CE97ED326EC03BF004D799A /* Notification.Name+extensions.swift in Sources */,
 				2C6AD48926E50C60003AF55C /* HomeScreen.swift in Sources */,
+				2C8C2954272353D80065AA17 /* PlaygroundFormButton.swift in Sources */,
 				2C08AD8226E7FC33001ECD75 /* HomeMainActionButtons.swift in Sources */,
 				2C93722C26EFF065004BF5BF /* Clipboard.swift in Sources */,
 				6017C08127010AD50023F347 /* Image+extensions.swift in Sources */,
@@ -1743,6 +1749,7 @@
 				2CD73C4226F7CDE30054C380 /* Optional+extensions.swift in Sources */,
 				2CD73C3726F7C1D50054C380 /* PlaygroundScreen.swift in Sources */,
 				2C81ACED2709DEFA00D387CA /* Array+extensions.swift in Sources */,
+				2C8C2955272353D80065AA17 /* PlaygroundFormButton.swift in Sources */,
 				2C614B3D26E6A0070061FF82 /* PasswordHandler.swift in Sources */,
 				2CCD0B7F26F28CFD00BE8E21 /* CopyableDetailsRow.swift in Sources */,
 				2C6AD48D26E50CAD003AF55C /* AppSidebar.swift in Sources */,
@@ -1839,6 +1846,7 @@
 				2C6D1D632703BD0F004AD36E /* Optional+extensions.swift in Sources */,
 				2C6D1D642703BD0F004AD36E /* PlaygroundScreen.swift in Sources */,
 				2C81ACEE2709DEFA00D387CA /* Array+extensions.swift in Sources */,
+				2C8C2956272353D80065AA17 /* PlaygroundFormButton.swift in Sources */,
 				2C6D1D652703BD0F004AD36E /* PasswordHandler.swift in Sources */,
 				2C6D1D662703BD0F004AD36E /* CopyableDetailsRow.swift in Sources */,
 				2C6D1D672703BD0F004AD36E /* AppSidebar.swift in Sources */,

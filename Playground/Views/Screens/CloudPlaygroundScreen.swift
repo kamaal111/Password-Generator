@@ -15,27 +15,29 @@ struct CloudPlaygroundScreen: View {
 
     var body: some View {
         FeaturePlaygroundScreenWrapper(title: "Cloud Playground") {
-            Button(action: {
-                CloudKitController.shared.getAccountStatus { result in
-                    print(result)
-                }
-                guard let firstPassword = coreDataModel.savedPasswords.first else { return }
-                console.log(Date(), "record", firstPassword.ckRecord)
-
-                CloudKitController.shared.save(firstPassword.ckRecord) { result in
-                    print(result)
-                }
-            }) {
-                Text("Save a password")
-                    .foregroundColor(.accentColor)
-                    .font(.headline)
-            }
-            .buttonStyle(PlainButtonStyle())
-            .padding(.bottom, .xs)
+            PlaygroundFormButton(text: "Save a password", action: saveAPassword)
+                .padding(.bottom, .xs)
+            PlaygroundFormButton(text: "Get all records", action: getAllPasswords)
+                .padding(.bottom, .xs)
         }
         .onAppear(perform: {
             coreDataModel.fetchAllPasswords()
         })
+    }
+
+    private func getAllPasswords() {
+        CloudKitController.shared.fetchAll(ofType: CorePassword.recordType) { result in
+            print(result)
+        }
+    }
+
+    private func saveAPassword() {
+        guard let firstPassword = coreDataModel.savedPasswords.first else { return }
+        console.log(Date(), "record", firstPassword.ckRecord)
+
+        CloudKitController.shared.save(firstPassword.ckRecord) { result in
+            print(result)
+        }
     }
 }
 

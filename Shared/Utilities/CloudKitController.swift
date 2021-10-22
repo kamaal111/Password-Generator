@@ -25,21 +25,15 @@ final class CloudKitController {
         iCloutKit.save(preparedRecord, completion: completion)
     }
 
-    #if !os(macOS)
-    @available(macOS 12.0.0, iOS 15.0.0, *)
-    func save(_ record: CKRecord) async -> Result<CKRecord?, Error> {
-        let preparedRecord = record
-        preparedRecord["updated_date"] = Date()
-        return await withCheckedContinuation { continuation in
-            iCloutKit.save(preparedRecord, completion: { result in
-                continuation.resume(returning: result)
-            })
-        }
+    func fetchAll(ofType objectType: String, completion: @escaping (Result<[CKRecord], Error>) -> Void) {
+        let predicate = NSPredicate(value: true)
+        fetch(ofType: objectType, withPredicate: predicate, completion: completion)
     }
-    #endif
 
-    func getAccountStatus(completion: @escaping (Result<Bool, Error>) -> Void) {
-        iCloutKit.getAccountStatus(completion: completion)
+    func fetch(ofType objectType: String,
+                      withPredicate predicate: NSPredicate,
+                      completion: @escaping (Result<[CKRecord], Error>) -> Void) {
+        iCloutKit.fetch(ofType: objectType, by: predicate, completion: completion)
     }
 
     func subscripeToAll() {
