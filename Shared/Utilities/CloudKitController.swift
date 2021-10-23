@@ -39,6 +39,10 @@ final class CloudKitController {
         iCloutKit.saveMultiple(preparedRecords, completion: completion)
     }
 
+    func delete(_ record: CKRecord, completion: @escaping (Result<CKRecord.ID, Error>) -> Void) {
+        iCloutKit.delete(record, completion: completion)
+    }
+
     func fetchAll(ofType objectType: String, completion: @escaping (Result<[CKRecord], Error>) -> Void) {
         let predicate = NSPredicate(value: true)
         fetch(ofType: objectType, withPredicate: predicate, completion: completion)
