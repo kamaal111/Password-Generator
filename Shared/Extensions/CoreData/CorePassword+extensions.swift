@@ -15,6 +15,16 @@ extension CorePassword {
     var maskedValue: String {
         value.map({ _ in "*" }).joined()
     }
+
+    var common: CommonPassword {
+        CommonPassword(
+            id: id,
+            name: name,
+            creationDate: creationDate,
+            updatedDate: updatedDate,
+            value: value,
+            source: .coreData)
+    }
 }
 
 // - MARK: Core Data helpers

@@ -235,6 +235,9 @@
 		2CD73C4126F7CDE30054C380 /* Optional+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD73C4026F7CDE30054C380 /* Optional+extensions.swift */; };
 		2CD73C4226F7CDE30054C380 /* Optional+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD73C4026F7CDE30054C380 /* Optional+extensions.swift */; };
 		2CD73C4326F7D0910054C380 /* DeviceShakeViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD73C3E26F7C9810054C380 /* DeviceShakeViewModifier.swift */; };
+		2CDDE9FB27244BEE008162B3 /* CommonPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDDE9FA27244BEE008162B3 /* CommonPassword.swift */; };
+		2CDDE9FC27244BEE008162B3 /* CommonPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDDE9FA27244BEE008162B3 /* CommonPassword.swift */; };
+		2CDDE9FD27244BEE008162B3 /* CommonPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDDE9FA27244BEE008162B3 /* CommonPassword.swift */; };
 		2CE22AB0272201C900642D57 /* Features.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE22AAF272201C900642D57 /* Features.swift */; };
 		2CE22AB1272201C900642D57 /* Features.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE22AAF272201C900642D57 /* Features.swift */; };
 		2CE22AB2272201C900642D57 /* Features.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE22AAF272201C900642D57 /* Features.swift */; };
@@ -475,6 +478,7 @@
 		2CD73C3E26F7C9810054C380 /* DeviceShakeViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceShakeViewModifier.swift; sourceTree = "<group>"; };
 		2CD73C4026F7CDE30054C380 /* Optional+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Optional+extensions.swift"; sourceTree = "<group>"; };
 		2CDDE9F927244B04008162B3 /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
+		2CDDE9FA27244BEE008162B3 /* CommonPassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonPassword.swift; sourceTree = "<group>"; };
 		2CE22AAF272201C900642D57 /* Features.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Features.swift; sourceTree = "<group>"; };
 		2CE322E4270869A400004F27 /* go.mod */ = {isa = PBXFileReference; lastKnownFileType = text; path = go.mod; sourceTree = "<group>"; };
 		2CE322E6270869A400004F27 /* app-icon-generator */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = "app-icon-generator"; sourceTree = "<group>"; };
@@ -1060,6 +1064,7 @@
 		2C6AD47926E5092E003AF55C /* Structures */ = {
 			isa = PBXGroup;
 			children = (
+				2CDDE9FA27244BEE008162B3 /* CommonPassword.swift */,
 				2C6AD47A26E5093B003AF55C /* ScreenModel.swift */,
 			);
 			path = Structures;
@@ -1646,6 +1651,7 @@
 				2C6AD43626E50124003AF55C /* PasslifyApp.swift in Sources */,
 				2CA895D526E56BB70057A82C /* ToggleFormField.swift in Sources */,
 				2C6AD48526E50BFC003AF55C /* MainView.swift in Sources */,
+				2CDDE9FB27244BEE008162B3 /* CommonPassword.swift in Sources */,
 				2C93722F26EFF524004BF5BF /* StackNavigator.swift in Sources */,
 				2CC49F602718A193006AD8A3 /* CommandLine+extensions.swift in Sources */,
 				2CA895C826E55EC60057A82C /* VerticalForm.swift in Sources */,
@@ -1782,6 +1788,7 @@
 				2CE322F427086E8B00004F27 /* LogoPlaygroundStepper.swift in Sources */,
 				2C0D4A0C26E6B72A006CD00D /* CoreDataModel.swift in Sources */,
 				2CA504BE27088581009E4527 /* Shell.swift in Sources */,
+				2CDDE9FC27244BEE008162B3 /* CommonPassword.swift in Sources */,
 				2C93722A26EFEED0004BF5BF /* SavedPasswordsScreen+ViewModel.swift in Sources */,
 				2CC49F612718A193006AD8A3 /* CommandLine+extensions.swift in Sources */,
 				2C93723026EFF524004BF5BF /* StackNavigator.swift in Sources */,
@@ -1882,6 +1889,7 @@
 				2CE322F527086E8B00004F27 /* LogoPlaygroundStepper.swift in Sources */,
 				2C6D1D6A2703BD0F004AD36E /* CoreDataModel.swift in Sources */,
 				2CA504BF27088581009E4527 /* Shell.swift in Sources */,
+				2CDDE9FD27244BEE008162B3 /* CommonPassword.swift in Sources */,
 				2C6D1D6B2703BD0F004AD36E /* SavedPasswordsScreen+ViewModel.swift in Sources */,
 				2CC49F622718A193006AD8A3 /* CommandLine+extensions.swift in Sources */,
 				2C6D1D6C2703BD0F004AD36E /* StackNavigator.swift in Sources */,
