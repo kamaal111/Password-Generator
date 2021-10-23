@@ -21,8 +21,7 @@ struct SettingsView: View {
             FormHeader(title: .SETTINGS)
                 .padding(.bottom, .xs)
             #endif
-            // - TODO: Localize this
-            SettingsFormToggle(state: $userData.iCloudSyncingEnabled, label: "iCloud syncing")
+            SettingsFormToggle(state: $userData.iCloudSyncingEnabled, label: .ICLOUD_SYNCING)
                 #if os(macOS)
                 .padding(.horizontal, .xs)
                 #endif

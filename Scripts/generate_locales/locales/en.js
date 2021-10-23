@@ -38,6 +38,7 @@ const en = {
   FEEDBACK_APP: "Feedback %@",
   SEND_FEEDBACK: "Send feedback",
   VERSION: "Version",
+  ICLOUD_SYNCING: "iCloud syncing",
 };
 
 module.exports = en;

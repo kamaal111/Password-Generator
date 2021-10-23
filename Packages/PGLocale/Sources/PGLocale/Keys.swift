@@ -44,5 +44,6 @@ extension PGLocale {
         case FEEDBACK_APP
         case SEND_FEEDBACK
         case VERSION
+        case ICLOUD_SYNCING
     }
 }
