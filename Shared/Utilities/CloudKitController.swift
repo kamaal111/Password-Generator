@@ -20,7 +20,7 @@ final class CloudKitController {
 
     static let shared = CloudKitController()
 
-    func save(_ record: CKRecord, completion: @escaping (Result<CKRecord?, Error>) -> Void) {
+    func save(_ record: CKRecord, completion: @escaping (Result<CKRecord, Error>) -> Void) {
         let preparedRecord = record
         preparedRecord["updated_date"] = Date()
         iCloutKit.save(preparedRecord, completion: completion)
