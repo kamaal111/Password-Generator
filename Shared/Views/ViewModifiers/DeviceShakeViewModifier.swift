@@ -11,7 +11,7 @@ import SwiftUI
 extension UIWindow {
     override open func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
         if motion == .motionShake {
-            UserDefaults.shakeTimes.add(1)
+            UserDefaults.shakeTimes + 1
             NotificationCenter.default.post(name: .deviceDidShake, object: nil)
         }
      }

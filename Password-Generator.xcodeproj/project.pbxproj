@@ -474,6 +474,7 @@
 		2CD73C3C26F7C7670054C380 /* MenuItemTags.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemTags.swift; sourceTree = "<group>"; };
 		2CD73C3E26F7C9810054C380 /* DeviceShakeViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceShakeViewModifier.swift; sourceTree = "<group>"; };
 		2CD73C4026F7CDE30054C380 /* Optional+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Optional+extensions.swift"; sourceTree = "<group>"; };
+		2CDDE9F927244B04008162B3 /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
 		2CE22AAF272201C900642D57 /* Features.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Features.swift; sourceTree = "<group>"; };
 		2CE322E4270869A400004F27 /* go.mod */ = {isa = PBXFileReference; lastKnownFileType = text; path = go.mod; sourceTree = "<group>"; };
 		2CE322E6270869A400004F27 /* app-icon-generator */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = "app-icon-generator"; sourceTree = "<group>"; };
@@ -796,6 +797,7 @@
 			children = (
 				2C187A9E271B3180003A0E38 /* Gemfile */,
 				2C187AA0271B3196003A0E38 /* LICENSE */,
+				2CDDE9F927244B04008162B3 /* Makefile */,
 				2C187A9F271B3190003A0E38 /* Gemfile.lock */,
 				2C187AA1271B319B003A0E38 /* README.md */,
 				2C537B9E2710DD8F00D56BE6 /* fastlane */,
