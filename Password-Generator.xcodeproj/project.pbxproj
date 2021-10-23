@@ -185,6 +185,9 @@
 		2C9F52482708B5AE00E86EC6 /* Data+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9F52472708B5AE00E86EC6 /* Data+extensions.swift */; };
 		2C9F52492708B5AE00E86EC6 /* Data+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9F52472708B5AE00E86EC6 /* Data+extensions.swift */; };
 		2C9F524A2708B5AE00E86EC6 /* Data+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9F52472708B5AE00E86EC6 /* Data+extensions.swift */; };
+		2CA0275027242E990078A0C6 /* CloudPlaygroundItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA0274F27242E990078A0C6 /* CloudPlaygroundItem.swift */; };
+		2CA0275127242E990078A0C6 /* CloudPlaygroundItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA0274F27242E990078A0C6 /* CloudPlaygroundItem.swift */; };
+		2CA0275227242E990078A0C6 /* CloudPlaygroundItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA0274F27242E990078A0C6 /* CloudPlaygroundItem.swift */; };
 		2CA504BC27087DF9009E4527 /* app-icon-generator in Resources */ = {isa = PBXBuildFile; fileRef = 2CE322E6270869A400004F27 /* app-icon-generator */; };
 		2CA504BE27088581009E4527 /* Shell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA504BD27088581009E4527 /* Shell.swift */; };
 		2CA504BF27088581009E4527 /* Shell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA504BD27088581009E4527 /* Shell.swift */; };
@@ -442,6 +445,7 @@
 		2C93722E26EFF524004BF5BF /* StackNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackNavigator.swift; sourceTree = "<group>"; };
 		2C93723126EFF56B004BF5BF /* SavedPasswordDetailScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedPasswordDetailScreen.swift; sourceTree = "<group>"; };
 		2C9F52472708B5AE00E86EC6 /* Data+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+extensions.swift"; sourceTree = "<group>"; };
+		2CA0274F27242E990078A0C6 /* CloudPlaygroundItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudPlaygroundItem.swift; sourceTree = "<group>"; };
 		2CA504BD27088581009E4527 /* Shell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shell.swift; sourceTree = "<group>"; };
 		2CA895C126E55B080057A82C /* Text+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Text+extensions.swift"; sourceTree = "<group>"; };
 		2CA895C726E55EC60057A82C /* VerticalForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalForm.swift; sourceTree = "<group>"; };
@@ -1198,6 +1202,7 @@
 		6017C07C270108340023F347 /* SupportingViews */ = {
 			isa = PBXGroup;
 			children = (
+				2CA0274F27242E990078A0C6 /* CloudPlaygroundItem.swift */,
 				6069B027271FFF27006BD320 /* FeaturePlaygroundScreenWrapper.swift */,
 				2CBF2B472708F2370088E18F /* LogoPlaygroundButton.swift */,
 				6017C07D270108440023F347 /* LogoPlaygroundColorSelector.swift */,
@@ -1646,6 +1651,7 @@
 				6017C07A2701062A0023F347 /* Logo.swift in Sources */,
 				2CA895D226E5661C0057A82C /* UserDefaults+extensions.swift in Sources */,
 				2CB7C4A2271CA36C005B13C0 /* KeychainPlaygroundScreen.swift in Sources */,
+				2CA0275027242E990078A0C6 /* CloudPlaygroundItem.swift in Sources */,
 				2C6AD43A26E50124003AF55C /* Persistence.swift in Sources */,
 				2CE97ED326EC03BF004D799A /* Notification.Name+extensions.swift in Sources */,
 				2C6AD48926E50C60003AF55C /* HomeScreen.swift in Sources */,
@@ -1713,6 +1719,7 @@
 				2C49EE5C270A43E9009BC0F9 /* SplashScreen.swift in Sources */,
 				2C6AD47C26E5093B003AF55C /* ScreenModel.swift in Sources */,
 				2C3E590426EA7AD200F75F51 /* CheckButton.swift in Sources */,
+				2CA0275127242E990078A0C6 /* CloudPlaygroundItem.swift in Sources */,
 				2C6AD43B26E50124003AF55C /* Persistence.swift in Sources */,
 				2C00B005271623F800001AAB /* SettingsFormButton.swift in Sources */,
 				6056CF3D26F3D13A002AA00A /* EditMode.swift in Sources */,
@@ -1810,6 +1817,7 @@
 				2C49EE5D270A43EA009BC0F9 /* SplashScreen.swift in Sources */,
 				2C6D1D482703BD0F004AD36E /* ScreenModel.swift in Sources */,
 				2C6D1D492703BD0F004AD36E /* CheckButton.swift in Sources */,
+				2CA0275227242E990078A0C6 /* CloudPlaygroundItem.swift in Sources */,
 				2C6D1D4A2703BD0F004AD36E /* Persistence.swift in Sources */,
 				2C00B006271623F800001AAB /* SettingsFormButton.swift in Sources */,
 				2C6D1D4B2703BD0F004AD36E /* EditMode.swift in Sources */,

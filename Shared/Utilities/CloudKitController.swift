@@ -12,11 +12,12 @@ import ShrimpExtensions
 
 final class CloudKitController {
 
-    private var subscriptions: [CKSubscription] = []
-    private let iCloutKit = ICloutKit(containerID: Constants.cloudContainerId, databaseType: .private)
-    private let subscriptionsWanted = [
+    let recordTypes = [
         CorePassword.description()
     ]
+
+    private var subscriptions: [CKSubscription] = []
+    private let iCloutKit = ICloutKit(containerID: Constants.cloudContainerId, databaseType: .private)
 
     static let shared = CloudKitController()
 
@@ -61,7 +62,7 @@ final class CloudKitController {
             var organizedSubscriptions: [String: CKSubscription] = [:]
             for subscription in subscriptions {
                 if let recordType = (subscription as? CKQuerySubscription)?.recordType,
-                   self.subscriptionsWanted.contains(recordType) {
+                   self.recordTypes.contains(recordType) {
                     organizedSubscriptions[recordType] = subscription
                 }
             }
@@ -72,7 +73,7 @@ final class CloudKitController {
 
             guard Features.createCloudSubscriptions else { return }
 
-            let subcriptionsToCreate = self.subscriptionsWanted
+            let subcriptionsToCreate = self.recordTypes
                 .filter({ recordType in
                     !organizedSubscriptions.keys.contains(recordType)
                 })

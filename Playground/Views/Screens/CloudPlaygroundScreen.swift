@@ -10,21 +10,85 @@ import SwiftUI
 import ConsoleSwift
 import CloudKit
 import ShrimpExtensions
+import SalmonUI
 
 struct CloudPlaygroundScreen: View {
     @EnvironmentObject
     private var coreDataModel: CoreDataModel
 
+    @State private var selectedType = CloudKitController.shared.recordTypes.first!
+    @State private var currentRecords: [String: [CKRecord]] = [:]
+    @State private var loading = false
+    @State private var screenSize = CGSize(width: 400, height: 400)
+
     var body: some View {
         FeaturePlaygroundScreenWrapper(title: "Cloud Playground") {
+            HStack {
+                Picker(selection: $selectedType, label: Text("")) {
+                    ForEach(CloudKitController.shared.recordTypes, id: \.self) { recordType in
+                        Text(recordType)
+                            .tag(recordType)
+                    }
+                }
+                .labelsHidden()
+                .frame(maxWidth: 200)
+                Spacer()
+                Button(action: fetchAllRecords) {
+                    Image(systemName: "arrow.triangle.2.circlepath")
+                }
+            }
+            if !loading {
+                ScrollView(.horizontal, showsIndicators: false) {
+                    ForEach(currentRecords[selectedType] ?? [], id: \.self) { record in
+                        KJustStack {
+                            HStack {
+                                ForEach(record.allKeys(), id: \.self) { recordKey in
+                                    CloudPlaygroundItem(recordValue: record[recordKey], maxWidth: screenSize.width / 5)
+                                }
+                            }
+                        }
+                    }
+                    .ktakeWidthEagerly(alignment: .leading)
+                }
+                .padding(.vertical, .medium)
+            } else {
+                #if os(macOS)
+                KActivityIndicator(isAnimating: $loading, style: .spinning)
+                #else
+                KActivityIndicator(isAnimating: $loading, style: .large)
+                #endif
+            }
             PlaygroundFormButton(text: "Save a password", action: saveAPassword)
                 .padding(.bottom, .xs)
             PlaygroundFormButton(text: "Get all records", action: getAllPasswords)
                 .padding(.bottom, .xs)
         }
+        .kBindToFrameSize($screenSize)
         .onAppear(perform: {
             coreDataModel.fetchAllPasswords()
+            fetchAllRecords()
         })
+    }
+
+    private func fetchAllRecords() {
+        loading = true
+
+        CloudKitController.shared.fetchAll(ofType: selectedType) { result in
+            DispatchQueue.main.async {
+                loading = false
+
+                let records: [CKRecord]
+                switch result {
+                case .failure(let failure):
+                    console.error(Date(), failure.localizedDescription, failure)
+                    return
+                case .success(let success): records = success
+                }
+                currentRecords[selectedType] = records
+
+                #warning("FIND ALL POSIBLE KEYS AND DISPLAY THEM")
+            }
+        }
     }
 
     private func getAllPasswords() {
