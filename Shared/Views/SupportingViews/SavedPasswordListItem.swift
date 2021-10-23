@@ -15,7 +15,7 @@ struct SavedPasswordListItem: View {
     @State private var isDeleting = false
     #endif
 
-    let password: CorePassword
+    let password: CommonPassword
     let hasBeenLastCopied: Bool
     let editMode: EditMode
     let onPress: () -> Void

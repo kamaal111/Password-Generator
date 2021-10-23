@@ -11,7 +11,7 @@ import PGLocale
 extension SavedPasswordDetailScreen {
     final class ViewModel: ObservableObject {
 
-        @Published private var password: CorePassword?
+        @Published private var password: CommonPassword?
         @Published var showPassword = false
         @Published private(set) var editMode = EditMode.inactive
         @Published var edittedName = ""
@@ -37,12 +37,12 @@ extension SavedPasswordDetailScreen {
             password?.name != nil
         }
 
-        var editPasswordArgs: CorePassword.Args {
+        var editPasswordArgs: CommonPassword.Args {
             var passwordName: String?
             if !edittedName.replacingOccurrences(of: " ", with: "").isEmpty {
                 passwordName = edittedName
             }
-            return CorePassword.Args(name: passwordName, value: edittedPasswordValue)
+            return .init(name: passwordName, value: edittedPasswordValue)
         }
 
         var passwordID: UUID? {
@@ -58,7 +58,7 @@ extension SavedPasswordDetailScreen {
             } ?? ""
         }
 
-        func toggleEditMode(onSave: (CorePassword.Args) -> Void) {
+        func toggleEditMode(onSave: (CommonPassword.Args) -> Void) {
             withUnwrappedPassword { password in
                 if editMode.isEditing {
                     onSave(editPasswordArgs)
@@ -100,19 +100,19 @@ extension SavedPasswordDetailScreen {
             }
         }
 
-        func setPassword(_ password: CorePassword) {
+        func setPassword(_ password: CommonPassword) {
             self.password = password
             self.edittedName = password.name ?? ""
             self.edittedPasswordValue = password.value
         }
 
-        private func passwordDateString(of keyPath: KeyPath<CorePassword, Date>) -> String {
+        private func passwordDateString(of keyPath: KeyPath<CommonPassword, Date>) -> String {
             withUnwrappedPassword { password in
                 Self.dateFormatter.string(from: password[keyPath: keyPath])
             } ?? ""
         }
 
-        private func withUnwrappedPassword<T>(completion: (CorePassword) -> T?) -> T? {
+        private func withUnwrappedPassword<T>(completion: (CommonPassword) -> T?) -> T? {
             guard let password = self.password else { return nil }
             return completion(password)
         }

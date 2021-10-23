@@ -12,6 +12,7 @@ import CloudKit
 extension CorePassword {
     static let entityName = String(describing: CorePassword.self)
 
+    // - TODO: CHECK IF NEEDED ELSE REMOVE
     var maskedValue: String {
         value.map({ _ in "*" }).joined()
     }

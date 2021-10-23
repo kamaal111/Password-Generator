@@ -14,7 +14,7 @@ import SwiftUI
 
 final class SavedPasswordsManager: ObservableObject {
 
-    @Published private(set) var passwords: [CorePassword] = []
+    @Published private(set) var passwords: [CommonPassword] = []
     @Published private(set) var lastGeneratedPassword: String?
     @Published var deletionAlertIsActive = false
     @Published private var passwordToDeleteID: UUID? {
@@ -43,12 +43,13 @@ final class SavedPasswordsManager: ObservableObject {
             let removedPassword = self.passwords.remove(at: index)
             self.passwordToDeleteID = nil
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak self] in
-                do {
-                    try self?.persistenceController.delete(removedPassword)
-                } catch {
-                    console.error(Date(), error.localizedDescription, error)
-                    return
-                }
+                #error("Uncomment")
+//                do {
+//                    try self?.persistenceController.delete(removedPassword)
+//                } catch {
+//                    console.error(Date(), error.localizedDescription, error)
+//                    return
+//                }
             }
         }
     }
@@ -56,18 +57,19 @@ final class SavedPasswordsManager: ObservableObject {
     func editPassword(id: UUID, args: CorePassword.Args) {
         guard let index = passwords.firstIndex(where: { $0.id == id }) else { return }
         let password = passwords[index]
-        let editedPasswordResult = password.edit(args: args)
-        let editedPassword: CorePassword
-        switch editedPasswordResult {
-        case .failure(let failure):
-            console.error(Date(), failure.localizedDescription, failure)
-            return
-        case .success(let success): editedPassword = success
-        }
-        passwords[index] = editedPassword
+        #error("Uncomment")
+//        let editedPasswordResult = password.edit(args: args)
+//        let editedPassword: CorePassword
+//        switch editedPasswordResult {
+//        case .failure(let failure):
+//            console.error(Date(), failure.localizedDescription, failure)
+//            return
+//        case .success(let success): editedPassword = success
+//        }
+//        passwords[index] = editedPassword
     }
 
-    func getPasswordByID(is comparisonValue: UUID) -> CorePassword? {
+    func getPasswordByID(is comparisonValue: UUID) -> CommonPassword? {
         passwords.find(by: \.id, is: comparisonValue)
     }
 
@@ -88,7 +90,8 @@ final class SavedPasswordsManager: ObservableObject {
             return
         case .success(let success): allPasswords = success
         }
-        passwords = allPasswords.reversed()
+        #error("Uncomment")
+//        passwords = allPasswords.reversed()
     }
 
     func savePassword(of password: String, withName name: String) -> Bool {
@@ -99,14 +102,15 @@ final class SavedPasswordsManager: ObservableObject {
         let savedPasswordResult = CorePassword.saveNew(
             args: .init(name: unwrappedName, value: password),
             context: persistenceController.context!)
-        let savedPassword: CorePassword
-        switch savedPasswordResult {
-        case .failure(let failure):
-            console.error(Date(), failure.localizedDescription, failure)
-            return false
-        case .success(let success): savedPassword = success
-        }
-        passwords = passwords.prepended(savedPassword)
+        #error("Uncomment")
+//        let savedPassword: CorePassword
+//        switch savedPasswordResult {
+//        case .failure(let failure):
+//            console.error(Date(), failure.localizedDescription, failure)
+//            return false
+//        case .success(let success): savedPassword = success
+//        }
+//        passwords = passwords.prepended(savedPassword)
         return true
     }
 

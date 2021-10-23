@@ -19,7 +19,7 @@ extension SavedPasswordsScreen {
             }
         }
 
-        func hasBeenLastCopied(_ password: CorePassword) -> Bool {
+        func hasBeenLastCopied(_ password: CommonPassword) -> Bool {
             password.id == lastCopiedPasswordID
         }
 

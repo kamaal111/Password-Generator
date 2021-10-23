@@ -20,4 +20,22 @@ struct CommonPassword: Hashable, Identifiable {
         case iCloud
         case coreData
     }
+
+    var maskedValue: String {
+        value.map({ _ in "*" }).joined()
+    }
+
+    struct Args {
+        let name: String?
+        let value: String
+
+        init(name: String?, value: String) {
+            self.name = name
+            self.value = value
+        }
+
+        init(value: String) {
+            self.init(name: nil, value: value)
+        }
+    }
 }
