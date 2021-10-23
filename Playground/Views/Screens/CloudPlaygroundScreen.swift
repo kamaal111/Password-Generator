@@ -108,7 +108,8 @@ struct CloudPlaygroundScreen: View {
     private func saveAPassword() {
         guard let firstPassword = coreDataModel.savedPasswords.first else { return }
 
-        CloudKitController.shared.fetchByID(firstPassword.id, ofType: CorePassword.recordType) { result in
+        let passwordsToSave = [firstPassword]
+        CloudKitController.shared.fetchByIDs(passwordsToSave.map(\.id), ofType: CorePassword.recordType) { result in
             let records: [CKRecord]
             switch result {
             case .failure(let failure):
@@ -117,22 +118,28 @@ struct CloudPlaygroundScreen: View {
             case .success(let success): records = success
             }
 
-            var recordToSave = firstPassword.ckRecord
-            if let foundRecord = records.first(where: {
-                $0[CorePassword.RecordKeys.id.rawValue] == firstPassword.id.nsString
-            }) {
-                recordToSave = firstPassword.ckRecord(from: foundRecord)
-            }
-            CloudKitController.shared.save(recordToSave) { result in
-                let record: CKRecord?
+            let recordsToSave: [CKRecord] = passwordsToSave.map({ password in
+                if let foundRecord = records.first(where: {
+                    $0[CorePassword.RecordKeys.id.rawValue] == password.id.nsString
+                }) {
+                    return password.ckRecord(from: foundRecord)
+                }
+                return password.ckRecord
+            })
+
+            CloudKitController.shared.saveMultiple(recordsToSave) { result in
+                let records: [CKRecord]
                 switch result {
                 case .failure(let failure):
                     console.error(Date(), failure.localizedDescription, failure)
                     return
-                case .success(let success): record = success
+                case .success(let success): records = success
                 }
-                guard let recordID = record?[CorePassword.RecordKeys.id.rawValue] else { return }
-                console.log(Date(), "saved record", recordID)
+
+                records.forEach { record in
+                    guard let recordID = record[CorePassword.RecordKeys.id.rawValue] else { return }
+                    console.log(Date(), "saved record", recordID)
+                }
             }
         }
     }

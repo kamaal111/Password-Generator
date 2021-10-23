@@ -27,6 +27,18 @@ final class CloudKitController {
         iCloutKit.save(preparedRecord, completion: completion)
     }
 
+    func saveMultiple(_ records: [CKRecord], completion: @escaping (Result<[CKRecord], Error>) -> Void) {
+        guard !records.isEmpty else {
+            completion(.success(records))
+            return
+        }
+        let preparedRecords: [CKRecord] = records.map { record in
+            record["updated_date"] = Date()
+            return record
+        }
+        iCloutKit.saveMultiple(preparedRecords, completion: completion)
+    }
+
     func fetchAll(ofType objectType: String, completion: @escaping (Result<[CKRecord], Error>) -> Void) {
         let predicate = NSPredicate(value: true)
         fetch(ofType: objectType, withPredicate: predicate, completion: completion)
@@ -35,6 +47,14 @@ final class CloudKitController {
     func fetchByID(_ id: UUID, ofType objectType: String, completion: @escaping (Result<[CKRecord], Error>) -> Void) {
         let predicate = NSPredicate(format: "id == %@", id.nsString)
         fetch(ofType: objectType, withPredicate: predicate, completion: completion)
+    }
+
+    func fetchByIDs(
+        _ ids: [UUID],
+        ofType objectType: String,
+        completion: @escaping (Result<[CKRecord], Error>) -> Void) {
+            let predicate = NSPredicate(format: "id in %@", ids.map({ $0.nsString }))
+            fetch(ofType: objectType, withPredicate: predicate, completion: completion)
     }
 
     func fetch(
