@@ -9,6 +9,9 @@ import SwiftUI
 import SalmonUI
 
 struct SettingsView: View {
+    @EnvironmentObject
+    private var userData: UserData
+
     @StateObject
     private var viewModel = ViewModel()
 
@@ -18,6 +21,11 @@ struct SettingsView: View {
             FormHeader(title: .SETTINGS)
                 .padding(.bottom, .xs)
             #endif
+            // - TODO: Localize this
+            SettingsFormToggle(state: $userData.iCloudSyncingEnabled, label: "iCloud syncing")
+                #if os(macOS)
+                .padding(.horizontal, .xs)
+                #endif
             SettingsFormButton(
                 title: .SEND_FEEDBACK,
                 imageSystemName: "paperplane",

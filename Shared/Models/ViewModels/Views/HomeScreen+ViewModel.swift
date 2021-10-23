@@ -14,16 +14,16 @@ extension HomeScreen {
         @Published var letterLength: Int {
             didSet { letterLengthDidSet() }
         }
-        @Published var lowercaseLettersEnabled: Bool {
+        @Published var lowercaseLettersEnabled = UserDefaults.lowercaseLettersEnabled {
             didSet { UserDefaults.lowercaseLettersEnabled = lowercaseLettersEnabled }
         }
-        @Published var capitalLettersEnabled: Bool {
+        @Published var capitalLettersEnabled = UserDefaults.capitalLettersEnabled {
             didSet { UserDefaults.capitalLettersEnabled = capitalLettersEnabled }
         }
-        @Published var numeralsEnabled: Bool {
+        @Published var numeralsEnabled = UserDefaults.numeralsEnabled {
             didSet { UserDefaults.numeralsEnabled = numeralsEnabled }
         }
-        @Published var symbolsEnabled: Bool {
+        @Published var symbolsEnabled = UserDefaults.symbolsEnabled {
             didSet { UserDefaults.symbolsEnabled = symbolsEnabled }
         }
         @Published private(set) var currentPassword: String?
@@ -34,15 +34,11 @@ extension HomeScreen {
         @Published var duplicatesExistAlertIsShown = false
 
         init() {
-            if let userDefaultsLetterLength = UserDefaults.letterLength, !Config.isUITest {
-                self.letterLength = userDefaultsLetterLength
+            if !Config.isUITest {
+                self.letterLength = UserDefaults.letterLength
             } else {
                 self.letterLength = 16
             }
-            self.lowercaseLettersEnabled = UserDefaults.lowercaseLettersEnabled ?? true
-            self.capitalLettersEnabled = UserDefaults.capitalLettersEnabled ?? true
-            self.numeralsEnabled = UserDefaults.numeralsEnabled ?? true
-            self.symbolsEnabled = UserDefaults.symbolsEnabled ?? true
 
             setupObservers()
         }

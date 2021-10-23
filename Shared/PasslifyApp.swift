@@ -17,7 +17,8 @@ struct PasslifyApp: App {
     private var appDelegate: AppDelegate
     #endif
 
-    init() { }
+    @StateObject
+    private var userData = UserData()
 
     private let persistenceController = PersistenceController.shared
 
@@ -25,11 +26,13 @@ struct PasslifyApp: App {
         WindowGroup {
             ContentView()
                 .environment(\.managedObjectContext, persistenceController.context!)
+                .environmentObject(userData)
         }
         #if os(macOS)
         Settings {
             SettingsView()
                 .frame(width: 350, height: 305)
+                .environmentObject(userData)
         }
         #endif
     }

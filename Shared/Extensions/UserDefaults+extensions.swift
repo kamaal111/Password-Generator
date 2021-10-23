@@ -8,43 +8,54 @@
 import Foundation
 
 extension UserDefaults {
-    @UserDefault(key: .letterLength)
-    static var letterLength: Int?
-    @UserDefault(key: .lowercaseLettersEnabled)
-    static var lowercaseLettersEnabled: Bool?
-    @UserDefault(key: .capitalLettersEnabled)
-    static var capitalLettersEnabled: Bool?
-    @UserDefault(key: .numeralsEnabled)
-    static var numeralsEnabled: Bool?
-    @UserDefault(key: .symbolsEnabled)
-    static var symbolsEnabled: Bool?
-    @UserDefault(key: .shakeTimes)
-    static var shakeTimes: Int?
+    @UserDefault(key: .letterLength, defaultValue: 16)
+    static var letterLength: Int
+
+    @UserDefault(key: .lowercaseLettersEnabled, defaultValue: true)
+    static var lowercaseLettersEnabled: Bool
+
+    @UserDefault(key: .capitalLettersEnabled, defaultValue: true)
+    static var capitalLettersEnabled: Bool
+
+    @UserDefault(key: .numeralsEnabled, defaultValue: true)
+    static var numeralsEnabled: Bool
+
+    @UserDefault(key: .symbolsEnabled, defaultValue: true)
+    static var symbolsEnabled: Bool
+
+    @UserDefault(key: .shakeTimes, defaultValue: 0)
+    static var shakeTimes: Int
+
+    @UserDefault(key: .enableICloudSyncing, defaultValue: true)
+    static var enableICloudSyncing: Bool
+}
+
+enum UserDefaultKeys: String {
+    case letterLength
+    case lowercaseLettersEnabled
+    case capitalLettersEnabled
+    case numeralsEnabled
+    case symbolsEnabled
+    case shakeTimes
+    case enableICloudSyncing
 }
 
 @propertyWrapper
 struct UserDefault<Value> {
-    let key: Keys
+    let key: UserDefaultKeys
+    let defaultValue: Value
     let container: UserDefaults
 
-    init(key: Keys, container: UserDefaults = .standard) {
+    init(key: UserDefaultKeys, defaultValue: Value, container: UserDefaults = .standard) {
         self.key = key
+        self.defaultValue = defaultValue
         self.container = container
     }
 
-    enum Keys: String {
-        case letterLength
-        case lowercaseLettersEnabled
-        case capitalLettersEnabled
-        case numeralsEnabled
-        case symbolsEnabled
-        case shakeTimes
-    }
-
-    var wrappedValue: Value? {
+    var wrappedValue: Value {
         get {
             let valueToReturn = container.object(forKey: constructKey(key.rawValue)) as? Value
-            return valueToReturn
+            return valueToReturn ?? defaultValue
         }
         set {
             container.set(newValue, forKey: constructKey(key.rawValue))
