@@ -12,7 +12,7 @@ struct SavedPasswordDetailScreen: View {
     @EnvironmentObject
     private var stackNavigator: StackNavigator
     @EnvironmentObject
-    private var coreDataModel: CoreDataModel
+    private var savedPasswordsManager: SavedPasswordsManager
 
     @StateObject
     private var viewModel = ViewModel()
@@ -80,7 +80,7 @@ struct SavedPasswordDetailScreen: View {
             Button(action: {
                 viewModel.toggleEditMode(onSave: { args in
                     guard let passwordID = viewModel.passwordID else { return }
-                    coreDataModel.editPassword(id: passwordID, args: args)
+                    savedPasswordsManager.editPassword(id: passwordID, args: args)
                 })
             }) {
                 Text(editMode: viewModel.editMode)
@@ -91,7 +91,7 @@ struct SavedPasswordDetailScreen: View {
     private func handleOnAppear() {
         guard let passwordIDString = stackNavigator.currentOptions?["password_id"],
               let passwordID = UUID(uuidString: passwordIDString),
-              let password = coreDataModel.getPasswordByID(is: passwordID) else {
+              let password = savedPasswordsManager.getPasswordByID(is: passwordID) else {
             stackNavigator.navigate(to: nil)
             return
         }
@@ -103,6 +103,6 @@ struct SavedPasswordDetailScreen_Previews: PreviewProvider {
     static var previews: some View {
         SavedPasswordDetailScreen()
             .environmentObject(StackNavigator(registeredScreens: [.savedPasswordDetails]))
-            .environmentObject(CoreDataModel(preview: true))
+            .environmentObject(SavedPasswordsManager(preview: true))
     }
 }

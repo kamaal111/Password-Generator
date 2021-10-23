@@ -14,7 +14,7 @@ import SalmonUI
 
 struct CloudPlaygroundScreen: View {
     @EnvironmentObject
-    private var coreDataModel: CoreDataModel
+    private var savedPasswordsManager: SavedPasswordsManager
 
     @State private var selectedType = CloudKitController.shared.recordTypes.first!
     @State private var currentRecords: [String: [CKRecord]] = [:]
@@ -70,7 +70,7 @@ struct CloudPlaygroundScreen: View {
         }
         .kBindToFrameSize($screenSize)
         .onAppear(perform: {
-            coreDataModel.fetchAllPasswords()
+            savedPasswordsManager.fetchAllPasswords()
             fetchAllRecords()
         })
     }
@@ -106,7 +106,7 @@ struct CloudPlaygroundScreen: View {
     }
 
     private func saveAPassword() {
-        guard let firstPassword = coreDataModel.savedPasswords.first else { return }
+        guard let firstPassword = savedPasswordsManager.savedPasswords.first else { return }
 
         let passwordsToSave = [firstPassword]
         CloudKitController.shared.fetchByIDs(passwordsToSave.map(\.id), ofType: CorePassword.recordType) { result in
@@ -148,7 +148,7 @@ struct CloudPlaygroundScreen: View {
 struct CloudPlaygroundScreen_Previews: PreviewProvider {
     static var previews: some View {
         CloudPlaygroundScreen()
-            .environmentObject(CoreDataModel(preview: true))
+            .environmentObject(SavedPasswordsManager(preview: true))
     }
 }
 #endif

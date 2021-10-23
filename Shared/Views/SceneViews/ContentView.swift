@@ -14,7 +14,7 @@ struct ContentView: View {
     @StateObject
     private var deviceModel = DeviceModel()
     @StateObject
-    private var coreDataModel = CoreDataModel()
+    private var savedPasswordsManager = SavedPasswordsManager()
 
     var body: some View {
         #if os(macOS)
@@ -34,13 +34,13 @@ struct ContentView: View {
         view
             .environmentObject(namiNavigator)
             .environmentObject(deviceModel)
-            .environmentObject(coreDataModel)
+            .environmentObject(savedPasswordsManager)
     }
 
     #if os(macOS)
     private func handleCopyCommand() -> [NSItemProvider] {
         var items: [NSItemProvider] = []
-        if let lastGeneratedPassword = coreDataModel.lastGeneratedPassword {
+        if let lastGeneratedPassword = savedPasswordsManager.lastGeneratedPassword {
             print("lastGeneratedPassword", lastGeneratedPassword)
             NotificationCenter.default.post(name: .copyShortcutTriggered, object: lastGeneratedPassword)
             items.append(NSItemProvider(object: lastGeneratedPassword as NSItemProviderWriting))

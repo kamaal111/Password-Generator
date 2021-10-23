@@ -34,8 +34,8 @@
 		2C0D4A0726E6B692006CD00D /* CorePassword+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0D4A0426E6B692006CD00D /* CorePassword+CoreDataClass.swift */; };
 		2C0D4A0826E6B692006CD00D /* CorePassword+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0D4A0526E6B692006CD00D /* CorePassword+CoreDataProperties.swift */; };
 		2C0D4A0926E6B692006CD00D /* CorePassword+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0D4A0526E6B692006CD00D /* CorePassword+CoreDataProperties.swift */; };
-		2C0D4A0B26E6B72A006CD00D /* CoreDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0D4A0A26E6B72A006CD00D /* CoreDataModel.swift */; };
-		2C0D4A0C26E6B72A006CD00D /* CoreDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0D4A0A26E6B72A006CD00D /* CoreDataModel.swift */; };
+		2C0D4A0B26E6B72A006CD00D /* SavedPasswordsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0D4A0A26E6B72A006CD00D /* SavedPasswordsManager.swift */; };
+		2C0D4A0C26E6B72A006CD00D /* SavedPasswordsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0D4A0A26E6B72A006CD00D /* SavedPasswordsManager.swift */; };
 		2C16FB432719F34900990575 /* AppDelegate_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C16FB422719F34900990575 /* AppDelegate_iOS.swift */; };
 		2C16FB452719F36D00990575 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C16FB442719F36D00990575 /* SceneDelegate.swift */; };
 		2C1C27E827176F8C00954E68 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1C27E727176F8C00954E68 /* SnapshotHelper.swift */; };
@@ -148,7 +148,7 @@
 		2C6D1D672703BD0F004AD36E /* AppSidebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6AD48B26E50CAD003AF55C /* AppSidebar.swift */; };
 		2C6D1D682703BD0F004AD36E /* DeviceShakeViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD73C3E26F7C9810054C380 /* DeviceShakeViewModifier.swift */; };
 		2C6D1D692703BD0F004AD36E /* LogoPlaygroundColorSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6017C07D270108440023F347 /* LogoPlaygroundColorSelector.swift */; };
-		2C6D1D6A2703BD0F004AD36E /* CoreDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0D4A0A26E6B72A006CD00D /* CoreDataModel.swift */; };
+		2C6D1D6A2703BD0F004AD36E /* SavedPasswordsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0D4A0A26E6B72A006CD00D /* SavedPasswordsManager.swift */; };
 		2C6D1D6B2703BD0F004AD36E /* SavedPasswordsScreen+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C93722826EFEED0004BF5BF /* SavedPasswordsScreen+ViewModel.swift */; };
 		2C6D1D6C2703BD0F004AD36E /* StackNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C93722E26EFF524004BF5BF /* StackNavigator.swift */; };
 		2C6D1D6D2703BD0F004AD36E /* Clipboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C93722B26EFF065004BF5BF /* Clipboard.swift */; };
@@ -350,7 +350,7 @@
 		2C0D49FD26E6ACE1006CD00D /* pre_compile.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = pre_compile.sh; sourceTree = "<group>"; };
 		2C0D4A0426E6B692006CD00D /* CorePassword+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CorePassword+CoreDataClass.swift"; sourceTree = "<group>"; };
 		2C0D4A0526E6B692006CD00D /* CorePassword+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CorePassword+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		2C0D4A0A26E6B72A006CD00D /* CoreDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataModel.swift; sourceTree = "<group>"; };
+		2C0D4A0A26E6B72A006CD00D /* SavedPasswordsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedPasswordsManager.swift; sourceTree = "<group>"; };
 		2C1573CB271C361700A01CAC /* go.mod */ = {isa = PBXFileReference; lastKnownFileType = text; path = go.mod; sourceTree = "<group>"; };
 		2C1573CC271C361700A01CAC /* main.go */ = {isa = PBXFileReference; lastKnownFileType = text; path = main.go; sourceTree = "<group>"; };
 		2C16FB422719F34900990575 /* AppDelegate_iOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate_iOS.swift; sourceTree = "<group>"; };
@@ -1053,9 +1053,9 @@
 		2C6AD47526E50876003AF55C /* Environment */ = {
 			isa = PBXGroup;
 			children = (
-				2C0D4A0A26E6B72A006CD00D /* CoreDataModel.swift */,
 				2CA895CE26E5618D0057A82C /* DeviceModel.swift */,
 				2C6AD47626E50887003AF55C /* NamiNavigator.swift */,
+				2C0D4A0A26E6B72A006CD00D /* SavedPasswordsManager.swift */,
 				2CE4D90527244168007E06EA /* UserData.swift */,
 			);
 			path = Environment;
@@ -1699,7 +1699,7 @@
 				2CD73C3626F7C1D50054C380 /* PlaygroundScreen.swift in Sources */,
 				2CE322EF27086E6400004F27 /* LogoPlaygroundToggle.swift in Sources */,
 				2CFD1D0A26EAA1FD00B7DF4F /* SavedPasswordsScreen.swift in Sources */,
-				2C0D4A0B26E6B72A006CD00D /* CoreDataModel.swift in Sources */,
+				2C0D4A0B26E6B72A006CD00D /* SavedPasswordsManager.swift in Sources */,
 				2CE322F327086E8B00004F27 /* LogoPlaygroundStepper.swift in Sources */,
 				2C6AD49C26E5150D003AF55C /* View+extensions.swift in Sources */,
 				2C6AD47726E50887003AF55C /* NamiNavigator.swift in Sources */,
@@ -1786,7 +1786,7 @@
 				2CE4D90B272442E7007E06EA /* SettingsFormToggle.swift in Sources */,
 				6017C07F270108440023F347 /* LogoPlaygroundColorSelector.swift in Sources */,
 				2CE322F427086E8B00004F27 /* LogoPlaygroundStepper.swift in Sources */,
-				2C0D4A0C26E6B72A006CD00D /* CoreDataModel.swift in Sources */,
+				2C0D4A0C26E6B72A006CD00D /* SavedPasswordsManager.swift in Sources */,
 				2CA504BE27088581009E4527 /* Shell.swift in Sources */,
 				2CDDE9FC27244BEE008162B3 /* CommonPassword.swift in Sources */,
 				2C93722A26EFEED0004BF5BF /* SavedPasswordsScreen+ViewModel.swift in Sources */,
@@ -1887,7 +1887,7 @@
 				2CE4D90C272442E7007E06EA /* SettingsFormToggle.swift in Sources */,
 				2C6D1D692703BD0F004AD36E /* LogoPlaygroundColorSelector.swift in Sources */,
 				2CE322F527086E8B00004F27 /* LogoPlaygroundStepper.swift in Sources */,
-				2C6D1D6A2703BD0F004AD36E /* CoreDataModel.swift in Sources */,
+				2C6D1D6A2703BD0F004AD36E /* SavedPasswordsManager.swift in Sources */,
 				2CA504BF27088581009E4527 /* Shell.swift in Sources */,
 				2CDDE9FD27244BEE008162B3 /* CommonPassword.swift in Sources */,
 				2C6D1D6B2703BD0F004AD36E /* SavedPasswordsScreen+ViewModel.swift in Sources */,

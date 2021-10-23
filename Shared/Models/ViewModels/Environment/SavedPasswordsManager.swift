@@ -1,5 +1,5 @@
 //
-//  CoreDataModel.swift
+//  SavedPasswordsManager.swift
 //  Password-Generator
 //
 //  Created by Kamaal M Farah on 06/09/2021.
@@ -12,7 +12,7 @@ import ShrimpExtensions
 import CoreData
 import SwiftUI
 
-final class CoreDataModel: ObservableObject {
+final class SavedPasswordsManager: ObservableObject {
 
     @Published private(set) var savedPasswords: [CorePassword] = []
     @Published private(set) var lastGeneratedPassword: String?

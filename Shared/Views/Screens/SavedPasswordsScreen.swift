@@ -10,7 +10,7 @@ import SalmonUI
 
 struct SavedPasswordsScreen: View {
     @EnvironmentObject
-    private var coreDataModel: CoreDataModel
+    private var savedPasswordsManager: SavedPasswordsManager
 
     @StateObject
     private var viewModel = ViewModel()
@@ -30,19 +30,19 @@ struct SavedPasswordsScreen: View {
             }
         }
         .navigationTitle(Text(localized: .SAVED_PASSWORDS))
-        .onAppear(perform: coreDataModel.fetchAllPasswords)
+        .onAppear(perform: savedPasswordsManager.fetchAllPasswords)
         .onShake(perform: {
             #if DEBUG
             stackNavigator.navigate(to: .playground)
             #endif
         })
         .withNavigationPoints(selectedScreen: $stackNavigator.selectedScreen, stackNavigator: stackNavigator)
-        .alert(isPresented: $coreDataModel.deletionAlertIsActive, content: {
+        .alert(isPresented: $savedPasswordsManager.deletionAlertIsActive, content: {
             Alert(
                 title: Text(localized: .DEFINITE_PASSWORD_DELETION_ALERT_TITLE),
                 message: Text(localized: .DEFINITE_PASSWORD_DELETION_ALERT_MESSAGE),
                 primaryButton: .default(Text(localized: .OK), action: {
-                    coreDataModel.onDefinitePasswordDeletion()
+                    savedPasswordsManager.onDefinitePasswordDeletion()
                     viewModel.toggleEditMode()
                 }),
                 secondaryButton: .cancel())
@@ -65,7 +65,7 @@ struct SavedPasswordsScreen: View {
     }
 
     private var savedPasswordSectionContent: some View {
-        ForEach(coreDataModel.savedPasswords, id: \.id) { password in
+        ForEach(savedPasswordsManager.savedPasswords, id: \.id) { password in
             SavedPasswordListItem(
                 password: password,
                 hasBeenLastCopied: viewModel.hasBeenLastCopied(password),
@@ -75,7 +75,7 @@ struct SavedPasswordsScreen: View {
                         "password_id": password.id.uuidString
                     ]
                     stackNavigator.navigate(to: .savedPasswordDetails, options: options)
-                }, onDelete: { coreDataModel.onPasswordDelete(password) })
+                }, onDelete: { savedPasswordsManager.onPasswordDelete(password) })
                 .contextMenu(menuItems: {
                     Button(action: { viewModel.copyPassword(from: password) }) {
                         Text(localized: .COPY_PASSWORD)
@@ -90,10 +90,10 @@ struct SavedPasswordsScreen: View {
         .onDelete(perform: { indices in
             var password: CorePassword?
             indices.forEach { index in
-                password = coreDataModel.savedPasswords[index]
+                password = savedPasswordsManager.savedPasswords[index]
             }
             guard let password = password else { return }
-            coreDataModel.onPasswordDelete(password)
+            savedPasswordsManager.onPasswordDelete(password)
         })
     }
 
@@ -113,6 +113,6 @@ struct SavedPasswordsScreen: View {
 struct SavedPasswordsScreen_Previews: PreviewProvider {
     static var previews: some View {
         SavedPasswordsScreen()
-            .environmentObject(CoreDataModel(preview: true))
+            .environmentObject(SavedPasswordsManager(preview: true))
     }
 }

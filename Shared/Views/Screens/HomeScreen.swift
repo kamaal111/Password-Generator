@@ -10,7 +10,7 @@ import SalmonUI
 
 struct HomeScreen: View {
     @EnvironmentObject
-    private var coreDataModel: CoreDataModel
+    private var savedPasswordsManager: SavedPasswordsManager
 
     @StateObject
     private var viewModel = ViewModel()
@@ -49,7 +49,7 @@ struct HomeScreen: View {
         .navigationTitle(Text(Constants.appName))
         .sheet(isPresented: $viewModel.nameSheetIsShown) {
             NameSheet(name: $viewModel.passwordName, onCommit: {
-                let duplicateExists = coreDataModel.checkForDuplicates(viewModel.passwordLabel)
+                let duplicateExists = savedPasswordsManager.checkForDuplicates(viewModel.passwordLabel)
                 if !duplicateExists {
                     savePassword()
                 } else {
@@ -67,7 +67,7 @@ struct HomeScreen: View {
         }
         .onChange(of: viewModel.currentPassword) { changedCurrentPassword in
             guard let changedCurrentPassword = changedCurrentPassword else { return }
-            coreDataModel.setLastGeneratedPassword(with: changedCurrentPassword)
+            savedPasswordsManager.setLastGeneratedPassword(with: changedCurrentPassword)
         }
         .onShake(perform: {
             #if DEBUG
@@ -78,7 +78,7 @@ struct HomeScreen: View {
     }
 
     private func savePassword() {
-        let success = coreDataModel.savePassword(
+        let success = savedPasswordsManager.savePassword(
             of: viewModel.passwordLabel,
             withName: viewModel.passwordName)
         viewModel.onPasswordSave(success: success)
