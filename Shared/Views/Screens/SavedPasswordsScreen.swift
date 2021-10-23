@@ -65,7 +65,7 @@ struct SavedPasswordsScreen: View {
     }
 
     private var savedPasswordSectionContent: some View {
-        ForEach(savedPasswordsManager.savedPasswords, id: \.id) { password in
+        ForEach(savedPasswordsManager.passwords, id: \.id) { password in
             SavedPasswordListItem(
                 password: password,
                 hasBeenLastCopied: viewModel.hasBeenLastCopied(password),
@@ -90,7 +90,7 @@ struct SavedPasswordsScreen: View {
         .onDelete(perform: { indices in
             var password: CorePassword?
             indices.forEach { index in
-                password = savedPasswordsManager.savedPasswords[index]
+                password = savedPasswordsManager.passwords[index]
             }
             guard let password = password else { return }
             savedPasswordsManager.onPasswordDelete(password)

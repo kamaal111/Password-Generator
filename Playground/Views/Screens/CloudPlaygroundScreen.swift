@@ -106,7 +106,7 @@ struct CloudPlaygroundScreen: View {
     }
 
     private func saveAPassword() {
-        guard let firstPassword = savedPasswordsManager.savedPasswords.first else { return }
+        guard let firstPassword = savedPasswordsManager.passwords.first else { return }
 
         let passwordsToSave = [firstPassword]
         CloudKitController.shared.fetchByIDs(passwordsToSave.map(\.id), ofType: CorePassword.recordType) { result in

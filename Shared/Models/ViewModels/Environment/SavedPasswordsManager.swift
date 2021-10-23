@@ -14,7 +14,7 @@ import SwiftUI
 
 final class SavedPasswordsManager: ObservableObject {
 
-    @Published private(set) var savedPasswords: [CorePassword] = []
+    @Published private(set) var passwords: [CorePassword] = []
     @Published private(set) var lastGeneratedPassword: String?
     @Published var deletionAlertIsActive = false
     @Published private var passwordToDeleteID: UUID? {
@@ -37,10 +37,10 @@ final class SavedPasswordsManager: ObservableObject {
 
     func onDefinitePasswordDeletion() {
         guard let passwordToDeleteID = self.passwordToDeleteID,
-              let index = savedPasswords.findIndex(by: \.id, is: passwordToDeleteID) else { return }
+              let index = passwords.findIndex(by: \.id, is: passwordToDeleteID) else { return }
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
-            let removedPassword = self.savedPasswords.remove(at: index)
+            let removedPassword = self.passwords.remove(at: index)
             self.passwordToDeleteID = nil
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak self] in
                 do {
@@ -54,8 +54,8 @@ final class SavedPasswordsManager: ObservableObject {
     }
 
     func editPassword(id: UUID, args: CorePassword.Args) {
-        guard let index = savedPasswords.firstIndex(where: { $0.id == id }) else { return }
-        let password = savedPasswords[index]
+        guard let index = passwords.firstIndex(where: { $0.id == id }) else { return }
+        let password = passwords[index]
         let editedPasswordResult = password.edit(args: args)
         let editedPassword: CorePassword
         switch editedPasswordResult {
@@ -64,11 +64,11 @@ final class SavedPasswordsManager: ObservableObject {
             return
         case .success(let success): editedPassword = success
         }
-        savedPasswords[index] = editedPassword
+        passwords[index] = editedPassword
     }
 
     func getPasswordByID(is comparisonValue: UUID) -> CorePassword? {
-        savedPasswords.find(by: \.id, is: comparisonValue)
+        passwords.find(by: \.id, is: comparisonValue)
     }
 
     func setLastGeneratedPassword(with password: String) {
@@ -88,7 +88,7 @@ final class SavedPasswordsManager: ObservableObject {
             return
         case .success(let success): allPasswords = success
         }
-        savedPasswords = allPasswords.reversed()
+        passwords = allPasswords.reversed()
     }
 
     func savePassword(of password: String, withName name: String) -> Bool {
@@ -106,7 +106,7 @@ final class SavedPasswordsManager: ObservableObject {
             return false
         case .success(let success): savedPassword = success
         }
-        savedPasswords = savedPasswords.prepended(savedPassword)
+        passwords = passwords.prepended(savedPassword)
         return true
     }
 
