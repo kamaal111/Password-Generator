@@ -23,18 +23,18 @@ extension SavedPasswordsScreen {
             password.id == lastCopiedPasswordID
         }
 
-        func copyPassword(from password: CorePassword) {
+        func copyPassword(from password: CommonPassword) {
             Clipboard.copy(password.value)
             handlePasswordValueCopy(password)
         }
 
-        func copyName(from password: CorePassword) {
+        func copyName(from password: CommonPassword) {
             guard let name = password.name else { return }
             Clipboard.copy(name)
             handlePasswordValueCopy(password)
         }
 
-        private func handlePasswordValueCopy(_ password: CorePassword) {
+        private func handlePasswordValueCopy(_ password: CommonPassword) {
             withAnimation {
                 lastCopiedPasswordID = password.id
             }

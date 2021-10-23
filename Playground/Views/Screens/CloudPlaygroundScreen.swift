@@ -118,13 +118,29 @@ struct CloudPlaygroundScreen: View {
             case .success(let success): records = success
             }
 
-            let recordsToSave: [CKRecord] = passwordsToSave.map({ password in
-                if let foundRecord = records.first(where: {
-                    $0[CorePassword.RecordKeys.id.rawValue] == password.id.nsString
-                }) {
-                    return password.ckRecord(from: foundRecord)
+            let recordsToSave: [CKRecord] = passwordsToSave.compactMap({ password in
+                switch password.source {
+                case .coreData:
+                    let coreDataItem: CorePassword?
+                    do {
+                        coreDataItem = try password
+                            .toCoreDataItem(context: PersistenceController.shared.context!)
+                            .get()
+                    } catch {
+                        return nil
+                    }
+                    guard let coreDataItem = coreDataItem else { return nil }
+
+                    if let foundRecord = records.first(where: {
+                        $0[CorePassword.RecordKeys.id.rawValue] == password.id.nsString
+                    }) {
+                        return coreDataItem.ckRecord(from: foundRecord)
+                    }
+                    return coreDataItem.ckRecord
+                case .iCloud:
+                    return password.toCloudKitItem
                 }
-                return password.ckRecord
+
             })
 
             CloudKitController.shared.saveMultiple(recordsToSave) { result in

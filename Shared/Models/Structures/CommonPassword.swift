@@ -18,8 +18,16 @@ struct CommonPassword: Hashable, Identifiable {
     let source: Source
 
     enum Source {
-        case iCloud
         case coreData
+        case iCloud
+    }
+
+    enum RecordKeys: String, CaseIterable {
+        case name
+        case id
+        case updatedDate = "updated_date"
+        case creationDate = "creation_date"
+        case value
     }
 
     var maskedValue: String {
@@ -27,11 +35,26 @@ struct CommonPassword: Hashable, Identifiable {
     }
 
     func toCoreDataItem(context: NSManagedObjectContext) -> Result<CorePassword?, Error> {
-        #error("Get the corresponding item here")
         let fetchRequest = NSFetchRequest<CorePassword>(entityName: CorePassword.entityName)
+        fetchRequest.predicate = NSPredicate(format: "id == %@", id.nsString)
+        fetchRequest.fetchLimit = 1
         let fetchedPasswords: [CorePassword]
-        
-        return .success(nil)
+        do {
+            fetchedPasswords = try context.fetch(fetchRequest)
+        } catch {
+            return .failure(error)
+        }
+        return .success(fetchedPasswords.first)
+    }
+
+    var toCloudKitItem: CKRecord {
+        let record = CKRecord(recordType: CorePassword.recordType)
+        record[RecordKeys.name.rawValue] = name
+        record[RecordKeys.value.rawValue] = value.nsString
+        record[RecordKeys.id.rawValue] = id.nsString
+        record[RecordKeys.updatedDate.rawValue] = updatedDate
+        record[RecordKeys.creationDate.rawValue] = creationDate
+        return record
     }
 
     struct Args {

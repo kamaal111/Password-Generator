@@ -31,7 +31,7 @@ final class SavedPasswordsManager: ObservableObject {
         }
     }
 
-    func onPasswordDelete(_ password: CorePassword) {
+    func onPasswordDelete(_ password: CommonPassword) {
         passwordToDeleteID = password.id
     }
 

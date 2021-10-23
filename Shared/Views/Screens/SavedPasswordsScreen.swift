@@ -88,7 +88,7 @@ struct SavedPasswordsScreen: View {
                 })
         }
         .onDelete(perform: { indices in
-            var password: CorePassword?
+            var password: CommonPassword?
             indices.forEach { index in
                 password = savedPasswordsManager.passwords[index]
             }

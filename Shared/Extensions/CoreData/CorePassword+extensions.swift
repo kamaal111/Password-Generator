@@ -109,6 +109,7 @@ extension CorePassword {
 extension CorePassword {
     static let recordType = String(describing: CorePassword.self)
 
+    #warning("REMOVE THIS IF NOT NEEDED")
     enum RecordKeys: String, CaseIterable {
         case name
         case id
