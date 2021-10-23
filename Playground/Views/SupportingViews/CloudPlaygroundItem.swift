@@ -11,12 +11,12 @@ import CloudKit
 
 struct CloudPlaygroundItem: View {
     let recordValue: __CKRecordObjCValue?
-    let maxWidth: CGFloat
+    let width: CGFloat
 
     var body: some View {
         Text(stringValue)
-            .frame(maxWidth: maxWidth)
             .lineLimit(1)
+            .frame(minWidth: width, maxWidth: width)
     }
 
     private var stringValue: String {

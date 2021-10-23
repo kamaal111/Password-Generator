@@ -18,6 +18,7 @@ struct CloudPlaygroundScreen: View {
 
     @State private var selectedType = CloudKitController.shared.recordTypes.first!
     @State private var currentRecords: [String: [CKRecord]] = [:]
+    @State private var currentRecordKeys: [String] = []
     @State private var loading = false
     @State private var screenSize = CGSize(width: 400, height: 400)
 
@@ -39,12 +40,18 @@ struct CloudPlaygroundScreen: View {
             }
             if !loading {
                 ScrollView(.horizontal, showsIndicators: false) {
+                    HStack {
+                        ForEach(currentRecordKeys, id: \.self) { recordKey in
+                            Text(recordKey)
+                                .bold()
+                                .lineLimit(1)
+                                .frame(minWidth: screenSize.width / 5, maxWidth: screenSize.width / 5)
+                        }
+                    }
                     ForEach(currentRecords[selectedType] ?? [], id: \.self) { record in
-                        KJustStack {
-                            HStack {
-                                ForEach(record.allKeys(), id: \.self) { recordKey in
-                                    CloudPlaygroundItem(recordValue: record[recordKey], maxWidth: screenSize.width / 5)
-                                }
+                        HStack {
+                            ForEach(currentRecordKeys, id: \.self) { recordKey in
+                                CloudPlaygroundItem(recordValue: record[recordKey], width: screenSize.width / 5)
                             }
                         }
                     }
@@ -60,8 +67,6 @@ struct CloudPlaygroundScreen: View {
             }
             PlaygroundFormButton(text: "Save a password", action: saveAPassword)
                 .padding(.bottom, .xs)
-            PlaygroundFormButton(text: "Get all records", action: getAllPasswords)
-                .padding(.bottom, .xs)
         }
         .kBindToFrameSize($screenSize)
         .onAppear(perform: {
@@ -75,33 +80,27 @@ struct CloudPlaygroundScreen: View {
 
         CloudKitController.shared.fetchAll(ofType: selectedType) { result in
             DispatchQueue.main.async {
-                loading = false
-
                 let records: [CKRecord]
                 switch result {
                 case .failure(let failure):
                     console.error(Date(), failure.localizedDescription, failure)
+                    loading = false
                     return
                 case .success(let success): records = success
                 }
+
+                var recordKeys: [String] = records.reduce([]) { result, record in
+                    result + record.allKeys().filter({ !result.contains($0) })
+                }
+
+                if let idKeyIndex = recordKeys.firstIndex(of: "id") {
+                    recordKeys.remove(at: idKeyIndex)
+                    recordKeys = recordKeys.prepended("id")
+                }
+
+                currentRecordKeys = recordKeys
                 currentRecords[selectedType] = records
-
-                #warning("FIND ALL POSIBLE KEYS AND DISPLAY THEM")
-            }
-        }
-    }
-
-    private func getAllPasswords() {
-        CloudKitController.shared.fetchAll(ofType: CorePassword.recordType) { result in
-            let records: [CKRecord]
-            switch result {
-            case .failure(let failure):
-                console.error(Date(), failure.localizedDescription, failure)
-                return
-            case .success(let success): records = success
-            }
-            records.enumerated().forEach { enumaratedRecord in
-                console.log(Date(), enumaratedRecord.offset, enumaratedRecord.element)
+                loading = false
             }
         }
     }
