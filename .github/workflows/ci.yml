@@ -26,7 +26,7 @@ jobs:
 
       - name: Test
         run: |
-          sh Scripts/run_tests.sh
+          make run_tests
 
   appStoreContent:
     name: App Store content
@@ -59,7 +59,7 @@ jobs:
 
       - name: Take snapshots
         run: |
-          sh Scripts/snapshots_ios.sh
+          make generate_snapshots
 
       - name: Upload app store connect content
         env:
@@ -67,7 +67,7 @@ jobs:
           FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD: ${{ secrets.APP_STORE_CONNECT_PASSWORD }}
 
         run: |
-          bundle exec fastlane deliver
+          make upload_metadata_to_store
 
   deployIOS:
     name: deploy iOS
@@ -124,7 +124,7 @@ jobs:
 
       - name: Build app
         run: |
-          bundle exec fastlane gym --scheme "Password-Generator (iOS)"
+          make build_ios
 
       - name: Upload app to App Store Connect
         env:

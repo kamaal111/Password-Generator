@@ -14,3 +14,9 @@ run_tests:
 
 generate_snapshots:
 	sh Scripts/snapshots_ios.sh
+
+upload_metadata_to_store:
+	bundle exec fastlane deliver
+
+build_ios:
+	bundle exec fastlane gym --scheme "Password-Generator (iOS)"
