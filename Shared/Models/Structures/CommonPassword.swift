@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CoreData
 
 // - TODO: Render this everywhere
 struct CommonPassword: Hashable, Identifiable {
@@ -23,6 +24,14 @@ struct CommonPassword: Hashable, Identifiable {
 
     var maskedValue: String {
         value.map({ _ in "*" }).joined()
+    }
+
+    func toCoreDataItem(context: NSManagedObjectContext) -> Result<CorePassword?, Error> {
+        #error("Get the corresponding item here")
+        let fetchRequest = NSFetchRequest<CorePassword>(entityName: CorePassword.entityName)
+        let fetchedPasswords: [CorePassword]
+        
+        return .success(nil)
     }
 
     struct Args {

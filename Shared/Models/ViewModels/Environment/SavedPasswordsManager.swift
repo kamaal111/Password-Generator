@@ -54,7 +54,7 @@ final class SavedPasswordsManager: ObservableObject {
         }
     }
 
-    func editPassword(id: UUID, args: CorePassword.Args) {
+    func editPassword(id: UUID, args: CommonPassword.Args) {
         guard let index = passwords.firstIndex(where: { $0.id == id }) else { return }
         let password = passwords[index]
         #error("Uncomment")
