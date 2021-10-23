@@ -27,16 +27,48 @@ struct CloudPlaygroundScreen: View {
 
     private func getAllPasswords() {
         CloudKitController.shared.fetchAll(ofType: CorePassword.recordType) { result in
-            print(result)
+            let records: [CKRecord]
+            switch result {
+            case .failure(let failure):
+                console.error(Date(), failure.localizedDescription, failure)
+                return
+            case .success(let success): records = success
+            }
+            records.enumerated().forEach { enumaratedRecord in
+                console.log(Date(), enumaratedRecord.offset, enumaratedRecord.element)
+            }
         }
     }
 
     private func saveAPassword() {
         guard let firstPassword = coreDataModel.savedPasswords.first else { return }
-        console.log(Date(), "record", firstPassword.ckRecord)
 
-        CloudKitController.shared.save(firstPassword.ckRecord) { result in
-            print(result)
+        CloudKitController.shared.fetchByID(firstPassword.id, ofType: CorePassword.recordType) { result in
+            let records: [CKRecord]
+            switch result {
+            case .failure(let failure):
+                console.error(Date(), failure.localizedDescription, failure)
+                return
+            case .success(let success): records = success
+            }
+
+            var recordToSave = firstPassword.ckRecord
+            if let foundRecord = records.first(where: {
+                $0[CorePassword.RecordKeys.id.rawValue] == firstPassword.id.nsString
+            }) {
+                recordToSave = firstPassword.ckRecord(from: foundRecord)
+            }
+            CloudKitController.shared.save(recordToSave) { result in
+                let record: CKRecord?
+                switch result {
+                case .failure(let failure):
+                    console.error(Date(), failure.localizedDescription, failure)
+                    return
+                case .success(let success): record = success
+                }
+                guard let recordID = record?[CorePassword.RecordKeys.id.rawValue] else { return }
+                console.log(Date(), "saved record", recordID)
+            }
         }
     }
 }

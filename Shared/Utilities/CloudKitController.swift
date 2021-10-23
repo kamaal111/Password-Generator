@@ -8,6 +8,7 @@
 import CloudKit
 import ICloutKit
 import ConsoleSwift
+import ShrimpExtensions
 
 final class CloudKitController {
 
@@ -30,10 +31,16 @@ final class CloudKitController {
         fetch(ofType: objectType, withPredicate: predicate, completion: completion)
     }
 
-    func fetch(ofType objectType: String,
-                      withPredicate predicate: NSPredicate,
-                      completion: @escaping (Result<[CKRecord], Error>) -> Void) {
-        iCloutKit.fetch(ofType: objectType, by: predicate, completion: completion)
+    func fetchByID(_ id: UUID, ofType objectType: String, completion: @escaping (Result<[CKRecord], Error>) -> Void) {
+        let predicate = NSPredicate(format: "id == %@", id.nsString)
+        fetch(ofType: objectType, withPredicate: predicate, completion: completion)
+    }
+
+    func fetch(
+        ofType objectType: String,
+        withPredicate predicate: NSPredicate,
+        completion: @escaping (Result<[CKRecord], Error>) -> Void) {
+            iCloutKit.fetch(ofType: objectType, by: predicate, completion: completion)
     }
 
     func subscripeToAll() {
