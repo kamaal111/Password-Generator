@@ -8,6 +8,8 @@
 #if DEBUG
 import SwiftUI
 import ConsoleSwift
+import CloudKit
+import ShrimpExtensions
 
 struct CloudPlaygroundScreen: View {
     @EnvironmentObject
