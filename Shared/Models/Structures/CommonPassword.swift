@@ -53,6 +53,14 @@ struct CommonPassword: Hashable, Identifiable {
     }
 }
 
+extension Sequence where Element == CommonPassword {
+    func sortByUpdatedDateDescending() -> [CommonPassword] {
+        self.sorted(by: { password1, password2 in
+            password1.updatedDate.compare(password2.updatedDate) == .orderedDescending
+        })
+    }
+}
+
 // - MARK: Insert
 
 extension CommonPassword {

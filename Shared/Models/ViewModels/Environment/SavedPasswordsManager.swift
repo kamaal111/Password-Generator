@@ -123,14 +123,13 @@ final class SavedPasswordsManager: ObservableObject {
             let recordIDs = commonPasswordsFromRecords.map(\.id)
             let filteredPasswordsFromCoreData = commonPasswordsFromCoreData.filter({ !recordIDs.contains($0.id) })
             let combinedPasswords = filteredPasswordsFromCoreData + commonPasswordsFromRecords
-            #error("sort passwords by updated date")
             let sortedPasswords = combinedPasswords
+                .sortByUpdatedDateDescending()
 
             DispatchQueue.main.async { [weak self] in
                 self?.passwords = sortedPasswords
             }
         }
-//        passwords = allPasswords.reversed()
     }
 
     func savePassword(
@@ -162,7 +161,9 @@ final class SavedPasswordsManager: ObservableObject {
                         case .success(let success): savedPassword = success
                         }
 
-                        self.passwords = self.passwords.prepended(savedPassword)
+                        self.passwords = self.passwords
+                            .prepended(savedPassword)
+                            .sortByUpdatedDateDescending()
                         completion(true)
                     }
                 }
