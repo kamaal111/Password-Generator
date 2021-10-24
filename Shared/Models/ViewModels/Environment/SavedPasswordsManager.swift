@@ -66,16 +66,24 @@ final class SavedPasswordsManager: ObservableObject {
     func editPassword(id: UUID, args: CommonPassword.Args) {
         guard let index = passwords.firstIndex(where: { $0.id == id }) else { return }
         let password = passwords[index]
-        #error("Uncomment")
-//        let editedPasswordResult = password.edit(args: args)
-//        let editedPassword: CorePassword
-//        switch editedPasswordResult {
-//        case .failure(let failure):
-//            console.error(Date(), failure.localizedDescription, failure)
-//            return
-//        case .success(let success): editedPassword = success
-//        }
-//        passwords[index] = editedPassword
+        password.update(args: args, context: persistenceController.context!) { result in
+            let editedPassword: CommonPassword
+            switch result {
+            case .failure(let failure):
+                switch failure {
+                case .contextNotFound: console.error(Date(), failure)
+                case .coreDataError(error: let error): console.error(Date(), error)
+                case .coreDataValueNotFound: console.error(Date(), failure)
+                case .cloudKitError(error: let error): console.error(Date(), error)
+                }
+                return
+            case .success(let success): editedPassword = success
+            }
+
+            DispatchQueue.main.async { [weak self] in
+                self?.passwords[index] = editedPassword
+            }
+        }
     }
 
     func getPasswordByID(is comparisonValue: UUID) -> CommonPassword? {

@@ -70,6 +70,11 @@ extension CorePassword {
         return .success(self)
     }
 
+    func delete() throws {
+        managedObjectContext?.delete(self)
+        try managedObjectContext?.save()
+    }
+
     @discardableResult
     static func saveNew(args: Args, context: NSManagedObjectContext, save: Bool = true) -> Result<CorePassword, Error> {
         let password = CorePassword(context: context)

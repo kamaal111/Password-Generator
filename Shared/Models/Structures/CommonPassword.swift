@@ -30,84 +30,12 @@ struct CommonPassword: Hashable, Identifiable {
         case value
     }
 
-    enum DeletionErrors: Error {
-        case contextNotFound
-        case coreDataError(error: Error)
-        case coreDataValueNotFound
-        case cloudKitError(error: Error)
-    }
-
     var maskedValue: String {
         value.map({ _ in "*" }).joined()
     }
 
-    var toCloudKitItem: CKRecord {
-        let record = CKRecord(recordType: CorePassword.recordType)
-        record[RecordKeys.name.rawValue] = name
-        record[RecordKeys.value.rawValue] = value.nsString
-        record[RecordKeys.id.rawValue] = id.nsString
-        record[RecordKeys.updatedDate.rawValue] = updatedDate
-        record[RecordKeys.creationDate.rawValue] = creationDate
-        return record
-    }
-
-    func delete(context: NSManagedObjectContext? = nil, completion: @escaping (Result<Void, DeletionErrors>) -> Void) {
-        switch source {
-        case .coreData:
-            completion(deleteCoreDataItem(context: context))
-            return
-        case .iCloud:
-            deleteCloudKitItem(completion: completion)
-            return
-        }
-    }
-
-    func toCoreDataItem(context: NSManagedObjectContext) -> Result<CorePassword?, Error> {
-        let fetchRequest = NSFetchRequest<CorePassword>(entityName: CorePassword.entityName)
-        fetchRequest.predicate = NSPredicate(format: "id == %@", id.nsString)
-        fetchRequest.fetchLimit = 1
-        let fetchedPasswords: [CorePassword]
-        do {
-            fetchedPasswords = try context.fetch(fetchRequest)
-        } catch {
-            return .failure(error)
-        }
-        return .success(fetchedPasswords.first)
-    }
-
-    private func deleteCoreDataItem(context: NSManagedObjectContext?) -> Result<Void, DeletionErrors> {
-        guard let context = context else { return .failure(.contextNotFound) }
-
-        let coreDataItem: CorePassword
-        switch toCoreDataItem(context: context) {
-        case .failure(let failure):
-            return .failure(.coreDataError(error: failure))
-        case .success(let success):
-            guard let success = success else { return .failure(.coreDataValueNotFound) }
-            coreDataItem = success
-        }
-
-        context.delete(coreDataItem)
-        do {
-            try context.save()
-        } catch {
-            return .failure(.coreDataError(error: error))
-        }
-
-        return .success(Void())
-    }
-
-    private func deleteCloudKitItem(completion: @escaping (Result<Void, DeletionErrors>) -> Void) {
-        CloudKitController.shared.delete(toCloudKitItem) { result in
-            switch result {
-            case .failure(let failure):
-                completion(.failure(.cloudKitError(error: failure)))
-                return
-            case .success(_): break
-            }
-
-            completion(.success(Void()))
-        }
+    var args: Args {
+        .init(name: name, value: value)
     }
 
     struct Args {
@@ -122,5 +50,150 @@ struct CommonPassword: Hashable, Identifiable {
         init(value: String) {
             self.init(name: nil, value: value)
         }
+    }
+}
+
+// - MARK: Update
+
+extension CommonPassword {
+    enum UpdateErrors: Error {
+        case contextNotFound
+        case coreDataError(error: Error)
+        case coreDataValueNotFound
+        case cloudKitError(error: Error)
+    }
+
+    func update(
+        args: Args,
+        context: NSManagedObjectContext? = nil,
+        completion: @escaping (Result<CommonPassword, UpdateErrors>) -> Void) {
+            switch source {
+            case .coreData: completion(updateCoreDataItem(args: args, context: context))
+            case .iCloud: updateCloudKitItem(args: args, completion: completion)
+            }
+        }
+
+    private func updateCoreDataItem(
+        args: Args,
+        context: NSManagedObjectContext?) -> Result<CommonPassword, UpdateErrors> {
+            guard let context = context else { return .failure(.contextNotFound) }
+
+            let coreDataItem: CorePassword
+            switch toCoreDataItem(context: context) {
+            case .failure(let failure): return .failure(.coreDataError(error: failure))
+            case .success(let success):
+                guard let success = success else { return .failure(.coreDataValueNotFound) }
+                coreDataItem = success
+            }
+
+            let editedPassword: CorePassword
+            let editResult = coreDataItem.edit(args: .init(name: args.name, value: args.value))
+            switch editResult {
+            case .failure(let failure): return .failure(.coreDataError(error: failure))
+            case .success(let success): editedPassword = success
+            }
+
+            return .success(editedPassword.common)
+    }
+
+    private func updateCloudKitItem(args: Args, completion: @escaping (Result<CommonPassword, UpdateErrors>) -> Void) {
+        let editedPassword = CommonPassword(
+            id: id,
+            name: args.name,
+            creationDate: creationDate,
+            updatedDate: Date(),
+            value: args.value,
+            source: .iCloud)
+        CloudKitController.shared.save(editedPassword.toCloudKitItem()) { result in
+            switch result {
+            case .failure(let failure):
+                completion(.failure(.cloudKitError(error: failure)))
+                return
+            case .success(_): break
+            }
+            completion(.success(editedPassword))
+        }
+    }
+}
+
+// - MARK: Delete
+
+extension CommonPassword {
+    enum DeletionErrors: Error {
+        case contextNotFound
+        case coreDataError(error: Error)
+        case coreDataValueNotFound
+        case cloudKitError(error: Error)
+    }
+
+    func delete(context: NSManagedObjectContext? = nil, completion: @escaping (Result<Void, DeletionErrors>) -> Void) {
+        switch source {
+        case .coreData: completion(deleteCoreDataItem(context: context))
+        case .iCloud: deleteCloudKitItem(completion: completion)
+        }
+    }
+
+    private func deleteCoreDataItem(context: NSManagedObjectContext?) -> Result<Void, DeletionErrors> {
+        guard let context = context else { return .failure(.contextNotFound) }
+
+        let coreDataItem: CorePassword
+        switch toCoreDataItem(context: context) {
+        case .failure(let failure): return .failure(.coreDataError(error: failure))
+        case .success(let success):
+            guard let success = success else { return .failure(.coreDataValueNotFound) }
+            coreDataItem = success
+        }
+
+        do {
+            try coreDataItem.delete()
+        } catch {
+            return .failure(.coreDataError(error: error))
+        }
+
+        return .success(Void())
+    }
+
+    private func deleteCloudKitItem(completion: @escaping (Result<Void, DeletionErrors>) -> Void) {
+        CloudKitController.shared.delete(toCloudKitItem()) { result in
+            switch result {
+            case .failure(let failure):
+                completion(.failure(.cloudKitError(error: failure)))
+                return
+            case .success(_): break
+            }
+
+            completion(.success(Void()))
+        }
+    }
+}
+
+// - MARK: Cloud Kit methods
+
+extension CommonPassword {
+    func toCloudKitItem() -> CKRecord {
+        let record = CKRecord(recordType: CorePassword.recordType)
+        record[RecordKeys.name.rawValue] = name
+        record[RecordKeys.value.rawValue] = value.nsString
+        record[RecordKeys.id.rawValue] = id.nsString
+        record[RecordKeys.updatedDate.rawValue] = updatedDate
+        record[RecordKeys.creationDate.rawValue] = creationDate
+        return record
+    }
+}
+
+// - MARK: Core Data methods
+
+extension CommonPassword {
+    func toCoreDataItem(context: NSManagedObjectContext) -> Result<CorePassword?, Error> {
+        let fetchRequest = NSFetchRequest<CorePassword>(entityName: CorePassword.entityName)
+        fetchRequest.predicate = NSPredicate(format: "id == %@", id.nsString)
+        fetchRequest.fetchLimit = 1
+        let fetchedPasswords: [CorePassword]
+        do {
+            fetchedPasswords = try context.fetch(fetchRequest)
+        } catch {
+            return .failure(error)
+        }
+        return .success(fetchedPasswords.first)
     }
 }
