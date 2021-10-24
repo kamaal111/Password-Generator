@@ -1,5 +1,5 @@
 //
-//  NameSheet.swift
+//  SavePasswordSheet.swift
 //  Password-Generator
 //
 //  Created by Kamaal M Farah on 09/09/2021.
@@ -9,7 +9,7 @@ import SwiftUI
 import SalmonUI
 import PGLocale
 
-struct NameSheet: View {
+struct SavePasswordSheet: View {
     @Binding var name: String
 
     let onCommit: () -> Void
@@ -38,8 +38,8 @@ struct NameSheet: View {
     }
 }
 
-struct NameSheet_Previews: PreviewProvider {
+struct SavePasswordSheet_Previews: PreviewProvider {
     static var previews: some View {
-        NameSheet(name: .constant("Super site"), onCommit: { }, onClose: { })
+        SavePasswordSheet(name: .constant("Super site"), onCommit: { }, onClose: { })
     }
 }
