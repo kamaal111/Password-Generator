@@ -137,8 +137,7 @@ struct CloudPlaygroundScreen: View {
                         return coreDataItem.ckRecord(from: foundRecord)
                     }
                     return coreDataItem.ckRecord
-                case .iCloud:
-                    return password.toCloudKitItem
+                case .iCloud: return password.toCloudKitItem()
                 }
 
             })

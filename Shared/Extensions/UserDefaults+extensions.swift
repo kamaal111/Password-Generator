@@ -28,6 +28,9 @@ extension UserDefaults {
 
     @UserDefault(key: .enableICloudSyncing, defaultValue: true)
     static var enableICloudSyncing: Bool
+
+    @OptionalUserDefault(key: .lastChosenSyncMethod)
+    static var lastChosenSyncMethod: Data?
 }
 
 enum UserDefaultKeys: String {
@@ -38,6 +41,7 @@ enum UserDefaultKeys: String {
     case symbolsEnabled
     case shakeTimes
     case enableICloudSyncing
+    case lastChosenSyncMethod
 }
 
 @propertyWrapper
@@ -63,6 +67,39 @@ struct UserDefault<Value> {
     }
 
     var projectedValue: UserDefault {
+        self
+    }
+
+    func removeValue() {
+        container.removeObject(forKey: constructKey(key.rawValue))
+    }
+
+    private func constructKey(_ key: String) -> String {
+        "\(Constants.bundleIdentifier).UserDefaults.\(key)"
+    }
+}
+
+@propertyWrapper
+struct OptionalUserDefault<Value> {
+    let key: UserDefaultKeys
+    let container: UserDefaults
+
+    init(key: UserDefaultKeys, container: UserDefaults = .standard) {
+        self.key = key
+        self.container = container
+    }
+
+    var wrappedValue: Value? {
+        get {
+            let valueToReturn = container.object(forKey: constructKey(key.rawValue)) as? Value
+            return valueToReturn
+        }
+        set {
+            container.set(newValue, forKey: constructKey(key.rawValue))
+        }
+    }
+
+    var projectedValue: OptionalUserDefault {
         self
     }
 

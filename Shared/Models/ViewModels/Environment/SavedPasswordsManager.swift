@@ -111,7 +111,7 @@ final class SavedPasswordsManager: ObservableObject {
 //        passwords = allPasswords.reversed()
     }
 
-    func savePassword(of password: String, withName name: String) -> Bool {
+    func savePassword(of password: String, withName name: String, destination: CommonPassword.Source) -> Bool {
         var unwrappedName: String? = name
         if name.replacingOccurrences(of: " ", with: "").isEmpty {
             unwrappedName = nil

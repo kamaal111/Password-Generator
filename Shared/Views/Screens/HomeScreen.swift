@@ -11,6 +11,8 @@ import SalmonUI
 struct HomeScreen: View {
     @EnvironmentObject
     private var savedPasswordsManager: SavedPasswordsManager
+    @EnvironmentObject
+    private var userData: UserData
 
     @StateObject
     private var viewModel = ViewModel()
@@ -80,7 +82,8 @@ struct HomeScreen: View {
     private func savePassword() {
         let success = savedPasswordsManager.savePassword(
             of: viewModel.passwordLabel,
-            withName: viewModel.passwordName)
+            withName: viewModel.passwordName,
+            destination: userData.lastChosenSyncMethod)
         viewModel.onPasswordSave(success: success)
     }
 
