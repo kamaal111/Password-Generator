@@ -7,8 +7,8 @@
 
 import Foundation
 import CoreData
+import ConsoleSwift
 
-// - TODO: Render this everywhere
 struct CommonPassword: Hashable, Identifiable {
     let id: UUID
     let name: String?
@@ -30,8 +30,36 @@ struct CommonPassword: Hashable, Identifiable {
         case value
     }
 
+    enum DeletionErrors: Error {
+        case contextNotFound
+        case coreDataError(error: Error)
+        case coreDataValueNotFound
+        case cloudKitError(error: Error)
+    }
+
     var maskedValue: String {
         value.map({ _ in "*" }).joined()
+    }
+
+    var toCloudKitItem: CKRecord {
+        let record = CKRecord(recordType: CorePassword.recordType)
+        record[RecordKeys.name.rawValue] = name
+        record[RecordKeys.value.rawValue] = value.nsString
+        record[RecordKeys.id.rawValue] = id.nsString
+        record[RecordKeys.updatedDate.rawValue] = updatedDate
+        record[RecordKeys.creationDate.rawValue] = creationDate
+        return record
+    }
+
+    func delete(context: NSManagedObjectContext? = nil, completion: @escaping (Result<Void, DeletionErrors>) -> Void) {
+        switch source {
+        case .coreData:
+            completion(deleteCoreDataItem(context: context))
+            return
+        case .iCloud:
+            deleteCloudKitItem(completion: completion)
+            return
+        }
     }
 
     func toCoreDataItem(context: NSManagedObjectContext) -> Result<CorePassword?, Error> {
@@ -47,14 +75,39 @@ struct CommonPassword: Hashable, Identifiable {
         return .success(fetchedPasswords.first)
     }
 
-    var toCloudKitItem: CKRecord {
-        let record = CKRecord(recordType: CorePassword.recordType)
-        record[RecordKeys.name.rawValue] = name
-        record[RecordKeys.value.rawValue] = value.nsString
-        record[RecordKeys.id.rawValue] = id.nsString
-        record[RecordKeys.updatedDate.rawValue] = updatedDate
-        record[RecordKeys.creationDate.rawValue] = creationDate
-        return record
+    private func deleteCoreDataItem(context: NSManagedObjectContext?) -> Result<Void, DeletionErrors> {
+        guard let context = context else { return .failure(.contextNotFound) }
+
+        let coreDataItem: CorePassword
+        switch toCoreDataItem(context: context) {
+        case .failure(let failure):
+            return .failure(.coreDataError(error: failure))
+        case .success(let success):
+            guard let success = success else { return .failure(.coreDataValueNotFound) }
+            coreDataItem = success
+        }
+
+        context.delete(coreDataItem)
+        do {
+            try context.save()
+        } catch {
+            return .failure(.coreDataError(error: error))
+        }
+
+        return .success(Void())
+    }
+
+    private func deleteCloudKitItem(completion: @escaping (Result<Void, DeletionErrors>) -> Void) {
+        CloudKitController.shared.delete(toCloudKitItem) { result in
+            switch result {
+            case .failure(let failure):
+                completion(.failure(.cloudKitError(error: failure)))
+                return
+            case .success(_): break
+            }
+
+            completion(.success(Void()))
+        }
     }
 
     struct Args {

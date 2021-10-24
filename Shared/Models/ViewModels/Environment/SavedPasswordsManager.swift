@@ -45,27 +45,19 @@ final class SavedPasswordsManager: ObservableObject {
             self.passwordToDeleteID = nil
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak self] in
                 guard let self = self else { return }
-                switch removedPassword.source {
-                case .coreData:
-                    guard let coreDataItem = try? removedPassword
-                            .toCoreDataItem(context: self.persistenceController.context!).get() else { return }
-                    do {
-                        try self.persistenceController.delete(coreDataItem)
-                    } catch {
-                        console.error(Date(), error.localizedDescription, error)
-                        return
-                    }
-                case .iCloud:
-                    self.cloudKitController.delete(removedPassword.toCloudKitItem, completion: { result in
-                        switch result {
-                        case .failure(let failure):
-                            console.error(Date(), failure.localizedDescription, failure)
-                            return
-                        case .success(let success):
-                            console.log(Date(), "deleted \(success)")
+
+                removedPassword.delete(context: self.persistenceController.context!) { result in
+                    switch result {
+                    case .failure(let failure):
+                        switch failure {
+                        case .contextNotFound: console.error(Date(), failure)
+                        case .coreDataError(error: let error): console.error(Date(), error)
+                        case .coreDataValueNotFound: console.error(Date(), failure)
+                        case .cloudKitError(error: let error): console.error(Date(), error)
                         }
-                    })
-                    return
+                        return
+                    case .success(_): break
+                    }
                 }
             }
         }
