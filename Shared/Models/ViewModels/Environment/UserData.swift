@@ -12,7 +12,9 @@ final class UserData: ObservableObject {
     @Published var iCloudSyncingEnabled = UserDefaults.enableICloudSyncing {
         didSet { UserDefaults.enableICloudSyncing = iCloudSyncingEnabled }
     }
-    @Published var lastChosenSyncMethod: CommonPassword.Source
+    @Published var lastChosenSyncMethod: CommonPassword.Source {
+        didSet { UserDefaults.lastChosenSyncMethod = try? JSONEncoder().encode(lastChosenSyncMethod) }
+    }
 
     init() {
         if let lastChosenSyncMethod = UserDefaults.lastChosenSyncMethod,

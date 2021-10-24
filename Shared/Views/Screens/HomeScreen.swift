@@ -50,7 +50,7 @@ struct HomeScreen: View {
         }
         .navigationTitle(Text(Constants.appName))
         .sheet(isPresented: $viewModel.nameSheetIsShown) {
-            SavePasswordSheet(name: $viewModel.passwordName, onCommit: {
+            SavePasswordSheet(name: $viewModel.passwordName, destination: $userData.lastChosenSyncMethod, onCommit: {
                 let duplicateExists = savedPasswordsManager.checkForDuplicates(viewModel.passwordLabel)
                 if !duplicateExists {
                     savePassword()

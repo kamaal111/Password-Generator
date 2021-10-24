@@ -11,6 +11,7 @@ import PGLocale
 
 struct SavePasswordSheet: View {
     @Binding var name: String
+    @Binding var destination: CommonPassword.Source
 
     let onCommit: () -> Void
     let onClose: () -> Void
@@ -34,12 +35,19 @@ struct SavePasswordSheet: View {
             }
             .padding(.top, .medium)
         }
+        #if os(macOS)
         .frame(minWidth: 300, minHeight: 128)
+        #endif
     }
 }
 
 struct SavePasswordSheet_Previews: PreviewProvider {
     static var previews: some View {
-        SavePasswordSheet(name: .constant("Super site"), onCommit: { }, onClose: { })
+        SavePasswordSheet(
+            name: .constant("Super site"),
+            destination: .constant(.coreData),
+            onCommit: { },
+            onClose: { })
+            .previewLayout(.sizeThatFits)
     }
 }
