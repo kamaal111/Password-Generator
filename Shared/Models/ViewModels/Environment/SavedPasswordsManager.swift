@@ -5,12 +5,11 @@
 //  Created by Kamaal M Farah on 06/09/2021.
 //
 
-import Foundation
 import PersistanceManager
 import ConsoleSwift
 import ShrimpExtensions
-import CoreData
 import SwiftUI
+import CloudKit
 
 final class SavedPasswordsManager: ObservableObject {
 

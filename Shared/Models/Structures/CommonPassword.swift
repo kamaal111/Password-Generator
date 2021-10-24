@@ -8,6 +8,7 @@
 import Foundation
 import CoreData
 import ConsoleSwift
+import CloudKit
 
 struct CommonPassword: Hashable, Identifiable {
     let id: UUID
