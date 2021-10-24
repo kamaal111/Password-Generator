@@ -104,10 +104,32 @@ final class SavedPasswordsManager: ObservableObject {
         switch allPasswordsResult {
         case .failure(let failure):
             console.error(Date(), failure.localizedDescription, failure)
-            return
+            allPasswords = []
         case .success(let success): allPasswords = success
         }
-        #error("Uncomment")
+
+        let commonPasswordsFromCoreData = allPasswords.map(\.common)
+
+        cloudKitController.fetchAll(ofType: CorePassword.recordType) { result in
+            let records: [CKRecord]
+            switch result {
+            case .failure(let failure):
+                console.error(Date(), failure.localizedDescription, failure)
+                records = []
+            case .success(let success): records = success
+            }
+
+            let commonPasswordsFromRecords = records.compactMap(\.commonPassword)
+            let recordIDs = commonPasswordsFromRecords.map(\.id)
+            let filteredPasswordsFromCoreData = commonPasswordsFromCoreData.filter({ !recordIDs.contains($0.id) })
+            let combinedPasswords = filteredPasswordsFromCoreData + commonPasswordsFromRecords
+            #error("sort passwords by updated date")
+            let sortedPasswords = combinedPasswords
+
+            DispatchQueue.main.async { [weak self] in
+                self?.passwords = sortedPasswords
+            }
+        }
 //        passwords = allPasswords.reversed()
     }
 

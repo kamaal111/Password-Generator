@@ -240,6 +240,24 @@ extension CommonPassword {
     }
 }
 
+extension CKRecord {
+    var commonPassword: CommonPassword? {
+        guard let idString = self[CommonPassword.RecordKeys.id.rawValue] as? String,
+                let id = UUID(uuidString: idString) else { return nil }
+        guard let creationDate = self[CommonPassword.RecordKeys.creationDate.rawValue] as? Date else { return nil }
+        guard let updatedDate = self[CommonPassword.RecordKeys.updatedDate.rawValue] as? Date else { return nil }
+        guard let value =  self[CommonPassword.RecordKeys.value.rawValue] as? String else { return nil }
+        let name = self[CommonPassword.RecordKeys.name.rawValue] as? String
+        return .init(
+            id: id,
+            name: name,
+            creationDate: creationDate,
+            updatedDate: updatedDate,
+            value: value,
+            source: .iCloud)
+    }
+}
+
 // - MARK: Core Data methods
 
 extension CommonPassword {
