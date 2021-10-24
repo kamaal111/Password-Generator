@@ -113,7 +113,7 @@ final class SavedPasswordsManager: ObservableObject {
             let records: [CKRecord]
             switch result {
             case .failure(let failure):
-                console.error(Date(), failure.localizedDescription, failure)
+                console.log(Date(), failure.localizedDescription, failure)
                 records = []
             case .success(let success): records = success
             }

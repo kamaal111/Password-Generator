@@ -10,6 +10,8 @@ import SalmonUI
 import PGLocale
 
 struct SavePasswordSheet: View {
+    @State private var syncingIsEnabled = false
+
     @Binding var name: String
     @Binding var destination: CommonPassword.Source
 
@@ -17,27 +19,51 @@ struct SavePasswordSheet: View {
     let onClose: () -> Void
 
     var body: some View {
-        KSheetStack(leadingNavigationButton: {
-            Button(action: onClose) {
-                Text(localized: .CLOSE)
+        KSheetStack(
+            leadingNavigationButton: { leadingNavigationButton },
+            trailingNavigationButton: { trailingNavigationButton }) {
+                VStack {
+                    KFloatingTextField(
+                        text: $name,
+                        title: PGLocale.Keys.NAME.localized,
+                        textFieldType: .text,
+                        onCommit: onCommit)
+                    Toggle(isOn: $syncingIsEnabled) {
+                        Text(localized: .SYNC_WITH_ICLOUD)
+                    }
+                }
+                .padding(.top, .medium)
             }
-        }, trailingNavigationButton: {
-            Button(action: onCommit) {
-                Text(localized: .SAVE)
-            }
-        }) {
-            VStack {
-                KFloatingTextField(
-                    text: $name,
-                    title: PGLocale.Keys.NAME.localized,
-                    textFieldType: .text,
-                    onCommit: onCommit)
-            }
-            .padding(.top, .medium)
+            .onAppear(perform: {
+                switch destination {
+                case .coreData: syncingIsEnabled = false
+                case .iCloud: syncingIsEnabled = true
+                }
+            })
+            .onChange(of: syncingIsEnabled, perform: { newValue in
+                if newValue {
+                    destination = .iCloud
+                } else {
+                    destination = .coreData
+                }
+            })
+            #if os(macOS)
+            .frame(minWidth: 300, minHeight: 128)
+            #endif
+    }
+
+    private var leadingNavigationButton: some View {
+        Button(action: onClose) {
+            Text(localized: .CLOSE)
+                .bold()
         }
-        #if os(macOS)
-        .frame(minWidth: 300, minHeight: 128)
-        #endif
+    }
+
+    private var trailingNavigationButton: some View {
+        Button(action: onCommit) {
+            Text(localized: .SAVE)
+                .bold()
+        }
     }
 }
 

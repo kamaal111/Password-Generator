@@ -60,7 +60,7 @@ struct SavedPasswordsScreen: View {
     private var trailingNavigationBarItem: some View {
         Button(action: viewModel.toggleEditMode) {
             Text(editMode: viewModel.editMode)
-                .fontWeight(.semibold)
+                .bold()
         }
     }
 
