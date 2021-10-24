@@ -80,11 +80,12 @@ struct HomeScreen: View {
     }
 
     private func savePassword() {
-        let success = savedPasswordsManager.savePassword(
+        savedPasswordsManager.savePassword(
             of: viewModel.passwordLabel,
             withName: viewModel.passwordName,
-            destination: userData.lastChosenSyncMethod)
-        viewModel.onPasswordSave(success: success)
+            destination: userData.lastChosenSyncMethod) { success in
+                viewModel.onPasswordSave(success: success)
+            }
     }
 
     #if DEBUG

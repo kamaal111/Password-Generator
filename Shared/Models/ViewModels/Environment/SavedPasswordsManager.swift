@@ -111,24 +111,39 @@ final class SavedPasswordsManager: ObservableObject {
 //        passwords = allPasswords.reversed()
     }
 
-    func savePassword(of password: String, withName name: String, destination: CommonPassword.Source) -> Bool {
-        var unwrappedName: String? = name
-        if name.replacingOccurrences(of: " ", with: "").isEmpty {
-            unwrappedName = nil
-        }
-        let savedPasswordResult = CorePassword.saveNew(
-            args: .init(name: unwrappedName, value: password),
-            context: persistenceController.context!)
-        #error("Uncomment")
-//        let savedPassword: CorePassword
-//        switch savedPasswordResult {
-//        case .failure(let failure):
-//            console.error(Date(), failure.localizedDescription, failure)
-//            return false
-//        case .success(let success): savedPassword = success
-//        }
-//        passwords = passwords.prepended(savedPassword)
-        return true
+    func savePassword(
+        of password: String,
+        withName name: String,
+        destination: CommonPassword.Source,
+        completion: @escaping (Bool) -> Void) {
+            var unwrappedName: String? = name
+            if name.replacingOccurrences(of: " ", with: "").isEmpty {
+                unwrappedName = nil
+            }
+
+            CommonPassword.insert(
+                args: .init(name: unwrappedName, value: password),
+                destination: destination,
+                context: persistenceController.context!) { result in
+                    DispatchQueue.main.async { [weak self] in
+                        guard let self = self else { return }
+                        let savedPassword: CommonPassword
+                        switch result {
+                        case .failure(let failure):
+                            switch failure {
+                            case .contextNotFound: console.error(Date(), failure)
+                            case .coreDataError(error: let error): console.error(Date(), error)
+                            case .cloudKitError(error: let error): console.error(Date(), error)
+                            }
+                            completion(false)
+                            return
+                        case .success(let success): savedPassword = success
+                        }
+
+                        self.passwords = self.passwords.prepended(savedPassword)
+                        completion(true)
+                    }
+                }
     }
 
     private func passwordToDeleteIDDidSet() {

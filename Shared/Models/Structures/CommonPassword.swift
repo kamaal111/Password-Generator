@@ -53,6 +53,65 @@ struct CommonPassword: Hashable, Identifiable {
     }
 }
 
+// - MARK: Insert
+
+extension CommonPassword {
+    enum InsertErrors: Error {
+        case contextNotFound
+        case coreDataError(error: Error)
+        case cloudKitError(error: Error)
+    }
+
+    static func insert(
+        args: Args,
+        destination: CommonPassword.Source,
+        context: NSManagedObjectContext? = nil,
+        completion: @escaping (Result<CommonPassword, InsertErrors>) -> Void) {
+            switch destination {
+            case .coreData: completion(insertCoreDataItem(args: args, context: context))
+            case .iCloud: insertCloudKitItem(args: args, completion: completion)
+            }
+    }
+
+    private static  func insertCoreDataItem(
+        args: Args,
+        context: NSManagedObjectContext?) -> Result<CommonPassword, InsertErrors> {
+            guard let context = context else { return .failure(.contextNotFound) }
+
+            let savedPassword: CorePassword
+            let saveNewResult = CorePassword.saveNew(args: .init(name: args.name, value: args.value), context: context)
+            switch saveNewResult {
+            case .failure(let failure): return .failure(.coreDataError(error: failure))
+            case .success(let success): savedPassword = success
+            }
+
+            return .success(savedPassword.common)
+    }
+
+    private static func insertCloudKitItem(
+        args: Args,
+        completion: @escaping (Result<CommonPassword, InsertErrors>) -> Void) {
+            let now = Date()
+            let passwordToSave = CommonPassword(
+                id: UUID(),
+                name: args.name,
+                creationDate: now,
+                updatedDate: now,
+                value: args.value,
+                source: .iCloud)
+            CloudKitController.shared.save(passwordToSave.toCloudKitItem()) { result in
+                switch result {
+                case .failure(let failure):
+                    completion(.failure(.cloudKitError(error: failure)))
+                    return
+                case .success(_): break
+                }
+
+                completion(.success(passwordToSave))
+            }
+    }
+}
+
 // - MARK: Update
 
 extension CommonPassword {
