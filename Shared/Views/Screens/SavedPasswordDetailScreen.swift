@@ -43,7 +43,7 @@ struct SavedPasswordDetailScreen: View {
                 label: "\(PGLocale.Keys.SYNC_WITH_ICLOUD.localized):")
                 .font(.headline)
                 .disabled(!viewModel.editMode.isEditing)
-                .padding(.trailing, .xxs)
+                .padding(.trailing, viewModel.editMode.isEditing ? .small : .xxs)
             Spacer()
             VStack {
                 DateDetailsRow(label: .CREATED_LABEL, dateString: viewModel.creationDateString)
@@ -81,6 +81,7 @@ struct SavedPasswordDetailScreen: View {
             }
             Button(action: {
                 viewModel.toggleEditMode(onSave: { args in
+                    #error("Toggling icloud sync does not work for some reason")
                     guard let passwordID = viewModel.passwordID else { return }
                     savedPasswordsManager.editPassword(id: passwordID, args: args)
                 })
