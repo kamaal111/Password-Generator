@@ -36,20 +36,22 @@ struct CommonPassword: Hashable, Identifiable {
     }
 
     var args: Args {
-        .init(name: name, value: value)
+        .init(name: name, value: value, source: source)
     }
 
     struct Args {
         let name: String?
         let value: String
+        let source: Source
 
-        init(name: String?, value: String) {
+        init(name: String?, value: String, source: Source) {
             self.name = name
             self.value = value
+            self.source = source
         }
 
-        init(value: String) {
-            self.init(name: nil, value: value)
+        init(value: String, source: Source) {
+            self.init(name: nil, value: value, source: source)
         }
     }
 }
@@ -73,10 +75,9 @@ extension CommonPassword {
 
     static func insert(
         args: Args,
-        destination: CommonPassword.Source,
         context: NSManagedObjectContext? = nil,
         completion: @escaping (Result<CommonPassword, InsertErrors>) -> Void) {
-            switch destination {
+            switch args.source {
             case .coreData: completion(insertCoreDataItem(args: args, context: context))
             case .iCloud: insertCloudKitItem(args: args, completion: completion)
             }
@@ -135,6 +136,9 @@ extension CommonPassword {
         args: Args,
         context: NSManagedObjectContext? = nil,
         completion: @escaping (Result<CommonPassword, UpdateErrors>) -> Void) {
+            if args.source != source {
+                #error("Handle source change")
+            }
             switch source {
             case .coreData: completion(updateCoreDataItem(args: args, context: context))
             case .iCloud: updateCloudKitItem(args: args, completion: completion)

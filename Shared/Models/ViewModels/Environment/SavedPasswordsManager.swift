@@ -143,8 +143,7 @@ final class SavedPasswordsManager: ObservableObject {
             }
 
             CommonPassword.insert(
-                args: .init(name: unwrappedName, value: password),
-                destination: destination,
+                args: .init(name: unwrappedName, value: password, source: destination),
                 context: persistenceController.context!) { result in
                     DispatchQueue.main.async { [weak self] in
                         guard let self = self else { return }

@@ -37,6 +37,9 @@ struct SavedPasswordDetailScreen: View {
                 showShowValueButton: true,
                 editMode: viewModel.editMode,
                 onCopyPress: viewModel.copyPassword)
+            Toggle(isOn: $viewModel.syncingIsEnabled) {
+                Text(localized: .SYNC_WITH_ICLOUD)
+            }
             Spacer()
             VStack {
                 DateDetailsRow(label: .CREATED_LABEL, dateString: viewModel.creationDateString)

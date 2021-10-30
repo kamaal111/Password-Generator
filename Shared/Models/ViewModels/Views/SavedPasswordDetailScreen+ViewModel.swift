@@ -16,6 +16,7 @@ extension SavedPasswordDetailScreen {
         @Published private(set) var editMode = EditMode.inactive
         @Published var edittedName = ""
         @Published var edittedPasswordValue = ""
+        @Published var syncingIsEnabled = false
 
         var creationDateString: String {
             passwordDateString(of: \.creationDate)
@@ -42,7 +43,10 @@ extension SavedPasswordDetailScreen {
             if !edittedName.replacingOccurrences(of: " ", with: "").isEmpty {
                 passwordName = edittedName
             }
-            return .init(name: passwordName, value: edittedPasswordValue)
+            return .init(
+                name: passwordName,
+                value: edittedPasswordValue,
+                source: syncingIsEnabled ? .iCloud : .coreData)
         }
 
         var passwordID: UUID? {
@@ -104,6 +108,10 @@ extension SavedPasswordDetailScreen {
             self.password = password
             self.edittedName = password.name ?? ""
             self.edittedPasswordValue = password.value
+            switch password.source {
+            case .iCloud: syncingIsEnabled = true
+            case .coreData: syncingIsEnabled = false
+            }
         }
 
         private func passwordDateString(of keyPath: KeyPath<CommonPassword, Date>) -> String {
