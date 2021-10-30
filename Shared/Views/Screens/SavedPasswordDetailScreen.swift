@@ -18,26 +18,6 @@ struct SavedPasswordDetailScreen: View {
     private var viewModel = ViewModel()
 
     var body: some View {
-        #if os(macOS)
-        view
-            .toolbar(content: {
-                ToolbarItem(placement: ToolbarItemPlacement.navigation) {
-                    Button(action: { stackNavigator.navigate(to: nil) }) {
-                        Image(systemName: "chevron.left")
-                    }
-                }
-            })
-            .toolbar(content: {
-                trailingNavigationBarItem
-            })
-        #else
-        view
-            .navigationBarTitleDisplayMode(.inline)
-            .navigationBarItems(trailing: trailingNavigationBarItem)
-        #endif
-    }
-
-    private var view: some View {
         VStack {
             CopyableDetailsRow(
                 showValue: .constant(true),
@@ -68,6 +48,21 @@ struct SavedPasswordDetailScreen: View {
         .ktakeSizeEagerly(alignment: .topLeading)
         .navigationTitle(Text(viewModel.navigationTitleString))
         .onAppear(perform: handleOnAppear)
+        #if os(macOS)
+        .toolbar(content: {
+            ToolbarItem(placement: ToolbarItemPlacement.navigation) {
+                Button(action: { stackNavigator.navigate(to: nil) }) {
+                    Image(systemName: "chevron.left")
+                }
+            }
+        })
+        .toolbar(content: {
+            trailingNavigationBarItem
+        })
+        #else
+        .navigationBarTitleDisplayMode(.inline)
+        .navigationBarItems(trailing: trailingNavigationBarItem)
+        #endif
     }
 
     private var trailingNavigationBarItem: some View {

@@ -391,6 +391,7 @@
 		2C1C27E727176F8C00954E68 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotHelper.swift; sourceTree = "<group>"; };
 		2C1C27E927176F9900954E68 /* Snapfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Snapfile; sourceTree = "<group>"; };
 		2C1C27EA27177DB700954E68 /* deploy_macos_app.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = deploy_macos_app.sh; sourceTree = "<group>"; };
+		2C2813A3272D9C3300929EE7 /* main.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = main.py; sourceTree = "<group>"; };
 		2C29A6762721F0F8006DC93B /* CloudKitController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitController.swift; sourceTree = "<group>"; };
 		2C34697D27137C7A00B3DB6D /* VersionBumperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionBumperTests.swift; sourceTree = "<group>"; };
 		2C34697E27137C7A00B3DB6D /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -736,6 +737,14 @@
 			path = "en-US";
 			sourceTree = "<group>";
 		};
+		2C2813A2272D9C3300929EE7 /* swiftlint-checker */ = {
+			isa = PBXGroup;
+			children = (
+				2C2813A3272D9C3300929EE7 /* main.py */,
+			);
+			path = "swiftlint-checker";
+			sourceTree = "<group>";
+		};
 		2C2F7759270A547F00732531 /* version-bumper */ = {
 			isa = PBXGroup;
 			children = (
@@ -986,6 +995,7 @@
 				2CE322E1270869A400004F27 /* app-icon-generator */,
 				2C6AD45E26E504CA003AF55C /* generate_locales */,
 				2C1573CA271C361700A01CAC /* generate-sensetive-content */,
+				2C2813A2272D9C3300929EE7 /* swiftlint-checker */,
 				2C2F7759270A547F00732531 /* version-bumper */,
 			);
 			path = Scripts;
