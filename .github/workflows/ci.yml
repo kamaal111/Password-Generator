@@ -47,7 +47,7 @@ jobs:
   appStoreContent:
     name: App Store content
     runs-on: macos-latest
-    needs: [test]
+    needs: [test, quality]
     if: contains(github.ref, 'refs/heads/release/') && false
     steps:
       - name: Git - Checkout
@@ -89,7 +89,7 @@ jobs:
     name: deploy iOS
     timeout-minutes: 15
     runs-on: macos-latest
-    needs: [test]
+    needs: [test, quality]
     env:
       PRODUCT_NAME: Passlify
       INITIAL_BUILD_NUMBER: 7
