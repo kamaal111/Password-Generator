@@ -97,7 +97,7 @@ final class SavedPasswordsManager: ObservableObject {
         CorePassword.checkForDuplicatePasswords(password, context: persistenceController.context!)
     }
 
-    func fetchAllPasswords() {
+    func fetchAllPasswords(completion: @escaping () -> Void) {
         let allPasswordsResult = CorePassword.fetchAllPasswords(context: persistenceController.context!)
         let allPasswords: [CorePassword]
         switch allPasswordsResult {
@@ -127,6 +127,7 @@ final class SavedPasswordsManager: ObservableObject {
 
             DispatchQueue.main.async { [weak self] in
                 self?.passwords = sortedPasswords
+                completion()
             }
         }
     }

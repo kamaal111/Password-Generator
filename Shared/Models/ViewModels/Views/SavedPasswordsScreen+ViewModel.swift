@@ -12,10 +12,19 @@ extension SavedPasswordsScreen {
 
         @Published private var lastCopiedPasswordID: UUID?
         @Published var editMode: EditMode = .inactive
+        @Published var loading = false
 
         func toggleEditMode() {
             withAnimation {
                 editMode = editMode.toggled()
+            }
+        }
+
+        func toggleLoading(to state: Bool) {
+            DispatchQueue.main.async { [weak self] in
+                withAnimation {
+                    self?.loading = state
+                }
             }
         }
 

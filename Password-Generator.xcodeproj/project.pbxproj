@@ -56,6 +56,9 @@
 		2C49EE5D270A43EA009BC0F9 /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C49EE5A270A43CF009BC0F9 /* SplashScreen.swift */; };
 		2C4F863226F264F600A34647 /* SavedPasswordDetailScreen+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4F863126F264F600A34647 /* SavedPasswordDetailScreen+ViewModel.swift */; };
 		2C4F863326F264F600A34647 /* SavedPasswordDetailScreen+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4F863126F264F600A34647 /* SavedPasswordDetailScreen+ViewModel.swift */; };
+		2C50BCAD272D530400772B94 /* LoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C50BCAC272D530400772B94 /* LoadingIndicator.swift */; };
+		2C50BCAE272D530400772B94 /* LoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C50BCAC272D530400772B94 /* LoadingIndicator.swift */; };
+		2C50BCAF272D530400772B94 /* LoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C50BCAC272D530400772B94 /* LoadingIndicator.swift */; };
 		2C614B3C26E6A0070061FF82 /* PasswordHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C614B3B26E6A0070061FF82 /* PasswordHandler.swift */; };
 		2C614B3D26E6A0070061FF82 /* PasswordHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C614B3B26E6A0070061FF82 /* PasswordHandler.swift */; };
 		2C69071326E95909000B84EC /* CorePassword+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C69071226E95909000B84EC /* CorePassword+extensions.swift */; };
@@ -400,6 +403,7 @@
 		2C49EE58270A4026009BC0F9 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2C49EE5A270A43CF009BC0F9 /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
 		2C4F863126F264F600A34647 /* SavedPasswordDetailScreen+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SavedPasswordDetailScreen+ViewModel.swift"; sourceTree = "<group>"; };
+		2C50BCAC272D530400772B94 /* LoadingIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingIndicator.swift; sourceTree = "<group>"; };
 		2C537B9F2710DD8F00D56BE6 /* Gymfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Gymfile; sourceTree = "<group>"; };
 		2C537BA02710DD8F00D56BE6 /* Appfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Appfile; sourceTree = "<group>"; };
 		2C537BA12710DD8F00D56BE6 /* Fastfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Fastfile; sourceTree = "<group>"; };
@@ -1092,6 +1096,7 @@
 				2C00B00F27162DAA00001AAB /* FeedbackSheet.swift */,
 				6017C076270105030023F347 /* FormHeader.swift */,
 				2C08AD8126E7FC33001ECD75 /* HomeMainActionButtons.swift */,
+				2C50BCAC272D530400772B94 /* LoadingIndicator.swift */,
 				2C6AD48426E50BFC003AF55C /* MainView.swift */,
 				2CE97ECF26EBFD14004D799A /* SavedPasswordListItem.swift */,
 				2C3E590A26EA7E4200F75F51 /* SavePasswordSheet.swift */,
@@ -1663,6 +1668,7 @@
 				2C6AD48526E50BFC003AF55C /* MainView.swift in Sources */,
 				2CDDE9FB27244BEE008162B3 /* CommonPassword.swift in Sources */,
 				2C93722F26EFF524004BF5BF /* StackNavigator.swift in Sources */,
+				2C50BCAD272D530400772B94 /* LoadingIndicator.swift in Sources */,
 				2CC49F602718A193006AD8A3 /* CommandLine+extensions.swift in Sources */,
 				2CA895C826E55EC60057A82C /* VerticalForm.swift in Sources */,
 				2CCD0B7E26F28CFD00BE8E21 /* CopyableDetailsRow.swift in Sources */,
@@ -1765,6 +1771,7 @@
 				2CA895D026E5618D0057A82C /* DeviceModel.swift in Sources */,
 				2C6AD48A26E50C60003AF55C /* HomeScreen.swift in Sources */,
 				2C6AD43526E50124003AF55C /* Password_Generator.xcdatamodeld in Sources */,
+				2C50BCAE272D530400772B94 /* LoadingIndicator.swift in Sources */,
 				2C6AD47826E50887003AF55C /* NamiNavigator.swift in Sources */,
 				2CA895D626E56BB70057A82C /* ToggleFormField.swift in Sources */,
 				2CD73C3D26F7C7670054C380 /* MenuItemTags.swift in Sources */,
@@ -1866,6 +1873,7 @@
 				2C6D1D512703BD0F004AD36E /* DeviceModel.swift in Sources */,
 				2C6D1D522703BD0F004AD36E /* HomeScreen.swift in Sources */,
 				2C6D1D532703BD0F004AD36E /* Password_Generator.xcdatamodeld in Sources */,
+				2C50BCAF272D530400772B94 /* LoadingIndicator.swift in Sources */,
 				2C6D1D542703BD0F004AD36E /* NamiNavigator.swift in Sources */,
 				2C6D1D552703BD0F004AD36E /* ToggleFormField.swift in Sources */,
 				2C6D1D562703BD0F004AD36E /* MenuItemTags.swift in Sources */,

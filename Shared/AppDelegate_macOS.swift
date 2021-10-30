@@ -8,6 +8,7 @@
 import AppKit
 import PGLocale
 import ConsoleSwift
+import CloudKit
 
 class AppDelegate: NSObject, NSApplicationDelegate {
 

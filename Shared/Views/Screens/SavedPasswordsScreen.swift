@@ -20,17 +20,26 @@ struct SavedPasswordsScreen: View {
     var body: some View {
         VerticalForm {
             Section(header: sectionHeader) {
-                #if os(macOS)
-                ScrollView {
+                if viewModel.loading {
+                    LoadingIndicator(loading: $viewModel.loading)
+                } else {
+                    #if os(macOS)
+                    ScrollView {
+                        savedPasswordSectionContent
+                    }
+                    #else
                     savedPasswordSectionContent
+                    #endif
                 }
-                #else
-                savedPasswordSectionContent
-                #endif
             }
         }
         .navigationTitle(Text(localized: .SAVED_PASSWORDS))
-        .onAppear(perform: savedPasswordsManager.fetchAllPasswords)
+        .onAppear(perform: {
+            viewModel.toggleLoading(to: true)
+            savedPasswordsManager.fetchAllPasswords(completion: {
+                viewModel.toggleLoading(to: false)
+            })
+        })
         .onShake(perform: {
             #if DEBUG
             stackNavigator.navigate(to: .playground)

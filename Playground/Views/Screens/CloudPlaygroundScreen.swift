@@ -59,18 +59,13 @@ struct CloudPlaygroundScreen: View {
                 }
                 .padding(.vertical, .medium)
             } else {
-                #if os(macOS)
-                KActivityIndicator(isAnimating: $loading, style: .spinning)
-                #else
-                KActivityIndicator(isAnimating: $loading, style: .large)
-                #endif
+                LoadingIndicator(loading: $loading)
             }
             PlaygroundFormButton(text: "Save a password", action: saveAPassword)
                 .padding(.bottom, .xs)
         }
         .kBindToFrameSize($screenSize)
         .onAppear(perform: {
-            savedPasswordsManager.fetchAllPasswords()
             fetchAllRecords()
         })
     }
