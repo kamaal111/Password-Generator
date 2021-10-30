@@ -49,7 +49,7 @@ struct PersistenceController {
             "Identity"
         ]
         for name in names {
-            let args = CorePassword.Args(name: name, value: "password")
+            let args = CorePassword.Args(id: nil, name: name, value: "password", creationDate: nil)
             CorePassword.saveNew(args: args, context: result.context!, save: false)
         }
         return result

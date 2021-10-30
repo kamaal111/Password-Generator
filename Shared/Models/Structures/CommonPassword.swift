@@ -36,22 +36,26 @@ struct CommonPassword: Hashable, Identifiable {
     }
 
     var args: Args {
-        .init(name: name, value: value, source: source)
+        .init(id: id, name: name, value: value, creationDate: creationDate, source: source)
     }
 
     struct Args {
+        let id: UUID?
         let name: String?
         let value: String
+        let creationDate: Date?
         let source: Source
 
-        init(name: String?, value: String, source: Source) {
+        init(id: UUID?, name: String?, value: String, creationDate: Date?, source: Source) {
+            self.id = id
             self.name = name
             self.value = value
+            self.creationDate = creationDate
             self.source = source
         }
 
-        init(value: String, source: Source) {
-            self.init(name: nil, value: value, source: source)
+        init(id: UUID?, value: String, creationDate: Date?, source: Source) {
+            self.init(id: id, name: nil, value: value, creationDate: creationDate, source: source)
         }
     }
 }
@@ -76,32 +80,22 @@ extension CommonPassword {
     static func insert(
         args: Args,
         context: NSManagedObjectContext? = nil,
-        completion: @escaping (Result<CommonPassword?, InsertErrors>) -> Void) {
+        completion: @escaping (Result<CommonPassword, InsertErrors>) -> Void) {
             switch args.source {
             case .coreData: completion(insertCoreDataItem(args: args, context: context))
             case .iCloud: insertCloudKitItem(args: args, completion: completion)
             }
     }
 
-    static func optionalInsert(
-        enabled: Bool,
-        args: Args,
-        context: NSManagedObjectContext? = nil,
-        completion: @escaping (Result<CommonPassword?, InsertErrors>) -> Void) {
-            if enabled {
-                Self.insert(args: args, context: context, completion: completion)
-            } else {
-                completion(.success(nil))
-            }
-    }
-
     private static  func insertCoreDataItem(
         args: Args,
-        context: NSManagedObjectContext?) -> Result<CommonPassword?, InsertErrors> {
+        context: NSManagedObjectContext?) -> Result<CommonPassword, InsertErrors> {
             guard let context = context else { return .failure(.contextNotFound) }
 
             let savedPassword: CorePassword
-            let saveNewResult = CorePassword.saveNew(args: .init(name: args.name, value: args.value), context: context)
+            let saveNewResult = CorePassword.saveNew(
+                args: .init(id: args.id, name: args.name, value: args.value, creationDate: args.creationDate),
+                context: context)
             switch saveNewResult {
             case .failure(let failure): return .failure(.coreDataError(error: failure))
             case .success(let success): savedPassword = success
@@ -112,12 +106,12 @@ extension CommonPassword {
 
     private static func insertCloudKitItem(
         args: Args,
-        completion: @escaping (Result<CommonPassword?, InsertErrors>) -> Void) {
+        completion: @escaping (Result<CommonPassword, InsertErrors>) -> Void) {
             let now = Date()
             let passwordToSave = CommonPassword(
-                id: UUID(),
+                id: args.id ?? UUID(),
                 name: args.name,
-                creationDate: now,
+                creationDate: args.creationDate ?? now,
                 updatedDate: now,
                 value: args.value,
                 source: .iCloud)
@@ -143,24 +137,38 @@ extension CommonPassword {
         case coreDataValueNotFound
         case cloudKitError(error: Error)
         case deletionError(error: DeletionErrors)
+        case insertError(error: InsertErrors)
     }
 
     func update(
         args: Args,
         context: NSManagedObjectContext? = nil,
         completion: @escaping (Result<CommonPassword, UpdateErrors>) -> Void) {
-            optionalDelete(enabled: args.source != source, context: context) { result in
-                switch result {
-                case .failure(let failure):
-                    completion(.failure(.deletionError(error: failure)))
-                    return
-                case .success: break
+            let deleteAndCreateNew = args.source != source
+            if deleteAndCreateNew {
+                delete(context: context) { result in
+                    switch result {
+                    case .failure(let failure):
+                        completion(.failure(.deletionError(error: failure)))
+                        return
+                    case .success: break
+                    }
+
+                    Self.insert(args: args, context: context) { result in
+                        switch result {
+                        case .failure(let failure):
+                            completion(.failure(.insertError(error: failure)))
+                            return
+                        case .success(let success): completion(.success(success))
+                        }
+                    }
                 }
-                #error("INSERT HERE AND THEN UPDATE")
-                switch source {
-                case .coreData: completion(updateCoreDataItem(args: args, context: context))
-                case .iCloud: updateCloudKitItem(args: args, completion: completion)
-                }
+                return
+            }
+
+            switch source {
+            case .coreData: completion(updateCoreDataItem(args: args, context: context))
+            case .iCloud: updateCloudKitItem(args: args, completion: completion)
             }
         }
 
@@ -178,7 +186,8 @@ extension CommonPassword {
             }
 
             let editedPassword: CorePassword
-            let editResult = coreDataItem.edit(args: .init(name: args.name, value: args.value))
+            let editResult = coreDataItem.edit(
+                args: .init(id: args.id, name: args.name, value: args.value, creationDate: args.creationDate))
             switch editResult {
             case .failure(let failure): return .failure(.coreDataError(error: failure))
             case .success(let success): editedPassword = success
@@ -200,7 +209,7 @@ extension CommonPassword {
             case .failure(let failure):
                 completion(.failure(.cloudKitError(error: failure)))
                 return
-            case .success(_): break
+            case .success: break
             }
             completion(.success(editedPassword))
         }
@@ -222,17 +231,6 @@ extension CommonPassword {
         case .coreData: completion(deleteCoreDataItem(context: context))
         case .iCloud: deleteCloudKitItem(completion: completion)
         }
-    }
-
-    private func optionalDelete(
-        enabled: Bool,
-        context: NSManagedObjectContext? = nil,
-        completion: @escaping (Result<Void, DeletionErrors>) -> Void) {
-            if enabled {
-                delete(context: context, completion: completion)
-            } else {
-                completion(.success(Void()))
-            }
     }
 
     private func deleteCoreDataItem(context: NSManagedObjectContext?) -> Result<Void, DeletionErrors> {

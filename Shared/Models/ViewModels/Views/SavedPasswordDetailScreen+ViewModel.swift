@@ -44,8 +44,10 @@ extension SavedPasswordDetailScreen {
                 passwordName = edittedName
             }
             return .init(
+                id: passwordID,
                 name: passwordName,
                 value: edittedPasswordValue,
+                creationDate: password?.creationDate,
                 source: syncingIsEnabled ? .iCloud : .coreData)
         }
 

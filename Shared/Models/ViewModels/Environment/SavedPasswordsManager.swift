@@ -55,7 +55,7 @@ final class SavedPasswordsManager: ObservableObject {
                         case .cloudKitError(error: let error): console.error(Date(), error)
                         }
                         return
-                    case .success(_): break
+                    case .success: break
                     }
                 }
             }
@@ -75,6 +75,7 @@ final class SavedPasswordsManager: ObservableObject {
                 case .coreDataValueNotFound: console.error(Date(), failure)
                 case .cloudKitError(error: let error): console.error(Date(), error)
                 case .deletionError(error: let error): console.error(Date(), error)
+                case .insertError(error: let error): console.error(Date(), error)
                 }
                 return
             case .success(let success): editedPassword = success
@@ -144,7 +145,7 @@ final class SavedPasswordsManager: ObservableObject {
             }
 
             CommonPassword.insert(
-                args: .init(name: unwrappedName, value: password, source: destination),
+                args: .init(id: nil, name: unwrappedName, value: password, creationDate: nil, source: destination),
                 context: persistenceController.context!) { result in
                     DispatchQueue.main.async { [weak self] in
                         guard let self = self else { return }
@@ -158,12 +159,7 @@ final class SavedPasswordsManager: ObservableObject {
                             }
                             completion(false)
                             return
-                        case .success(let success):
-                            guard let success = success else {
-                                completion(false)
-                                return
-                            }
-                            savedPassword = success
+                        case .success(let success): savedPassword = success
                         }
 
                         self.passwords = self.passwords

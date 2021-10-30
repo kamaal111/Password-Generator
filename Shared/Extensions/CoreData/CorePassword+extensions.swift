@@ -78,11 +78,11 @@ extension CorePassword {
     @discardableResult
     static func saveNew(args: Args, context: NSManagedObjectContext, save: Bool = true) -> Result<CorePassword, Error> {
         let password = CorePassword(context: context)
-        password.id = UUID()
+        password.id = args.id ?? UUID()
         password.name = args.name
         password.value = args.value
         let now = Date()
-        password.creationDate = now
+        password.creationDate = args.creationDate ?? now
         password.updatedDate = now
         if save {
             do {
@@ -95,16 +95,20 @@ extension CorePassword {
     }
 
     struct Args {
+        let id: UUID?
         let name: String?
         let value: String
+        let creationDate: Date?
 
-        init(name: String?, value: String) {
+        init(id: UUID?, name: String?, value: String, creationDate: Date?) {
+            self.id = id
             self.name = name
             self.value = value
+            self.creationDate = creationDate
         }
 
-        init(value: String) {
-            self.init(name: nil, value: value)
+        init(id: UUID?, value: String, creationDate: Date?) {
+            self.init(id: id, name: nil, value: value, creationDate: creationDate)
         }
     }
 }
