@@ -28,6 +28,22 @@ jobs:
         run: |
           make run_tests
 
+  quality:
+    name: Quality
+    timeout-minutes: 15
+    runs-on: macos-latest
+    steps:
+      - name: Git - Checkout
+        uses: actions/checkout@v2
+
+      - name: Brew install
+        run: |
+          brew bundle
+
+      - name: Swift lint
+        run: |
+          swiftlint
+
   appStoreContent:
     name: App Store content
     runs-on: macos-latest
