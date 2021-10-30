@@ -14,10 +14,6 @@ jobs:
       - name: Git - Checkout
         uses: actions/checkout@v2
 
-      - name: Brew install
-        run: |
-          brew bundle
-
       - name: Swift lint
         run: |
           swiftlint
