@@ -11,23 +11,34 @@ import CloudKit
 
 struct CloudPlaygroundItem: View {
     let recordValue: __CKRecordObjCValue?
+    let mask: Bool
     let width: CGFloat
 
     var body: some View {
-        Text(stringValue)
-            .lineLimit(1)
-            .frame(minWidth: width, maxWidth: width)
+        VStack {
+            Text(stringValue)
+                .lineLimit(1)
+                .frame(minWidth: width, maxWidth: width)
+            Divider()
+        }
+
     }
 
     private var stringValue: String {
+        let value: String
         if let recordString = recordValue as? String {
-            return recordString
+            value = recordString
         } else if let recordDate = recordValue as? Date {
-            return Self.dateFormatter.string(from: recordDate)
+            value = Self.dateFormatter.string(from: recordDate)
         } else if let recordNumber = recordValue as? NSNumber {
-            return recordNumber.stringValue
+            value = recordNumber.stringValue
+        } else {
+            value = ""
         }
-        return ""
+        if !mask {
+            return value
+        }
+        return value.map({ _ in "*" }).joined(separator: "")
     }
 
     private static let dateFormatter: DateFormatter = {
@@ -38,9 +49,9 @@ struct CloudPlaygroundItem: View {
     }()
 }
 
-//struct CloudPlaygroundItem_Previews: PreviewProvider {
+// struct CloudPlaygroundItem_Previews: PreviewProvider {
 //    static var previews: some View {
 //        CloudPlaygroundItem()
 //    }
-//}
+// }
 #endif

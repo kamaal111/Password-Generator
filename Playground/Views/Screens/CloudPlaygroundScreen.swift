@@ -42,16 +42,20 @@ struct CloudPlaygroundScreen: View {
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack {
                         ForEach(currentRecordKeys, id: \.self) { recordKey in
-                            Text(recordKey)
+                            Text(recordKey.replacingOccurrences(of: "_", with: " ").capitalized)
                                 .bold()
                                 .lineLimit(1)
                                 .frame(minWidth: screenSize.width / 5, maxWidth: screenSize.width / 5)
                         }
                     }
+                    .padding(.bottom, .small)
                     ForEach(currentRecords[selectedType] ?? [], id: \.self) { record in
                         HStack {
                             ForEach(currentRecordKeys, id: \.self) { recordKey in
-                                CloudPlaygroundItem(recordValue: record[recordKey], width: screenSize.width / 5)
+                                CloudPlaygroundItem(
+                                    recordValue: record[recordKey],
+                                    mask: recordKey == "value",
+                                    width: screenSize.width / 5)
                             }
                         }
                     }
@@ -60,9 +64,8 @@ struct CloudPlaygroundScreen: View {
                 .padding(.vertical, .medium)
             } else {
                 LoadingIndicator(loading: $loading)
+                    .ktakeSizeEagerly()
             }
-            PlaygroundFormButton(text: "Save a password", action: saveAPassword)
-                .padding(.bottom, .xs)
         }
         .kBindToFrameSize($screenSize)
         .onAppear(perform: {
@@ -96,60 +99,6 @@ struct CloudPlaygroundScreen: View {
                 currentRecordKeys = recordKeys
                 currentRecords[selectedType] = records
                 loading = false
-            }
-        }
-    }
-
-    private func saveAPassword() {
-        guard let firstPassword = savedPasswordsManager.passwords.first else { return }
-
-        let passwordsToSave = [firstPassword]
-        CloudKitController.shared.fetchByIDs(passwordsToSave.map(\.id), ofType: CorePassword.recordType) { result in
-            let records: [CKRecord]
-            switch result {
-            case .failure(let failure):
-                console.error(Date(), failure.localizedDescription, failure)
-                return
-            case .success(let success): records = success
-            }
-
-            let recordsToSave: [CKRecord] = passwordsToSave.compactMap({ password in
-                switch password.source {
-                case .coreData:
-                    let coreDataItem: CorePassword?
-                    do {
-                        coreDataItem = try password
-                            .toCoreDataItem(context: PersistenceController.shared.context!)
-                            .get()
-                    } catch {
-                        return nil
-                    }
-                    guard let coreDataItem = coreDataItem else { return nil }
-
-                    if let foundRecord = records.first(where: {
-                        $0[CorePassword.RecordKeys.id.rawValue] == password.id.nsString
-                    }) {
-                        return coreDataItem.ckRecord(from: foundRecord)
-                    }
-                    return coreDataItem.ckRecord
-                case .iCloud: return password.toCloudKitItem()
-                }
-
-            })
-
-            CloudKitController.shared.saveMultiple(recordsToSave) { result in
-                let records: [CKRecord]
-                switch result {
-                case .failure(let failure):
-                    console.error(Date(), failure.localizedDescription, failure)
-                    return
-                case .success(let success): records = success
-                }
-
-                records.forEach { record in
-                    guard let recordID = record[CorePassword.RecordKeys.id.rawValue] else { return }
-                    console.log(Date(), "saved record", recordID)
-                }
             }
         }
     }
