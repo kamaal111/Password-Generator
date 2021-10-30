@@ -7,6 +7,7 @@
 
 import SwiftUI
 import SalmonUI
+import PGLocale
 
 struct SavedPasswordDetailScreen: View {
     @EnvironmentObject
@@ -37,9 +38,12 @@ struct SavedPasswordDetailScreen: View {
                 showShowValueButton: true,
                 editMode: viewModel.editMode,
                 onCopyPress: viewModel.copyPassword)
-            Toggle(isOn: $viewModel.syncingIsEnabled) {
-                Text(localized: .SYNC_WITH_ICLOUD)
-            }
+            SettingsFormToggle(
+                state: $viewModel.syncingIsEnabled,
+                label: "\(PGLocale.Keys.SYNC_WITH_ICLOUD.localized):")
+                .font(.headline)
+                .disabled(!viewModel.editMode.isEditing)
+                .padding(.trailing, .xxs)
             Spacer()
             VStack {
                 DateDetailsRow(label: .CREATED_LABEL, dateString: viewModel.creationDateString)

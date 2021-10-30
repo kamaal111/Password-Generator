@@ -13,6 +13,11 @@ extension SavedPasswordsScreen {
         @Published private var lastCopiedPasswordID: UUID?
         @Published var editMode: EditMode = .inactive
         @Published var loading = false
+        @Published private(set) var showToolbar = false
+
+        func toggleShowToobar(to state: Bool) {
+            showToolbar = state
+        }
 
         func toggleEditMode() {
             withAnimation {

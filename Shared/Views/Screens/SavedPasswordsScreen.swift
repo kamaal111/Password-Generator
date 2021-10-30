@@ -35,10 +35,14 @@ struct SavedPasswordsScreen: View {
         }
         .navigationTitle(Text(localized: .SAVED_PASSWORDS))
         .onAppear(perform: {
+            viewModel.toggleShowToobar(to: true)
             viewModel.toggleLoading(to: true)
             savedPasswordsManager.fetchAllPasswords(completion: {
                 viewModel.toggleLoading(to: false)
             })
+        })
+        .onDisappear(perform: {
+            viewModel.toggleShowToobar(to: false)
         })
         .onShake(perform: {
             #if DEBUG
@@ -58,7 +62,9 @@ struct SavedPasswordsScreen: View {
         })
         #if os(macOS)
         .toolbar(content: {
-            trailingNavigationBarItem
+            if viewModel.showToolbar {
+                trailingNavigationBarItem
+            }
         })
         #else
         .navigationBarItems(trailing: trailingNavigationBarItem)
