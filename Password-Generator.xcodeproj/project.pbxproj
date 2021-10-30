@@ -404,6 +404,7 @@
 		2C49EE5A270A43CF009BC0F9 /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
 		2C4F863126F264F600A34647 /* SavedPasswordDetailScreen+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SavedPasswordDetailScreen+ViewModel.swift"; sourceTree = "<group>"; };
 		2C50BCAC272D530400772B94 /* LoadingIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingIndicator.swift; sourceTree = "<group>"; };
+		2C50BCB0272D58FE00772B94 /* Brewfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Brewfile; sourceTree = "<group>"; };
 		2C537B9F2710DD8F00D56BE6 /* Gymfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Gymfile; sourceTree = "<group>"; };
 		2C537BA02710DD8F00D56BE6 /* Appfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Appfile; sourceTree = "<group>"; };
 		2C537BA12710DD8F00D56BE6 /* Fastfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Fastfile; sourceTree = "<group>"; };
@@ -804,6 +805,7 @@
 		2C6AD40226E50120003AF55C = {
 			isa = PBXGroup;
 			children = (
+				2C50BCB0272D58FE00772B94 /* Brewfile */,
 				2C187A9E271B3180003A0E38 /* Gemfile */,
 				2C187AA0271B3196003A0E38 /* LICENSE */,
 				2CDDE9F927244B04008162B3 /* Makefile */,
