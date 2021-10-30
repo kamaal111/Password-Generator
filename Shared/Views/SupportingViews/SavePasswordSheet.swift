@@ -48,7 +48,7 @@ struct SavePasswordSheet: View {
                 }
             })
             #if os(macOS)
-            .frame(minWidth: 300, minHeight: 128)
+            .frame(minWidth: 300, minHeight: 144)
             #endif
     }
 
