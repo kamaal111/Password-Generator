@@ -17,8 +17,7 @@ def main():
         raise Exception("Could not parse serious count")
 
     if swiftlint_result.serious > 0:
-        print("Swiftlint found serious issues")
-        exit(1)
+        raise Exception(f"{swiftlint_result.serious} serious issues found")
 
     print(f"Swiftlint found no serious issues and found {swiftlint_result.violations} violations")
 
