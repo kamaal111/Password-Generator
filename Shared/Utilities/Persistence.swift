@@ -54,4 +54,9 @@ struct PersistenceController {
         }
         return result
     }()
+
+    static let emptyPreview: PersistanceManager = {
+        let result = PersistenceController(inMemory: true).sharedInststance
+        return result
+    }()
 }

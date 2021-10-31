@@ -6,14 +6,27 @@
 //
 
 import XCTest
+@testable import Passlify
 
 class CommonPasswordTests: XCTestCase {
 
-    override func setUpWithError() throws { }
+    override func setUpWithError() throws {
+    }
 
-    override func tearDownWithError() throws { }
+    override func tearDownWithError() throws {
+    }
 
-    func testExample() throws {
+    func testInsert() throws {
+        let args = CommonPassword.Args(
+            id: UUID(),
+            name: "Bank safe",
+            value: "secret password",
+            creationDate: Date(),
+            source: .coreData)
+        CommonPassword.insert(
+            args: args,
+            context: PersistenceController.emptyPreview.context) { result in
+            }
         XCTAssert(false)
     }
 

@@ -1368,6 +1368,8 @@
 				2C6AD42426E50124003AF55C /* PBXTargetDependency */,
 			);
 			name = UITestsiOS;
+			packageProductDependencies = (
+			);
 			productName = "Tests iOS";
 			productReference = 2C6AD42226E50124003AF55C /* UITestsiOS.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
@@ -1386,6 +1388,8 @@
 				2C6AD42F26E50124003AF55C /* PBXTargetDependency */,
 			);
 			name = UITestsmacOS;
+			packageProductDependencies = (
+			);
 			productName = "Tests macOS";
 			productReference = 2C6AD42D26E50124003AF55C /* UITestsmacOS.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
