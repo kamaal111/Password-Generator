@@ -229,6 +229,8 @@
 		2CCD0B7F26F28CFD00BE8E21 /* CopyableDetailsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCD0B7D26F28CFD00BE8E21 /* CopyableDetailsRow.swift */; };
 		2CCD0B8126F2933100BE8E21 /* DateDetailsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCD0B8026F2933100BE8E21 /* DateDetailsRow.swift */; };
 		2CCD0B8226F2933100BE8E21 /* DateDetailsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCD0B8026F2933100BE8E21 /* DateDetailsRow.swift */; };
+		2CD725D6272E9F7800B074D7 /* CommonPasswordTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD725D5272E9F7800B074D7 /* CommonPasswordTests.swift */; };
+		2CD725D7272E9F7800B074D7 /* CommonPasswordTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD725D5272E9F7800B074D7 /* CommonPasswordTests.swift */; };
 		2CD73C3626F7C1D50054C380 /* PlaygroundScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD73C3526F7C1D50054C380 /* PlaygroundScreen.swift */; };
 		2CD73C3726F7C1D50054C380 /* PlaygroundScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD73C3526F7C1D50054C380 /* PlaygroundScreen.swift */; };
 		2CD73C3926F7C5FD0054C380 /* AppDelegate_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD73C3826F7C5FD0054C380 /* AppDelegate_macOS.swift */; };
@@ -477,6 +479,7 @@
 		2CCC99542720AAC1003403F0 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS15.0.sdk/System/Library/Frameworks/CloudKit.framework; sourceTree = DEVELOPER_DIR; };
 		2CCD0B7D26F28CFD00BE8E21 /* CopyableDetailsRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyableDetailsRow.swift; sourceTree = "<group>"; };
 		2CCD0B8026F2933100BE8E21 /* DateDetailsRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateDetailsRow.swift; sourceTree = "<group>"; };
+		2CD725D5272E9F7800B074D7 /* CommonPasswordTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonPasswordTests.swift; sourceTree = "<group>"; };
 		2CD73C3526F7C1D50054C380 /* PlaygroundScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaygroundScreen.swift; sourceTree = "<group>"; };
 		2CD73C3826F7C5FD0054C380 /* AppDelegate_macOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate_macOS.swift; sourceTree = "<group>"; };
 		2CD73C3A26F7C7410054C380 /* NSMenuItem+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSMenuItem+extensions.swift"; sourceTree = "<group>"; };
@@ -632,6 +635,7 @@
 		2C08AD9726E80683001ECD75 /* Unit */ = {
 			isa = PBXGroup;
 			children = (
+				2CD725D5272E9F7800B074D7 /* CommonPasswordTests.swift */,
 				2C08ADB626E80AC7001ECD75 /* PasswordHandlerTests.swift */,
 				2C08AD9826E8068C001ECD75 /* Targets */,
 			);
@@ -1440,7 +1444,7 @@
 		2C6AD40326E50120003AF55C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1300;
+				LastSwiftUpdateCheck = 1310;
 				LastUpgradeCheck = 1300;
 				TargetAttributes = {
 					2C08AD8C26E80639001ECD75 = {
@@ -1644,6 +1648,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2CD725D6272E9F7800B074D7 /* CommonPasswordTests.swift in Sources */,
 				2C08ADB426E80A40001ECD75 /* EmptyTest.swift in Sources */,
 				2C08ADB726E80AC7001ECD75 /* PasswordHandlerTests.swift in Sources */,
 			);
@@ -1653,6 +1658,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2CD725D7272E9F7800B074D7 /* CommonPasswordTests.swift in Sources */,
 				2C08ADB526E80A40001ECD75 /* EmptyTest.swift in Sources */,
 				2C08ADB826E80AC7001ECD75 /* PasswordHandlerTests.swift in Sources */,
 			);

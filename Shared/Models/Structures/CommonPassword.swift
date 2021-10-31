@@ -259,7 +259,7 @@ extension CommonPassword {
             case .failure(let failure):
                 completion(.failure(.cloudKitError(error: failure)))
                 return
-            case .success(_): break
+            case .success: break
             }
 
             completion(.success(Void()))

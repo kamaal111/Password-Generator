@@ -64,4 +64,4 @@ fastlane/Deliverfile
 fastlane/Preview.html
 fastlane/screenshots
 
-Brewfile.lock.json
+.vscode
