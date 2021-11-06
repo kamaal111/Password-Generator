@@ -267,6 +267,9 @@
 		2CFD1D0B26EAA1FD00B7DF4F /* SavedPasswordsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CFD1D0926EAA1FD00B7DF4F /* SavedPasswordsScreen.swift */; };
 		2CFD3DFD2718BF2E00871A1D /* PGLocale in Frameworks */ = {isa = PBXBuildFile; productRef = 2CFD3DFC2718BF2E00871A1D /* PGLocale */; };
 		6000F7D1270AD7A600E58707 /* Password_GeneratorScreenshotsIOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6000F7D0270AD7A600E58707 /* Password_GeneratorScreenshotsIOS.swift */; };
+		6008826B27371D2400ED808C /* DebuggingPlaygroundScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6008826A27371D2400ED808C /* DebuggingPlaygroundScreen.swift */; };
+		6008826C27371D2400ED808C /* DebuggingPlaygroundScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6008826A27371D2400ED808C /* DebuggingPlaygroundScreen.swift */; };
+		6008826D27371D2400ED808C /* DebuggingPlaygroundScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6008826A27371D2400ED808C /* DebuggingPlaygroundScreen.swift */; };
 		6017C06D2700FEFE0023F347 /* DebugFrameSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6017C06C2700FEFE0023F347 /* DebugFrameSize.swift */; };
 		6017C06E2700FEFE0023F347 /* DebugFrameSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6017C06C2700FEFE0023F347 /* DebugFrameSize.swift */; };
 		6017C074270101030023F347 /* LogoPlaygroundScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6017C073270101030023F347 /* LogoPlaygroundScreen.swift */; };
@@ -288,9 +291,9 @@
 		6069B024271FFC5C006BD320 /* CloudPlaygroundScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6069B023271FFC5C006BD320 /* CloudPlaygroundScreen.swift */; };
 		6069B025271FFC5C006BD320 /* CloudPlaygroundScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6069B023271FFC5C006BD320 /* CloudPlaygroundScreen.swift */; };
 		6069B026271FFC5C006BD320 /* CloudPlaygroundScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6069B023271FFC5C006BD320 /* CloudPlaygroundScreen.swift */; };
-		6069B028271FFF27006BD320 /* FeaturePlaygroundScreenWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6069B027271FFF27006BD320 /* FeaturePlaygroundScreenWrapper.swift */; };
-		6069B029271FFF27006BD320 /* FeaturePlaygroundScreenWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6069B027271FFF27006BD320 /* FeaturePlaygroundScreenWrapper.swift */; };
-		6069B02A271FFF27006BD320 /* FeaturePlaygroundScreenWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6069B027271FFF27006BD320 /* FeaturePlaygroundScreenWrapper.swift */; };
+		6069B028271FFF27006BD320 /* PlaygroundScreenWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6069B027271FFF27006BD320 /* PlaygroundScreenWrapper.swift */; };
+		6069B029271FFF27006BD320 /* PlaygroundScreenWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6069B027271FFF27006BD320 /* PlaygroundScreenWrapper.swift */; };
+		6069B02A271FFF27006BD320 /* PlaygroundScreenWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6069B027271FFF27006BD320 /* PlaygroundScreenWrapper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -502,6 +505,7 @@
 		6000F7CE270AD7A600E58707 /* Password-GeneratorScreenshots (iOS).xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Password-GeneratorScreenshots (iOS).xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6000F7D0270AD7A600E58707 /* Password_GeneratorScreenshotsIOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Password_GeneratorScreenshotsIOS.swift; sourceTree = "<group>"; };
 		60088269273716FE00ED808C /* main.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = main.py; sourceTree = "<group>"; };
+		6008826A27371D2400ED808C /* DebuggingPlaygroundScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebuggingPlaygroundScreen.swift; sourceTree = "<group>"; };
 		6017C06C2700FEFE0023F347 /* DebugFrameSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugFrameSize.swift; sourceTree = "<group>"; };
 		6017C073270101030023F347 /* LogoPlaygroundScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoPlaygroundScreen.swift; sourceTree = "<group>"; };
 		6017C076270105030023F347 /* FormHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormHeader.swift; sourceTree = "<group>"; };
@@ -511,7 +515,7 @@
 		6056CF3C26F3D13A002AA00A /* EditMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditMode.swift; sourceTree = "<group>"; };
 		6056CF3E26F3D603002AA00A /* SecureFloatingField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureFloatingField.swift; sourceTree = "<group>"; };
 		6069B023271FFC5C006BD320 /* CloudPlaygroundScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudPlaygroundScreen.swift; sourceTree = "<group>"; };
-		6069B027271FFF27006BD320 /* FeaturePlaygroundScreenWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturePlaygroundScreenWrapper.swift; sourceTree = "<group>"; };
+		6069B027271FFF27006BD320 /* PlaygroundScreenWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaygroundScreenWrapper.swift; sourceTree = "<group>"; };
 		60937A16270CB10A005F13F0 /* set_up_xcode_version.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = set_up_xcode_version.sh; sourceTree = "<group>"; };
 		609CF9DA2719608E003C604D /* snapshots_ios.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = snapshots_ios.sh; sourceTree = "<group>"; };
 		60B4C54E270C290200E7F1A3 /* run_tests.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = run_tests.sh; sourceTree = "<group>"; };
@@ -1228,6 +1232,7 @@
 			isa = PBXGroup;
 			children = (
 				6069B023271FFC5C006BD320 /* CloudPlaygroundScreen.swift */,
+				6008826A27371D2400ED808C /* DebuggingPlaygroundScreen.swift */,
 				2CB7C4A1271CA36C005B13C0 /* KeychainPlaygroundScreen.swift */,
 				6017C073270101030023F347 /* LogoPlaygroundScreen.swift */,
 				2CD73C3526F7C1D50054C380 /* PlaygroundScreen.swift */,
@@ -1239,12 +1244,12 @@
 			isa = PBXGroup;
 			children = (
 				2CA0274F27242E990078A0C6 /* CloudPlaygroundItem.swift */,
-				6069B027271FFF27006BD320 /* FeaturePlaygroundScreenWrapper.swift */,
 				2CBF2B472708F2370088E18F /* LogoPlaygroundButton.swift */,
 				6017C07D270108440023F347 /* LogoPlaygroundColorSelector.swift */,
 				2CE322F227086E8B00004F27 /* LogoPlaygroundStepper.swift */,
 				2CE322EE27086E6400004F27 /* LogoPlaygroundToggle.swift */,
 				2C8C2953272353D80065AA17 /* PlaygroundFormButton.swift */,
+				6069B027271FFF27006BD320 /* PlaygroundScreenWrapper.swift */,
 			);
 			path = SupportingViews;
 			sourceTree = "<group>";
@@ -1703,6 +1708,7 @@
 				2CA895D226E5661C0057A82C /* UserDefaults+extensions.swift in Sources */,
 				2CB7C4A2271CA36C005B13C0 /* KeychainPlaygroundScreen.swift in Sources */,
 				2CA0275027242E990078A0C6 /* CloudPlaygroundItem.swift in Sources */,
+				6008826B27371D2400ED808C /* DebuggingPlaygroundScreen.swift in Sources */,
 				2C6AD43A26E50124003AF55C /* Persistence.swift in Sources */,
 				2CE97ED326EC03BF004D799A /* Notification.Name+extensions.swift in Sources */,
 				2C6AD48926E50C60003AF55C /* HomeScreen.swift in Sources */,
@@ -1717,7 +1723,7 @@
 				2CD73C4126F7CDE30054C380 /* Optional+extensions.swift in Sources */,
 				6017C06D2700FEFE0023F347 /* DebugFrameSize.swift in Sources */,
 				2C6AD49926E51358003AF55C /* Constants.swift in Sources */,
-				6069B028271FFF27006BD320 /* FeaturePlaygroundScreenWrapper.swift in Sources */,
+				6069B028271FFF27006BD320 /* PlaygroundScreenWrapper.swift in Sources */,
 				2C49EE5B270A43CF009BC0F9 /* SplashScreen.swift in Sources */,
 				2C00B0082716251E00001AAB /* SettingsView+ViewModel.swift in Sources */,
 				2CBF2B442708F17B0088E18F /* FileManager+extensions.swift in Sources */,
@@ -1762,7 +1768,7 @@
 				2C08AD8326E7FC33001ECD75 /* HomeMainActionButtons.swift in Sources */,
 				2CA895D326E5661C0057A82C /* UserDefaults+extensions.swift in Sources */,
 				2CBFD5272709B67800E9EF82 /* EditMode+extensions.swift in Sources */,
-				6069B029271FFF27006BD320 /* FeaturePlaygroundScreenWrapper.swift in Sources */,
+				6069B029271FFF27006BD320 /* PlaygroundScreenWrapper.swift in Sources */,
 				2CE97ED426EC03BF004D799A /* Notification.Name+extensions.swift in Sources */,
 				2CBF2B492708F2370088E18F /* LogoPlaygroundButton.swift in Sources */,
 				2CD73C3B26F7C7410054C380 /* NSMenuItem+extensions.swift in Sources */,
@@ -1794,6 +1800,7 @@
 				2C6AD4A126E51650003AF55C /* AppSizes.swift in Sources */,
 				2CD73C3926F7C5FD0054C380 /* AppDelegate_macOS.swift in Sources */,
 				6017C08227010AD50023F347 /* Image+extensions.swift in Sources */,
+				6008826C27371D2400ED808C /* DebuggingPlaygroundScreen.swift in Sources */,
 				2C6AD49426E50E75003AF55C /* SidebarView.swift in Sources */,
 				2CC49F5D2718A132006AD8A3 /* Config.swift in Sources */,
 				2C6AD43926E50124003AF55C /* ContentView.swift in Sources */,
@@ -1864,7 +1871,7 @@
 				2C6D1D422703BD0F004AD36E /* HomeMainActionButtons.swift in Sources */,
 				2C6D1D432703BD0F004AD36E /* UserDefaults+extensions.swift in Sources */,
 				2CBFD5282709B67800E9EF82 /* EditMode+extensions.swift in Sources */,
-				6069B02A271FFF27006BD320 /* FeaturePlaygroundScreenWrapper.swift in Sources */,
+				6069B02A271FFF27006BD320 /* PlaygroundScreenWrapper.swift in Sources */,
 				2C6D1D442703BD0F004AD36E /* Notification.Name+extensions.swift in Sources */,
 				2CBF2B4A2708F2370088E18F /* LogoPlaygroundButton.swift in Sources */,
 				2C6D1D452703BD0F004AD36E /* NSMenuItem+extensions.swift in Sources */,
@@ -1896,6 +1903,7 @@
 				2C6D1D572703BD0F004AD36E /* AppSizes.swift in Sources */,
 				2C6D1D582703BD0F004AD36E /* AppDelegate_macOS.swift in Sources */,
 				2C6D1D592703BD0F004AD36E /* Image+extensions.swift in Sources */,
+				6008826D27371D2400ED808C /* DebuggingPlaygroundScreen.swift in Sources */,
 				2C6D1D5A2703BD0F004AD36E /* SidebarView.swift in Sources */,
 				2CC49F5E2718A132006AD8A3 /* Config.swift in Sources */,
 				2C6D1D5B2703BD0F004AD36E /* ContentView.swift in Sources */,

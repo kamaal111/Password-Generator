@@ -17,7 +17,7 @@ struct KeychainPlaygroundScreen: View {
     private let keychainHanger = KeychainHanger(prefix: Constants.bundleIdentifier)
 
     var body: some View {
-        FeaturePlaygroundScreenWrapper(title: "Keychain playground") {
+        PlaygroundScreenWrapper(title: "Keychain playground") {
             Button(action: saveItem) {
                 Text("Create password")
                     .foregroundColor(.accentColor)

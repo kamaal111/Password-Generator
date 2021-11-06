@@ -13,7 +13,8 @@ if let one = SomeEnum.one.encoded {
     UserDefaults.standard.set(one, forKey: "some_enum")
 
     if let value = UserDefaults.standard.object(forKey: "some_enum") as? Data {
-        let decodedValue = try? JSONDecoder().decode(SomeEnum.self, from: value)
-        print(decodedValue)
+        if let decodedValue = try? JSONDecoder().decode(SomeEnum.self, from: value) {
+            print(decodedValue)
+        }
     }
 }

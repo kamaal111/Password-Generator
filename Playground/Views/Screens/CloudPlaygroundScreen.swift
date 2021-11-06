@@ -23,7 +23,7 @@ struct CloudPlaygroundScreen: View {
     @State private var screenSize = CGSize(width: 400, height: 400)
 
     var body: some View {
-        FeaturePlaygroundScreenWrapper(title: "Cloud Playground") {
+        PlaygroundScreenWrapper(title: "Cloud Playground") {
             HStack {
                 Picker(selection: $selectedType, label: Text("")) {
                     ForEach(CloudKitController.shared.recordTypes, id: \.self) { recordType in

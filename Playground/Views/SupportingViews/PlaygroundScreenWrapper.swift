@@ -1,5 +1,5 @@
 //
-//  FeaturePlaygroundScreenWrapper.swift
+//  PlaygroundScreenWrapper.swift
 //  Password-Generator
 //
 //  Created by Kamaal Farah on 20/10/2021.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct FeaturePlaygroundScreenWrapper<Content: View>: View {
+struct PlaygroundScreenWrapper<Content: View>: View {
     @EnvironmentObject
     private var stackNavigator: StackNavigator
 
@@ -34,9 +34,9 @@ struct FeaturePlaygroundScreenWrapper<Content: View>: View {
     }
 }
 
-struct FeaturePlaygroundScreenWrapper_Previews: PreviewProvider {
+struct PlaygroundScreenWrapper_Previews: PreviewProvider {
     static var previews: some View {
-        FeaturePlaygroundScreenWrapper(title: "Playing") {
+        PlaygroundScreenWrapper(title: "Playing") {
             Text("Yes")
         }
     }

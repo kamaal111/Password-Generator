@@ -26,7 +26,7 @@ struct LogoPlaygroundScreen: View {
     @State private var logoCurvedSize: CGFloat = 16
 
     var body: some View {
-        FeaturePlaygroundScreenWrapper(title: "Logo Customizer") {
+        PlaygroundScreenWrapper(title: "Logo Customizer") {
             ScrollView(showsIndicators: false) {
                 FormHeader(title: "App logo")
                     .padding(.bottom, .xs)

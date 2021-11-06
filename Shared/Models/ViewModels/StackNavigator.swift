@@ -26,6 +26,7 @@ final class StackNavigator: ObservableObject {
         case logoPlayground
         case keychainPlayground
         case cloudPlayground
+        case debuggingPlayground
         #endif
 
         var view: some View {
@@ -37,6 +38,7 @@ final class StackNavigator: ObservableObject {
                 case .logoPlayground: LogoPlaygroundScreen()
                 case .keychainPlayground: KeychainPlaygroundScreen()
                 case .cloudPlayground: CloudPlaygroundScreen()
+                case .debuggingPlayground: DebuggingPlaygroundScreen()
                 #endif
                 }
             }

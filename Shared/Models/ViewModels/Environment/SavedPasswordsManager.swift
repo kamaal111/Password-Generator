@@ -53,6 +53,7 @@ final class SavedPasswordsManager: ObservableObject {
                         case .coreDataError(error: let error): console.error(Date(), error)
                         case .coreDataValueNotFound: console.error(Date(), failure)
                         case .cloudKitError(error: let error): console.error(Date(), error)
+                        case .insertError(error: let error): console.error(Date(), error)
                         }
                         return
                     case .success: break
@@ -75,7 +76,6 @@ final class SavedPasswordsManager: ObservableObject {
                 case .coreDataValueNotFound: console.error(Date(), failure)
                 case .cloudKitError(error: let error): console.error(Date(), error)
                 case .deletionError(error: let error): console.error(Date(), error)
-                case .insertError(error: let error): console.error(Date(), error)
                 }
                 return
             case .success(let success): editedPassword = success
