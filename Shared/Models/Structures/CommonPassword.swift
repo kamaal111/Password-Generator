@@ -137,7 +137,6 @@ extension CommonPassword {
         case coreDataValueNotFound
         case cloudKitError(error: Error)
         case deletionError(error: DeletionErrors)
-        case insertError(error: InsertErrors)
     }
 
     func update(
@@ -146,21 +145,10 @@ extension CommonPassword {
         completion: @escaping (Result<CommonPassword, UpdateErrors>) -> Void) {
             let deleteAndCreateNew = args.source != source
             if deleteAndCreateNew {
-                delete(context: context) { result in
+                deleteAndCreate(args: args, context: context) { result in
                     switch result {
-                    case .failure(let failure):
-                        completion(.failure(.deletionError(error: failure)))
-                        return
-                    case .success: break
-                    }
-
-                    Self.insert(args: args, context: context) { result in
-                        switch result {
-                        case .failure(let failure):
-                            completion(.failure(.insertError(error: failure)))
-                            return
-                        case .success(let success): completion(.success(success))
-                        }
+                    case .failure(let failure): completion(.failure(.deletionError(error: failure)))
+                    case .success(let success): completion(.success(success))
                     }
                 }
                 return
@@ -172,7 +160,6 @@ extension CommonPassword {
             }
         }
 
-    /// - TODO: TEST THROUGHLY
     private func updateCoreDataItem(
         args: Args,
         context: NSManagedObjectContext?) -> Result<CommonPassword, UpdateErrors> {
@@ -225,6 +212,7 @@ extension CommonPassword {
         case coreDataError(error: Error)
         case coreDataValueNotFound
         case cloudKitError(error: Error)
+        case insertError(error: InsertErrors)
     }
 
     func delete(context: NSManagedObjectContext? = nil, completion: @escaping (Result<Void, DeletionErrors>) -> Void) {
@@ -232,6 +220,29 @@ extension CommonPassword {
         case .coreData: completion(deleteCoreDataItem(context: context))
         case .iCloud: deleteCloudKitItem(completion: completion)
         }
+    }
+
+    func deleteAndCreate(
+        args: Args,
+        context: NSManagedObjectContext? = nil,
+        completion: @escaping (Result<CommonPassword, DeletionErrors>) -> Void) {
+            delete(context: context) { result in
+                switch result {
+                case .failure(let failure):
+                    completion(.failure(failure))
+                    return
+                case .success: break
+                }
+
+                Self.insert(args: args, context: context) { result in
+                    switch result {
+                    case .failure(let failure):
+                        completion(.failure(.insertError(error: failure)))
+                        return
+                    case .success(let success): completion(.success(success))
+                    }
+                }
+            }
     }
 
     private func deleteCoreDataItem(context: NSManagedObjectContext?) -> Result<Void, DeletionErrors> {
