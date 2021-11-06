@@ -21,7 +21,7 @@ final class CloudKitController {
 
     static let shared = CloudKitController()
 
-    func save(_ record: CKRecord, completion: @escaping (Result<CKRecord, Error>) -> Void) {
+    func save(_ record: CKRecord, completion: @escaping (Result<CKRecord?, Error>) -> Void) {
         let preparedRecord = record
         preparedRecord["updated_date"] = Date()
         iCloutKit.save(preparedRecord, completion: completion)
@@ -48,6 +48,12 @@ final class CloudKitController {
         fetch(ofType: objectType, withPredicate: predicate, completion: completion)
     }
 
+    @available(macOS 12.0.0, iOS 15.0.0, *)
+    func fetchAll(ofType objectType: String) async throws -> [CKRecord] {
+        let predicate = NSPredicate(value: true)
+        return try await fetch(ofType: objectType, withPredicate: predicate)
+    }
+
     func fetchByID(_ id: UUID, ofType objectType: String, completion: @escaping (Result<[CKRecord], Error>) -> Void) {
         let predicate = NSPredicate(format: "id == %@", id.nsString)
         fetch(ofType: objectType, withPredicate: predicate, completion: completion)
@@ -66,6 +72,11 @@ final class CloudKitController {
         withPredicate predicate: NSPredicate,
         completion: @escaping (Result<[CKRecord], Error>) -> Void) {
             iCloutKit.fetch(ofType: objectType, by: predicate, completion: completion)
+    }
+
+    @available(macOS 12.0.0, iOS 15.0.0, *)
+    func fetch(ofType objectType: String, withPredicate predicate: NSPredicate) async throws -> [CKRecord] {
+        try await iCloutKit.fetch(ofType: objectType, by: predicate)
     }
 
     func subscripeToAll() {

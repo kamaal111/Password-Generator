@@ -9,16 +9,34 @@
 import SwiftUI
 
 struct DebuggingPlaygroundScreen: View {
+    @EnvironmentObject
+    private var savedPasswordsManager: SavedPasswordsManager
+
+    @State private var loading = false
+
     var body: some View {
         PlaygroundScreenWrapper(title: "Debugging") {
-            Text("Hello, World!")
+            if loading {
+                LoadingIndicator(loading: $loading)
+            } else {
+                ForEach(savedPasswordsManager.passwords) { password in
+                    Text("\(password.source.rawValue)")
+                }
+            }
         }
+        .onAppear(perform: {
+            loading = true
+            savedPasswordsManager.fetchAllPasswords(completion: {
+                loading = false
+            })
+        })
     }
 }
 
 struct DebuggingPlaygroundScreen_Previews: PreviewProvider {
     static var previews: some View {
         DebuggingPlaygroundScreen()
+            .environmentObject(SavedPasswordsManager(preview: true))
     }
 }
 #endif

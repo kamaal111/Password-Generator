@@ -18,7 +18,7 @@ struct CommonPassword: Hashable, Identifiable {
     let value: String
     let source: Source
 
-    enum Source: Codable, Hashable {
+    enum Source: String, Codable, Hashable {
         case coreData
         case iCloud
     }
