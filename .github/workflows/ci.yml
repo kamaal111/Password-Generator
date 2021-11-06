@@ -16,7 +16,7 @@ jobs:
 
       - name: Swift lint
         run: |
-          python3 Scripts/swiftlint-checker/main.py
+          python3 Scripts/swiftlint_checker/main.py
 
   test:
     name: Test

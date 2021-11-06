@@ -393,7 +393,6 @@
 		2C1C27E727176F8C00954E68 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotHelper.swift; sourceTree = "<group>"; };
 		2C1C27E927176F9900954E68 /* Snapfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Snapfile; sourceTree = "<group>"; };
 		2C1C27EA27177DB700954E68 /* deploy_macos_app.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = deploy_macos_app.sh; sourceTree = "<group>"; };
-		2C2813A3272D9C3300929EE7 /* main.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = main.py; sourceTree = "<group>"; };
 		2C29A6762721F0F8006DC93B /* CloudKitController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitController.swift; sourceTree = "<group>"; };
 		2C34697D27137C7A00B3DB6D /* VersionBumperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionBumperTests.swift; sourceTree = "<group>"; };
 		2C34697E27137C7A00B3DB6D /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -505,6 +504,7 @@
 		2CFD1D0926EAA1FD00B7DF4F /* SavedPasswordsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedPasswordsScreen.swift; sourceTree = "<group>"; };
 		6000F7CE270AD7A600E58707 /* Password-GeneratorScreenshots (iOS).xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Password-GeneratorScreenshots (iOS).xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6000F7D0270AD7A600E58707 /* Password_GeneratorScreenshotsIOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Password_GeneratorScreenshotsIOS.swift; sourceTree = "<group>"; };
+		60088269273716FE00ED808C /* main.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = main.py; sourceTree = "<group>"; };
 		6017C06C2700FEFE0023F347 /* DebugFrameSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugFrameSize.swift; sourceTree = "<group>"; };
 		6017C073270101030023F347 /* LogoPlaygroundScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoPlaygroundScreen.swift; sourceTree = "<group>"; };
 		6017C076270105030023F347 /* FormHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormHeader.swift; sourceTree = "<group>"; };
@@ -739,14 +739,6 @@
 				2C187ABC271B31BF003A0E38 /* description.txt */,
 			);
 			path = "en-US";
-			sourceTree = "<group>";
-		};
-		2C2813A2272D9C3300929EE7 /* swiftlint-checker */ = {
-			isa = PBXGroup;
-			children = (
-				2C2813A3272D9C3300929EE7 /* main.py */,
-			);
-			path = "swiftlint-checker";
 			sourceTree = "<group>";
 		};
 		2C2F7759270A547F00732531 /* version-bumper */ = {
@@ -999,7 +991,7 @@
 				2CE322E1270869A400004F27 /* app-icon-generator */,
 				2C6AD45E26E504CA003AF55C /* generate_locales */,
 				2C1573CA271C361700A01CAC /* generate-sensetive-content */,
-				2C2813A2272D9C3300929EE7 /* swiftlint-checker */,
+				60088268273716FE00ED808C /* swiftlint_checker */,
 				2C2F7759270A547F00732531 /* version-bumper */,
 			);
 			path = Scripts;
@@ -1226,6 +1218,14 @@
 				6000F7D0270AD7A600E58707 /* Password_GeneratorScreenshotsIOS.swift */,
 			);
 			path = Screenshots;
+			sourceTree = "<group>";
+		};
+		60088268273716FE00ED808C /* swiftlint_checker */ = {
+			isa = PBXGroup;
+			children = (
+				60088269273716FE00ED808C /* main.py */,
+			);
+			path = swiftlint_checker;
 			sourceTree = "<group>";
 		};
 		6017C072270100E90023F347 /* Screens */ = {

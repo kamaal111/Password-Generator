@@ -81,7 +81,6 @@ struct SavedPasswordDetailScreen: View {
             }
             Button(action: {
                 viewModel.toggleEditMode(onSave: { args in
-                    #error("Toggling icloud sync does not work for some reason")
                     guard let passwordID = viewModel.passwordID else { return }
                     savedPasswordsManager.editPassword(id: passwordID, args: args)
                 })

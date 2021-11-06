@@ -7,3 +7,6 @@
 [submodule "version-bumper"]
 	path = Scripts/version-bumper
 	url = git@github.com:kamaal111/version-bumper.git
+[submodule "swift-docc"]
+	path = Scripts/swiftlint_checker
+	url = git@github.com:kamaal111/swiftlint_checker.git
