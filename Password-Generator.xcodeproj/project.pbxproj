@@ -505,7 +505,6 @@
 		6000F7CE270AD7A600E58707 /* Password-GeneratorScreenshots (iOS).xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Password-GeneratorScreenshots (iOS).xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6000F7D0270AD7A600E58707 /* Password_GeneratorScreenshotsIOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Password_GeneratorScreenshotsIOS.swift; sourceTree = "<group>"; };
 		6008826A27371D2400ED808C /* DebuggingPlaygroundScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebuggingPlaygroundScreen.swift; sourceTree = "<group>"; };
-		6008FD782737DE53005094EF /* main.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = main.py; sourceTree = "<group>"; };
 		6017C06C2700FEFE0023F347 /* DebugFrameSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugFrameSize.swift; sourceTree = "<group>"; };
 		6017C073270101030023F347 /* LogoPlaygroundScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoPlaygroundScreen.swift; sourceTree = "<group>"; };
 		6017C076270105030023F347 /* FormHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormHeader.swift; sourceTree = "<group>"; };
@@ -991,7 +990,6 @@
 				2CE322E1270869A400004F27 /* app-icon-generator */,
 				2C6AD45E26E504CA003AF55C /* generate_locales */,
 				2C1573CA271C361700A01CAC /* generate-sensetive-content */,
-				6008FD772737DE53005094EF /* swiftlint_checker */,
 				2C2F7759270A547F00732531 /* version-bumper */,
 			);
 			path = Scripts;
@@ -1218,14 +1216,6 @@
 				6000F7D0270AD7A600E58707 /* Password_GeneratorScreenshotsIOS.swift */,
 			);
 			path = Screenshots;
-			sourceTree = "<group>";
-		};
-		6008FD772737DE53005094EF /* swiftlint_checker */ = {
-			isa = PBXGroup;
-			children = (
-				6008FD782737DE53005094EF /* main.py */,
-			);
-			path = swiftlint_checker;
 			sourceTree = "<group>";
 		};
 		6017C072270100E90023F347 /* Screens */ = {
