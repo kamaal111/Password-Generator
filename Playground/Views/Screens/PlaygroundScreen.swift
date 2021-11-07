@@ -24,10 +24,12 @@ struct PlaygroundScreen: View {
                 headerTitle: "Features",
                 navigationData: Self.featuresNavigationButtons,
                 navigate: { screen in stackNavigator.navigate(to: screen) })
-            PlaygroundScreenSection(
-                headerTitle: "Miscellaneous",
-                navigationData: Self.miscellaneousNavigationButtons,
-                navigate: { screen in stackNavigator.navigate(to: screen) })
+            if !Self.miscellaneousNavigationButtons.isEmpty {
+                PlaygroundScreenSection(
+                    headerTitle: "Miscellaneous",
+                    navigationData: Self.miscellaneousNavigationButtons,
+                    navigate: { screen in stackNavigator.navigate(to: screen) })
+            }
         }
         .ktakeSizeEagerly(alignment: .topLeading)
         .padding(.horizontal, .large)
@@ -47,7 +49,12 @@ struct PlaygroundScreen: View {
 
     private static let miscellaneousNavigationButtons = [
         PlaygroundNavigationButtonModel(title: "Debugging", screen: .debuggingPlayground)
-    ]
+    ].filter({
+        if #available(macOS 12.0.0, iOS 15.0.0, *) {
+            return true
+        }
+        return ![StackNavigator.Screens.debuggingPlayground].contains($0.screen)
+    })
 }
 
 struct PlaygroundScreenSection: View {

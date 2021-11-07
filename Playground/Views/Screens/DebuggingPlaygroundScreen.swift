@@ -8,6 +8,7 @@
 #if DEBUG
 import SwiftUI
 
+@available(macOS 12.0.0, iOS 15.0.0, *)
 struct DebuggingPlaygroundScreen: View {
     @EnvironmentObject
     private var savedPasswordsManager: SavedPasswordsManager
@@ -26,13 +27,15 @@ struct DebuggingPlaygroundScreen: View {
         }
         .onAppear(perform: {
             loading = true
-            savedPasswordsManager.fetchAllPasswords(completion: {
+            Task {
+                await savedPasswordsManager.fetchAllPasswords()
                 loading = false
-            })
+            }
         })
     }
 }
 
+@available(macOS 12.0.0, iOS 15.0.0, *)
 struct DebuggingPlaygroundScreen_Previews: PreviewProvider {
     static var previews: some View {
         DebuggingPlaygroundScreen()

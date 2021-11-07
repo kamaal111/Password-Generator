@@ -136,31 +136,11 @@ final class SavedPasswordsManager: ObservableObject {
 
     @available(macOS 12.0.0, iOS 15.0.0, *)
     func fetchAllPasswords() async {
-        let allPasswordsResult = CorePassword.fetchAllPasswords(context: persistenceController.context!)
-        let allPasswords: [CorePassword]
-        switch allPasswordsResult {
-        case .failure(let failure):
-            console.error(Date(), failure.localizedDescription, failure)
-            allPasswords = []
-        case .success(let success): allPasswords = success
-        }
-
-        let records: [CKRecord]
-        do {
-            records = try await cloudKitController.fetchAll(ofType: CorePassword.recordType)
-        } catch {
-            console.log(Date(), error.localizedDescription, error)
-            records = []
-        }
-
-        let commonPasswordsFromRecords = records.compactMap(\.commonPassword)
-        let recordIDs = commonPasswordsFromRecords.map(\.id)
-        let filteredPasswordsFromCoreData = allPasswords.map(\.common).filter({ !recordIDs.contains($0.id) })
-        let combinedPasswords = filteredPasswordsFromCoreData + commonPasswordsFromRecords
-        let sortedPasswords = combinedPasswords
-            .sortByUpdatedDateDescending()
-
-        #error("Work on this further")
+        await withCheckedContinuation({ continuation in
+            fetchAllPasswords {
+                continuation.resume(returning: Void())
+            }
+        })
     }
 
     func savePassword(
