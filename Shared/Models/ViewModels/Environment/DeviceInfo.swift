@@ -18,7 +18,12 @@ final class DeviceInfo: ObservableObject {
         case mac
     }
 
-    static let device: Device = {
+    static let isIpad = device == .iPad
+    static let isMac = device == .mac
+
+    static let isPreview: Bool = ProcessInfo.processInfo.environment["XCODE_RUNNING_FOR_PREVIEWS"] == "1"
+
+    private static let device: Device = {
         #if os(macOS)
         return .mac
         #elseif os(iOS)
@@ -27,10 +32,6 @@ final class DeviceInfo: ObservableObject {
         }
         return .iPhone
         #endif
-    }()
-
-    static let isPreview: Bool = {
-        ProcessInfo.processInfo.environment["XCODE_RUNNING_FOR_PREVIEWS"] == "1"
     }()
 
 }

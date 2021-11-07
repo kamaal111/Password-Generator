@@ -48,7 +48,7 @@ struct ScreenModel: Hashable, Identifiable, Codable {
         guard let excludedPlatforms = excludedPlatforms else { return true }
         let currentPlatform: ExcludedPlatforms
         #if os(iOS)
-        if DeviceModel.device == .iPad {
+        if DeviceInfo.isIpad {
             currentPlatform = .iPad
         } else {
             currentPlatform = .iPhone

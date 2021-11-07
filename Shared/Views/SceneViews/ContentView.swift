@@ -56,7 +56,7 @@ struct IOSContentView: View {
 
     var body: some View {
         ZStack {
-            if DeviceModel.device == .iPad {
+            if DeviceInfo.isIpad {
                 SidebarView()
             } else {
                 TabbarView()
