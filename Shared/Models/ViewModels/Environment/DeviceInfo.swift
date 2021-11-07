@@ -29,4 +29,8 @@ final class DeviceInfo: ObservableObject {
         #endif
     }()
 
+    static let isPreview: Bool = {
+        ProcessInfo.processInfo.environment["XCODE_RUNNING_FOR_PREVIEWS"] == "1"
+    }()
+
 }
