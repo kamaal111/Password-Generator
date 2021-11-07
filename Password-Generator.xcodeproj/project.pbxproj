@@ -2687,7 +2687,7 @@
 			repositoryURL = "https://github.com/kamaal111/ICloutKit.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 2.0.1;
+				minimumVersion = 2.0.2;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
