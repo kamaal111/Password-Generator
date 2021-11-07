@@ -30,8 +30,7 @@ jobs:
       - name: Git - Checkout
         uses: actions/checkout@v2
         with:
-          ref: ${{ github.ref }}
-          submodules: recursive
+          submodules: true
 
       - name: Setup - Xcode
         run: |
@@ -45,7 +44,7 @@ jobs:
 
       - name: Test
         run: |
-          set -o pipefail && xcodebuild test -project Password-Generator.xcodeproj -scheme "Password-Generator (iOS)" -destination "platform=iOS Simulator,name=iPhone 13 Pro Max" | bundle exec xcpretty || exit 1
+          make run_tests
 
   appStoreContent:
     name: App Store content
