@@ -12,7 +12,7 @@ struct ContentView: View {
     @StateObject
     private var namiNavigator = NamiNavigator()
     @StateObject
-    private var deviceModel = DeviceModel()
+    private var deviceInfo = DeviceInfo()
     @StateObject
     private var savedPasswordsManager = SavedPasswordsManager()
 
@@ -33,7 +33,7 @@ struct ContentView: View {
     private func injectViewWithEnvironment<V: View>(_ view: V) -> some View {
         view
             .environmentObject(namiNavigator)
-            .environmentObject(deviceModel)
+            .environmentObject(deviceInfo)
             .environmentObject(savedPasswordsManager)
     }
 

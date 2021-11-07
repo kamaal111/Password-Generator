@@ -1,5 +1,5 @@
 //
-//  DeviceModel.swift
+//  DeviceInfo.swift
 //  Password-Generator
 //
 //  Created by Kamaal M Farah on 05/09/2021.
@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 #endif
 
-final class DeviceModel: ObservableObject {
+final class DeviceInfo: ObservableObject {
 
     enum Device {
         case iPad

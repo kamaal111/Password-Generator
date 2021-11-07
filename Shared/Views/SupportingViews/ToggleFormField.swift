@@ -29,7 +29,7 @@ struct ToggleFormField: View {
         }, right: {
             Toggle("", isOn: $value)
         })
-        .padding(.trailing, DeviceModel.device == .mac ? -4 : 0)
+        .padding(.trailing, DeviceInfo.device == .mac ? -4 : 0)
     }
 }
 
