@@ -27,6 +27,14 @@ final class CloudKitController {
         iCloutKit.save(preparedRecord, completion: completion)
     }
 
+    @available(macOS 12.0.0, iOS 15.0.0, *)
+    @discardableResult
+    func save(_ record: CKRecord) async throws -> CKRecord? {
+        let preparedRecord = record
+        preparedRecord["updated_date"] = Date()
+        return try await iCloutKit.save(record)
+    }
+
     func saveMultiple(_ records: [CKRecord], completion: @escaping (Result<[CKRecord], Error>) -> Void) {
         guard !records.isEmpty else {
             completion(.success(records))

@@ -160,6 +160,18 @@ extension CommonPassword {
             }
         }
 
+    @available(macOS 12.0.0, iOS 15.0.0, *)
+    func update(args: Args, context: NSManagedObjectContext? = nil) async -> Result<CommonPassword, UpdateErrors> {
+        let deleteAndCreateNew = args.source != source
+        if deleteAndCreateNew {
+        }
+
+        switch source {
+        case .coreData: return updateCoreDataItem(args: args, context: context)
+        case .iCloud: return await updateCloudKitItem(args: args)
+        }
+    }
+
     private func updateCoreDataItem(
         args: Args,
         context: NSManagedObjectContext?) -> Result<CommonPassword, UpdateErrors> {
@@ -201,6 +213,25 @@ extension CommonPassword {
             }
             completion(.success(editedPassword))
         }
+    }
+
+    @available(macOS 12.0.0, iOS 15.0.0, *)
+    private func updateCloudKitItem(args: Args) async -> Result<CommonPassword, UpdateErrors> {
+        let editedPassword = CommonPassword(
+            id: id,
+            name: args.name,
+            creationDate: creationDate,
+            updatedDate: Date(),
+            value: args.value,
+            source: .iCloud)
+
+        do {
+            try await CloudKitController.shared.save(editedPassword.toCloudKitItem())
+        } catch {
+            return .failure(.cloudKitError(error: error))
+        }
+
+        return .success(editedPassword)
     }
 }
 

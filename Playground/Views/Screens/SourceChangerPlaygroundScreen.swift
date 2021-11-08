@@ -25,7 +25,15 @@ struct SourceChangerPlaygroundScreen: View {
                             .foregroundColor(.secondary)
                             .padding(.bottom, .xs)) {
                     ForEach(savedPasswordsManager.passwords) { password in
-                        Button(action: { print(password) }) {
+                        Button(action: {
+                            let currentArgs = password.args
+                            let newArgs = CommonPassword.Args(
+                                id: currentArgs.id,
+                                name: currentArgs.name,
+                                value: currentArgs.value,
+                                creationDate: currentArgs.creationDate,
+                                source: currentArgs.source == .iCloud ? .coreData : .iCloud)
+                        }) {
                             Text("\(password.source.rawValue)")
                                 .bold()
                                 .foregroundColor(.accentColor)
