@@ -15,7 +15,7 @@ struct PlaygroundScreen: View {
         .logoPlayground,
         .keychainPlayground,
         .cloudPlayground,
-        .debuggingPlayground
+        .sourceChangerPlayground
     ])
 
     var body: some View {
@@ -48,12 +48,12 @@ struct PlaygroundScreen: View {
     ]
 
     private static let miscellaneousNavigationButtons = [
-        PlaygroundNavigationButtonModel(title: "Debugging", screen: .debuggingPlayground)
+        PlaygroundNavigationButtonModel(title: "Source changer", screen: .sourceChangerPlayground)
     ].filter({
         if #available(macOS 12.0.0, iOS 15.0.0, *) {
             return true
         }
-        return ![StackNavigator.Screens.debuggingPlayground].contains($0.screen)
+        return ![StackNavigator.Screens.sourceChangerPlayground].contains($0.screen)
     })
 }
 
