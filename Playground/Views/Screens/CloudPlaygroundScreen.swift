@@ -12,6 +12,7 @@ import CloudKit
 import ShrimpExtensions
 import SalmonUI
 
+@available(macOS 12.0.0, *)
 struct CloudPlaygroundScreen: View {
     @EnvironmentObject
     private var savedPasswordsManager: SavedPasswordsManager
@@ -21,6 +22,8 @@ struct CloudPlaygroundScreen: View {
     @State private var currentRecordKeys: [String] = []
     @State private var loading = false
     @State private var screenSize = CGSize(width: 400, height: 400)
+    @State private var showItemActionSheet = false
+    @State private var selectedItem: CKRecord?
 
     var body: some View {
         PlaygroundScreenWrapper(title: "Cloud Playground") {
@@ -34,7 +37,11 @@ struct CloudPlaygroundScreen: View {
                 .labelsHidden()
                 .frame(maxWidth: 200)
                 Spacer()
-                Button(action: fetchAllRecords) {
+                Button(action: {
+                    Task {
+                        await fetchAllRecords()
+                    }
+                }) {
                     Image(systemName: "arrow.triangle.2.circlepath")
                 }
             }
@@ -51,12 +58,19 @@ struct CloudPlaygroundScreen: View {
                     .padding(.bottom, .small)
                     ForEach(currentRecords[selectedType] ?? [], id: \.self) { record in
                         HStack {
-                            ForEach(currentRecordKeys, id: \.self) { recordKey in
-                                CloudPlaygroundItem(
-                                    recordValue: record[recordKey],
-                                    mask: recordKey == "value",
-                                    width: screenSize.width / 5)
+                            Button(action: {
+                                selectedItem = record
+                                showItemActionSheet = true
+                            }) {
+                                ForEach(currentRecordKeys, id: \.self) { recordKey in
+                                    CloudPlaygroundItem(
+                                        recordValue: record[recordKey],
+                                        mask: recordKey == "value",
+                                        width: screenSize.width / 5,
+                                        isHighlighted: recordKey == "id")
+                                }
                             }
+                            .buttonStyle(PlainButtonStyle())
                         }
                     }
                     .ktakeWidthEagerly(alignment: .leading)
@@ -67,43 +81,73 @@ struct CloudPlaygroundScreen: View {
                     .ktakeSizeEagerly()
             }
         }
+        .sheet(isPresented: $showItemActionSheet) {
+            KSheetStack(title: "Actions",
+                        leadingNavigationButton: { Text("") },
+                        trailingNavigationButton: {
+                Button(action: { showItemActionSheet = false }) {
+                    Text(localized: .CLOSE)
+                        .bold()
+                }
+            }) {
+                VStack {
+                    Button(action: { deleteRecord() }) {
+                        Text(localized: .DELETE)
+                            .foregroundColor(.accentColor)
+                    }
+                    .buttonStyle(PlainButtonStyle())
+                }
+                .padding(.top, .medium)
+            }
+            #if os(macOS)
+            .frame(minWidth: 300, minHeight: 144)
+            #endif
+        }
         .kBindToFrameSize($screenSize)
         .onAppear(perform: {
-            fetchAllRecords()
+            Task {
+                await fetchAllRecords()
+            }
         })
     }
 
-    private func fetchAllRecords() {
+    private func deleteRecord() {
+        guard let selectedItem = selectedItem else { return }
+        print(selectedItem)
+    }
+
+    private func fetchAllRecords() async {
         loading = true
 
-        CloudKitController.shared.fetchAll(ofType: selectedType) { result in
+        let records: [CKRecord]
+        do {
+            records = try await CloudKitController.shared.fetchAll(ofType: selectedType)
+        } catch {
+            console.error(Date(), error.localizedDescription, error)
             DispatchQueue.main.async {
-                let records: [CKRecord]
-                switch result {
-                case .failure(let failure):
-                    console.error(Date(), failure.localizedDescription, failure)
-                    loading = false
-                    return
-                case .success(let success): records = success
-                }
-
-                var recordKeys: [String] = records.reduce([]) { result, record in
-                    result + record.allKeys().filter({ !result.contains($0) })
-                }
-
-                if let idKeyIndex = recordKeys.firstIndex(of: "id") {
-                    recordKeys.remove(at: idKeyIndex)
-                    recordKeys = recordKeys.prepended("id")
-                }
-
-                currentRecordKeys = recordKeys
-                currentRecords[selectedType] = records
                 loading = false
             }
+            return
+        }
+
+        DispatchQueue.main.async {
+            var recordKeys: [String] = records.reduce([]) { result, record in
+                result + record.allKeys().filter({ !result.contains($0) })
+            }
+
+            if let idKeyIndex = recordKeys.firstIndex(of: "id") {
+                recordKeys.remove(at: idKeyIndex)
+                recordKeys = recordKeys.prepended("id")
+            }
+
+            currentRecordKeys = recordKeys
+            currentRecords[selectedType] = records
+            loading = false
         }
     }
 }
 
+@available(macOS 12.0.0, *)
 struct CloudPlaygroundScreen_Previews: PreviewProvider {
     static var previews: some View {
         CloudPlaygroundScreen()

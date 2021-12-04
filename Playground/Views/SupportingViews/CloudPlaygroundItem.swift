@@ -13,11 +13,13 @@ struct CloudPlaygroundItem: View {
     let recordValue: __CKRecordObjCValue?
     let mask: Bool
     let width: CGFloat
+    let isHighlighted: Bool
 
     var body: some View {
         VStack {
             Text(stringValue)
                 .lineLimit(1)
+                .foregroundColor(isHighlighted ? .accentColor : .primary)
                 .frame(minWidth: width, maxWidth: width)
             Divider()
         }

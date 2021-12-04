@@ -9,6 +9,7 @@ import Foundation
 import CoreData
 import ConsoleSwift
 import CloudKit
+import os.log
 
 struct CommonPassword: Hashable, Identifiable {
     let id: UUID
@@ -297,13 +298,16 @@ extension CommonPassword {
     }
 
     private func deleteCloudKitItem(completion: @escaping (Result<Void, DeletionErrors>) -> Void) {
-        CloudKitController.shared.delete(toCloudKitItem()) { result in
+        let item = toCloudKitItem()
+        CloudKitController.shared.delete(item) { result in
             switch result {
             case .failure(let failure):
                 completion(.failure(.cloudKitError(error: failure)))
                 return
             case .success: break
             }
+
+            Logger.iCloud.info("succesfully deleted iCloud item with id \(item["id"] as? String ?? "")")
 
             completion(.success(Void()))
         }

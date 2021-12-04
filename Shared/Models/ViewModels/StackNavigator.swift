@@ -37,7 +37,12 @@ final class StackNavigator: ObservableObject {
                 case .playground: PlaygroundScreen()
                 case .logoPlayground: LogoPlaygroundScreen()
                 case .keychainPlayground: KeychainPlaygroundScreen()
-                case .cloudPlayground: CloudPlaygroundScreen()
+                case .cloudPlayground:
+                    if #available(macOS 12.0.0, iOS 15.0.0, *) {
+                        CloudPlaygroundScreen()
+                    } else {
+                        Text("Not available for your version")
+                    }
                 case .sourceChangerPlayground:
                     if #available(macOS 12.0.0, iOS 15.0.0, *) {
                         SourceChangerPlaygroundScreen()
