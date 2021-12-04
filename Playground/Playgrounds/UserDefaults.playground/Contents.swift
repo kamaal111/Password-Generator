@@ -9,6 +9,7 @@ enum SomeEnum: Codable {
     }
 }
 
+
 if let one = SomeEnum.one.encoded {
     UserDefaults.standard.set(one, forKey: "some_enum")
 
