@@ -51,6 +51,11 @@ final class CloudKitController {
         iCloutKit.delete(record, completion: completion)
     }
 
+    @available(macOS 12.0.0, iOS 15.0.0, *)
+    func delete(_ record: CKRecord) async throws -> CKRecord.ID {
+        try await iCloutKit.delete(record)
+    }
+
     func fetchAll(ofType objectType: String, completion: @escaping (Result<[CKRecord], Error>) -> Void) {
         let predicate = NSPredicate(value: true)
         fetch(ofType: objectType, withPredicate: predicate, completion: completion)

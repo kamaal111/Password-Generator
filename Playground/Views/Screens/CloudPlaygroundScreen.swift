@@ -12,7 +12,7 @@ import CloudKit
 import ShrimpExtensions
 import SalmonUI
 
-@available(macOS 12.0.0, *)
+@available(macOS 12.0.0, iOS 15.0.0, *)
 struct CloudPlaygroundScreen: View {
     @EnvironmentObject
     private var savedPasswordsManager: SavedPasswordsManager
@@ -91,9 +91,14 @@ struct CloudPlaygroundScreen: View {
                 }
             }) {
                 VStack {
-                    Button(action: { deleteRecord() }) {
+                    Button(action: {
+                        Task {
+                            await deleteRecord()
+                        }
+                    }) {
                         Text(localized: .DELETE)
                             .foregroundColor(.accentColor)
+                            .bold()
                     }
                     .buttonStyle(PlainButtonStyle())
                 }
@@ -111,9 +116,23 @@ struct CloudPlaygroundScreen: View {
         })
     }
 
-    private func deleteRecord() {
+    private func deleteRecord() async {
         guard let selectedItem = selectedItem else { return }
-        print(selectedItem)
+
+        showItemActionSheet = false
+        loading = true
+
+        do {
+            _ = try await CloudKitController.shared.delete(selectedItem)
+        } catch {
+            console.error(Date(), error.localizedDescription, error)
+            DispatchQueue.main.async {
+                loading = false
+            }
+            return
+        }
+
+        await fetchAllRecords()
     }
 
     private func fetchAllRecords() async {
