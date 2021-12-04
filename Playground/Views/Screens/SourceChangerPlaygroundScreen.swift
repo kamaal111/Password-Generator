@@ -33,6 +33,7 @@ struct SourceChangerPlaygroundScreen: View {
                                 value: currentArgs.value,
                                 creationDate: currentArgs.creationDate,
                                 source: currentArgs.source == .iCloud ? .coreData : .iCloud)
+                            print(newArgs)
                         }) {
                             Text("\(password.source.rawValue)")
                                 .bold()

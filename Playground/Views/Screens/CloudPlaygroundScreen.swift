@@ -166,7 +166,7 @@ struct CloudPlaygroundScreen: View {
     }
 }
 
-@available(macOS 12.0.0, *)
+@available(macOS 12.0.0, iOS 15.0.0, *)
 struct CloudPlaygroundScreen_Previews: PreviewProvider {
     static var previews: some View {
         CloudPlaygroundScreen()
