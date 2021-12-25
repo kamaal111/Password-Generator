@@ -9,7 +9,7 @@ import Foundation
 
 extension FileManager {
     func findDirectoryOrFile(inDirectory directory: URL, searchPath: String) throws -> URL? {
-        let content = try FileManager.default.contentsOfDirectory(
+        let content = try self.contentsOfDirectory(
             at: directory,
             includingPropertiesForKeys: nil,
             options: [])
