@@ -11,6 +11,60 @@ import ConsoleSwift
 import CloudKit
 import os.log
 
+protocol CommonPasswordable {
+    var id: UUID { get set }
+    var name: String? { get set }
+    var creationDate: Date { get set }
+    var updatedDate: Date { get set }
+    var value: String { get set }
+    var source: CommonPasswordSource { get set }
+
+    static func insert(
+        args: CommonPasswordArgs,
+        context: NSManagedObjectContext?) async -> Result<CommonPasswordable, CommonPasswordInsertErrors>
+
+    func update(
+        args: CommonPasswordArgs,
+        context: NSManagedObjectContext?) async -> Result<CommonPasswordable, CommonPasswordUpdateErrors>
+
+    func delete(context: NSManagedObjectContext?) async -> Result<CommonPasswordable, CommonPasswordDeletionErrors>
+}
+
+struct CommonPasswordArgs {
+    var id: UUID?
+    var name: String?
+    var value: String
+    var creationDate: Date?
+    var source: CommonPasswordSource
+}
+
+enum CommonPasswordSource: String, Codable, Hashable {
+    case coreData
+    case iCloud
+}
+
+enum CommonPasswordInsertErrors: Error {
+    case contextNotFound
+    case coreDataError(error: Error)
+    case cloudKitError(error: Error)
+}
+
+enum CommonPasswordUpdateErrors: Error {
+    case contextNotFound
+    case coreDataError(error: Error)
+    case coreDataValueNotFound
+    case cloudKitError(error: Error)
+    case deletionError(error: CommonPasswordDeletionErrors)
+}
+
+enum CommonPasswordDeletionErrors: Error {
+    case contextNotFound
+    case coreDataError(error: Error)
+    case coreDataValueNotFound
+    case cloudKitError(error: Error)
+    case insertError(error: CommonPasswordInsertErrors)
+}
+
 struct CommonPassword: Hashable, Identifiable {
     let id: UUID
     let name: String?
@@ -140,26 +194,26 @@ extension CommonPassword {
         case deletionError(error: DeletionErrors)
     }
 
-    func update(
-        args: Args,
-        context: NSManagedObjectContext? = nil,
-        completion: @escaping (Result<CommonPassword, UpdateErrors>) -> Void) {
-            let deleteAndCreateNew = args.source != source
-            if deleteAndCreateNew {
-                deleteAndCreate(args: args, context: context) { result in
-                    switch result {
-                    case .failure(let failure): completion(.failure(.deletionError(error: failure)))
-                    case .success(let success): completion(.success(success))
-                    }
-                }
-                return
-            }
-
-            switch source {
-            case .coreData: completion(updateCoreDataItem(args: args, context: context))
-            case .iCloud: updateCloudKitItem(args: args, completion: completion)
-            }
-        }
+//    func update(
+//        args: Args,
+//        context: NSManagedObjectContext? = nil,
+//        completion: @escaping (Result<CommonPassword, UpdateErrors>) -> Void) {
+//            let deleteAndCreateNew = args.source != source
+//            if deleteAndCreateNew {
+//                deleteAndCreate(args: args, context: context) { result in
+//                    switch result {
+//                    case .failure(let failure): completion(.failure(.deletionError(error: failure)))
+//                    case .success(let success): completion(.success(success))
+//                    }
+//                }
+//                return
+//            }
+//
+//            switch source {
+//            case .coreData: completion(updateCoreDataItem(args: args, context: context))
+//            case .iCloud: updateCloudKitItem(args: args, completion: completion)
+//            }
+//        }
 
     @available(macOS 12.0.0, iOS 15.0.0, *)
     func update(args: Args, context: NSManagedObjectContext? = nil) async -> Result<CommonPassword, UpdateErrors> {

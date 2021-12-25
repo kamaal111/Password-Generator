@@ -13,7 +13,7 @@ import CloudKit
 
 final class SavedPasswordsManager: ObservableObject {
 
-    @Published private(set) var passwords: [CommonPassword] = []
+    @Published private(set) var passwords: [CommonPasswordable] = []
     @Published private(set) var lastGeneratedPassword: String?
     @Published var deletionAlertIsActive = false
     @Published private var passwordToDeleteID: UUID? {
@@ -63,27 +63,27 @@ final class SavedPasswordsManager: ObservableObject {
         }
     }
 
-    func editPassword(id: UUID, args: CommonPassword.Args) {
+    func editPassword(id: UUID, args: CommonPasswordArgs) async {
         guard let index = passwords.firstIndex(where: { $0.id == id }) else { return }
         let password = passwords[index]
-        password.update(args: args, context: persistenceController.context!) { result in
-            let editedPassword: CommonPassword
-            switch result {
-            case .failure(let failure):
-                switch failure {
+
+        let result = await password.update(args: args, context: persistenceController.context!)
+
+        let editedPassword: CommonPasswordable
+        switch result {
+        case .failure(let failure):
+            switch failure {
                 case .contextNotFound: console.error(Date(), failure)
                 case .coreDataError(error: let error): console.error(Date(), error)
                 case .coreDataValueNotFound: console.error(Date(), failure)
                 case .cloudKitError(error: let error): console.error(Date(), error)
                 case .deletionError(error: let error): console.error(Date(), error)
-                }
-                return
-            case .success(let success): editedPassword = success
             }
+        case .success(let success): editedPassword = success
+        }
 
-            DispatchQueue.main.async { [weak self] in
-                self?.passwords[index] = editedPassword
-            }
+        DispatchQueue.main.async { [weak self] in
+            self?.passwords[index] = editedPassword
         }
     }
 
