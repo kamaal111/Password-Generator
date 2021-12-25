@@ -382,6 +382,71 @@ extension CommonPassword {
     }
 }
 
+struct CloudPassword: CommonPasswordable {
+    var id: UUID
+    var name: String?
+    var creationDate: Date
+    var updatedDate: Date
+    var value: String
+    var source: CommonPasswordSource = .iCloud
+    
+    static func insert(args: CommonPasswordArgs, context: NSManagedObjectContext?) async -> Result<CommonPasswordable, CommonPasswordInsertErrors> {
+        let now = Date()
+//        let passwordToSave = CommonPassword(
+//            id: args.id ?? UUID(),
+//            name: args.name,
+//            creationDate: args.creationDate ?? now,
+//            updatedDate: now,
+//            value: args.value,
+//            source: .iCloud)
+//        CloudKitController.shared.save(passwordToSave.toCloudKitItem()) { result in
+//            switch result {
+//            case .failure(let failure):
+//                completion(.failure(.cloudKitError(error: failure)))
+//                return
+//            case .success: break
+//            }
+//
+//            completion(.success(passwordToSave))
+//        }
+        let passwordToSave = CloudPassword(
+            id: args.id ?? UUID(),
+            name: args.name,
+            creationDate: args.creationDate ?? now,
+            updatedDate: now,
+            value: args.value)
+
+        let result = await CloudKitController.shared.save(passwordToSave.asCKRecord)
+
+    }
+
+    func update(args: CommonPasswordArgs, context: NSManagedObjectContext?) async -> Result<CommonPasswordable, CommonPasswordUpdateErrors> {
+        
+    }
+
+    func delete(context: NSManagedObjectContext?) async -> Result<CommonPasswordable, CommonPasswordDeletionErrors> {
+        
+    }
+
+    var asCKRecord: CKRecord {
+        let record = CKRecord(recordType: CorePassword.recordType)
+        record[RecordKeys.name.rawValue] = name
+        record[RecordKeys.value.rawValue] = value.nsString
+        record[RecordKeys.id.rawValue] = id.nsString
+        record[RecordKeys.updatedDate.rawValue] = updatedDate
+        record[RecordKeys.creationDate.rawValue] = creationDate
+        return record
+    }
+
+    enum RecordKeys: String, CaseIterable {
+        case name
+        case id
+        case updatedDate = "updated_date"
+        case creationDate = "creation_date"
+        case value
+    }
+}
+
 extension CKRecord {
     var commonPassword: CommonPassword? {
         guard let idString = self[CommonPassword.RecordKeys.id.rawValue] as? String,

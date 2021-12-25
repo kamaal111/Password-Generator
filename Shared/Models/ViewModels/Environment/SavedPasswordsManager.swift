@@ -42,22 +42,19 @@ final class SavedPasswordsManager: ObservableObject {
             guard let self = self else { return }
             let removedPassword = self.passwords.remove(at: index)
             self.passwordToDeleteID = nil
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak self] in
-                guard let self = self else { return }
 
-                removedPassword.delete(context: self.persistenceController.context!) { result in
-                    switch result {
-                    case .failure(let failure):
-                        switch failure {
-                        case .contextNotFound: console.error(Date(), failure)
-                        case .coreDataError(error: let error): console.error(Date(), error)
-                        case .coreDataValueNotFound: console.error(Date(), failure)
-                        case .cloudKitError(error: let error): console.error(Date(), error)
-                        case .insertError(error: let error): console.error(Date(), error)
-                        }
-                        return
-                    case .success: break
+            Task {
+                let result = await removedPassword.delete(context: self.persistenceController.context!)
+                switch result {
+                case.failure(let failure):
+                    switch failure {
+                    case .contextNotFound: console.error(Date(), failure)
+                    case .coreDataError(error: let error): console.error(Date(), error)
+                    case .coreDataValueNotFound: console.error(Date(), failure)
+                    case .cloudKitError(error: let error): console.error(Date(), error)
+                    case .insertError(error: let error): console.error(Date(), error)
                     }
+                case .success: break
                 }
             }
         }
@@ -73,11 +70,11 @@ final class SavedPasswordsManager: ObservableObject {
         switch result {
         case .failure(let failure):
             switch failure {
-                case .contextNotFound: console.error(Date(), failure)
-                case .coreDataError(error: let error): console.error(Date(), error)
-                case .coreDataValueNotFound: console.error(Date(), failure)
-                case .cloudKitError(error: let error): console.error(Date(), error)
-                case .deletionError(error: let error): console.error(Date(), error)
+            case .contextNotFound: console.error(Date(), failure)
+            case .coreDataError(error: let error): console.error(Date(), error)
+            case .coreDataValueNotFound: console.error(Date(), failure)
+            case .cloudKitError(error: let error): console.error(Date(), error)
+            case .deletionError(error: let error): console.error(Date(), error)
             }
         case .success(let success): editedPassword = success
         }
@@ -87,7 +84,7 @@ final class SavedPasswordsManager: ObservableObject {
         }
     }
 
-    func getPasswordByID(is comparisonValue: UUID) -> CommonPassword? {
+    func getPasswordByID(is comparisonValue: UUID) -> CommonPasswordable? {
         passwords.find(by: \.id, is: comparisonValue)
     }
 
